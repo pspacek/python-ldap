@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapurl.py,v 1.29 2002/12/23 11:10:04 stroeder Exp $
+\$Id: ldapurl.py,v 1.30 2002/12/28 12:57:37 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -357,7 +357,7 @@ class LDAPUrl:
       hostport = ldapUrlEscape(self.hostport)
     else:
       hostport = self.hostport
-    ldap_url = u'%s://%s/%s?%s?%s?%s' % (
+    ldap_url = '%s://%s/%s?%s?%s?%s' % (
       self.urlscheme,
       hostport,dn,attrs_str,scope_str,filterstr
     )
