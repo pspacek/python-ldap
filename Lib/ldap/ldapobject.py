@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.49 2003/01/23 11:09:34 stroeder Exp $
+\$Id: ldapobject.py,v 1.50 2003/02/17 19:33:10 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -757,7 +757,7 @@ class ReconnectLDAPObject(SimpleLDAPObject):
     """
     sasl_bind_s(who, auth) -> None
     """
-    self._store_last_bind(self.sasl_bind_s,who,auth)
+    self._last_bind = (self.sasl_bind_s,(who,auth),{})
     return self._ldap_call(self._l.sasl_bind_s,who,auth)
 
   def add_s(self,*args,**kwargs):
@@ -775,8 +775,8 @@ class ReconnectLDAPObject(SimpleLDAPObject):
   def rename_s(self,*args,**kwargs):
     return self._apply_method_s(SimpleLDAPObject.rename_s,self,*args,**kwargs)
 
-  def search_st(self,*args,**kwargs):
-    return self._apply_method_s(SimpleLDAPObject.search_st,self,*args,**kwargs)
+  def search_ext_s(self,*args,**kwargs):
+    return self._apply_method_s(SimpleLDAPObject.search_ext_s,self,*args,**kwargs)
 
 
 class SmartLDAPObject(ReconnectLDAPObject):
