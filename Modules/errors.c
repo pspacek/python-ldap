@@ -2,7 +2,7 @@
 
 /*
  * errors that arise from ldap use
- * $Id: errors.c,v 1.10 2004/01/20 10:43:50 stroeder Exp $
+ * $Id: errors.c,v 1.11 2004/03/25 16:28:52 stroeder Exp $
  *
  * Most errors become their own exception
  */
@@ -135,9 +135,6 @@ LDAPinit_errors( PyObject*d ) {
 		seterrobj2(n, e);					\
 		Py_DECREF(e);						\
 	}
-
-#	define seterrobjas(n,existing) \
-		seterrobj2( n, existing )
 
 	seterrobj(ADMINLIMIT_EXCEEDED);
 	seterrobj(AFFECTS_MULTIPLE_DSAS);
