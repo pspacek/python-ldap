@@ -1,4 +1,4 @@
-AC_REVISION($Id: configure.in,v 1.13 2000/08/20 15:01:17 leonard Exp $)
+AC_REVISION($Id: configure.in,v 1.14 2001/05/16 17:03:57 stroeder Exp $)
 AC_PREREQ(2.0)
 AC_INIT(Modules/LDAPObject.c)
 AC_CONFIG_HEADER(Modules/config.h)
@@ -7,7 +7,7 @@ dnl
 dnl Version
 dnl
 
-AC_DEFINE(LDAPMODULE_VERSION, 1.10alpha3)
+AC_DEFINE(LDAPMODULE_VERSION, 1.11)
 
 dnl
 dnl Options
