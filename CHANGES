@@ -10,6 +10,7 @@ Modules/:
 ldap.ldapobject.LDAPObject:
 * Removed unused methods uncache_entry(), uncache_request(),
   url_search(), url_search_st() and url_search_s()
+* New wrapper methods for all the _ext() methods in _ldap.LDAPObject.
 
 ----------------------------------------------------------------
 Released 2.0.0pre18 2003-12-09
@@ -276,4 +277,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.64 2003/12/21 12:53:36 stroeder Exp $
+$Id: CHANGES,v 1.65 2003/12/21 14:13:07 stroeder Exp $
