@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 Low-level parsing functions for schema element strings
 
-\$Id: tokenizer.py,v 1.1 2002/09/04 16:08:46 stroeder Exp $
+\$Id: tokenizer.py,v 1.2 2002/09/05 21:48:25 stroeder Exp $
 """
 
 def split_tokens(s):
@@ -51,7 +51,8 @@ def extract_tokens(l,known_tokens={}):
   Returns dictionary of known tokens with all values
   """
   assert l[0].strip()=="(" and l[-1].strip()==")",ValueError(repr(s),l)
-  result = known_tokens
+  result = {}
+  result.update(known_tokens)
   i = 0
   l_len = len(l)
   while i<l_len:
