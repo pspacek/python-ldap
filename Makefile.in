@@ -1,4 +1,4 @@
-# $Id: Makefile.in,v 1.11 2000/08/14 02:31:37 leonard Exp $
+# $Id: Makefile.in,v 1.12 2000/08/14 22:38:30 leonard Exp $
 
 PYTHON=		@PYTHON@
 LIBDEST=	@LIBDEST@
@@ -6,8 +6,9 @@ INSTALL=	$(LIBDEST)/config/install-sh
 INSTALL_DATA=	$(INSTALL) -m 644
 INSTALL_DIR=	mkdir -p
 srcdir=		@srcdir@
+srcdir_ABS=	`cd $(srcdir) && pwd`
 
-MAKEVARS=	srcdir=$(srcdir)/Modules VPATH=$(srcdir)/Modules
+MAKEVARS=	srcdir=$(srcdir_ABS)/Modules VPATH=$(srcdir_ABS)/Modules
 
 all:	 build
 
