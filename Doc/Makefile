@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.2 2001/05/12 01:50:54 leonard Exp $
+# $Id: Makefile,v 1.3 2001/05/16 01:50:21 leonard Exp $
 
 PYTHONSRC=	/usr/obj/ports/lang/python,threads/Python-2.0
 DOCTOOLSDIR=	./Python-2.0/Doc/tools
@@ -11,7 +11,7 @@ MKPDF=		$(MKHOWTO) --pdf
 TEXINPUTS=	$(PYTHONSRC)/Doc/texinputs::
 ENV=		/usr/bin/env TEXINPUTS=$(TEXINPUTS)
 
-SRCS=	lib.tex libldap.tex
+SRCS=	lib.tex libldap.tex version.tex
 
 all: lib.dvi lib.ps lib.pdf lib/index.html
 
@@ -27,10 +27,15 @@ lib.dvi: $(SRCS) .link
 	$(ENV) $(MKDVI) lib.tex
 lib.pdf: $(SRCS) .link
 	$(ENV) $(MKPDF) lib.tex
+version.tex:
+	v=`cd .. && ${PYTHON} setup.py --version`; \
+	d=`date +"%B %e, %Y"`; \
+	echo "%release{$$v}%setshortversion{$$v}%date{$$d}" | tr % "\\" >$@
 clean:
 	rm -f *~ *.aux *.idx *.ilg *.ind *.log *.toc 
 	rm -f *.bkm *.syn *.pla *.l2h *.how
 	rm -f lib.dvi lib.ps lib.pdf
+	rm -f version.tex
 	rm -rf lib
 	rm -f Python-2.0
 	@rm -f .link
