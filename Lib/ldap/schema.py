@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.32 2002/08/14 20:16:38 stroeder Exp $
+\$Id: schema.py,v 1.33 2002/08/14 21:33:13 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -506,7 +506,7 @@ class SubSchema:
       )        
 
     def all_attrs(
-      self,object_class_list,attr_type_filter={},strict=1
+      self,object_class_list,attr_type_filter={},strict=1,raise_keyerror=0
     ):
       """
       Returns a 2-tuple of all must and may attributes including
@@ -542,10 +542,18 @@ class SubSchema:
         assert hasattr(object_class,'must'),ValueError(object_class_oid)
         assert hasattr(object_class,'may'),ValueError(object_class_oid)
         for a in object_class.must:
-          at_obj = self.schema_element[self.name2oid[AttributeType][a]]
+          try:
+            at_obj = self.schema_element[self.name2oid[AttributeType][a]]
+          except KeyError:
+            if raise_keyerror:
+              raise
           r_must[at_obj.oid] = at_obj
         for a in object_class.may:
-          at_obj = self.schema_element[self.name2oid[AttributeType][a]]
+          try:
+            at_obj = self.schema_element[self.name2oid[AttributeType][a]]
+          except KeyError:
+            if raise_keyerror:
+              raise
           r_may[at_obj.oid] = at_obj
         object_class_oids.extend([
           self.name2oid[ObjectClass].get(o,o)
