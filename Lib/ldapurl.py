@@ -2,7 +2,7 @@
 ldapurl - handling of LDAP URLs as described in RFC 2255
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapurl.py,v 1.11 2002/08/01 13:59:32 stroeder Exp $
+\$Id: ldapurl.py,v 1.12 2002/08/02 15:45:07 stroeder Exp $
 
 This module is part of the python-ldap project:
 http://python-ldap.sourceforge.net
@@ -129,7 +129,7 @@ class LDAPUrlExtension:
     self.extype = self.extype.strip()
     self.exvalue = unquote_plus(self.exvalue.strip())
 
-  def __str__(self):
+  def unparse(self):
     return '%s%s=%s' % (
       '!'*(self.critical>0),
       self.extype,self.exvalue.replace(',',r'%2C')
@@ -361,7 +361,7 @@ class LDAPUrl:
     if self.extensions:
       ldap_url = ldap_url+'?'+','.join(
         [
-          str(e)
+          e.unparse()
           for e in self.extensions.values()
         ]
       )
