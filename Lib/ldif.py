@@ -1,3 +1,6 @@
+# python
+# $Id: ldif.py,v 1.3 2001/06/04 03:05:26 leonard Exp $
+
 """
 ldif.py - Various routines for handling LDIF data
 
@@ -81,6 +84,9 @@ def CreateLDIF(
   attrs = entry.keys()[:]
   try:
     attrs.remove('objectclass')
+  except ValueError:
+    pass
+  try:
     attrs.remove('objectClass')
   except ValueError:
     pass
