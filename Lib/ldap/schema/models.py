@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.6 2002/09/07 17:26:54 stroeder Exp $
+\$Id: models.py,v 1.7 2002/09/08 21:14:45 stroeder Exp $
 """
 
 import ldap.cidict
@@ -472,5 +472,5 @@ class Entry(ldap.cidict.cidict):
     SubSchema.attribute_types()
     """
     return self._s.attribute_types(
-      self['objectClass'],attr_type_filter,strict,raise_keyerror
+      self.get('objectClass',[]),attr_type_filter,strict,raise_keyerror
     )
