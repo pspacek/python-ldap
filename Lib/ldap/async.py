@@ -2,7 +2,7 @@
 ldap.async - handle async LDAP operations
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: async.py,v 1.3 2001/12/11 14:45:16 stroeder Exp $
+\$Id: async.py,v 1.4 2001/12/13 15:02:30 stroeder Exp $
 
 This module is part of the python-ldap project:
 http://python-ldap.sourceforge.net
@@ -206,6 +206,7 @@ class LDIFWriter(FileWriter):
 
   def _processSingleResult(self,resultType,resultItem):
     if _entryResultTypes.has_key(resultType):
+      # Search continuations are ignored
       dn,entry = resultItem
       self._f.write(ldif.CreateLDIF(dn,entry,[]))
       self._f.write(ldif.linesep)
