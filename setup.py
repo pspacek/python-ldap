@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.28 2002/07/03 09:17:17 stroeder Exp $
+# $Id: setup.py,v 1.29 2002/07/04 17:58:24 stroeder Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
@@ -72,6 +72,7 @@ setup(
 #		    runtime_library_dirs = LDAP_CLASS.library_dirs,
 		    define_macros =	LDAP_CLASS.defines + \
               ('ldap_r' in LDAP_CLASS.libs)*[('HAVE_LIBLDAP_R',None)] + \
+              ('sasl' in LDAP_CLASS.libs)*[('HAVE_SASL',None)] + \
               [('LDAPMODULE_VERSION', version)]
 		),
 	],

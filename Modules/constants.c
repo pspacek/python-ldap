@@ -2,7 +2,7 @@
 
 /* 
  * constants defined for LDAP
- * $Id: constants.c,v 1.11 2002/07/02 14:31:39 stroeder Exp $
+ * $Id: constants.c,v 1.12 2002/07/04 17:58:25 stroeder Exp $
  */
 
 #include "common.h"
@@ -94,7 +94,9 @@ LDAPinit_constants( PyObject* d )
 	add_int(d,TAG_EXOP_REQ_VALUE);
 	add_int(d,TAG_EXOP_RES_OID);
 	add_int(d,TAG_EXOP_RES_VALUE);
+#ifdef HAVE_SASL
 	add_int(d,TAG_SASL_RES_CREDS);
+#endif
 #endif
 
 	/* reversibles */
