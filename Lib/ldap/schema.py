@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.12 2002/07/30 07:09:22 aschauer Exp $
+\$Id: schema.py,v 1.13 2002/07/30 09:39:29 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -147,7 +147,8 @@ class subSchema:
 
         # Build the schema registry
         for attr_type in SCHEMA_ATTRS:
-          if not sub_schema_sub_entry[attr_type]:
+          if not sub_schema_sub_entry.has_key(attr_type) or \
+             not sub_schema_sub_entry[attr_type]:
             continue
           for attr_value in sub_schema_sub_entry[attr_type]:
             se = SCHEMA_CLASS_MAPPING[attr_type](attr_value,schema_allow)
