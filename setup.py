@@ -3,7 +3,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: setup.py,v 1.59 2005/03/01 19:57:53 stroeder Exp $
+$Id: setup.py,v 1.60 2005/03/01 19:59:42 stroeder Exp $
 """
 
 from distutils.core import setup, Extension
@@ -106,6 +106,7 @@ setup(
   		'ldap.async',
   		'ldap.controls',
   		'ldap.cidict',
+  		'ldap.dn',
   		'ldap.filter',
   		'ldap.functions',
   		'ldap.ldapobject',
