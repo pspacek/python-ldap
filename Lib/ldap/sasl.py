@@ -4,7 +4,7 @@ written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: sasl.py,v 1.10 2004/03/18 19:29:41 stroeder Exp $
+\$Id: sasl.py,v 1.11 2004/03/25 14:57:02 stroeder Exp $
 
 Description:
 The ldap.sasl module provides SASL authentication classes.
@@ -67,12 +67,13 @@ class sasl:
         
         # The following print command might be useful for debugging
         # new sasl mechanisms. So it is left here
+        cb_result = self.cb_value_dict.get(cb_id,defresult) or ''
         if __debug__:
           if _trace_level>=1:
-            _trace_file.write("id=%d, challenge=%s, prompt=%s, defresult=%s\n-> %s\n" % (
-                cb_id, challenge, prompt, defresult, self.cb_value_dict.get(cb_id,defresult)
+            _trace_file.write("*** id=%d, challenge=%s, prompt=%s, defresult=%s\n-> %s\n" % (
+                cb_id, challenge, prompt, repr(defresult), repr(self.cb_value_dict.get(cb_result))
               ))
-        return self.cb_value_dict.get(cb_id,defresult)
+        return cb_result
     
 
 class cram_md5(sasl):
