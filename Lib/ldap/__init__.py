@@ -1,15 +1,7 @@
-# $Id: __init__.py,v 1.3 2001/12/27 10:59:08 stroeder Exp $
+# $Id: __init__.py,v 1.4 2002/01/10 02:46:30 stroeder Exp $
 
 from _ldap import __version__
-
 from _ldap import *
-
-
-if __debug__:
-  # Tracing is only supported in debugging mode
-  import sys,traceback
-  _module_debug_level = 0
-
 
 try:
 
