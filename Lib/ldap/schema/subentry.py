@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: subentry.py,v 1.9 2003/04/20 15:45:29 stroeder Exp $
+\$Id: subentry.py,v 1.10 2003/05/29 16:35:46 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema
@@ -203,7 +203,7 @@ class SubSchema:
         r_must[at_obj.oid] = at_obj
       for a in object_class.may:
         try:
-          at_obj = self.sed[AttributeType][self.name2oid[AttributeType][a]]
+          at_obj = self.sed[AttributeType][self.name2oid[AttributeType].get(a,a)]
         except KeyError:
           if raise_keyerror:
             raise

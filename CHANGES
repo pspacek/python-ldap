@@ -3,6 +3,10 @@ Released 2.0.0pre13 2003-06-xx
 
 Changes since 2.0.0pre12:
 
+ldap.schema:
+- ldap.schema.subentry.SubSchema.attribute_types() now correctly
+  handles attribute types without NAME set
+
 ----------------------------------------------------------------
 Released 2.0.0pre12 2003-05-27
 
@@ -154,4 +158,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.29 2003/05/29 16:34:34 stroeder Exp $
+$Id: CHANGES,v 1.30 2003/05/29 16:35:46 stroeder Exp $
