@@ -2,13 +2,13 @@
 ldif - generate and parse LDIF data (see RFC 2849)
 written by Michael Stroeder <michael@stroeder.com>
 
-$Id: ldif.py,v 1.17 2001/12/14 17:18:24 stroeder Exp $
+$Id: ldif.py,v 1.18 2001/12/15 19:35:15 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
 
 Python compability note:
-This module should work with Python 1.5.2+.
+Tested with Python 2.0+, but should work with Python 1.5.2+.
 """
 
 __version__ = '0.4.0'
