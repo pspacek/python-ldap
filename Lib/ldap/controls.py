@@ -3,7 +3,7 @@ controls.py - support classes for LDAP controls
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: controls.py,v 1.1 2005/02/25 16:41:03 stroeder Exp $
+\$Id: controls.py,v 1.2 2005/03/02 07:18:52 stroeder Exp $
 
 Description:
 The ldap.controls module provides LDAPControl classes.
@@ -29,6 +29,9 @@ class LDAPControl:
     self.controlType = controlType
     self.criticality = criticality
     self.controlValue = controlValue
+
+  def __repr__(self):
+    return '%s(%s,%s,%s)' % (self.__class__.__name__,self.controlType,self.criticality,self.controlValue)
 
   def encodeControlValue(self,value):
     return value
@@ -62,30 +65,33 @@ class BooleanControl(LDAPControl):
   ber2boolean = { '\x01\x01\xFF':1, '\x01\x01\x00':0 }
 
   def encodeControlValue(self,value):
-    return int(boolean2ber[value])
+    return self.boolean2ber[int(value)]
 
   def decodeControlValue(self,value):
-    return int(ber2boolean[value])
+    return self.ber2boolean[value]
 
 
-class SubentriesControl(BooleanControl):
+def EncodeControlTuples(ldapControls):
+  """
+  Return list of readily encoded 3-tuples which can be directly
+  passed to C module _ldap
+  """
+  if ldapControls is None:
+    return None
+  else:
+    result = [
+      c.getEncodedTuple()
+      for c in ldapControls
+    ]
+    return result
 
-  def __init__(self,criticality,controlValue):
-    BooleanControl._init__('1.3.6.1.4.1.4203.1.10.1',criticality,controlValue)
 
-
-class ManageDsaITControl(LDAPControl):
-
-  def __init__(self,criticality):
-    LDAPControl._init__('2.16.840.1.113730.3.4.2',criticality,None)
-
-
-def EncodedControlTuples(ldapControls):
+def DecodeControlTuples(ldapControlTuples):
   """
   Return list of readily encoded 3-tuples which can be directly
   passed to C module _ldap
   """
   return [
-    c.getEncodedTuple()
-    for c in ldapControls
+    LDAPControl(t[0],t[1],t[2])
+    for t in ldapControlTuples or []
   ]
