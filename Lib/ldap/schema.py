@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>,
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.35 2002/08/17 11:18:26 stroeder Exp $
+\$Id: schema.py,v 1.36 2002/08/17 11:22:48 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -69,7 +69,8 @@ def split_tokens(s):
     if i>start:
       result.append(s[start:i])
     i +=1
-  return result
+  assert result[0]=="(" and result[-1]==")",ValueError(repr(s),repr(result))
+  return result # split_tokens()
 
 
 def extract_tokens(l,known_tokens={}):
@@ -157,7 +158,6 @@ class ObjectClass:
   ):
     if schema_element_str:
       l = ldap.schema.split_tokens(schema_element_str)
-      assert l[0].strip()=="(" and l[-1].strip()==")",ValueError(repr(schema_element_str),repr(l))
       d = ldap.schema.extract_tokens(
         l,
         {'NAME':[],'DESC':[None],'OBSOLETE':None,'SUP':[],
@@ -246,7 +246,6 @@ class AttributeType:
   def __init__(self, schema_element_str):
     if schema_element_str:
       l = ldap.schema.split_tokens(schema_element_str)
-      assert l[0].strip()=="(" and l[-1].strip()==")",ValueError(repr(schema_element_str),repr(l))
       d = ldap.schema.extract_tokens(
         l,
         {
@@ -336,7 +335,6 @@ class LDAPSyntax:
   def __init__(self, schema_element_str):
     if schema_element_str:
       l = ldap.schema.split_tokens(schema_element_str)
-      assert l[0].strip()=="(" and l[-1].strip()==")",ValueError(repr(schema_element_str),repr(l))
       d = ldap.schema.extract_tokens(
         l,
         {
@@ -372,7 +370,6 @@ class MatchingRule:
 
   def __init__(self, schema_element_str):
     l = ldap.schema.split_tokens(schema_element_str)
-    assert l[0].strip()=="(" and l[-1].strip()==")",ValueError(repr(schema_element_str),repr(l))
     d = ldap.schema.extract_tokens(
       l,
       {
@@ -418,7 +415,6 @@ class MatchingRuleUse:
 
   def __init__(self, schema_element_str):
     l = ldap.schema.split_tokens(schema_element_str)
-    assert l[0].strip()=="(" and l[-1].strip()==")",ValueError(repr(schema_element_str),repr(l))
     d = ldap.schema.extract_tokens(
       l,
       {
