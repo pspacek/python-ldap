@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.49 2004/03/15 10:26:00 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.50 2004/03/18 19:22:09 stroeder Exp $
  */
 
 #include "Python.h"
@@ -874,7 +874,6 @@ l_ldap_whoami_s( LDAPObject* self, PyObject* args )
 
     result = PyString_FromStringAndSize(bvalue->bv_val, bvalue->bv_len);
 
-    Py_DECREF(result);
     return result;
 }
 
