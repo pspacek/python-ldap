@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.17 2001/11/13 18:35:56 jajcus Exp $
+ * $Id: LDAPObject.c,v 1.18 2001/11/13 22:51:53 leonard Exp $
  */
 
 #include <math.h>
@@ -1240,7 +1240,7 @@ l_ldap_result( LDAPObject* self, PyObject *args )
 	if (timeout == 0)
 		return Py_BuildValue("(OO)", Py_None, Py_None);
 	else
-		return PyErr_SetObject(errobjects[LDAP_TIMEOUT], Py_None);
+		return PyErr_SetObject(LDAPerrobjects[LDAP_TIMEOUT], Py_None);
     }
 
     if (res_type == LDAP_RES_SEARCH_ENTRY
