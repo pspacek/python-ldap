@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.25 2002/07/02 14:31:39 stroeder Exp $
+# $Id: setup.py,v 1.26 2002/07/02 17:49:23 stroeder Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
@@ -21,8 +21,6 @@ class OpenLDAP2:
 			 ('HAVE_LDAP_DISABLE_CACHE', None),
 			 ('HAVE_LDAP_ENABLE_CACHE', None),
 			 ('HAVE_LDAP_FLUSH_CACHE', None),
-			 ('HAVE_LDAP_MODRDN2', None),
-			 ('HAVE_LDAP_MODRDN2_S', None),
 			 ('HAVE_LDAP_SET_CACHE_OPTIONS', None),
 			 ('HAVE_LDAP_START_TLS_S', None),
 			 ('HAVE_LDAP_UNCACHE_ENTRY', None),
