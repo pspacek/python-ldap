@@ -4,7 +4,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: setup.py,v 1.49 2003/04/19 18:27:50 stroeder Exp $
+$Id: setup.py,v 1.50 2003/05/01 14:46:54 stroeder Exp $
 """
 
 from distutils.core import setup, Extension
@@ -87,19 +87,20 @@ setup(
 	],
 	#-- Python modules
 	py_modules = [
+                'ldapurl',
+		'ldif',
+                'dsml',
                 'ldap',
                 'ldap.async',
                 'ldap.cidict',
                 'ldap.functions',
-		'ldap.sasl',
-		'ldap.schema',
-		'ldap.schema.tokenizer',
-		'ldap.schema.models',
-		'ldap.schema.subentry',
                 'ldap.ldapobject',
                 'ldap.modlist',
-                'ldapurl',
-		'ldif',
+		'ldap.sasl',
+		'ldap.schema',
+		'ldap.schema.models',
+		'ldap.schema.subentry',
+		'ldap.schema.tokenizer',
 	],
 	#-- where to find the python modules
 	package_dir = { '': 'Lib' },
