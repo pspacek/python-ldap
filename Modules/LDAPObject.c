@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.34 2002/07/04 17:58:25 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.35 2002/07/25 22:49:37 stroeder Exp $
  */
 
 #include <math.h>
@@ -310,12 +310,6 @@ free_attrs( char*** attrsp ) {
    	PyMem_DEL(attrs);
 	*attrsp = NULL;
     }
-}
-
-static void
-set_timeval_from_double( struct timeval *tv, double d ) {
-	tv->tv_usec = (long) ( fmod(d, 1.0) * 1000000.0 );
-	tv->tv_sec = (long) floor(d);
 }
 
 /*------------------------------------------------------------
