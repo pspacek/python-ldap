@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: async.py,v 1.14 2002/12/11 22:29:06 stroeder Exp $
+\$Id: async.py,v 1.15 2003/05/26 05:41:44 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -214,8 +214,22 @@ class LDIFWriter(FileWriter):
   Class for writing a stream LDAP search results to a LDIF file
   """
 
+  def __init__(self,l,f,headerStr='',footerStr=''):
+    """
+    Initialize a StreamResultHandler
+    
+    Parameters:
+    l
+        LDAPObject instance
+    f
+        File object instance where the LDIF data is written to
+    """
+    FileWriter.__init__(self,l,f,headerStr,footerStr)
+    self._ldif_writer = ldif.LDIFWriter(f)
+
   def _processSingleResult(self,resultType,resultItem):
     if _entryResultTypes.has_key(resultType):
       # Search continuations are ignored
       dn,entry = resultItem
-      self._f.write(ldif.CreateLDIF(dn,entry,[]))
+      self._ldif_writer.unparse(dn,entry)
+
