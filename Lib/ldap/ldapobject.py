@@ -2,7 +2,7 @@
 ldapobject.py - mimics LDAPObject class with some extra features
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.5 2001/12/23 03:19:01 stroeder Exp $
+\$Id: ldapobject.py,v 1.6 2001/12/23 15:48:28 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -373,7 +373,7 @@ class LDAPObject:
     return_result = []
     ldap_result = self._ldap_call(self._l.result,msgid,0,0)
 
-    while all and ldap_result==(None,None):
+    while all:
       while ldap_result==(None,None):
         if (timeout>=0) and (time.time()-start_time>timeout):
           self._ldap_call(self._l.abandon,msgid)
