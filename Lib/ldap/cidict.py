@@ -1,11 +1,11 @@
-# $Id: cidict.py,v 1.2 2002/07/29 21:10:47 stroeder Exp $
+# $Id: cidict.py,v 1.3 2002/08/08 07:25:38 stroeder Exp $
 """
 	This is a convenience wrapper for dictionaries
 	returned from LDAP servers containing attribute
 	names of variable case.
 """
 
-__version__ = """$Revision: 1.2 $"""
+__version__ = """$Revision: 1.3 $"""
 
 from UserDict import UserDict
 from string import lower
@@ -74,8 +74,11 @@ if __name__ == '__main__':
 	x = { 'AbCDeF' : 123 }
 	cix = cidict(x)
 	assert cix["ABCDEF"] == 123
+	assert cix.get("ABCDEF",None) == 123
+	assert cix.get("not existent",None) is None
 	cix["xYZ"] = 987
 	assert cix["XyZ"] == 987
+	assert cix.get("XyZ",None) == 987
 	del cix["abcdEF"]
 	assert not cix.has_key("AbCDef")
 
