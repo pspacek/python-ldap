@@ -2,7 +2,7 @@
 
 /* 
  * version info
- * $Id: version.c,v 1.1 2000/07/27 16:08:58 leonard Exp $
+ * $Id: version.c,v 1.2 2000/08/14 22:37:37 leonard Exp $
  */
 
 #include "common.h"
@@ -15,6 +15,9 @@ static char version_str[] = STR(LDAPMODULE_VERSION);
 void
 LDAPinit_version( PyObject* d ) 
 {
-	PyDict_SetItemString( d, "__version__", 
-				PyString_FromString(version_str) );
+	PyObject *version;
+
+	version = PyString_FromString(version_str);
+	PyDict_SetItemString( d, "__version__", version );
+	Py_DECREF(version);
 }
