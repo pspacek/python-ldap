@@ -6,7 +6,7 @@
 # GPL (GNU GENERAL PUBLIC LICENSE) Version 2
 # (see http://www.gnu.org/copyleft/gpl.html)
 # Author: Michael Ströder
-# $Id: ldiflib.py,v 1.1 2000/07/27 16:11:34 leonard Exp $
+# $Id: ldif.py,v 1.1 2000/07/30 12:27:51 leonard Exp $
 ########################################################################
 
 import sys,string,binascii,re
