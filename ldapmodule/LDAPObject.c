@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.1 2000/02/01 05:41:16 leonard Exp $
+ * $Id: LDAPObject.c,v 1.2 2000/07/26 12:55:27 leonard Exp $
  */
 
 #include <math.h>
@@ -12,8 +12,6 @@
 #include "constants.h"
 #include "LDAPObject.h"
 #include "message.h"
-
-#include "Python.h"
 
 /* constructor */
 
@@ -1636,7 +1634,6 @@ getattr( LDAPObject* self, char* name )
 		return PyInt_FromLong(self->valid);
 
 	return Py_FindMethod( methods, (PyObject*)self, name );
-	return NULL;
 }
 
 /* set attribute */

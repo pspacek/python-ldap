@@ -1,6 +1,6 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 
-/*	$Id: CIDict.c,v 1.1 2000/02/01 05:41:08 leonard Exp $	*/
+/*	$Id: CIDict.c,v 1.2 2000/07/26 12:55:27 leonard Exp $	*/
 
 #include "common.h"
 #ifdef USE_CIDICT
@@ -19,8 +19,6 @@
  *
  * XXX I forget whose idea this originally was, but its a good one. - d
  */
-
-#include "Python.h"
 
 /*
  * Return a new object representing a lowercased version of the argument.
