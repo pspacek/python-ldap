@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.86 2005/03/01 19:52:12 stroeder Exp $
+\$Id: ldapobject.py,v 1.87 2005/03/01 19:54:10 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -259,7 +259,15 @@ class SimpleLDAPObject:
     manage_dsa_it() -> None
     Enable or disable manageDSAit mode (see draft-zeilenga-ldap-namedref)
     """
-    self._ldap_call(self._l.manage_dsa_it,enable,critical)
+    all_server_ctrls = []
+#    all_server_ctrls = [
+#      c
+#      for c in self.get_option(ldap.OPT_SERVER_CONTROLS) or []
+#      if c.controlType!='2.16.840.1.113730.3.4.2'
+#    ]    
+    if enable:
+      all_server_ctrls.append(LDAPControl('2.16.840.1.113730.3.4.2',critical,None))
+    self.set_option(ldap.OPT_SERVER_CONTROLS,all_server_ctrls)
   
   def modify_ext(self,dn,modlist,serverctrls=None,clientctrls=None):
     """
