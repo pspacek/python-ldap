@@ -2,7 +2,7 @@
 ldap.async - handle async LDAP operations
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: async.py,v 1.2 2001/12/11 13:56:35 stroeder Exp $
+\$Id: async.py,v 1.3 2001/12/11 14:45:16 stroeder Exp $
 
 This module is part of the python-ldap project:
 http://python-ldap.sourceforge.net
@@ -27,6 +27,7 @@ _entryResultTypes={
   'RES_SEARCH_ENTRY':None,
   'RES_SEARCH_RESULT':None,
 }
+
 
 class WrongResultType(Exception):
 
@@ -156,8 +157,7 @@ class List(AsyncSearchHandler):
   """
 
   def __init__(self,l):
-    self._l = l
-    self._msgId = None
+    AsyncSearchHandler.__init__(self,l)
     self.allResults = []
 
   def _processSingleResult(self,resultType,resultItem):
