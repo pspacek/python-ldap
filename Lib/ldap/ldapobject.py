@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.85 2005/03/01 19:48:55 stroeder Exp $
+\$Id: ldapobject.py,v 1.86 2005/03/01 19:52:12 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -37,7 +37,7 @@ if __debug__:
 import sys,time,_ldap,ldap,ldap.functions
 
 from ldap.schema import SCHEMA_ATTRS
-
+from ldap.controls import LDAPControl,DecodeControlTuples,EncodeControlTuples
 from ldap import LDAPError
 
 class SimpleLDAPObject:
@@ -453,8 +453,9 @@ class SimpleLDAPObject:
       self._l.search_ext,
       base,scope,filterstr,
       attrlist,attrsonly,
-      serverctrls,clientctrls,
-      timeout,sizelimit
+      EncodeControlTuples(serverctrls),
+      EncodeControlTuples(clientctrls),
+      timeout,sizelimit,
     )
 
   def search_ext_s(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0,serverctrls=None,clientctrls=None,timeout=-1,sizelimit=0):
@@ -542,9 +543,14 @@ class SimpleLDAPObject:
     return self._ldap_call(self._l.whoami_s,serverctrls,clientctrls)
 
   def get_option(self,option):
-    return self._ldap_call(self._l.get_option,option)
+    result = self._ldap_call(self._l.get_option,option)
+    if option==ldap.OPT_SERVER_CONTROLS or option==ldap.OPT_CLIENT_CONTROLS:
+      result = DecodeControlTuples(result)
+    return result
 
   def set_option(self,option,invalue):
+    if option==ldap.OPT_SERVER_CONTROLS or option==ldap.OPT_CLIENT_CONTROLS:
+      invalue = EncodeControlTuples(invalue)
     self._ldap_call(self._l.set_option,option,invalue)
 
   def search_subschemasubentry_s(self,dn=''):
