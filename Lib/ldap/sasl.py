@@ -4,7 +4,7 @@ written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: sasl.py,v 1.6 2003/08/18 11:34:23 stroeder Exp $
+\$Id: sasl.py,v 1.7 2003/08/18 11:36:10 stroeder Exp $
 
 Description:
 The ldap.sasl module provides SASL authentication classes.
@@ -89,7 +89,7 @@ class gssapi(sasl):
         sasl.__init__(self, {sasl.CB_USER:authorization},self.mechanism)
 
 
-class sasl_external(sasl):
+class external(sasl):
     """This class handles SASL EXTERNAL authentication
     (i.e. X.509 client certificate)"""
 
