@@ -2,7 +2,7 @@
 schema.py - support for subSchemaSubEntry information
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.57 2002/09/01 12:02:58 stroeder Exp $
+\$Id: schema.py,v 1.58 2002/09/01 15:55:27 stroeder Exp $
 """
 
 __version__ = '0.1.0'
@@ -549,9 +549,8 @@ class Entry(ldap.cidict.cidict):
 
   def __setitem__(self,nameoroid,schema_obj):
     oid = self._at_oid(nameoroid)
-    if oid!=nameoroid:
-      self._at_oid2name[oid] = nameoroid
-    self.data[oid] = schema_obj
+    self._at_oid2name[oid] = nameoroid
+    ldap.cidict.cidict.__setitem__(self,oid,schema_obj)
 
   def __delitem__(self,nameoroid):
     del self.data[self._at_oid(nameoroid)]
@@ -564,6 +563,15 @@ class Entry(ldap.cidict.cidict):
       return self[self._at_oid(nameoroid)]
     except KeyError:
       return failobj
+
+  def keys(self):
+    return self._at_oid2name.values()
+
+  def items(self):
+    result = []
+    for k in self._at_oid2name.values():
+      result.append((k,self[k]))
+    return result
 
 
 class SubSchema(UserDict):
