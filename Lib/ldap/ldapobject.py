@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.57 2003/05/02 09:16:41 stroeder Exp $
+\$Id: ldapobject.py,v 1.58 2003/05/08 11:59:48 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -19,7 +19,7 @@ Basically calls into the LDAP lib are serialized by the module-wide
 lock self._ldap_object_lock.
 """
 
-__version__ = '0.4.2'
+__version__ = '0.5.0'
 
 __all__ = [
   'LDAPObject',
@@ -77,8 +77,8 @@ class SimpleLDAPObject:
     """
     if __debug__:
       if self._trace_level>=1:# and func.__name__!='result':
-        self._trace_file.write('*** %s.%s (%s,%s)\n' % (
-          self.__module__,
+        self._trace_file.write('*** %s - %s (%s,%s)\n' % (
+          self._uri,
           self.__class__.__name__+'.'+func.__name__,
           repr(args),repr(kwargs)
         ))
