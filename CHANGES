@@ -5,6 +5,7 @@ Changes since 2.0.0pre20:
 
 Modules/:
 * Removed meaningless repr() function from LDAPObject.c
+* Removed setting LDAP_OPT_PROTOCOL_VERSION in l_ldap_sasl_bind_s()
 
 ----------------------------------------------------------------
 Released 2.0.0pre20 2004-03-19
@@ -326,4 +327,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.79 2004/03/24 07:55:27 stroeder Exp $
+$Id: CHANGES,v 1.80 2004/03/24 07:58:49 stroeder Exp $
