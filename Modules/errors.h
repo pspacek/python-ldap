@@ -1,5 +1,5 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-/* $Id: errors.h,v 1.2 2001/11/13 22:51:53 leonard Exp $ */
+/* $Id: errors.h,v 1.3 2001/11/14 23:14:13 leonard Exp $ */
 
 #ifndef __h_errors_
 #define __h_errors_
@@ -11,6 +11,6 @@
 extern PyObject* LDAPexception_class;
 extern PyObject* LDAPerror( LDAP*, char*msg );
 extern void LDAPinit_errors( PyObject* );
-extern PyObject* LDAPerrobjects[];
+PyObject* LDAPerr(int errnum);
 
 #endif /* __h_errors */
