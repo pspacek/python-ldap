@@ -2,7 +2,7 @@
 
 /* 
  * constants defined for LDAP
- * $Id: constants.c,v 1.18 2003/05/23 18:00:52 stroeder Exp $
+ * $Id: constants.c,v 1.19 2003/11/16 13:25:49 stroeder Exp $
  */
 
 #include "common.h"
@@ -120,7 +120,6 @@ LDAPinit_constants( PyObject* d )
 
 	add_int_r(d,RES_SEARCH_REFERENCE);
 	add_int_r(d,RES_EXTENDED);
-	add_int_r(d,RES_EXTENDED_PARTIAL);
 	add_int_r(d,RES_UNSOLICITED);
 
 	/* non-reversibles */
