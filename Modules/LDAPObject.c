@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.28 2002/01/20 23:46:34 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.29 2002/02/02 11:47:00 stroeder Exp $
  */
 
 #include <math.h>
@@ -905,20 +905,20 @@ static char doc_start_tls[] = "";
 static PyObject*
 l_ldap_manage_dsa_it( LDAPObject* self, PyObject* args )
 {
-    int result, manageDSAit;
+    int result, manageDSAit, critical;
     LDAPControl c;
     LDAPControl *ctrls[2];
     ctrls[0] = &c;
     ctrls[1] = NULL;
 
-    if (!PyArg_ParseTuple( args, "i", &manageDSAit )) return NULL;
+    if (!PyArg_ParseTuple( args, "i|i", &manageDSAit, &critical )) return NULL;
     if (not_valid(self)) return NULL;
 
     if ( manageDSAit ) {
         c.ldctl_oid = LDAP_CONTROL_MANAGEDSAIT;
         c.ldctl_value.bv_val = NULL;
         c.ldctl_value.bv_len = 0;
-        c.ldctl_iscritical = 0;
+        c.ldctl_iscritical = critical;
         result = ldap_set_option( self->ldap, LDAP_OPT_SERVER_CONTROLS, ctrls );
     } else {
         result = ldap_set_option( self->ldap, LDAP_OPT_SERVER_CONTROLS, NULL );
