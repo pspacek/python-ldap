@@ -5,13 +5,13 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: dsml.py,v 1.8 2004/06/16 18:04:32 stroeder Exp $
+$Id: dsml.py,v 1.9 2004/06/17 13:52:07 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+.
 """
 
-__version__ = '0.5.1'
+__version__ = '0.5.2'
 
 import string,base64
 
@@ -235,7 +235,7 @@ else:
         del self._oc_value
       # Unhandled tags
       else:
-        raise ValueError,'Unknown tag' % (raw_name)
+        raise ValueError,'Unknown tag %s' % (raw_name)
 
     def characters(self,ch):
       if self.__dict__.has_key('_oc_value'):
