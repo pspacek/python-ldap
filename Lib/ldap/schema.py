@@ -2,7 +2,7 @@
 schema.py - support for subSchemaSubEntry information
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.59 2002/09/02 07:37:30 stroeder Exp $
+\$Id: schema.py,v 1.60 2002/09/02 18:57:13 stroeder Exp $
 """
 
 __version__ = '0.1.0'
@@ -39,7 +39,7 @@ class SchemaElement:
   def __init__(self, schema_element_str):
     if schema_element_str:
       l = self.split_tokens(schema_element_str)
-      d = self.extract_tokens(l,'DESC')
+      d = self.extract_tokens(l,{'DESC':[None]})
       self.oid = l[1]
       self.desc = d['DESC'][0]
 
@@ -84,6 +84,7 @@ class SchemaElement:
     """
     Returns dictionary of known tokens with all values
     """
+    print l
     assert l[0].strip()=="(" and l[-1].strip()==")",ValueError(repr(s),l)
     result = known_tokens
     i = 0
