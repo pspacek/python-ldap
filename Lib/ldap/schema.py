@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.8 2002/07/25 15:04:38 stroeder Exp $
+\$Id: schema.py,v 1.9 2002/07/25 15:14:15 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -25,15 +25,15 @@ def subschemasubentry_dn(l,dn=''):
   )
   if r:
     e = ldap.cidict.cidict(r[0][1])
-    return e.get('subschemaSube',[None])[0]
+    return e.get('subschemaSubentry',[None])[0]
   else:
     # Fall back to directly read attribute subschemaSube
     # from RootDSE
     r = l.search_s(
-      '',ldap.SCOPE_BASE,'(objectClass=*)',['subschemaSube']
+      '',ldap.SCOPE_BASE,'(objectClass=*)',['subschemaSubentry']
     )
     e = ldap.cidict.cidict(r[0][1])
-    return e.get('subschemaSube',[None])[0]
+    return e.get('subschemaSubentry',[None])[0]
   
 
 # Wrapper functions to serialize calls into OpenLDAP libs with
