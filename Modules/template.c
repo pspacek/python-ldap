@@ -2,7 +2,7 @@
 
 /* 
  * TemplateObject - wrapper around an LDAP Display Template (Template)
- * $Id: template.c,v 1.6 2000/08/13 14:57:52 leonard Exp $
+ * $Id: template.c,v 1.7 2001/03/07 12:10:07 leonard Exp $
  */
 
 /*
@@ -269,10 +269,10 @@ static PyMethodDef Templates_methods[] = {
 
 PyObject *
 Templates_getattr(self, name)
-	LinkedListObject *self;
+	PyObject *self;
 	char *name;
 {
-	return Py_FindMethod(Templates_methods, (PyObject *)self, name);
+	return Py_FindMethod(Templates_methods, self, name);
 }
 
 
