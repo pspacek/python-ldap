@@ -21,7 +21,7 @@ ldap.ldapobject.LDAPObject:
 * New wrapper methods for all the _ext() methods in _ldap.LDAPObject.
 
 ldap.modlist:
-* Some performance optimizations and simplifactions
+* Some performance optimizations and simplifications
   in function modifyModlist()
 
 ----------------------------------------------------------------
@@ -289,4 +289,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.69 2004/01/22 22:26:56 stroeder Exp $
+$Id: CHANGES,v 1.70 2004/01/23 10:55:42 stroeder Exp $
