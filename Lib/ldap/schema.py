@@ -3,13 +3,13 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.14 2002/07/30 12:21:52 stroeder Exp $
+\$Id: schema.py,v 1.15 2002/08/01 09:07:12 aschauer Exp $
 
 License:
 Public domain. Do anything you want with this module.
 """
 
-__version__ = '0.0.4'
+__version__ = '0.0.5'
 
 
 import ldap,ldap.cidict,ldap.functions,_ldap
@@ -35,19 +35,75 @@ ALLOW_NONE = 0x00
 ALLOW_ALL = 0x1f
 
 
+
+class SchemaError(Exception): pass
+
+class SCHERR_OUTOFMEM(SchemaError): pass
+
+class SCHERR_UNEXPTOKEN(SchemaError): pass
+
+class SCHERR_NOLEFTPAREN(SchemaError): pass
+
+class SCHERR_NORIGHTPAREN(SchemaError): pass
+
+class SCHERR_NODIGIT(SchemaError): pass
+
+class SCHERR_BADNAME(SchemaError): pass
+
+class SCHERR_BADDESC(SchemaError): pass
+
+class SCHERR_BADSUP(SchemaError): pass
+
+class SCHERR_DUPOPT(SchemaError): pass
+
+class SCHERR_EMPTY(SchemaError): pass
+
+ERRCODE2SCHERR = {
+    1:SCHERR_OUTOFMEM,
+    2:SCHERR_UNEXPTOKEN,
+    3:SCHERR_NOLEFTPAREN,
+    4:SCHERR_NORIGHTPAREN,
+    5:SCHERR_NODIGIT,
+    6:SCHERR_BADNAME,
+    7:SCHERR_BADDESC,
+    8:SCHERR_BADSUP,
+    9:SCHERR_DUPOPT,
+   10:SCHERR_EMPTY
+}
+
+
+def schema_func_wrapper(func,schema_element_str,schema_allow=0):
+    """ Wrapper functions to serialize calls into OpenLDAP libs with       
+        a module-wide thread lock and correct error handling. The schema   
+        parsing functions return an integer in case of an error; in this   
+        case we raise the appropriate exception. If everything is ok, they 
+        return a tuple, which we return to the caller."""
+    res = ldap.functions._ldap_function_call(
+        func,schema_element_str,schema_allow
+        )
+    if type(res)==type(0):
+        assert res in ERRCODE2SCHERR.keys()
+        raise ERRCODE2SCHERR.get(res,SchemaError)(
+            res,schema_element_str
+            )
+    else:
+        assert type(res)==type([])
+        return res
+
+
 # Wrapper functions to serialize calls into OpenLDAP libs with
 # a module-wide thread lock
 def str2objectclass(schema_element_str,schema_allow=0):
-    return ldap.functions._ldap_function_call(_ldap.str2objectclass,schema_element_str,schema_allow)
+    return schema_func_wrapper(_ldap.str2objectclass,schema_element_str,schema_allow)
 
 def str2attributetype(schema_element_str,schema_allow=0):
-    return ldap.functions._ldap_function_call(_ldap.str2attributetype,schema_element_str,schema_allow)
+    return schema_func_wrapper(_ldap.str2attributetype,schema_element_str,schema_allow)
 
 def str2syntax(schema_element_str,schema_allow=0):
-    return ldap.functions._ldap_function_call(_ldap.str2syntax,schema_element_str,schema_allow)
+    return schema_func_wrapper(_ldap.str2syntax,schema_element_str,schema_allow)
 
 def str2matchingrule(schema_element_str,schema_allow=0):
-    return ldap.functions._ldap_function_call(_ldap.str2matchingrule,schema_element_str,schema_allow)
+    return schema_func_wrapper(_ldap.str2matchingrule,schema_element_str,schema_allow)
 
 
 class objectClass:
