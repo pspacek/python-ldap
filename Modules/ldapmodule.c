@@ -1,7 +1,7 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 /* 
  * LDAP module
- * $Id: ldapmodule.c,v 1.2 2001/03/09 03:36:05 jlt63 Exp $
+ * $Id: ldapmodule.c,v 1.3 2001/05/12 08:08:39 leonard Exp $
  */
 
 #include "common.h"
@@ -13,6 +13,8 @@
 #include "template.h"
 
 #include "LDAPObject.h"
+
+DL_EXPORT(void) init_ldap(void);
 
 /* dummy module methods */
 

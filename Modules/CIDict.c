@@ -1,9 +1,12 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 
-/*	$Id: CIDict.c,v 1.3 2001/03/07 12:08:55 leonard Exp $	*/
+/*	$Id: CIDict.c,v 1.4 2001/05/12 08:08:39 leonard Exp $	*/
 
 #include "common.h"
 #ifdef USE_CIDICT
+#include "CIDict.h"
+
+static void CIDict_init(void);
 
 /*
  * Case Insensitive dictionary

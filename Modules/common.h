@@ -2,7 +2,7 @@
 /*
  * common utility macros
  *
- * $Id: common.h,v 1.1 2000/07/27 16:08:58 leonard Exp $ 
+ * $Id: common.h,v 1.2 2001/05/12 08:08:39 leonard Exp $ 
  */
 
 #ifndef __h_common 
@@ -27,7 +27,7 @@
 #include "Python.h"
 
 void LDAPadd_methods( PyObject*d, PyMethodDef*methods );
-#define PyNone_Check(o) ( o == Py_None )
+#define PyNone_Check(o) ((o) == Py_None)
 
 #endif /* __h_common_ */
 

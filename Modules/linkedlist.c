@@ -1,5 +1,5 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-/* $Id: linkedlist.c,v 1.5 2001/03/09 03:36:05 jlt63 Exp $ */
+/* $Id: linkedlist.c,v 1.6 2001/05/12 08:08:39 leonard Exp $ */
 
 /*
  * read-only linked list type template.
@@ -12,6 +12,10 @@
 
 #include "common.h"
 #include "linkedlist.h"
+
+static PyObject *repr(PyObject *obj);
+static PyObject *length(PyObject *obj);
+static PyObject *item(PyObject *obj, int index);
 
 #define LINKCLASS(obj)		\
 	((LinkedListType *)((obj)->ob_type))
