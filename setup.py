@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.27 2002/07/02 18:00:02 stroeder Exp $
+# $Id: setup.py,v 1.28 2002/07/03 09:17:17 stroeder Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
@@ -16,7 +16,6 @@ class OpenLDAP2:
 	defines =	[
 			 #('WITH_KERBEROS', None),
 			 #('HAVE_DES_SETKEY', None),
-			 ('LDAP_TYPE_IS_OPAQUE', None),
 			 ('HAVE_LDAP_DESTROY_CACHE', None),
 			 ('HAVE_LDAP_DISABLE_CACHE', None),
 			 ('HAVE_LDAP_ENABLE_CACHE', None),
