@@ -2,7 +2,7 @@
 functions.py - wraps functions of module _ldap
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: functions.py,v 1.8 2002/02/16 17:17:08 stroeder Exp $
+\$Id: functions.py,v 1.9 2002/03/22 11:44:41 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -58,7 +58,7 @@ init = open
 def initialize(uri,trace_level=0,trace_file=sys.stdout):
   """
   Return LDAPObject instance by opening LDAP connection to
-  specified LDAP host
+  LDAP host specified by LDAP URL
   
   Parameters:
   uri
@@ -88,7 +88,7 @@ def explode_dn(dn,notypes=0):
 
 def explode_rdn(rdn,notypes=0):
   """
-  explode_rdn(dn [, notypes=0]) -> list
+  explode_rdn(rdn [, notypes=0]) -> list
   
   This function takes a RDN and breaks it up into its component parts
   if it is a multi-valued RDN.
