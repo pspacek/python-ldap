@@ -7,7 +7,7 @@
 # Run this script first and then run the configure script in the ldapmodule
 # directory (it will notice that this script has been run.)
 #
-# $Id: openldap.sh,v 1.2 2000/07/29 03:29:21 leonard Exp $
+# $Id: openldap.sh,v 1.3 2000/08/14 08:36:56 leonard Exp $
 
 # Edit these if you need to
 PREFIX=/tmp/ldap-pfx
@@ -17,6 +17,11 @@ MAKE=make
 LYNX=lynx
 
 case "$1" in
+  -beta)
+    SRCDIR=openldap-2.0-beta
+    OPENLDAP="openldap-beta/${SRCDIR}"
+    MD5HASH=075a4b0cd43c63ec58fee718d77fcc6c
+    ;;
   -alpha)
     SRCDIR=openldap-2.0-alpha3
     OPENLDAP="openldap-alpha/${SRCDIR}"
