@@ -2,7 +2,7 @@
 ldapobject.py - mimics LDAPObject class with some extra features
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.1 2001/12/21 14:22:35 stroeder Exp $
+\$Id: ldapobject.py,v 1.2 2001/12/21 17:49:07 jajcus Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -587,5 +587,5 @@ def get_option(*args,**kwargs):
   return _ldap_call(_ldap.get_option,*args,**kwargs)
 
 def set_option(*args,**kwargs):
-  return _ldap_call(_ldap.get_option,*args,**kwargs)
+  return _ldap_call(_ldap.set_option,*args,**kwargs)
 
