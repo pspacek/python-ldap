@@ -4,7 +4,7 @@ written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: sasl.py,v 1.5 2003/08/18 11:21:02 stroeder Exp $
+\$Id: sasl.py,v 1.6 2003/08/18 11:34:23 stroeder Exp $
 
 Description:
 The ldap.sasl module provides SASL authentication classes.
@@ -71,20 +71,38 @@ class sasl:
     
 class digest_md5 (sasl):
     """This class handles SASL DIGEST-MD5 authentication."""
+
+    mechanism = "DIGEST-MD5"
+
     def __init__(self,username, password, authorization=""):
         auth_dict = {sasl.CB_AUTHNAME:username, sasl.CB_PASS:password,
                      sasl.CB_USER:authorization}
-        sasl.__init__(self,auth_dict, "DIGEST-MD5")
+        sasl.__init__(self,auth_dict,self.mechanism)
 
 class gssapi(sasl):
     """This class handles SASL GSSAPI (i.e. Kerberos V)
     authentication."""
+
+    mechanism = "GSSAPI"
+
     def __init__(self, authorization=""):
-        sasl.__init__(self, {sasl.CB_USER:authorization}, "GSSAPI")
+        sasl.__init__(self, {sasl.CB_USER:authorization},self.mechanism)
+
 
 class sasl_external(sasl):
     """This class handles SASL EXTERNAL authentication
     (i.e. X.509 client certificate)"""
+
+    mechanism = "EXTERNAL"
+
     def __init__(self):
-        sasl.__init__(self, {}, "EXTERNAL")
+        sasl.__init__(self,{},self.mechanism)
+
+
+saslmech_handler_class = {}
+
+for _name in dir():
+  o = eval(_name)
+  if hasattr(o,'mechanism'):
+    saslmech_handler_class[o.mechanism] = o
 
