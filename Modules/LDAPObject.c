@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.31 2002/06/29 12:25:52 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.32 2002/06/29 14:31:33 stroeder Exp $
  */
 
 #include <math.h>
@@ -998,7 +998,7 @@ l_ldap_result( LDAPObject* self, PyObject *args )
 		e = "ldap_parse_result";
 	    return LDAPerror( self->ldap, e );
 	}
-	pmsg = Py_None;
+	pmsg = LDAPmessage_to_python( self->ldap, msg );
     }
 
     result_str = LDAPconstant( res_type );
