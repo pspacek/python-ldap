@@ -4,7 +4,7 @@ written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: sasl.py,v 1.8 2004/03/10 08:03:43 stroeder Exp $
+\$Id: sasl.py,v 1.9 2004/03/10 08:46:24 stroeder Exp $
 
 Description:
 The ldap.sasl module provides SASL authentication classes.
@@ -69,8 +69,8 @@ class sasl:
             return self.dict[id]
         return defresult
     
-class cram_md5 (sasl):
-    """This class handles SASL DIGEST-MD5 authentication."""
+class cram_md5(sasl):
+    """This class handles SASL CRAM-MD5 authentication."""
 
     mechanism = "CRAM-MD5"
 
@@ -80,7 +80,7 @@ class cram_md5 (sasl):
         sasl.__init__(self,auth_dict,self.mechanism)
 
 
-class digest_md5 (sasl):
+class digest_md5(sasl):
     """This class handles SASL DIGEST-MD5 authentication."""
 
     mechanism = "DIGEST-MD5"
