@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.58 2003/05/08 11:59:48 stroeder Exp $
+\$Id: ldapobject.py,v 1.59 2003/05/08 12:08:37 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -388,7 +388,7 @@ class SimpleLDAPObject:
     return self.search_ext(base,scope,filterstr,attrlist,attrsonly)
 
   def search_s(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0):
-    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly)
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,timeout=self.timeout)
 
   def search_st(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0,timeout=-1):
     return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,timeout)
