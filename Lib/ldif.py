@@ -2,7 +2,7 @@
 ldif - generate and parse LDIF data (see RFC 2849)
 written by Michael Stroeder <michael@stroeder.com>
 
-$Id: ldif.py,v 1.20 2001/12/17 14:34:27 stroeder Exp $
+$Id: ldif.py,v 1.21 2002/01/10 02:51:37 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -20,7 +20,7 @@ __all__ = [
   'AttrTypeandValueLDIF','CreateLDIF','ParseLDIF',
 ]
 
-import os,string,urlparse,urllib,base64,re,types
+import string,urlparse,urllib,base64,re,types
 
 try:
   from cStringIO import StringIO
@@ -149,16 +149,16 @@ def CreateLDIF(dn,data,base64_attrs=[],cols=76):
     modlist=data
     for mod_op,mod_type,mod_vals in modlist:
       result.append(
-        AttrTypeandValueLDIF('changetype','modify',cols=cols)
+        CreateAttrTypeandValueLDIF('changetype','modify',cols=cols)
       )
       result.append(
-        AttrTypeandValueLDIF(MOD_OP_STR[mod_op],mod_type,cols=cols)
+        CreateAttrTypeandValueLDIF(MOD_OP_STR[mod_op],mod_type,cols=cols)
       )
       if type(mod_vals)==types.StringType:
         mod_vals = [mod_vals]
       for mod_val in mod_vals:
         result.append(
-          AttrTypeandValueLDIF(
+          CreateAttrTypeandValueLDIF(
             mod_type,mod_val,base64_attrs,cols
           )
         )
