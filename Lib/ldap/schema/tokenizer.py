@@ -4,8 +4,9 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: tokenizer.py,v 1.3 2002/09/06 07:15:01 stroeder Exp $
+\$Id: tokenizer.py,v 1.4 2002/09/06 21:02:58 stroeder Exp $
 """
+
 
 def split_tokens(s):
   """
@@ -46,7 +47,8 @@ def split_tokens(s):
     i +=1
   return result # split_tokens()
 
-def extract_tokens(l,known_tokens={}):
+
+def extract_tokens(l,known_tokens):
   """
   Returns dictionary of known tokens with all values
   """
