@@ -1,6 +1,6 @@
 /* 
  * Options support
- * $Id: options.c,v 1.8 2002/08/05 09:40:13 stroeder Exp $
+ * $Id: options.c,v 1.9 2003/06/03 15:21:54 stroeder Exp $
  */
 
 #include "common.h"
@@ -57,7 +57,6 @@ LDAP_set_option(LDAPObject *self, int option, PyObject *value)
 
     switch(option) {
     case LDAP_OPT_API_INFO:
-    case LDAP_OPT_DESC:
     case LDAP_OPT_API_FEATURE_INFO:
 #ifdef HAVE_SASL
     case LDAP_OPT_X_SASL_SSF:
@@ -192,7 +191,6 @@ LDAP_get_option(LDAPObject *self, int option)
 #endif
     case LDAP_OPT_REFERRALS:
     case LDAP_OPT_RESTART:
-    case LDAP_OPT_DESC:
     case LDAP_OPT_DEREF:
     case LDAP_OPT_SIZELIMIT:
     case LDAP_OPT_TIMELIMIT:
