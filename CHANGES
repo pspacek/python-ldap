@@ -8,6 +8,7 @@ Follow rule "Always include Python.h first"
 
 ldap.schema.subentry:
 - Added new method SubSchema.get_structural_oc()
+- Added new method SubSchema.get_applicable_aux_classes()
 - Methods SubSchema.listall() and SubSchema.tree() have
   new key-word argument schema_element_filters
 - Support for DIT content rules in SubSchema.attribute_types()
@@ -212,4 +213,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.47 2003/11/05 23:20:33 stroeder Exp $
+$Id: CHANGES,v 1.48 2003/11/07 17:47:25 stroeder Exp $
