@@ -2,7 +2,7 @@
 ldap.async - handle async LDAP operations
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: async.py,v 1.1 2001/12/08 23:41:10 stroeder Exp $
+\$Id: async.py,v 1.2 2001/12/11 13:56:35 stroeder Exp $
 
 This module is part of the python-ldap project:
 http://python-ldap.sourceforge.net
@@ -146,7 +146,7 @@ class AsyncSearchHandler:
     pass
 
 
-class CollectResults(AsyncSearchHandler):
+class List(AsyncSearchHandler):
   """
   Class for collecting all search results.
   
