@@ -4,7 +4,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: setup.py,v 1.47 2003/04/11 16:36:49 stroeder Exp $
+$Id: setup.py,v 1.48 2003/04/11 18:24:59 stroeder Exp $
 """
 
 from distutils.core import setup, Extension
@@ -12,7 +12,7 @@ from ConfigParser import ConfigParser
 import sys,string,time
 
 #-- Release version of Python-ldap
-version = '2.0.0pre08' # -%s' % (time.strftime('%Y%m%d',time.gmtime(time.time())))
+version = '2.0.0pre09' # -%s' % (time.strftime('%Y%m%d',time.gmtime(time.time())))
 
 #-- A class describing the features and requirements of OpenLDAP 2.0
 class OpenLDAP2:
