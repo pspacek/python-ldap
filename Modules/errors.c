@@ -2,7 +2,7 @@
 
 /*
  * errors that arise from ldap use
- * $Id: errors.c,v 1.1 2000/07/27 16:08:58 leonard Exp $
+ * $Id: errors.c,v 1.2 2000/08/13 14:43:39 leonard Exp $
  *
  * Most errors become their own exception
  */
@@ -78,19 +78,20 @@ LDAPinit_errors( PyObject*d ) {
 
 	/* XXX - backward compatibility with pre-1.8 */
         PyDict_SetItemString( d, "error", LDAPexception_class );
-	Py_INCREF( LDAPexception_class );
+	Py_DECREF( LDAPexception_class );
 
 	/* create each LDAP error object */
 
 #	define seterrobj2(n,o) \
-		PyDict_SetItemString( d, #n, (errobjects[LDAP_##n] = o) ); \
-		Py_INCREF( errobjects[LDAP_##n] )
+		PyDict_SetItemString( d, #n, (errobjects[LDAP_##n] = o) )
 
 
-#	define seterrobj(n) \
-		seterrobj2( n, PyErr_NewException("ldap." #n, \
-                                                  LDAPexception_class, \
-                                                  NULL))
+#	define seterrobj(n) { \
+		PyObject *e = PyErr_NewException("ldap." #n,		\
+				  LDAPexception_class, NULL);		\
+		seterrobj2(n, e);					\
+		Py_DECREF(e);						\
+	}
 
 #	define seterrobjas(n,existing) \
 		seterrobj2( n, existing )

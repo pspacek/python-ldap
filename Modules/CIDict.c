@@ -1,6 +1,6 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 
-/*	$Id: CIDict.c,v 1.1 2000/07/27 16:08:58 leonard Exp $	*/
+/*	$Id: CIDict.c,v 1.2 2000/08/13 14:43:39 leonard Exp $	*/
 
 #include "common.h"
 #ifdef USE_CIDICT
@@ -23,6 +23,7 @@
 /*
  * Return a new object representing a lowercased version of the argument.
  * Typically this is a string -> string conversion.
+ * Returns: New Reference
  */
 static PyObject *
 case_insensitive(PyObject *o)
@@ -41,15 +42,17 @@ case_insensitive(PyObject *o)
 
 	str = PyString_AS_STRING(o);
 	len = PyString_GET_SIZE(o);
-	cp = malloc(len);
+	cp = PyMem_NEW(char, len);
+	if (cp == NULL)
+		return PyErr_NoMemory();
 	for (i = 0; i < len; i++)
 		cp[i] = tolower(str[i]);
 	s = PyString_FromString(cp);
-	free(cp);
+	PyMem_DEL(cp);
 	return s;
 }
 
-/* read-access the dictionary after lowecasing the subscript */
+/* read-access the dictionary after lowercasing the subscript */
 
 static PyObject *
 cid_subscript(PyObject *d, PyObject *k)
