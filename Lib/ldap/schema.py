@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.28 2002/08/10 18:37:20 stroeder Exp $
+\$Id: schema.py,v 1.29 2002/08/11 15:24:15 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -478,3 +478,40 @@ class SubSchema:
               raise KeyError,'No schema element found with name %s' % (a)
       return r_must.values(),r_may.values()
 
+
+def urlfetch(uri,schema_allow=0):
+  """
+  Fetches a parsed schema entry by uri.
+  
+  If uri is a LDAP URL the LDAP server is queried directly.
+  Otherwise uri is assumed to point to a LDIF file which
+  is loaded with urllib.
+  """
+  uri = uri.strip()
+  if uri.startswith('ldap:') or uri.startswith('ldaps:') or uri.startswith('ldapi:'):
+    import ldapurl
+    ldap_url = ldapurl.LDAPUrl(uri)
+    l=ldap.initialize(ldap_url.initializeUrl(),trace_level=0)
+    l.protocol_version = ldap.VERSION3
+    l.simple_bind_s('','')
+    subschemasubentry_dn = l.search_subschemasubentry_s(ldap_url.dn)
+    if subschemasubentry_dn is None:
+      subschemasubentry_entry = None
+    else:
+      if ldap_url.attrs is None:
+        schema_attrs = SCHEMA_ATTRS
+      else:
+        schema_attrs = ldap_url.attrs
+      subschemasubentry_entry = l.read_subschemasubentry_s(
+        subschemasubentry_dn,attrs=schema_attrs
+      )
+
+  else:
+    import urllib,ldif
+    ldif_file = urllib.urlopen(uri)
+    ldif_parser = ldif.LDIFRecordList(ldif_file,max_entries=1)
+    ldif_parser.parse()
+    subschemasubentry_dn,subschemasubentry_entry = ldif_parser.all_records[0]
+
+  return subschemasubentry_dn, \
+         ldap.schema.SubSchema(subschemasubentry_entry,schema_allow)
