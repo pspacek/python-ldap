@@ -1,4 +1,4 @@
-% $Id: libldif.tex,v 1.3 2002/02/02 13:33:39 stroeder Exp $
+% $Id: ldif.tex,v 1.1 2002/02/09 16:08:29 stroeder Exp $
 
 % ==== 1. ====
 % The section prologue.  Give the section a title and provide some
@@ -11,7 +11,7 @@
 
 \declaremodule[ldif]{standard}{ldif}
 
-\platform{UNIX}
+\platform{All platforms.}
 
 % Author of the module code;
 \moduleauthor{python-ldap developers}{python-ldap-dev@lists.sourceforge.net}
@@ -28,3 +28,8 @@
 % If it is platform specific, mention this.
 % Mention other important restrictions or general operating principles.
 
+This module parses and generates LDAP data in the format LDIF.
+
+\begin{seealso}
+\seerfc{2849}{The LDAP Data Interchange Format (LDIF) - Technical Specification}{}
+\end{seealso}

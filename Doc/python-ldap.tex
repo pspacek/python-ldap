@@ -1,6 +1,6 @@
 \documentclass{manual}
 \title{LDAP programming with Python}
-% $Id: lib.tex,v 1.7 2002/02/02 13:33:39 stroeder Exp $
+% $Id: python-ldap.tex,v 1.1 2002/02/09 16:08:29 stroeder Exp $
 
 \author{David Leonard, Michael Str\"oder}
 \authoraddress{
@@ -24,10 +24,11 @@ This document describes the package python-ldap with its various modules
 \tableofcontents
 
 \chapter{ python-ldap }
-\input{libldap}
-\input{libldapsub}
-\input{libldif}
-\input{libldapurl}
+\input{ldap}
+\input{ldap_async}
+\input{ldap_modlist}
+\input{ldif}
+\input{ldapurl}
 
 
 %begin{latexonly}
@@ -38,6 +39,6 @@ This document describes the package python-ldap with its various modules
 %begin{latexonly}
 \renewcommand{\indexname}{Index}
 %end{latexonly}
-\input{lib.ind}			% Index
+\input{python-ldap.ind}			% Index
 
 \end{document}
