@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapurl.py,v 1.22 2002/09/06 07:14:58 stroeder Exp $
+\$Id: ldapurl.py,v 1.23 2002/09/06 17:48:28 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -51,10 +51,11 @@ def isLDAPUrl(s):
   """
   Returns 1 if s is a LDAP URL, 0 else
   """
+  s_lower = s.lower()
   return \
-    s.startswith('ldap://') or \
-    s.startswith('ldaps://') or \
-    s.startswith('ldapi://')
+    s_lower.startswith('ldap://') or \
+    s_lower.startswith('ldaps://') or \
+    s_lower.startswith('ldapi://')
 
 
 class LDAPUrlExtension:
@@ -179,8 +180,7 @@ class LDAPUrlExtensions(UserDict.UserDict):
     assert isinstance(other,self.__class__),TypeError(
       "other has to be instance of %s" % (self.__class__)
     )
-    result = (self.data==other.data)
-    return result
+    return self.data==other.data
     
   def parse(self,extListStr):
     extensions = [
@@ -192,8 +192,8 @@ class LDAPUrlExtensions(UserDict.UserDict):
 
   def unparse(self):
     return ','.join([
-      self[k].unparse()
-      for k in self.keys()
+      v.unparse()
+      for v in self.values()
     ])
 
 
@@ -242,7 +242,7 @@ class LDAPUrl:
     ldapUrl=None,
     urlscheme='ldap',
     hostport='',dn=None,attrs=None,scope=None,filterstr=None,
-    extensions=LDAPUrlExtensions(),
+    extensions=LDAPUrlExtensions({}),
     who=None,cred=None
   ):
     self.urlscheme=urlscheme
