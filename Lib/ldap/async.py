@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: async.py,v 1.18 2003/06/01 15:38:46 stroeder Exp $
+\$Id: async.py,v 1.19 2003/11/14 09:52:49 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -235,4 +235,33 @@ class LDIFWriter(FileWriter):
       # Search continuations are ignored
       dn,entry = resultItem
       self._ldif_writer.unparse(dn,entry)
+
+class DSMLWriter(FileWriter):
+  """
+  Class for writing a stream LDAP search results to a DSML file
+  """
+
+  def __init__(self,l,writer_obj,headerStr='',footerStr=''):
+    """
+    Initialize a StreamResultHandler
+
+    Parameters:
+    l
+        LDAPObject instance
+    writer_obj
+        Either a file-like object or a ldif.DSMLWriter instance
+        used for output
+    """
+    import dsml
+    if isinstance(writer_obj,dsml.DSMLWriter):
+      self._dsml_writer = writer_obj
+    else:
+      self._dsml_writer = dsml.DSMLWriter(writer_obj)
+    FileWriter.__init__(self,l,self._dsml_writer._output_file,headerStr,footerStr)
+
+  def _processSingleResult(self,resultType,resultItem):
+    if _entryResultTypes.has_key(resultType):
+      # Search continuations are ignored
+      dn,entry = resultItem
+      self._dsml_writer.unparse(dn,entry)
 
