@@ -2,7 +2,7 @@
 ldapurl - handling of LDAP URLs as described in RFC 2255
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapurl.py,v 1.10 2002/08/01 13:50:27 stroeder Exp $
+\$Id: ldapurl.py,v 1.11 2002/08/01 13:59:32 stroeder Exp $
 
 This module is part of the python-ldap project:
 http://python-ldap.sourceforge.net
@@ -40,13 +40,14 @@ LDAP_SCOPE_BASE = 0
 LDAP_SCOPE_ONELEVEL = 1
 LDAP_SCOPE_SUBTREE = 2
 
-SEARCH_SCOPE_STR = ['base','one','sub']
+SEARCH_SCOPE_STR = {None:'',0:'base',1:'one',2:'sub'}
 
 SEARCH_SCOPE = {
+  '':None,
   # the search scope strings defined in RFC2255
   'base':LDAP_SCOPE_BASE,
   'one':LDAP_SCOPE_ONELEVEL,
-  'sub':LDAP_SCOPE_SUBTREE
+  'sub':LDAP_SCOPE_SUBTREE,
 }
 
 
@@ -338,7 +339,10 @@ class LDAPUrl:
     scope_str = SEARCH_SCOPE_STR[self.scope]
     if urlEncode:
       dn = self._urlEncoding(self.dn,self.charset)
-      filterstr = self._urlEncoding(self.filterstr,self.charset)
+      if self.filterstr!=None:
+        filterstr = self._urlEncoding(self.filterstr,self.charset)
+      else:
+        filterstr = ''
     else:
       dn = self.dn ; filterstr = self.filterstr
     if self.urlscheme=='ldapi':
