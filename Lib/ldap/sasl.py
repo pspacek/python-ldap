@@ -4,7 +4,7 @@ written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: sasl.py,v 1.7 2003/08/18 11:36:10 stroeder Exp $
+\$Id: sasl.py,v 1.8 2004/03/10 08:03:43 stroeder Exp $
 
 Description:
 The ldap.sasl module provides SASL authentication classes.
@@ -19,7 +19,7 @@ Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
 """
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 class sasl:
     """This class handles SASL interactions for authentication.
@@ -69,6 +69,17 @@ class sasl:
             return self.dict[id]
         return defresult
     
+class cram_md5 (sasl):
+    """This class handles SASL DIGEST-MD5 authentication."""
+
+    mechanism = "CRAM-MD5"
+
+    def __init__(self,username, password, authorization=""):
+        auth_dict = {sasl.CB_AUTHNAME:username, sasl.CB_PASS:password,
+                     sasl.CB_USER:authorization}
+        sasl.__init__(self,auth_dict,self.mechanism)
+
+
 class digest_md5 (sasl):
     """This class handles SASL DIGEST-MD5 authentication."""
 
