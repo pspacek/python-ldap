@@ -2,10 +2,11 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.67 2005/03/04 17:59:19 deepak_giri Exp $
+ * $Id: LDAPObject.c,v 1.68 2005/03/04 19:07:45 deepak_giri Exp $
  */
 
 #include "Python.h"
+#include "patchlevel.h"
 
 #include <math.h>
 #include <limits.h>
@@ -645,7 +646,18 @@ l_ldap_sasl_interactive_bind_s( LDAPObject* self, PyObject* args )
     void *defaults;
     static unsigned sasl_flags = LDAP_SASL_QUIET;
 
+    /* 
+     * In Python 2.3+, a "I" format argument indicates that we're either converting
+     * the Python object into a long or an unsigned int. In versions prior to that,
+     * it will always convert to a long. Since the sasl_flags variable is an
+     * unsigned int, we need to use the "I" flag if we're running Python 2.3+ and a
+     * "i" otherwise. 
+     */
+#if (PY_MAJOR_VERSION == 2) && (PY_MINOR_VERSION < 3)
+    if (!PyArg_ParseTuple(args, "sOOOi", &who, &SASLObject, &serverctrls, &clientctrls, &sasl_flags ))
+#else
     if (!PyArg_ParseTuple(args, "sOOOI", &who, &SASLObject, &serverctrls, &clientctrls, &sasl_flags ))
+#endif
       return NULL;
 
     if (not_valid(self)) return NULL;
