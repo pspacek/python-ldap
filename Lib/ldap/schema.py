@@ -2,7 +2,7 @@
 schema.py - support for subSchemaSubEntry information
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.56 2002/08/31 18:08:10 stroeder Exp $
+\$Id: schema.py,v 1.57 2002/09/01 12:02:58 stroeder Exp $
 """
 
 __version__ = '0.1.0'
@@ -545,7 +545,7 @@ class Entry(ldap.cidict.cidict):
     return self._s.getoid(ldap.schema.AttributeType,nameoroid)
 
   def __getitem__(self,nameoroid):
-    return self.data[self._at_oid(nameoroid)]
+    return ldap.cidict.cidict.__getitem__(self,self._at_oid(nameoroid))
 
   def __setitem__(self,nameoroid,schema_obj):
     oid = self._at_oid(nameoroid)
