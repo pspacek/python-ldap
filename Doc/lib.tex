@@ -1,6 +1,6 @@
 \documentclass{manual}
 \title{A low-level LDAP library for Python}
-% $Id: lib.tex,v 1.2 2001/05/16 01:50:21 leonard Exp $
+% $Id: lib.tex,v 1.3 2002/02/01 20:02:46 stroeder Exp $
 
 \author{David Leonard}
 \authoraddress{
@@ -18,15 +18,13 @@
 
 \begin{abstract}
 \noindent
-This documents a simple Python interface to third-party 
-LDAP client library implemenations (such as OpenLDAP or 
-Netscape's Directory Services) that have an interface compatible
-with that specified in \rfc{1823}.
+This documents a simple Python C wrapper module for the OpenLDAP library.
 \end{abstract}
 
 \tableofcontents
 
-\chapter{The \_ldap module}
+\chapter{ The ldap module }
+
 \input{libldap}
 
 %begin{latexonly}

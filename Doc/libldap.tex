@@ -1,4 +1,4 @@
-% $Id: libldap.tex,v 1.6 2002/02/01 19:42:09 stroeder Exp $
+% $Id: libldap.tex,v 1.7 2002/02/01 20:02:46 stroeder Exp $
 
 % ==== 1. ====
 % The section prologue.  Give the section a title and provide some
@@ -362,7 +362,7 @@ The following example demonstrates how to open an LDAP server using the
 >>> import ldap
 >>> l = ldap.initialize("ldap://my-ldap-server.my-domain:389")
 >>> l.simple_bind_s("","")
->>> l.search_s("o=My Organisation, c=AU", _ldap.SCOPE_SUBTREE, "objectclass=*")
+>>> l.search_s("o=My Organisation, c=AU", ldap.SCOPE_SUBTREE, "objectclass=*")
 \end{verbatim}
 % Note that there is no trailing ">>> " prompt shown.
 
