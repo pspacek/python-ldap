@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.15 2001/11/13 15:00:27 jajcus Exp $
+ * $Id: LDAPObject.c,v 1.16 2001/11/13 15:09:12 leonard Exp $
  */
 
 #include <math.h>
@@ -1236,9 +1236,11 @@ l_ldap_result( LDAPObject* self, PyObject *args )
     	return LDAPerror( self->ldap, "ldap_result" );
 
     if (res_type == 0) {
-	/* Timeout has occured */
-	Py_INCREF(Py_None);
-    	return Py_None;
+	/* Polls return (None, None); timeouts raise an exception */
+	if (timeout == 0)
+		return Py_BuildValue("(OO)", Py_None, Py_None);
+	else
+		return PyErr_SetObject(errobjects[LDAP_TIMEOUT], Py_None);
     }
 
     if (res_type == LDAP_RES_SEARCH_ENTRY
@@ -1321,7 +1323,8 @@ static char doc_result[] =
 "\tindefinitely if timeout is negative.  A timeout of 0 will effect\n"
 "\ta poll.  The timeout can be expressed as a floating-point value.\n"
 "\n"
-"\tIf a timeout occurs, the tuple (None, None) is returned.";
+"\tIf a timeout occurs, a TIMEOUT exception is raised, unless\n"
+"\tpolling (timeout = 0), in which case (None, None) is returned.";
 
 /* ldap_search */
 
