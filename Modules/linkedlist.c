@@ -1,5 +1,5 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-/* $Id: linkedlist.c,v 1.1 2000/07/27 16:08:58 leonard Exp $ */
+/* $Id: linkedlist.c,v 1.2 2000/07/28 06:21:37 leonard Exp $ */
 
 /* read-only linked list type template. */
 
@@ -103,7 +103,9 @@ static PySequenceMethods default_methods = {
         (intintargfunc)0,	/* sq_slice */
         (intobjargproc)0,	/* sq_ass_item */
         (intintobjargproc)0,	/* sq_ass_slice */
+#if defined(PY_MAJOR_VERSION) && PY_VERSION_HEX >= 0x01060000
         (objobjproc)0		/* sq_contains */
+#endif
 };
 
 static PyTypeObject default_type = {
