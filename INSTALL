@@ -14,3 +14,4 @@ Quick build instructions:
     python setup.py build
     python setup.py install
 
+$Id: INSTALL,v 1.2 2003/06/03 15:53:48 stroeder Exp $
