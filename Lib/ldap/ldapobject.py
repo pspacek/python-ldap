@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.80 2004/05/05 18:02:20 stroeder Exp $
+\$Id: ldapobject.py,v 1.81 2004/05/18 18:14:43 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -338,7 +338,7 @@ class SimpleLDAPObject:
     msgid = self.rename(dn,newrdn,newsuperior,delold)
     self.result(msgid,all=1,timeout=self.timeout)
 
-  def result(self,msgid=_ldap.RES_ANY,all=1,timeout=None):
+  def result(self,msgid=ldap.RES_ANY,all=1,timeout=None):
     """
     result([msgid=RES_ANY [,all=1 [,timeout=None]]]) -> (result_type, result_data)
 
