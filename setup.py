@@ -4,15 +4,27 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: setup.py,v 1.48 2003/04/11 18:24:59 stroeder Exp $
+$Id: setup.py,v 1.49 2003/04/19 18:27:50 stroeder Exp $
 """
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
-import sys,string,time
+import sys,os,string,time
 
-#-- Release version of Python-ldap
-version = '2.0.0pre09' # -%s' % (time.strftime('%Y%m%d',time.gmtime(time.time())))
+##################################################################
+# Weird Hack to grab release version of python-ldap from local dir
+##################################################################
+exec_startdir = os.path.dirname(os.path.abspath(sys.argv[0]))
+package_init_file_name = reduce(os.path.join,[exec_startdir,'Lib','ldap','__init__.py'])
+f = open(package_init_file_name,'r')
+s = f.readline()
+while s:
+  s = string.strip(f.readline())
+  if s[0:11]=='__version__':
+    version = eval(string.split(s,'=')[1])
+    break
+  s = f.readline()
+f.close()
 
 #-- A class describing the features and requirements of OpenLDAP 2.0
 class OpenLDAP2:
