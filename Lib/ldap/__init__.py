@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: __init__.py,v 1.15 2002/09/06 07:14:59 stroeder Exp $
+$Id: __init__.py,v 1.16 2002/10/27 19:03:37 stroeder Exp $
 """
 
 __version__ = '2.0.0pre06'
@@ -32,11 +32,11 @@ class DummyLock:
 
 try:
   # Check if Python installation was build with thread support
-  import threading
+  import thread
 except ImportError:
-  _ldap_module_lock = DummyLock()
   LDAPLock = DummyLock
 else:
+  import threading
   LDAPLock = threading.Lock
 
 # Create module-wide lock for serializing all calls
