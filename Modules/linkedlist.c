@@ -1,5 +1,5 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-/* $Id: linkedlist.c,v 1.3 2000/08/10 22:29:22 leonard Exp $ */
+/* $Id: linkedlist.c,v 1.4 2000/08/13 15:03:25 leonard Exp $ */
 
 /*
  * read-only linked list type template.
@@ -85,7 +85,6 @@ item(obj, index)
 	int index;
 {
 	LinkedListObject *self = (LinkedListObject *)obj;
-	int len;
 	void *pos;
 
 	pos = FIRST(self);

@@ -2,7 +2,7 @@
 
 /* 
  * functions - functions available at the module level
- * $Id: functions.c,v 1.2 2000/08/13 14:43:39 leonard Exp $
+ * $Id: functions.c,v 1.3 2000/08/13 15:03:25 leonard Exp $
  */
 
 #include "common.h"
@@ -100,7 +100,7 @@ l_ldap_explode_dn( PyObject* unused, PyObject *args )
     result = PyList_New(0);
     for(i = 0; exploded[i]; i++) {
 	PyObject *s = PyString_FromString(exploded[i]);
-    	PySequence_Append(result, s);
+    	PyList_Append(result, s);
 	Py_DECREF(s);
     }
 

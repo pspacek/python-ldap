@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.2 2000/08/13 14:43:39 leonard Exp $
+ * $Id: LDAPObject.c,v 1.3 2000/08/13 15:03:25 leonard Exp $
  */
 
 #include <math.h>
@@ -97,10 +97,8 @@ Tuple_to_LDAPMod( PyObject* tup, int no_op )
 {
     int op;
     char *type;
-    struct berval *bv;
     PyObject *list, *item;
     LDAPMod *lm = NULL;
-    int empty;
     int i, len, nstrs;
 
     if (no_op) {
