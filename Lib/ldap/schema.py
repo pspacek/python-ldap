@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>,
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.37 2002/08/17 11:43:50 stroeder Exp $
+\$Id: schema.py,v 1.38 2002/08/17 12:30:45 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -69,7 +69,7 @@ def split_tokens(s):
     if i>start:
       result.append(s[start:i])
     i +=1
-  assert result[0]=="(" and result[-1]==")",ValueError(repr(s),repr(result))
+  assert result[0]=="(" and result[-1]==")",ValueError(repr(s),result)
   return result # split_tokens()
 
 
@@ -283,9 +283,9 @@ class AttributeType:
           self.syntax_len = None
           for i in l:
             if i.startswith("{") and i.endswith("}"):
-              self.syntax_len=int(i[1:-1])
+              self.syntax_len=long(i[1:-1])
         else:
-          self.syntax_len = int(syntax_len[:-1])
+          self.syntax_len = long(syntax_len[:-1])
       self.single_value = d['SINGLE-VALUE']!=None
       self.collective = d['COLLECTIVE']!=None
       self.no_user_mod = d['NO-USER-MODIFICATION']!=None
@@ -296,7 +296,7 @@ class AttributeType:
     assert type(self.obsolete)==type(0) and (self.obsolete==0 or self.obsolete==1)
     assert type(self.sup)==type([])
     assert self.syntax is None or type(self.syntax)==type('')
-    assert self.syntax_len is None or type(self.syntax_len)==type(0)
+    assert self.syntax_len is None or type(self.syntax_len)==type(0L)
 
   def __str__(self):
     result = [str(self.oid)]
