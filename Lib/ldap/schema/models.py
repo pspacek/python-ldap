@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.24 2004/01/19 19:12:09 stroeder Exp $
+\$Id: models.py,v 1.25 2004/06/21 18:04:09 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -576,6 +576,8 @@ class Entry(UserDict.UserDict):
   def __delitem__(self,nameoroid):
     k = self._at2key(nameoroid)
     del self.data[k]
+    del self._attrtype2keytuple[nameoroid]
+    del self._keytuple2attrtype[k]
 
   def has_key(self,nameoroid):
     k = self._at2key(nameoroid)
