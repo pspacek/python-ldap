@@ -2,7 +2,7 @@
 ldapobject.py - wraps class _ldap.LDAPObject
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.19 2002/02/13 00:43:15 stroeder Exp $
+\$Id: ldapobject.py,v 1.20 2002/02/13 01:06:31 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -138,8 +138,8 @@ class LDAPObject:
         # Switch to new connection to LDAPv2
         self.set_option(ldap.OPT_PROTOCOL_VERSION,ldap.VERSION2)
       else:
-        # Raise any other error exception
-        raise e
+        # Re-raise any other error exception
+        raise
       # Set currently determined protocol version
       protocol_version = ldap.VERSION2
     else:
