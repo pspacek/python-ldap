@@ -2,7 +2,7 @@
 ldapobject.py - mimics LDAPObject class with some extra features
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.9 2001/12/24 15:54:51 stroeder Exp $
+\$Id: ldapobject.py,v 1.10 2001/12/24 17:37:08 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -445,9 +445,7 @@ class LDAPObject:
 
   def search_st(self,base,scope,filterstr,attrlist=None,attrsonly=0,timeout=-1):
     msgid = self.search(base,scope,filterstr,attrlist,attrsonly)
-    search_result = self.result(msgid,all=1,timeout=timeout)
-    print '***',search_result
-    return search_result
+    return self.result(msgid,all=1,timeout=timeout)
 
   def set_cache_options(self,*args,**kwargs):
     """
