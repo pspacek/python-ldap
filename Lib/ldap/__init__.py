@@ -4,10 +4,10 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: __init__.py,v 1.33 2004/04/27 18:29:08 stroeder Exp $
+$Id: __init__.py,v 1.34 2004/05/18 19:30:30 stroeder Exp $
 """
 
-__version__ = '2.0.0pre22'
+__version__ = '2.0.0'
 
 import sys
 
