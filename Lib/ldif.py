@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.31 2003/03/02 16:55:38 stroeder Exp $
+$Id: ldif.py,v 1.32 2003/03/02 16:59:24 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -397,8 +397,8 @@ class LDIFParser:
 
 class LDIFRecordList(LDIFParser):
   """
-  Collect all records of LDIF input into a single dictionary
-  with DN as string keys. It can be a memory hog!
+  Collect all records of LDIF input into a single list.
+  of 2-tuples (dn,entry). It can be a memory hog!
   """
 
   def __init__(
