@@ -2,7 +2,7 @@
 
 /*
  * errors that arise from ldap use
- * $Id: errors.c,v 1.11 2004/03/25 16:28:52 stroeder Exp $
+ * $Id: errors.c,v 1.12 2004/03/28 21:40:25 stroeder Exp $
  *
  * Most errors become their own exception
  */
@@ -182,14 +182,10 @@ LDAPinit_errors( PyObject*d ) {
 	seterrobj(REFERRAL);
 	seterrobj(REFERRAL_LIMIT_EXCEEDED);
 	seterrobj(RESULTS_TOO_LARGE);
-#ifdef HAVE_SASL
 	seterrobj(SASL_BIND_IN_PROGRESS);
-#endif
 	seterrobj(SERVER_DOWN);
 	seterrobj(SIZELIMIT_EXCEEDED);
-#ifdef LDAP_STRONG_AUTH_NOT_SUPPORTED
 	seterrobj(STRONG_AUTH_NOT_SUPPORTED);
-#endif
 	seterrobj(STRONG_AUTH_REQUIRED);
 	seterrobj(SUCCESS);
 	seterrobj(TIMELIMIT_EXCEEDED);
