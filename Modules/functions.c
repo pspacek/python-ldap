@@ -2,7 +2,7 @@
 
 /* 
  * functions - functions available at the module level
- * $Id: functions.c,v 1.3 2000/08/13 15:03:25 leonard Exp $
+ * $Id: functions.c,v 1.4 2000/08/17 23:50:28 leonard Exp $
  */
 
 #include "common.h"
@@ -64,10 +64,8 @@ l_ldap_dn2ufn( PyObject* unused, PyObject *args )
     if (!PyArg_ParseTuple( args, "s", &dn )) return NULL;
 
     ufn = ldap_dn2ufn(dn);
-    if (ufn == NULL) {
-    	PyErr_NoMemory();
-	return NULL;
-    }
+    if (ufn == NULL)
+    	return PyErr_SetFromErrno(LDAPexception_class);
     result = PyString_FromString( ufn );
     free(ufn);
     return result;
@@ -95,7 +93,7 @@ l_ldap_explode_dn( PyObject* unused, PyObject *args )
     exploded = ldap_explode_dn(dn, notypes);
 
     if (exploded == NULL) 
-    	return LDAPerror(NULL,"ldap_explode_dn");
+    	return PyErr_SetFromErrno(LDAPexception_class);
 
     result = PyList_New(0);
     for(i = 0; exploded[i]; i++) {
