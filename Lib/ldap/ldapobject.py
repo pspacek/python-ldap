@@ -2,7 +2,7 @@
 ldapobject.py - wraps class _ldap.LDAPObject
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.33 2002/08/02 11:22:01 stroeder Exp $
+\$Id: ldapobject.py,v 1.34 2002/08/02 14:56:45 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -39,7 +39,7 @@ if __debug__:
   # Tracing is only supported in debugging mode
   import traceback
 
-import sys,string,time,_ldap,ldap
+import sys,string,time,_ldap,ldap,ldap.schema
 
 from ldap import LDAPError
 
@@ -552,14 +552,14 @@ class SimpleLDAPObject:
     except IndexError:
       return None
 
-  def read_subschemasubentry_s(self,subschemasubentry_dn):
+  def read_subschemasubentry_s(self,subschemasubentry_dn,attrs=ldap.schema.SCHEMA_ATTRS):
     """
     Returns the sub schema sub entry's data
     """
     return self.search_s(
       subschemasubentry_dn,ldap.SCOPE_BASE,
       '(objectClass=subschema)',
-      ldap.schema.SCHEMA_ATTRS
+      attrs
     )[0][1]
 
 
