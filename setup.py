@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.12 2001/12/15 19:33:39 stroeder Exp $
+# $Id: setup.py,v 1.13 2001/12/24 15:41:24 stroeder Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
@@ -83,11 +83,11 @@ setup(
 	#-- Python modules
 	py_modules = [
                 'ldap',
-                'ldap.modlist',
                 'ldap.async',
+                'ldap.ldapobject',
+                'ldap.modlist',
                 'ldapurl',
 		'ldif',
-		'ldapthreadlock',
 		#'perldap',
 	],
 
