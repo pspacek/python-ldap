@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapurl.py,v 1.25 2002/09/06 18:12:01 stroeder Exp $
+\$Id: ldapurl.py,v 1.26 2002/09/06 18:12:49 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -12,7 +12,7 @@ This module only works with Python 2.0+ since
 2. list comprehensions are used.
 """
 
-__version__ = '0.5.0'
+__version__ = '0.5.1'
 
 __all__ = [
   # constants
