@@ -2,10 +2,13 @@
 #ifndef __h_LDAPObject 
 #define __h_LDAPObject 
 
-/* $Id: LDAPObject.h,v 1.1 2000/07/27 16:08:58 leonard Exp $ */
+/* $Id: LDAPObject.h,v 1.2 2001/11/12 14:55:24 jajcus Exp $ */
 
 #include "lber.h"
 #include "ldap.h"
+#if LDAP_API_VERSION < 2000
+#error Current python-ldap requires OpenLDAP 2.x
+#endif
 #include "Python.h"
 
 #if PYTHON_API_VERSION < 1007
