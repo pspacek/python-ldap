@@ -2,7 +2,7 @@
 ldap.modlist - create add/modify modlist's
 (c) by Michael Stroeder <michael@stroeder.com>
 
-$Id: modlist.py,v 1.7 2002/02/19 08:40:36 stroeder Exp $
+$Id: modlist.py,v 1.8 2002/02/22 11:06:40 stroeder Exp $
 
 Python compability note:
 This module is known to work with Python 2.0+ but should work
@@ -101,7 +101,7 @@ def modifyModlist(
       if add_values:
         modlist.append((ldap.MOD_ADD,attrtype,add_values))
 
-    elif not new_value:
+    elif old_value and not new_value:
       # Completely delete an existing attribute
       modlist.append((ldap.MOD_DELETE,attrtype,None))
 
