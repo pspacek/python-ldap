@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.22 2001/11/14 23:22:18 leonard Exp $
+ * $Id: LDAPObject.c,v 1.23 2001/11/15 00:05:43 leonard Exp $
  */
 
 #include <math.h>
@@ -1754,7 +1754,7 @@ repr( LDAPObject* self )
 
 	   (self->ldap->ld_options & LDAP_OPT_RESTART   ? "OPT_RESTART ":"")
 #else	/* LDAP_TYPE_IS_OPAQUE */
-	"LDAP"
+	"<LDAP>"
 #endif
     );
     return PyString_FromString( buf );
