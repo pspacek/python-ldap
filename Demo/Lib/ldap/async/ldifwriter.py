@@ -4,7 +4,7 @@ ldifwriter - using ldap.async module for output of LDIF stream
 
 Written by Michael Stroeder <michael@stroeder.com>
 
-$Id: ldifwriter.py,v 1.1 2001/12/12 18:43:52 stroeder Exp $
+$Id: ldifwriter.py,v 1.2 2002/02/01 11:41:02 stroeder Exp $
 
 This example translates the naming context of data read from
 input, sanitizes some attributes, maps/removes object classes,
@@ -17,7 +17,7 @@ Tested on Python 2.0+, should run on Python 1.5.x.
 import sys,ldap,ldap.async
 
 s = ldap.async.LDIFWriter(
-  ldap.open('localhost:1389'),
+  ldap.initialize('ldap://localhost:1389'),
   sys.stdout
 )
 
