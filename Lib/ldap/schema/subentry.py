@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: subentry.py,v 1.8 2003/04/20 15:40:39 stroeder Exp $
+\$Id: subentry.py,v 1.9 2003/04/20 15:45:29 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema
@@ -49,7 +49,6 @@ class SubSchema:
         for attr_value in filter(None,e[attr_type]):
           se_class = SCHEMA_CLASS_MAPPING[attr_type]
           se_instance = se_class(attr_value)
-          print '***',se_instance.__class__.__name__,str(se_instance)
           self.sed[se_class][se_instance.get_id()] = se_instance
           if hasattr(se_instance,'names'):
             for name in se_instance.names:
