@@ -9,6 +9,17 @@ Modules/:
 * Modified string handling via berval instead of *char
   in l_ldap_compare_ext() makes it possible to compare attribute
   values with null chars.
+* Wrapped ldap_sasl_bind() for simple binds instead of ldap_bind()
+  since 1. the latter is marked deprecated and 2. ldap_sasl_bind()
+  allows password credentials with null chars.
+
+ldap.ldapobject:
+* LDAPObject.bind() only allows simple binds since Kerberos V4
+  binds of LDAPv2 are not supported anymore. An assert statement
+  was added to make the coder aware of that.
+* Renamed former LDAPObject.sasl_bind_s() to
+  LDAPObject.sasl_interactive_bind_s() since it wraps OpenLDAP's
+  ldap_sasl_interactive_bind_s()
 
 ----------------------------------------------------------------
 Released 2.0.0pre20 2004-03-19
@@ -330,4 +341,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.81 2004/03/24 20:03:40 stroeder Exp $
+$Id: CHANGES,v 1.82 2004/03/24 20:23:50 stroeder Exp $
