@@ -4,7 +4,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: setup.py,v 1.46 2003/04/11 13:00:51 stroeder Exp $
+$Id: setup.py,v 1.47 2003/04/11 16:36:49 stroeder Exp $
 """
 
 from distutils.core import setup, Extension
@@ -68,7 +68,7 @@ setup(
 		    runtime_library_dirs = LDAP_CLASS.library_dirs,                    
 		    define_macros =	LDAP_CLASS.defines + \
               ('ldap_r' in LDAP_CLASS.libs)*[('HAVE_LIBLDAP_R',None)] + \
-              ('sasl' in LDAP_CLASS.libs)*[('HAVE_SASL',None)] + \
+              ('sasl' in LDAP_CLASS.libs or 'sasl2' in LDAP_CLASS.libs)*[('HAVE_SASL',None)] + \
               ('ssl' in LDAP_CLASS.libs and 'crypto' in LDAP_CLASS.libs)*[('HAVE_TLS',None)] + \
               [('LDAPMODULE_VERSION', version)]
 		),
