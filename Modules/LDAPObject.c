@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.60 2004/10/06 21:26:07 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.61 2004/11/09 01:13:41 stroeder Exp $
  */
 
 #include "Python.h"
@@ -571,9 +571,9 @@ l_ldap_sasl_interactive_bind_s( LDAPObject* self, PyObject* args )
     int msgid, version;
 
     void *defaults;
-    static unsigned sasl_flags = LDAP_SASL_AUTOMATIC;
+    static unsigned sasl_flags = LDAP_SASL_QUIET;
 
-    if (!PyArg_ParseTuple(args, "sOOO", &who, &SASLObject, &serverctrls, &clientctrls ))
+    if (!PyArg_ParseTuple(args, "sOOOI", &who, &SASLObject, &serverctrls, &clientctrls, &sasl_flags ))
       return NULL;
 
     if (not_valid(self)) return NULL;

@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.82 2004/07/29 13:47:02 stroeder Exp $
+\$Id: ldapobject.py,v 1.83 2004/11/09 01:13:41 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -189,11 +189,11 @@ class SimpleLDAPObject:
     msgid = self.bind(who,cred,method)
     return self.result(msgid,all=1,timeout=self.timeout)
 
-  def sasl_interactive_bind_s(self,who,auth,serverctrls=None,clientctrls=None):
+  def sasl_interactive_bind_s(self,who,auth,serverctrls=None,clientctrls=None,sasl_flags=ldap.SASL_QUIET):
     """
     sasl_interactive_bind_s(who, auth) -> None
     """
-    return self._ldap_call(self._l.sasl_interactive_bind_s,who,auth,serverctrls,clientctrls)
+    return self._ldap_call(self._l.sasl_interactive_bind_s,who,auth,serverctrls,clientctrls,sasl_flags)
 
   def compare_ext(self,dn,attr,value,serverctrls=None,clientctrls=None):
     """
