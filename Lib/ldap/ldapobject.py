@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.45 2002/09/09 22:50:35 stroeder Exp $
+\$Id: ldapobject.py,v 1.46 2002/09/13 15:00:37 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -577,15 +577,19 @@ class SimpleLDAPObject:
     """
     Returns the sub schema sub entry's data
     """
-    r = self.search_s(
-      subschemasubentry_dn,ldap.SCOPE_BASE,
-      '(objectClass=subschema)',
-      attrs
-    )
-    if r:
-      return r[0][1]
-    else:
+    try:
+      r = self.search_s(
+        subschemasubentry_dn,ldap.SCOPE_BASE,
+        '(objectClass=subschema)',
+        attrs
+      )
+    except ldap.NO_SUCH_OBJECT:
       return None
+    else:
+      if r:
+        return r[0][1]
+      else:
+        return None
 
 
 class NonblockingLDAPObject(SimpleLDAPObject):
