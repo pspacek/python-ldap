@@ -2,7 +2,7 @@
 /*
  * common utility macros
  *
- * $Id: common.h,v 1.3 2003/10/28 10:32:21 stroeder Exp $ 
+ * $Id: common.h,v 1.4 2004/10/06 21:26:07 stroeder Exp $ 
  */
 
 #include "Python.h"
@@ -14,7 +14,7 @@
 #include "config.h"
 #endif
 
-#if defined(WIN32)
+#if defined(MS_WINDOWS)
 #include <winsock.h>
 #else /* unix */
 #include <netdb.h>

@@ -3,7 +3,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: setup.py,v 1.57 2004/03/28 21:48:58 stroeder Exp $
+$Id: setup.py,v 1.58 2004/10/06 21:26:06 stroeder Exp $
 """
 
 from distutils.core import setup, Extension
@@ -86,7 +86,7 @@ setup(
 		extra_compile_args = LDAP_CLASS.extra_compile_args,
 		extra_link_args = LDAP_CLASS.extra_link_args,
 		extra_objects = LDAP_CLASS.extra_objects,
-		runtime_library_dirs = LDAP_CLASS.library_dirs,
+		runtime_library_dirs = (not sys.platform.startswith("win"))*LDAP_CLASS.library_dirs,
 		define_macros = LDAP_CLASS.defines + \
 			('ldap_r' in LDAP_CLASS.libs or 'oldap_r' in LDAP_CLASS.libs)*[('HAVE_LIBLDAP_R',None)] + \
 			('sasl' in LDAP_CLASS.libs or 'sasl2' in LDAP_CLASS.libs or 'libsasl' in LDAP_CLASS.libs)*[('HAVE_SASL',None)] + \
