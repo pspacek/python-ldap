@@ -2,7 +2,7 @@
 
 /* 
  * constants defined for LDAP
- * $Id: constants.c,v 1.9 2001/11/12 20:10:52 jajcus Exp $
+ * $Id: constants.c,v 1.10 2002/02/12 16:03:40 stroeder Exp $
  */
 
 #include "common.h"
@@ -200,7 +200,9 @@ LDAPinit_constants( PyObject* d )
 	add_int(d,OPT_NETWORK_TIMEOUT);
 	add_int(d,OPT_URI);
 	add_int(d,OPT_X_TLS);
+#if LDAP_VENDOR_VERSION>=20013
 	add_int(d,OPT_X_TLS_CTX);
+#endif
 	add_int(d,OPT_X_TLS_CACERTFILE);
 	add_int(d,OPT_X_TLS_CACERTDIR);
 	add_int(d,OPT_X_TLS_CERTFILE);
