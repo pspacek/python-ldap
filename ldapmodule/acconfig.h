@@ -1,4 +1,4 @@
-/* $Id: acconfig.h,v 1.1 2000/02/01 05:41:19 leonard Exp $ */
+/* $Id: acconfig.h,v 1.2 2000/07/26 12:57:02 leonard Exp $ */
 
 /*
  * Case-insensitive dictionary used for evil LDAP server responses
@@ -18,4 +18,4 @@
 
 #undef HAVE_LDAP_MODRDN2_S
 #undef HAVE_LDAP_MODRDN2
- 
+#undef HAVE_LDAP_INIT_TEMPLATES 
