@@ -1,12 +1,12 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.20 2002/02/02 11:14:52 stroeder Exp $
+# $Id: setup.py,v 1.21 2002/02/02 11:15:49 stroeder Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
 import sys,string
 
 #-- Release version of Python-ldap
-version = '2.0.0pre03'
+version = '2.0.0pre04'
 
 #-- A class describing the features and requirements of OpenLDAP 2.0
 class OpenLDAP2:

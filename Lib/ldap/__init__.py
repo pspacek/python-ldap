@@ -1,6 +1,6 @@
-# $Id: __init__.py,v 1.6 2002/02/01 13:25:24 stroeder Exp $
+# $Id: __init__.py,v 1.7 2002/02/02 11:15:49 stroeder Exp $
 
-__version__ = '2.0.0pre03'
+__version__ = '2.0.0pre04'
 
 from _ldap import *
 
