@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>,
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.40 2002/08/18 14:00:33 stroeder Exp $
+\$Id: schema.py,v 1.41 2002/08/18 14:07:28 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -621,6 +621,8 @@ class SubSchema:
           except KeyError:
             if raise_keyerror:
               raise
+            else:
+              continue
           r_may[at_obj.oid] = at_obj
         object_class_oids.extend([
           self.name2oid[ObjectClass].get(o,o)
