@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.76 2004/03/15 10:23:42 stroeder Exp $
+\$Id: ldapobject.py,v 1.77 2004/03/15 10:25:59 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -529,6 +529,9 @@ class SimpleLDAPObject:
     msgid = self.unbind()
     if msgid!=None:
       self.result(msgid,all=1,timeout=self.timeout)
+
+  def whoami_s(self,serverctrls=None,clientctrls=None):
+    return self._ldap_call(self._l.whoami_s,serverctrls,clientctrls)
 
   def get_option(self,option):
     return self._ldap_call(self._l.get_option,option)
