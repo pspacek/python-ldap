@@ -2,7 +2,7 @@
 
 /* 
  * functions - functions available at the module level
- * $Id: functions.c,v 1.14 2002/01/03 00:05:59 stroeder Exp $
+ * $Id: functions.c,v 1.15 2002/05/04 18:14:48 stroeder Exp $
  */
 
 #include "common.h"
@@ -203,6 +203,8 @@ l_ldap_get_option(PyObject* self, PyObject *args)
 	return NULL;
     return LDAP_get_option(NULL, option);
 }
+
+
 
 static char doc_get_option[] = 
 "get_option(name) -> value\n\n"

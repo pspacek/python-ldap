@@ -2,7 +2,7 @@
 
 /* 
  * 
- * $Id: schema.h,v 1.1 2002/04/16 08:03:06 stroeder Exp $
+ * $Id: schema.h,v 1.2 2002/05/04 18:14:48 stroeder Exp $
  */
 
 #ifndef __h_schema_
