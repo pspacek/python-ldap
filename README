@@ -75,6 +75,9 @@ Acknowledgements:
    Thanks to Michael Stroeder <michael at stroeder.com> for the 
    modules ldif, ldap/*.py modules.
 
+   Thanks to Hans Aschauer <Hans.Aschauer at Physik.uni-muenchen.de>
+   for the subSchemaSubEntry and SASL support.
+
    Thanks to all the guys on the python-ldap-dev mailing list for
    their contributions and input into this package.
 
@@ -96,4 +99,4 @@ Acknowledgements:
    Thanks! I may have missed someone: please mail me if I have omitted
    your name.
 
-$Id: README,v 1.5 2002/01/04 12:36:05 stroeder Exp $
+$Id: README,v 1.6 2002/05/04 18:25:16 stroeder Exp $
