@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: tokenizer.py,v 1.6 2003/04/02 11:37:35 stroeder Exp $
+\$Id: tokenizer.py,v 1.7 2003/04/11 11:40:09 stroeder Exp $
 """
 
 
@@ -66,7 +66,7 @@ def extract_tokens(l,known_tokens):
       if i<l_len:
         if result_has_key(l[i]):
           # non-valued
-          result[token] = tuple()
+          result[token] = (())
         elif l[i]=="(":
           # multi-valued
           i += 1 # Consume left parentheses
