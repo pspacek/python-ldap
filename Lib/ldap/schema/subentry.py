@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: subentry.py,v 1.10 2003/05/29 16:35:46 stroeder Exp $
+\$Id: subentry.py,v 1.11 2003/06/01 11:27:38 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema
@@ -196,9 +196,9 @@ class SubSchema:
       assert hasattr(object_class,'may'),ValueError(object_class_oid)
       for a in object_class.must:
         try:
-          at_obj = self.sed[AttributeType][self.name2oid[AttributeType][a]]
+          at_obj = self.sed[AttributeType][self.name2oid[AttributeType].get(a,a)]
         except KeyError:
-          if raise_keyerror:
+#          if raise_keyerror:
             raise
         r_must[at_obj.oid] = at_obj
       for a in object_class.may:
