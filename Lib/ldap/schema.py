@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>,
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.44 2002/08/19 14:01:10 stroeder Exp $
+\$Id: schema.py,v 1.45 2002/08/22 13:18:05 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -647,7 +647,7 @@ class SubSchema:
       return r_must,r_may
 
 
-def urlfetch(uri):
+def urlfetch(uri,trace_level=0):
   """
   Fetches a parsed schema entry by uri.
   
@@ -659,7 +659,7 @@ def urlfetch(uri):
   if uri.startswith('ldap:') or uri.startswith('ldaps:') or uri.startswith('ldapi:'):
     import ldapurl
     ldap_url = ldapurl.LDAPUrl(uri)
-    l=ldap.initialize(ldap_url.initializeUrl(),trace_level=0)
+    l=ldap.initialize(ldap_url.initializeUrl(),trace_level)
     l.protocol_version = ldap.VERSION3
     l.simple_bind_s('','')
     subschemasubentry_dn = l.search_subschemasubentry_s(ldap_url.dn)
