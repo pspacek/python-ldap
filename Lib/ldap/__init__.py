@@ -1,18 +1,17 @@
-# $Id: __init__.py,v 1.12 2002/07/12 17:15:49 stroeder Exp $
+# $Id: __init__.py,v 1.13 2002/08/02 17:47:24 stroeder Exp $
 
-__version__ = '2.0.0pre05'
+__version__ = '2.0.0pre06'
 
 import sys
 
 if __debug__:
   # Tracing is only supported in debugging mode
   import traceback
+  _trace_level = 0
+  _trace_file = sys.stderr
+  _trace_stack_limit = None
 
 from _ldap import *
-
-_trace_level = 0
-_trace_file = sys.stderr
-
 
 class DummyLock:
   """Define dummy class with methods compatible to threading.Lock"""
@@ -49,7 +48,7 @@ def _ldap_function_call(func,*args,**kwargs):
         repr(args),repr(kwargs)
       ))
       if _trace_level>=2:
-        traceback.print_stack(file=_trace_file)
+        traceback.print_stack(limit=_trace_stack_limit,file=_trace_file)
   _ldap_module_lock.acquire()
   try:
     try:

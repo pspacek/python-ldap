@@ -2,7 +2,7 @@
 functions.py - wraps functions of module _ldap
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: functions.py,v 1.11 2002/08/01 14:00:20 stroeder Exp $
+\$Id: functions.py,v 1.12 2002/08/02 17:47:25 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -34,7 +34,7 @@ from ldap import _ldap_function_call
 from ldap.ldapobject import LDAPObject
 
 
-def open(host,port=389,trace_level=0,trace_file=sys.stdout):
+def open(host,port=389,trace_level=0,trace_file=sys.stdout,trace_stack_limit=None):
   """
   Return LDAPObject instance by opening LDAP connection to
   specified LDAP host
@@ -55,7 +55,7 @@ def open(host,port=389,trace_level=0,trace_file=sys.stdout):
 init = open
 
 
-def initialize(uri,trace_level=0,trace_file=sys.stdout):
+def initialize(uri,trace_level=0,trace_file=sys.stdout,trace_stack_limit=None):
   """
   Return LDAPObject instance by opening LDAP connection to
   LDAP host specified by LDAP URL
