@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: async.py,v 1.13 2002/09/06 07:15:00 stroeder Exp $
+\$Id: async.py,v 1.14 2002/12/11 22:29:06 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -61,6 +61,8 @@ class AsyncSearchHandler:
     filterStr,
     attrList=None,
     attrsOnly=0,
+    timeout=-1,
+    sizelimit=0
   ):
     """
     searchRoot
@@ -73,9 +75,15 @@ class AsyncSearchHandler:
         See parameter attrlist of method LDAPObject.search()
     attrsOnly
         See parameter attrsonly of method LDAPObject.search()
+    timeout
+        Maximum time the server shall use for search operation
+    sizeLimit
+        Maximum number of entries a server should return
+        (request client-side limit)
     """
-    self._msgId = self._l.search(
-      searchRoot,searchScope,filterStr,attrList,attrsOnly
+    self._msgId = self._l.search_ext(
+      searchRoot,searchScope,filterStr,
+      attrList,attrsOnly,None,None,timeout,sizelimit
     )
     return # startSearch()
 
