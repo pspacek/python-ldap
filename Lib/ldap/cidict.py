@@ -1,11 +1,11 @@
-# $Id: cidict.py,v 1.1 2002/07/25 14:11:28 stroeder Exp $
+# $Id: cidict.py,v 1.2 2002/07/29 21:10:47 stroeder Exp $
 """
 	This is a convenience wrapper for dictionaries
 	returned from LDAP servers containing attribute
 	names of variable case.
 """
 
-__version__ = """$Revision: 1.1 $"""
+__version__ = """$Revision: 1.2 $"""
 
 from UserDict import UserDict
 from string import lower
@@ -25,6 +25,50 @@ class cidict(UserDict):
 		del self.data[lower(name)]
 	def has_key(self, name):
 		return UserDict.has_key(self, lower(name))
+
+
+def strlist_minus(a,b):
+  """
+  Return list of all items in a which are not in b (a - b).
+  a,b are supposed to be lists of case-insensitive strings.
+  """
+  temp = cidict()
+  for elt in b:
+    temp[elt] = elt
+  result = [
+    elt
+    for elt in a
+    if not temp.has_key(elt)
+  ]
+  return result
+
+
+def strlist_intersection(a,b):
+  """
+  Return intersection of two lists of case-insensitive strings a,b.
+  """
+  temp = cidict()
+  for elt in a:
+    temp[elt] = elt
+  result = [
+    temp[elt]
+    for elt in b
+    if temp.has_key(elt)
+  ]
+  return result
+
+
+def strlist_union(a,b):
+  """
+  Return union of two lists of case-insensitive strings a,b.
+  """
+  temp = cidict()
+  for elt in a:
+    temp[elt] = elt
+  for elt in b:
+    temp[elt] = elt
+  return temp.values()
+
 
 if __name__ == '__main__':
 	x = { 'AbCDeF' : 123 }
