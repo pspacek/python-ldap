@@ -2,7 +2,7 @@
 schema.py - support for subSchemaSubEntry information
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.60 2002/09/02 18:57:13 stroeder Exp $
+\$Id: schema.py,v 1.61 2002/09/02 19:09:08 stroeder Exp $
 """
 
 __version__ = '0.1.0'
@@ -84,7 +84,6 @@ class SchemaElement:
     """
     Returns dictionary of known tokens with all values
     """
-    print l
     assert l[0].strip()=="(" and l[-1].strip()==")",ValueError(repr(s),l)
     result = known_tokens
     i = 0
@@ -731,6 +730,9 @@ class SubSchema(UserDict):
           if raise_keyerror:
             raise
           # Ignore this object class
+          continue
+        if object_class.__class__!=ObjectClass:
+          # Check if we really have an ObjectClass instance
           continue
         assert hasattr(object_class,'must'),ValueError(object_class_oid)
         assert hasattr(object_class,'may'),ValueError(object_class_oid)
