@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.60 2003/05/18 21:42:17 stroeder Exp $
+\$Id: ldapobject.py,v 1.61 2003/05/18 21:44:35 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -335,11 +335,11 @@ class SimpleLDAPObject:
  
   def search_ext(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0,serverctrls=None,clientctrls=None,timeout=-1,sizelimit=0):
     """
-    search(base, scope [,filterstr='(objectClass=*)' [,attrlist=None [,attrsonly=0]]) -> int
-    search_s(base, scope [,filterstr='(objectClass=*)' [,attrlist=None [,attrsonly=0]])
-    search_st(base, scope [,filterstr='(objectClass=*)' [,attrlist=None [,attrsonly=0 [,timeout=-1]]])
-    search_ext(base,scope,[,filterstr='(objectClass=*)' [,attrlist=None [,attrsonly=0 [,serverctrls=None [,clientctrls=None [,timeout=-1 [,sizelimit=0]]]]]]]
-    search_ext_s(base,scope,[,filterstr='(objectClass=*)' [,attrlist=None [,attrsonly=0 [,serverctrls=None [,clientctrls=None [,timeout=-1 [,sizelimit=0]]]]]]]
+    search(base, scope [,filterstr='(objectClass=*)' [,attrlist=None [,attrsonly=0]]]) -> int
+    search_s(base, scope [,filterstr='(objectClass=*)' [,attrlist=None [,attrsonly=0]]])
+    search_st(base, scope [,filterstr='(objectClass=*)' [,attrlist=None [,attrsonly=0 [,timeout=-1]]]])
+    search_ext(base,scope,[,filterstr='(objectClass=*)' [,attrlist=None [,attrsonly=0 [,serverctrls=None [,clientctrls=None [,timeout=-1 [,sizelimit=0]]]]]]])
+    search_ext_s(base,scope,[,filterstr='(objectClass=*)' [,attrlist=None [,attrsonly=0 [,serverctrls=None [,clientctrls=None [,timeout=-1 [,sizelimit=0]]]]]]])
 
         Perform an LDAP search operation, with base as the DN of
         the entry at which to start the search, scope being one of
@@ -424,13 +424,13 @@ class SimpleLDAPObject:
 
   def simple_bind(self,who='',cred=''):
     """
-    simple_bind(who, cred) -> int
+    simple_bind([who='' [,cred='']]) -> int
     """
     return self.bind(who,cred,_ldap.AUTH_SIMPLE)
 
   def simple_bind_s(self,who='',cred=''):
     """
-    simple_bind_s(who, cred) -> None
+    simple_bind_s([who='' [,cred='']]) -> None
     """
     self.bind_s(who,cred,_ldap.AUTH_SIMPLE)
 
