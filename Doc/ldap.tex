@@ -1,4 +1,4 @@
-% $Id: ldap.tex,v 1.16 2003/05/23 18:02:02 stroeder Exp $
+% $Id: ldap.tex,v 1.17 2003/06/11 10:40:59 stroeder Exp $
 
 % ==== 1. ====
 % The section prologue.  Give the section a title and provide some
@@ -882,6 +882,16 @@ These attributes are mutable unless described as read-only.
     \constant{DEREF_NEVER}, \constant{DEREF_SEARCHING}, \constant{DEREF_FINDING},
     or \constant{DEREF_ALWAYS}.
     This option is mapped to option constant \constant{OPT_DEREF}
+    and used in the underlying OpenLDAP lib.
+\end{memberdesc}
+
+%%------------------------------------------------------------
+%% network_timeout
+
+\begin{memberdesc}[LDAP]{network_timeout} % -> int
+    Limit on waiting for a network response, in seconds. 
+    Defaults to \constant{NO_LIMIT}.
+    This option is mapped to option constant \constant{OPT_NETWORK_TIMEOUT}
     and used in the underlying OpenLDAP lib.
 \end{memberdesc}
 

@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.65 2003/06/11 10:33:45 stroeder Exp $
+\$Id: ldapobject.py,v 1.66 2003/06/11 10:40:58 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -50,6 +50,7 @@ class SimpleLDAPObject:
     "referrals":          ldap.OPT_REFERRALS,
     "timelimit":          ldap.OPT_TIMELIMIT,
     "sizelimit":          ldap.OPT_SIZELIMIT,
+    "network_timeout":    ldap.OPT_NETWORK_TIMEOUT,
   }
 
   def __init__(
