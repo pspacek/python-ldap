@@ -2,7 +2,10 @@
 ldapurl - handling of LDAP URLs as described in RFC 2255
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapurl.py,v 1.7 2001/11/17 17:41:30 stroeder Exp $
+\$Id: ldapurl.py,v 1.8 2001/12/08 14:51:24 stroeder Exp $
+
+This module is part of the python-ldap project:
+http://python-ldap.sourceforge.net
 
 License:
 Public domain. Do anything you want with this module.
