@@ -2,7 +2,7 @@
 functions.py - wraps functions of module _ldap
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: functions.py,v 1.2 2002/01/01 15:37:20 stroeder Exp $
+\$Id: functions.py,v 1.3 2002/01/01 15:57:01 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -41,7 +41,7 @@ def open(host,trace_level=0,trace_file=sys.stdout):
   
   Parameters:
   host
-        LDAP host and port
+        LDAP host and port, e.g. localhost:389
   trace_level
         If non-zero a trace output of LDAP calls is generated.
   trace_file
@@ -58,9 +58,9 @@ def init(host,port=389,trace_level=0,trace_file=sys.stdout):
   
   Parameters:
   host
-        LDAP host name
+        LDAP host name, e.g. localhost
   port
-        port number to use
+        integer specifying the port number to use, e.g. 389
   trace_level
         If non-zero a trace output of LDAP calls is generated.
   trace_file
@@ -70,23 +70,6 @@ def init(host,port=389,trace_level=0,trace_file=sys.stdout):
   return LDAPObject('ldap://%s:%d' % (host,port),trace_level,trace_file)
 
 
-def open(host,trace_level=0,trace_file=sys.stdout):
-  """
-  Return LDAPObject instance by opening LDAP connection to
-  specified LDAP host
-  
-  Parameters:
-  host
-        LDAP host and port
-  trace_level
-        If non-zero a trace output of LDAP calls is generated.
-  trace_file
-        File object where to write the trace output to.
-        Default is to use stdout.
-  """
-  return LDAPObject('ldap://%s' % (host),trace_level,trace_file)
-
-
 def initialize(uri,trace_level=0,trace_file=sys.stdout):
   """
   Return LDAPObject instance by opening LDAP connection to
@@ -94,7 +77,8 @@ def initialize(uri,trace_level=0,trace_file=sys.stdout):
   
   Parameters:
   uri
-        LDAP URL containing at least connection scheme and hostport.
+        LDAP URL containing at least connection scheme and hostport,
+        e.g. ldap://localhost:389
   trace_level
         If non-zero a trace output of LDAP calls is generated.
   trace_file
