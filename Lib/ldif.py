@@ -2,7 +2,7 @@
 ldif - generate and parse LDIF data (see RFC 2849)
 written by Michael Stroeder <michael@stroeder.com>
 
-$Id: ldif.py,v 1.13 2001/12/12 18:55:36 stroeder Exp $
+$Id: ldif.py,v 1.14 2001/12/12 19:11:05 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -248,7 +248,7 @@ class LDIFParser:
     unfolded_line = self._unfoldLDIFLine()
     # Ignore comments which can also be folded
     while unfolded_line and unfolded_line[0]=='#':
-      unfolded_line,self._line = self._unfoldLDIFLine()
+      unfolded_line = self._unfoldLDIFLine()
     if not unfolded_line or unfolded_line=='\n' or unfolded_line=='\r\n':
       return None,None
     attr_type,attr_value = string.split(unfolded_line,' ',1)
