@@ -2,7 +2,7 @@
 schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
-\$Id: schema.py,v 1.4 2002/05/27 11:53:10 stroeder Exp $
+\$Id: schema.py,v 1.5 2002/07/25 14:08:41 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -17,13 +17,13 @@ import ldap,ldap.functions,_ldap
 # Wrapper functions to serialize calls into OpenLDAP libs with
 # a module-wide thread lock
 def str2objectclass(schema_element_str):
-    return ldap.functions._ldap_call(_ldap.str2objectclass,schema_element_str)
+    return ldap.functions._ldap_function_call(_ldap.str2objectclass,schema_element_str)
 def str2attributetype(schema_element_str):
-    return ldap.functions._ldap_call(_ldap.str2attributetype,schema_element_str)
+    return ldap.functions._ldap_function_call(_ldap.str2attributetype,schema_element_str)
 def str2syntax(schema_element_str):
-    return ldap.functions._ldap_call(_ldap.str2syntax,schema_element_str)
+    return ldap.functions._ldap_function_call(_ldap.str2syntax,schema_element_str)
 def str2matchingrule(schema_element_str):
-    return ldap.functions._ldap_call(_ldap.str2matchingrule,schema_element_str)
+    return ldap.functions._ldap_function_call(_ldap.str2matchingrule,schema_element_str)
 
 
 class objectClass:
