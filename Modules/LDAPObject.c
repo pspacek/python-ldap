@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.41 2003/03/17 14:19:32 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.42 2003/03/17 14:20:29 stroeder Exp $
  */
 
 #include <math.h>
@@ -861,31 +861,6 @@ l_ldap_manage_dsa_it( LDAPObject* self, PyObject* args )
     return Py_None;
 }
 
-
-#if defined(HAVE_FILENO_LD_SB_SB_SD) /* || defined(...) */
-#define FILENO_SUPPORTED
-#endif
-
-#if defined(FILENO_SUPPORTED)
-static PyObject*
-l_ldap_fileno(LDAPObject* self, PyObject* args)
-{
-    int fileno;
-
-    if (PyArg_ParseTuple(args, "") == NULL)
-	return NULL;
-    if (!self->valid)
-	fileno = -1;
-    else {
-#if defined(HAVE_FILENO_LD_SB_SB_SD)
-	fileno = self->ldap->ld_sb.sb_sd;
-/* #else ... other techniques */
-#endif
-    }
-    return PyInt_FromLong(fileno);
-}
-static char doc_fileno[] = "";
-#endif /* FILENO_SUPPORTED */
 
 /* ldap_set_option */
 
