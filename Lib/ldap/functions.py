@@ -2,7 +2,7 @@
 functions.py - wraps functions of module _ldap
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: functions.py,v 1.6 2002/01/30 22:11:48 stroeder Exp $
+\$Id: functions.py,v 1.7 2002/02/09 16:31:26 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -94,9 +94,9 @@ def explode_rdn(rdn,notypes=0):
   """
   return _ldap_call(_ldap.explode_rdn,rdn,notypes)
 
-def get_option(*args,**kwargs):
-  return _ldap_call(_ldap.get_option,*args,**kwargs)
+def get_option(option):
+  return _ldap_call(_ldap.get_option,option)
 
-def set_option(*args,**kwargs):
-  _ldap_call(_ldap.set_option,*args,**kwargs)
+def set_option(option,invalue):
+  _ldap_call(_ldap.set_option,option,invalue)
 
