@@ -1,4 +1,4 @@
-AC_REVISION($Id: configure.in,v 1.3 2000/07/27 16:49:42 leonard Exp $)
+AC_REVISION($Id: configure.in,v 1.4 2000/08/10 22:55:58 leonard Exp $)
 AC_PREREQ(2.0)
 AC_INIT(Modules/LDAPObject.c)
 AC_CONFIG_HEADER(Modules/config.h)
@@ -179,6 +179,7 @@ if test $ac_cv_LDAP_is_opaque = yes; then
 fi
 
 AC_CHECK_FUNCS(ldap_modrdn2_s ldap_modrdn2 ldap_init_templates)
+AC_CHECK_HEADERS(disptmpl.h)
 
 dnl-- check for case-insensitive dictionary to be used
 if test no != "${enable_cidict-no}"; then

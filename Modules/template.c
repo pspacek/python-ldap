@@ -2,7 +2,7 @@
 
 /* 
  * TemplateObject - wrapper around an LDAP Display Template (Template)
- * $Id: template.c,v 1.3 2000/08/10 22:29:22 leonard Exp $
+ * $Id: template.c,v 1.4 2000/08/10 22:55:58 leonard Exp $
  */
 
 /*
@@ -58,7 +58,9 @@
 #if defined(HAVE_LDAP_INIT_TEMPLATES)
 #include "lber.h"
 #include "ldap.h"
+#if defined(HAVE_DISPTMPL_H)
 #include "disptmpl.h"
+#endif
 #include "linkedlist.h"
 #include "template.h"
 
