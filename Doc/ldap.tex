@@ -1,4 +1,4 @@
-% $Id: ldap.tex,v 1.12 2003/01/23 22:39:12 stroeder Exp $
+% $Id: ldap.tex,v 1.13 2003/03/17 14:19:32 stroeder Exp $
 
 % ==== 1. ====
 % The section prologue.  Give the section a title and provide some
@@ -550,17 +550,6 @@ and wait for and return with the server's result, or with
 \constant{None} if no data is expected.
 
 LDAP objects, have the following methods:
-
-%%------------------------------------------------------------
-%% fileno
-
-\begin{methoddesc}{fileno}{}
-Return the file descriptor associated with the connection, for use
-with the \module{select} module.
-(This method is available only if the underlying library can supply it.)
-\end{methoddesc}
-
-\subsubsection{LDAP operations}
 
 %%------------------------------------------------------------
 %% abandon

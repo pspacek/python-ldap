@@ -1,6 +1,6 @@
-# $Id: Makefile,v 1.8 2002/07/27 20:33:13 stroeder Exp $
+# $Id: Makefile,v 1.9 2003/03/17 14:19:32 stroeder Exp $
 
-PYTHONSRC=	/home/michael/src/Python-2.2.1
+PYTHONSRC=	/home/michael/src/Python-2.2.2
 DOCTOOLSDIR=	$(PYTHONSRC)/Doc/tools
 PAPER=		a4
 DVIPS=		dvips -N0 -t $(PAPER)
@@ -12,7 +12,7 @@ TEXINPUTS=	$(PYTHONSRC)/Doc/texinputs::
 ENV=		/usr/bin/env TEXINPUTS=$(TEXINPUTS)
 
 SRCS=python-ldap.tex ldap.tex version.tex ldif.tex ldapurl.tex \
-     ldap-async.tex ldap-modlist.tex
+     ldap-async.tex ldap-modlist.tex ldap-schema.tex
 
 all: python-ldap.dvi python-ldap.ps python-ldap.pdf python-ldap/index.html
 
