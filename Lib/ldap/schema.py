@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>,
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.45 2002/08/22 13:18:05 stroeder Exp $
+\$Id: schema.py,v 1.46 2002/08/24 16:43:01 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -550,14 +550,18 @@ class SubSchema:
           tree[sup_oid].append(se_oid)
       return tree
 
+    def getoid(self,se_class,nameoroid):
+      """
+      Get an OID by name or OID
+      """
+      se_oid = nameoroid.split(';')[0].strip()
+      return self.name2oid[se_class].get(se_oid,se_oid)
+
     def get(self,se_class,nameoroid,default=None):
       """
       Get a schema element by name or OID
       """
-      se_name = nameoroid.split(';')[0].strip()
-      return self.sed.get(
-        self.name2oid[se_class].get(se_name,se_name),default
-      )        
+      return self.sed.get(self.getoid(se_class,nameoroid),default)
 
     def attribute_types(
       self,object_class_list,attr_type_filter={},strict=1,raise_keyerror=1
