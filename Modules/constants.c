@@ -2,7 +2,7 @@
 
 /* 
  * constants defined for LDAP
- * $Id: constants.c,v 1.21 2004/03/10 19:37:57 stroeder Exp $
+ * $Id: constants.c,v 1.22 2004/10/13 19:03:03 stroeder Exp $
  */
 
 #include "common.h"
@@ -202,13 +202,31 @@ LDAPinit_constants( PyObject* d )
 	PyDict_SetItemString(d, "__author__", author);
 	Py_DECREF(author);
 
-	/*add_int(d,LIBLDAP_R);*/
+	/* add_int(d,LIBLDAP_R); */
 #ifdef HAVE_LIBLDAP_R
 	obj = PyInt_FromLong(1);
 #else
 	obj = PyInt_FromLong(0);
 #endif
 	PyDict_SetItemString( d, "LIBLDAP_R", obj );
+	Py_DECREF(obj);
+
+	/* add_int(d,SASL); */
+#ifdef HAVE_SASL
+	obj = PyInt_FromLong(1);
+#else
+	obj = PyInt_FromLong(0);
+#endif
+	PyDict_SetItemString( d, "SASL_AVAIL", obj );
+	Py_DECREF(obj);
+
+	/* add_int(d,TLS); */
+#ifdef HAVE_TLS
+	obj = PyInt_FromLong(1);
+#else
+	obj = PyInt_FromLong(0);
+#endif
+	PyDict_SetItemString( d, "TLS_AVAIL", obj );
 	Py_DECREF(obj);
 
 }
