@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: async.py,v 1.19 2003/11/14 09:52:49 stroeder Exp $
+\$Id: async.py,v 1.20 2003/11/22 20:15:44 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -30,6 +30,7 @@ class WrongResultType(Exception):
   def __init__(self,receivedResultType,expectedResultTypes):
     self.receivedResultType = receivedResultType
     self.expectedResultTypes = expectedResultTypes
+    Exception.__init__(self)
 
   def __str__(self):
     return 'Received wrong result type %s (expected one of %s).' % (

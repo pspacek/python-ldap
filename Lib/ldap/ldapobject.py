@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.67 2003/10/03 12:36:31 stroeder Exp $
+\$Id: ldapobject.py,v 1.68 2003/11/22 20:15:44 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -728,8 +728,9 @@ class ReconnectLDAPObject(SimpleLDAPObject):
     return SimpleLDAPObject.bind_s(self,*args,**kwargs)
 
   def start_tls_s(self,*args,**kwargs):
-    return SimpleLDAPObject.start_tls_s(self,*args,**kwargs)
+    res = SimpleLDAPObject.start_tls_s(self,*args,**kwargs)
     self._start_tls = 1
+    return res
 
   def sasl_bind_s(self,who,auth):
     """

@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: tokenizer.py,v 1.7 2003/04/11 11:40:09 stroeder Exp $
+\$Id: tokenizer.py,v 1.8 2003/11/22 20:15:44 stroeder Exp $
 """
 
 
@@ -53,7 +53,7 @@ def extract_tokens(l,known_tokens):
   """
   Returns dictionary of known tokens with all values
   """
-  assert l[0].strip()=="(" and l[-1].strip()==")",ValueError(repr(s),l)
+  assert l[0].strip()=="(" and l[-1].strip()==")",ValueError(l)
   result = {}
   result_has_key = result.has_key
   result.update(known_tokens)

@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: functions.py,v 1.13 2002/09/06 07:15:00 stroeder Exp $
+\$Id: functions.py,v 1.14 2003/11/22 20:15:44 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -33,27 +33,6 @@ from ldap import _ldap_function_call
 from ldap.ldapobject import LDAPObject
 
 
-def open(host,port=389,trace_level=0,trace_file=sys.stdout,trace_stack_limit=None):
-  """
-  Return LDAPObject instance by opening LDAP connection to
-  specified LDAP host
-  
-  Parameters:
-  host
-        LDAP host and port, e.g. localhost
-  port
-        integer specifying the port number to use, e.g. 389
-  trace_level
-        If non-zero a trace output of LDAP calls is generated.
-  trace_file
-        File object where to write the trace output to.
-        Default is to use stdout.
-  """
-  return LDAPObject('ldap://%s:%d' % (host,port),trace_level,trace_file)
-
-init = open
-
-
 def initialize(uri,trace_level=0,trace_file=sys.stdout,trace_stack_limit=None):
   """
   Return LDAPObject instance by opening LDAP connection to
@@ -70,7 +49,28 @@ def initialize(uri,trace_level=0,trace_file=sys.stdout,trace_stack_limit=None):
         Default is to use stdout.
   """
   assert is_ldap_url(uri),ValueError("uri has to be a LDAP URL.")
-  return LDAPObject(uri,trace_level,trace_file)
+  return LDAPObject(uri,trace_level,trace_file,trace_stack_limit)
+
+
+def open(host,port=389,trace_level=0,trace_file=sys.stdout,trace_stack_limit=None):
+  """
+  Return LDAPObject instance by opening LDAP connection to
+  specified LDAP host
+  
+  Parameters:
+  host
+        LDAP host and port, e.g. localhost
+  port
+        integer specifying the port number to use, e.g. 389
+  trace_level
+        If non-zero a trace output of LDAP calls is generated.
+  trace_file
+        File object where to write the trace output to.
+        Default is to use stdout.
+  """
+  return initialize('ldap://%s:%d' % (host,port),trace_level,trace_file,trace_stack_limit)
+
+init = open
 
 
 def explode_dn(dn,notypes=0):

@@ -3,6 +3,9 @@ Released 2.0.0pre16 2003-11-xx
 
 Changes since 2.0.0pre15:
 
+Lib/
+Fixed some subtle bugs/oddities mentioned by pychecker.
+
 dsml:
 - Renamed DSMLWriter._f to DSMLWriter._output_file
 - Added wrapper method DSMLWriter.unparse() which simply
@@ -230,4 +233,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.52 2003/11/16 13:25:49 stroeder Exp $
+$Id: CHANGES,v 1.53 2003/11/22 20:15:44 stroeder Exp $
