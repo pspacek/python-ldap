@@ -2,7 +2,7 @@
 
 /* 
  * constants defined for LDAP
- * $Id: constants.c,v 1.4 2000/08/13 14:52:33 leonard Exp $
+ * $Id: constants.c,v 1.5 2000/08/13 15:00:59 leonard Exp $
  */
 
 #include "common.h"
@@ -18,7 +18,7 @@ static PyObject* forward;
 PyObject*
 LDAPconstant( int val ) {
     PyObject *i = PyInt_FromLong( val );
-    PyObject *s = PyMapping_GetItem( reverse, i );
+    PyObject *s = PyObject_GetItem( reverse, i );
     if (s == NULL) {
     	PyErr_Clear();
 	return i;
