@@ -2,7 +2,7 @@
 ldapthreadlock.py - mimics LDAPObject class in a thread-safe way
 (c) 2001 by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapthreadlock.py,v 1.14 2001/11/17 15:15:27 stroeder Exp $
+\$Id: ldapthreadlock.py,v 1.15 2001/11/17 15:16:45 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -260,9 +260,9 @@ def initialize(uri):
 # init() is just an alias for initialize()
 init = initialize
 
-def get_option(self,*args,**kwargs):
+def get_option(*args,**kwargs):
   return _ldap_call(ldap.get_option,*args,**kwargs)
 
-def set_option(self,*args,**kwargs):
+def set_option(*args,**kwargs):
   return _ldap_call(ldap.get_option,*args,**kwargs)
 
