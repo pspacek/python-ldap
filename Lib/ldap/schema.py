@@ -2,13 +2,13 @@
 schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
-\$Id: schema.py,v 1.5 2002/07/25 14:08:41 stroeder Exp $
+\$Id: schema.py,v 1.6 2002/07/25 14:09:09 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
 """
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 
 import ldap,ldap.functions,_ldap
