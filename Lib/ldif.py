@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.30 2002/12/01 22:08:34 stroeder Exp $
+$Id: ldif.py,v 1.31 2003/03/02 16:55:38 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -214,7 +214,8 @@ class LDIFWriter:
 def CreateLDIF(dn,record,base64_attrs=None,cols=76):
   """
   Create LDIF single formatted record including trailing empty line.
-  
+  This is a compability function. Use is deprecated!
+
   dn
         string-representation of distinguished name
   record
@@ -391,7 +392,7 @@ class LDIFParser:
         self.handle(dn,entry)
         self.records_read = self.records_read+1
 
-    return # ParseLDIF()
+    return # parse()
 
 
 class LDIFRecordList(LDIFParser):
@@ -452,9 +453,8 @@ class LDIFCopy(LDIFParser):
 
 def ParseLDIF(f,ignore_attrs=None,maxentries=0):
   """
-  Compability function with old module.
-  
-  Use is deprecated!
+  Parse LDIF records read from file.
+  This is a compability function. Use is deprecated!
   """
   ldif_parser = LDIFRecordList(
     f,ignored_attr_types=ignore_attrs,max_entries=maxentries,process_url_schemes=0
