@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.46 2002/09/13 15:00:37 stroeder Exp $
+\$Id: ldapobject.py,v 1.47 2002/10/27 18:51:13 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -132,9 +132,11 @@ class SimpleLDAPObject:
 
   def add(self,dn,modlist):
     """
-    add(dn, modlist) -> int    
-        This function is similar to modify(), except that no operation
-        integer need be included in the tuples.
+    add(dn, modlist) -> int
+        This function adds a new entry with a distinguished name
+        specified by dn which means it must not already exist.
+        The parameter modlist is similar to the one passed to modify(),
+        except that no operation integer need be included in the tuples.
     """
     return self._ldap_call(self._l.add,dn,modlist)
 
