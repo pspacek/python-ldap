@@ -1,4 +1,4 @@
-# $Id: Makefile.in,v 1.6 2000/08/14 01:04:18 leonard Exp $
+# $Id: Makefile.in,v 1.7 2000/08/14 01:07:53 leonard Exp $
 
 PYTHON=		@PYTHON@
 LIBDEST=	@LIBDEST@
@@ -9,10 +9,13 @@ srcdir=		@srcdir@
 
 MAKEVARS=	srcdir=$(srcdir)/Modules VPATH=$(srcdir)/Modules
 
-all:
+build:   _ldapmodule-build
+install: _ldapmodule-install
+
+_ldapmodule-build:
 	cd Modules && $(MAKE) $(MAKEVARS)
 
-install:
+_ldapmodule-install:
 	cd Modules && $(MAKE) $(MAKEVARS) install
 	$(INSTALL_DIR) $(DESTDIR)$(LIBDEST)/site-packages/python-ldap
 	$(INSTALL_DATA) $(srcdir)/Misc/ldap.pth \
