@@ -1,16 +1,14 @@
-""" schema.py - RootDSE schema information support for
-python_ldap.
+"""
+schema.py - support for subSchemaSubEntry information
+written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
-Written by Hans Aschauer <Hans.Aschauer@epost.de>
-
-\$Id: schema.py,v 1.2 2002/05/04 18:25:59 stroeder Exp $
+\$Id: schema.py,v 1.3 2002/05/04 18:47:23 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
 """
 
 __version__ = '0.0.1'
-
 
 import ldap, _ldap
 
