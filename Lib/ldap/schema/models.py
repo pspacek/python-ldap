@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.7 2002/09/08 21:14:45 stroeder Exp $
+\$Id: models.py,v 1.8 2002/09/09 23:19:15 stroeder Exp $
 """
 
 import ldap.cidict
@@ -362,6 +362,22 @@ class MatchingRuleUse(SchemaElement):
     return '( %s )' % ''.join(result)
 
 
+class DITContentRule(SchemaElement):
+  """
+  DITContentRuleDescription = LPAREN WSP
+      numericoid                 ; object identifer
+      [ SP "NAME" SP qdescrs ]   ; short names
+      [ SP "DESC" SP qdstring ]  ; description
+      [ SP "OBSOLETE" ]          ; not active
+      [ SP "AUX" SP oids ]       ; auxiliary object classes
+      [ SP "MUST" SP oids ]      ; attribute types
+      [ SP "MAY" SP oids ]       ; attribute types
+      [ SP "NOT" SP oids ]       ; attribute types
+      extensions WSP RPAREN      ; extensions
+  """
+#  schema_attribute = 'dITContentRules'
+
+
 class DITStructureRule(SchemaElement):
   """
   DITStructureRuleDescription = LPAREN WSP
@@ -380,22 +396,6 @@ class DITStructureRule(SchemaElement):
   ruleid = number
   """
   schema_attribute = 'dITStructureRules'
-
-
-class DITContentRule(SchemaElement):
-  """
-  DITContentRuleDescription = LPAREN WSP
-      numericoid                 ; object identifer
-      [ SP "NAME" SP qdescrs ]   ; short names
-      [ SP "DESC" SP qdstring ]  ; description
-      [ SP "OBSOLETE" ]          ; not active
-      [ SP "AUX" SP oids ]       ; auxiliary object classes
-      [ SP "MUST" SP oids ]      ; attribute types
-      [ SP "MAY" SP oids ]       ; attribute types
-      [ SP "NOT" SP oids ]       ; attribute types
-      extensions WSP RPAREN      ; extensions
-  """
-  schema_attribute = 'dITContentRules'
 
 
 class NameForm(SchemaElement):
