@@ -1,11 +1,12 @@
 /* 
  * Options support
- * $Id: options.c,v 1.11 2005/02/25 16:38:26 stroeder Exp $
+ * $Id: options.c,v 1.12 2005/02/27 17:59:22 stroeder Exp $
  */
 
 #include "common.h"
 #include "errors.h"
 #include "LDAPObject.h"
+#include "ldapcontrol.h"
 #include "options.h"
 
 void
