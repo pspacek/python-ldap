@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>,
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.50 2002/08/30 14:34:27 stroeder Exp $
+\$Id: schema.py,v 1.51 2002/08/30 14:36:06 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -486,9 +486,6 @@ for _name in dir():
     SCHEMA_CLASS_MAPPING[o.schema_attribute] = o
 
 SCHEMA_ATTRS = SCHEMA_CLASS_MAPPING.keys()
-
-print SCHEMA_ATTRS
-print SCHEMA_CLASS_MAPPING
 
 # Create the reverse of SCHEMA_CLASS_MAPPING
 SCHEMA_ATTR_MAPPING = {}
