@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: subentry.py,v 1.5 2003/03/30 15:17:17 stroeder Exp $
+\$Id: subentry.py,v 1.6 2003/03/30 15:51:30 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema
@@ -14,18 +14,15 @@ from ldap.schema.models import *
 from UserDict import UserDict
 
 SCHEMA_CLASS_MAPPING = ldap.cidict.cidict()
+SCHEMA_ATTR_MAPPING = {}
 
 for _name in dir():
   o = eval(_name)
   if hasattr(o,'schema_attribute'):
     SCHEMA_CLASS_MAPPING[o.schema_attribute] = o
+    SCHEMA_ATTR_MAPPING[o] = o.schema_attribute
 
 SCHEMA_ATTRS = SCHEMA_CLASS_MAPPING.keys()
-
-# Create the reverse of SCHEMA_CLASS_MAPPING
-SCHEMA_ATTR_MAPPING = {}
-for k in SCHEMA_ATTRS:
-  SCHEMA_ATTR_MAPPING[SCHEMA_CLASS_MAPPING[k]] = k
 
 
 class SubSchema:
