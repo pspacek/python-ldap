@@ -2,7 +2,7 @@
 functions.py - wraps functions of module _ldap
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: functions.py,v 1.4 2002/01/30 22:04:06 stroeder Exp $
+\$Id: functions.py,v 1.5 2002/01/30 22:05:17 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -41,7 +41,9 @@ def open(host,port=389,trace_level=0,trace_file=sys.stdout):
   
   Parameters:
   host
-        LDAP host and port, e.g. localhost:389
+        LDAP host and port, e.g. localhost
+  port
+        integer specifying the port number to use, e.g. 389
   trace_level
         If non-zero a trace output of LDAP calls is generated.
   trace_file
