@@ -25,7 +25,8 @@ ldap.async:
 ldap.schema:
 - Removed unused key-word argument strict from
   ldap.schema.subentry.SubSchema.attribute_types()
-
+- Fixed backward compability issue (for Python prior to 2.2) in
+  ldap.schema.subentry.SubSchema.listall()
 ----------------------------------------------------------------
 Released 2.0.0pre15 2003-11-11
 
@@ -241,4 +242,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.55 2003/11/26 22:13:24 stroeder Exp $
+$Id: CHANGES,v 1.56 2003/11/28 07:41:47 stroeder Exp $

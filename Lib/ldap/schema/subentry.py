@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: subentry.py,v 1.18 2003/11/22 20:17:30 stroeder Exp $
+\$Id: subentry.py,v 1.19 2003/11/28 07:41:47 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema
@@ -80,7 +80,7 @@ class SubSchema:
     avail_se = self.sed[schema_element_class]
     if schema_element_filters:
       result = []
-      for se_key in avail_se:
+      for se_key in avail_se.keys():
         se = avail_se[se_key]
         for fk,fv in schema_element_filters:
           try:
