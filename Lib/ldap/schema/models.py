@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.13 2003/03/22 13:34:09 stroeder Exp $
+\$Id: models.py,v 1.14 2003/03/30 12:40:34 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -346,7 +346,7 @@ class MatchingRuleUse(SchemaElement):
     self.names = d['NAME']
     self.desc = d['DESC'][0]
     self.obsolete = d['OBSOLETE']!=None
-    self.applies = d['APPLIES']
+    self.applies = [ v for v in d['APPLIES'] if v!="$"]
     assert type(self.names)==type([])
     assert self.desc is None or type(self.desc)==type('')
     assert type(self.obsolete)==type(0) and (self.obsolete==0 or self.obsolete==1)
@@ -358,7 +358,7 @@ class MatchingRuleUse(SchemaElement):
     result.append(self.key_list('NAME',self.names,quoted=1))
     result.append(self.key_attr('DESC',self.desc,quoted=1))
     result.append({0:'',1:' OBSOLETE'}[self.obsolete])
-    result.append(self.key_attr('APPLIES',self.applies))
+    result.append(self.key_list('APPLIES',self.applies))
     return '( %s )' % ''.join(result)
 
 
@@ -375,7 +375,7 @@ class DITContentRule(SchemaElement):
       [ SP "NOT" SP oids ]       ; attribute types
       extensions WSP RPAREN      ; extensions
   """
-#  schema_attribute = 'dITContentRules'
+schema_attribute = 'dITContentRules'
 
 
 class DITStructureRule(SchemaElement):
