@@ -1,7 +1,7 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 /*
  * LDAPMessageObject - wrapper around an LDAPMessage*
- * $Id: message.c,v 1.6 2000/08/18 00:21:46 leonard Exp $
+ * $Id: message.c,v 1.7 2001/07/13 10:21:59 kchuguev Exp $
  */
 
 #include "common.h"
@@ -79,6 +79,8 @@ LDAPmessage_to_python( LDAP*ld, LDAPMessage*m )
 	     if (valuelist == NULL) {
 		Py_DECREF(attrdict);
 		Py_DECREF(result);
+		if (ber != NULL)
+		    ber_free(ber, 0);
 		ldap_msgfree( m );
 		free(dn);
 		return NULL;
@@ -97,6 +99,8 @@ LDAPmessage_to_python( LDAP*ld, LDAPMessage*m )
 			Py_DECREF(result);
 			Py_DECREF(valuestr);
 			Py_DECREF(valuelist);
+			if (ber != NULL)
+			    ber_free(ber, 0);
 			ldap_msgfree( m );
 			free(dn);
 			return NULL;
