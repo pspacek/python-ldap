@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.26 2002/01/03 00:05:59 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.27 2002/01/20 19:54:17 stroeder Exp $
  */
 
 #include <math.h>
@@ -988,7 +988,6 @@ static char doc_get_option[] =  "";
 
 static PyMethodDef methods[] = {
     {"unbind",		(PyCFunction)l_ldap_unbind,		METH_VARARGS,	doc_unbind},
-    {"unbind_s",	(PyCFunction)l_ldap_unbind,		METH_VARARGS,	doc_unbind},
     {"abandon",		(PyCFunction)l_ldap_abandon,		METH_VARARGS,	doc_abandon},
     {"add",		(PyCFunction)l_ldap_add,		METH_VARARGS,	doc_add},
     {"bind",		(PyCFunction)l_ldap_bind,		METH_VARARGS,	doc_bind},
