@@ -4,7 +4,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: setup.py,v 1.44 2003/01/23 12:09:15 stroeder Exp $
+$Id: setup.py,v 1.45 2003/03/17 14:06:21 stroeder Exp $
 """
 
 from distutils.core import setup, Extension
@@ -22,16 +22,7 @@ class OpenLDAP2:
         extra_objects = []
 
 	libs =		['ldap', 'lber']
-	defines =	[
-                         # DEFINEs for caching feature in OpenLDAP libs
-#			 ('HAVE_LDAP_DESTROY_CACHE', None),
-#			 ('HAVE_LDAP_DISABLE_CACHE', None),
-#			 ('HAVE_LDAP_ENABLE_CACHE', None),
-#			 ('HAVE_LDAP_FLUSH_CACHE', None),
-#			 ('HAVE_LDAP_SET_CACHE_OPTIONS', None),
-#			 ('HAVE_LDAP_UNCACHE_ENTRY', None),
-#			 ('HAVE_LDAP_UNCACHE_REQUEST', None),
-			]
+	defines =	[ ]
 
 LDAP_CLASS = OpenLDAP2
 
