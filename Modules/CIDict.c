@@ -1,6 +1,6 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 
-/*	$Id: CIDict.c,v 1.2 2000/08/13 14:43:39 leonard Exp $	*/
+/*	$Id: CIDict.c,v 1.3 2001/03/07 12:08:55 leonard Exp $	*/
 
 #include "common.h"
 #ifdef USE_CIDICT
@@ -122,4 +122,4 @@ CIDict_New()
 	return (mp);
 }
 
-#endif USE_CIDICT
+#endif /* USE_CIDICT */
