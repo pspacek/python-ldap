@@ -10,6 +10,8 @@ Changes since 2.0.6:
 
 Modules:
 * LDAPObject.c: removed l_ldap_manage_dsa_it()
+* LDAPObject.c: Added missing #ifdef around l_ldap_passwd()
+  for compability with older OpenLDAP libs.
 
 Lib:/
 * New algorithm in ldap.schema.tokenizer.split_tokens()
@@ -477,4 +479,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.115 2005/03/01 20:02:38 stroeder Exp $
+$Id: CHANGES,v 1.116 2005/03/01 20:06:13 stroeder Exp $

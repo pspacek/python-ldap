@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.64 2005/03/01 18:36:28 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.65 2005/03/01 20:06:13 stroeder Exp $
  */
 
 #include "Python.h"
@@ -1131,6 +1131,8 @@ l_ldap_get_option(PyObject* self, PyObject *args)
 
 /* ldap_passwd */
 
+#if LDAP_VENDOR_VERSION>=20100
+
 static PyObject *
 l_ldap_passwd( LDAPObject* self, PyObject *args )
 {
@@ -1182,6 +1184,7 @@ l_ldap_passwd( LDAPObject* self, PyObject *args )
     return PyInt_FromLong( msgid );
 }
 
+#endif
 
 /* methods */
 
