@@ -1,5 +1,5 @@
 ----------------------------------------------------------------
-Released 2.0.0pre22 2004-05-xx
+Released 2.0.0pre22 2004-05-18
 
 Changes since 2.0.0pre21:
 
@@ -8,11 +8,11 @@ ldif:
 
 Modules/:
 * New method result2() returns 3-tuple containing the msgid
-  of the outstanding operation
+  of the outstanding operation.
 
 ldap.ldapobject:
-* LDAPObject.result2() (see above).
-  LDAPObject.result() uses LDAPObject.result2().
+* New _ldap wrapper method LDAPObject.result2() (see above)
+  which is now used by LDAPObject.result().
 
 ----------------------------------------------------------------
 Released 2.0.0pre21 2004-03-29
@@ -364,4 +364,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.89 2004/05/05 18:02:20 stroeder Exp $
+$Id: CHANGES,v 1.90 2004/05/18 18:53:29 stroeder Exp $
