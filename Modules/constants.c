@@ -2,7 +2,7 @@
 
 /* 
  * constants defined for LDAP
- * $Id: constants.c,v 1.10 2002/02/12 16:03:40 stroeder Exp $
+ * $Id: constants.c,v 1.11 2002/07/02 14:31:39 stroeder Exp $
  */
 
 #include "common.h"
@@ -246,5 +246,14 @@ LDAPinit_constants( PyObject* d )
 	author = PyString_FromString("David Leonard <leonard@it.uq.edu.au>");
 	PyDict_SetItemString(d, "__author__", author);
 	Py_DECREF(author);
+
+	/*add_int(d,LIBLDAP_R);*/
+#ifdef HAVE_LIBLDAP_R
+	obj = PyInt_FromLong(1);
+#else
+	obj = PyInt_FromLong(0);
+#endif
+	PyDict_SetItemString( d, "LIBLDAP_R", obj );
+	Py_DECREF(obj);
 
 }
