@@ -1,4 +1,13 @@
 ----------------------------------------------------------------
+Released 2.0.5 2004-12-xx
+
+Changes since 2.0.5:
+
+Lib/:
+* Added sub-module ldap.dn
+* Added function ldap.dn.escape_dn_chars()
+
+----------------------------------------------------------------
 Released 2.0.5 2004-11-11
 
 Changes since 2.0.4:
@@ -442,4 +451,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.107 2004/11/11 21:23:26 stroeder Exp $
+$Id: CHANGES,v 1.108 2004/12/02 20:36:19 stroeder Exp $
