@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.69 2003/11/26 22:12:33 stroeder Exp $
+\$Id: ldapobject.py,v 1.70 2003/12/02 17:11:28 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -19,7 +19,7 @@ Basically calls into the LDAP lib are serialized by the module-wide
 lock self._ldap_object_lock.
 """
 
-__version__ = '0.5.2'
+__version__ = '0.5.3'
 
 __all__ = [
   'LDAPObject',
@@ -34,7 +34,7 @@ if __debug__:
   # Tracing is only supported in debugging mode
   import traceback
 
-import sys,time,_ldap,ldap
+import sys,time,_ldap,ldap,ldap.functions
 
 from ldap.schema import SCHEMA_ATTRS
 
@@ -64,7 +64,7 @@ class SimpleLDAPObject:
     self._trace_stack_limit = trace_stack_limit
     self._uri = uri
     self._ldap_object_lock = self._ldap_lock()
-    self._l = ldap._ldap_function_call(_ldap.initialize,uri)
+    self._l = ldap.functions._ldap_function_call(_ldap.initialize,uri)
     self.timeout = -1
     self.protocol_version = ldap.VERSION3
 
