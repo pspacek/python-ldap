@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.79 2004/03/24 22:29:59 stroeder Exp $
+\$Id: ldapobject.py,v 1.80 2004/05/05 18:02:20 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -376,12 +376,7 @@ class SimpleLDAPObject:
         listed in the data field.
 
         The method returns a tuple of the form (result_type,
-        result_data).  The result_type is a string, being one of:
-        'RES_BIND', 'RES_SEARCH_ENTRY', 'RES_SEARCH_RESULT',
-        'RES_SEARCH_REFERENCE','RES_MODIFY', 'RES_ADD', 'RES_DELETE',
-        'RES_MODRDN', or 'RES_COMPARE'.
-
-        The constants RES_* are set to these strings, for convenience.
+        result_data).  The result_type is one of the constants RES_*.
 
         See search() for a description of the search result's
         result_data, otherwise the result_data is normally meaningless.
@@ -394,9 +389,13 @@ class SimpleLDAPObject:
         If a timeout occurs, a TIMEOUT exception is raised, unless
         polling (timeout = 0), in which case (None, None) is returned.
     """
+    res_type,res_data,res_msgid = self.result2(msgid,all,timeout)
+    return res_type,res_data
+ 
+  def result2(self,msgid=_ldap.RES_ANY,all=1,timeout=None):
     if timeout is None:
       timeout = self.timeout
-    return self._ldap_call(self._l.result,msgid,all,timeout)
+    return self._ldap_call(self._l.result2,msgid,all,timeout)
  
   def search_ext(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0,serverctrls=None,clientctrls=None,timeout=-1,sizelimit=0):
     """
