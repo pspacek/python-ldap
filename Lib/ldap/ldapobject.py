@@ -2,7 +2,7 @@
 ldapobject.py - wraps class _ldap.LDAPObject
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.30 2002/07/25 16:16:46 stroeder Exp $
+\$Id: ldapobject.py,v 1.31 2002/07/25 16:22:11 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -111,7 +111,9 @@ class SimpleLDAPObject:
     elif self.__dict__.has_key(name):
       return self.__dict__[name]
     else:
-      raise AttributeError
+      raise AttributeError,'%s has no attribute %s' % (
+        self.__class__.__name__,repr(name)
+      )
 
   def abandon(self,msgid):
     """
