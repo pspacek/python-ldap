@@ -4,7 +4,7 @@ written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: sasl.py,v 1.4 2003/08/18 11:18:53 stroeder Exp $
+\$Id: sasl.py,v 1.5 2003/08/18 11:21:02 stroeder Exp $
 
 Description:
 The ldap.sasl module provides SASL authentication classes.
@@ -19,7 +19,7 @@ Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
 """
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 class sasl:
     """This class handles SASL interactions for authentication.
