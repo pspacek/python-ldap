@@ -5,7 +5,7 @@ This module is distributed under the terms of the
 GPL (GNU GENERAL PUBLIC LICENSE) Version 2
 (see http://www.gnu.org/copyleft/gpl.html)
 
-$Id: ldif.py,v 1.7 2001/10/18 19:17:26 stroeder Exp $
+$Id: ldif.py,v 1.8 2001/10/19 18:51:34 stroeder Exp $
 """
 
 __version__ = '0.3.0'
@@ -114,6 +114,8 @@ def StripLineSep(s):
     return s[:-2]
   elif s[-1]=='\n':
     return s[:-1]
+  else:
+    return s
 
 
 def ParseLDIF(f,ignore_attrs=[],maxentries=0):
@@ -161,8 +163,7 @@ def ParseLDIF(f,ignore_attrs=[],maxentries=0):
         binary = 0
 
       # Strip the line separators 
-      data = StripLineSep(string.lstrip(data))
-
+      data = StripLineSep(data[1:])
       s = f.readline()
 
       # Reading continued multi-line data
@@ -181,7 +182,7 @@ def ParseLDIF(f,ignore_attrs=[],maxentries=0):
 
         # Add attr: data to entry
 	if attr=='dn':
-          dn = string.strip(data) ; attr = '' ; data = ''
+          dn = string.strip(data) ; attr = None ; data = None
           if not is_dn(dn):
 	    raise ValueError, 'No valid string-representation of distinguished name.'
 	else:
