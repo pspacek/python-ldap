@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: functions.py,v 1.17 2004/01/29 07:37:56 stroeder Exp $
+\$Id: functions.py,v 1.18 2004/01/29 23:12:08 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -82,7 +82,6 @@ def initialize(uri,trace_level=0,trace_file=sys.stdout,trace_stack_limit=None):
         File object where to write the trace output to.
         Default is to use stdout.
   """
-  assert is_ldap_url(uri),ValueError("uri has to be a LDAP URL.")
   return LDAPObject(uri,trace_level,trace_file,trace_stack_limit)
 
 
