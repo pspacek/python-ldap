@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.7 2000/10/19 08:21:32 leonard Exp $
+ * $Id: LDAPObject.c,v 1.8 2000/10/19 08:25:14 leonard Exp $
  */
 
 #include <math.h>
@@ -1232,6 +1232,7 @@ l_ldap_result( LDAPObject* self, PyObject *args )
     	return Py_None;
     }
 
+    /* thanks to Konstantin Chuguev for this */
     if (res_type != LDAP_RES_SEARCH_ENTRY) {
 	LDAP_BEGIN_ALLOW_THREADS( self );
 	result = ldap_result2error( self->ldap, msg, 0 );
