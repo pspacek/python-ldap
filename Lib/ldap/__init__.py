@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.13 2002/08/02 17:47:24 stroeder Exp $
+# $Id: __init__.py,v 1.14 2002/09/01 12:05:15 stroeder Exp $
 
 __version__ = '2.0.0pre06'
 
@@ -47,7 +47,7 @@ def _ldap_function_call(func,*args,**kwargs):
         '_ldap',repr(func),
         repr(args),repr(kwargs)
       ))
-      if _trace_level>=2:
+      if _trace_level>=3:
         traceback.print_stack(limit=_trace_stack_limit,file=_trace_file)
   _ldap_module_lock.acquire()
   try:
@@ -56,10 +56,10 @@ def _ldap_function_call(func,*args,**kwargs):
     finally:
       _ldap_module_lock.release()
   except LDAPError,e:
-    if __debug__ and _trace_level>=1:
+    if __debug__ and _trace_level>=2:
       _trace_file.write('=> LDAPError: %s\n' % (str(e)))
     raise
-  if __debug__ and _trace_level>=1:
+  if __debug__ and _trace_level>=2:
     if result!=None and result!=(None,None):
       _trace_file.write('=> result: %s\n' % (repr(result)))
   return result

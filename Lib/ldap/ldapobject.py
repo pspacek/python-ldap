@@ -2,7 +2,7 @@
 ldapobject.py - wraps class _ldap.LDAPObject
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.42 2002/08/22 17:18:27 stroeder Exp $
+\$Id: ldapobject.py,v 1.43 2002/09/01 12:05:15 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -87,7 +87,7 @@ class SimpleLDAPObject:
           self.__class__.__name__+'.'+func.__name__,
           repr(args),repr(kwargs)
         ))
-        if self._trace_level>=2:
+        if self._trace_level>=3:
           traceback.print_stack(limit=self._trace_stack_limit,file=self._trace_file)
     self._ldap_object_lock.acquire()
     try:
@@ -96,10 +96,10 @@ class SimpleLDAPObject:
       finally:
         self._ldap_object_lock.release()
     except LDAPError,e:
-      if __debug__ and self._trace_level>=1:
+      if __debug__ and self._trace_level>=2:
         self._trace_file.write('=> LDAPError: %s\n' % (str(e)))
       raise
-    if __debug__ and self._trace_level>=1:
+    if __debug__ and self._trace_level>=2:
       if result!=None and result!=(None,None):
         self._trace_file.write('=> result: %s\n' % (repr(result)))
     return result
