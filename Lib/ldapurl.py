@@ -2,7 +2,7 @@
 ldapurl - handling of LDAP URLs as described in RFC 2255
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapurl.py,v 1.4 2001/12/25 15:04:32 stroeder Exp $
+\$Id: ldapurl.py,v 1.5 2002/01/10 02:54:50 stroeder Exp $
 
 This module is part of the python-ldap project:
 http://python-ldap.sourceforge.net
@@ -219,6 +219,7 @@ class LDAPUrl:
       raise AttributeError,'No attribute %s in instance of %s.' % (
         name,self.__class__.__name__
       )
+    return None # __getattr__()
 
   def __setattr__(self,name,value):
     if (name=='who' or name=='cred'):
