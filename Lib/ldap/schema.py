@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.21 2002/08/08 12:13:23 stroeder Exp $
+\$Id: schema.py,v 1.22 2002/08/08 12:36:41 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -205,17 +205,16 @@ class AttributeType:
       result.append(key_attr('ORDERING',self.ordering_oid))
       result.append(key_attr('SUBSTR',self.substr_oid))
       result.append(key_attr('SYNTAX',self.syntax_oid))
-      result.append('{%d}' % (self.syntax_len))
+      result.append(('{%d}' % (self.syntax_len))*(self.syntax_len>0))
       result.append({0:'',1:' SINGLE-VALUE'}[self.single_value])
       result.append({0:'',1:' COLLECTIVE'}[self.collective])
       result.append({0:'',1:' NO-USER-MODIFICATION'}[self.no_user_mod])
       result.append(
-        " USAGE "+\
         {
-          0:"userApplications",
-          1:"directoryOperation",
-          2:"distributedOperation",
-          3:"dSAOperation",
+          0:"",
+          1:" USAGE directoryOperation",
+          2:" USAGE distributedOperation",
+          3:" USAGE dSAOperation",
         }[self.usage]
       )
       return '( %s )' % ''.join(result)
