@@ -2,7 +2,7 @@
 #ifndef __h_LinkedList
 #define __h_LinkedList
 
-/* $Id: linkedlist.h,v 1.1 2000/07/27 16:08:58 leonard Exp $ */
+/* $Id: linkedlist.h,v 1.2 2000/08/10 22:29:22 leonard Exp $ */
 
 typedef struct {
 	PyObject_HEAD
@@ -21,7 +21,7 @@ typedef struct {
 } LinkedListType;
 
 void LinkedList_inittype(LinkedListType *, char *, size_t,
-	firstfunc, nextfunc, itemfunc);
+	firstfunc, nextfunc, itemfunc, destructor);
 
 PyObject *LinkedList_new(LinkedListType *);
 

@@ -2,37 +2,51 @@
 #ifndef __h_TemplateObject 
 #define __h_TemplateObject 
 
-/* $Id: template.h,v 1.1 2000/07/27 16:08:58 leonard Exp $ */
+/* $Id: template.h,v 1.2 2000/08/10 22:29:22 leonard Exp $ */
 
 #if defined(HAVE_LDAP_INIT_TEMPLATES)
 
 typedef struct {
 	PyObject_HEAD
-	struct ldap_disptmpl	*tmpllist;
-} DispTmplSeqObject;
+	struct ldap_disptmpl	*disptmpls;
+} TemplatesObject;
 
 typedef struct {
 	PyObject_HEAD
-	DispTmplSeqObject	*tmplseqobj;
+	TemplatesObject		*templates;
 	struct ldap_disptmpl	*disptmpl;
-} DispTmplObject;
+	PyObject		*appdata;
+} TemplateObject;
 
 typedef struct {
 	PyObject_HEAD
-	DispTmplObject		*tmplobj;
-} DispTmplRowSeqObject;
+	TemplateObject		*template;
+} TemplateRowsObject;
 
 typedef struct {
 	PyObject_HEAD
-	DispTmplObject		*tmplobj;
+	TemplateObject		*template;
 	struct ldap_tmplitem	*row;
-} DispTmplColSeqObject;
+} TemplateItemsObject;
 
 typedef struct {
 	PyObject_HEAD
-	DispTmplObject *tmplobj;
-	struct ldap_tmplitem *item;
-} DispTmplItemObject;
+	TemplateObject 		*template;
+	PyObject 		*appdata;
+	struct ldap_tmplitem 	*item;
+} TemplateItemObject;
+
+typedef struct {
+	PyObject_HEAD
+	TemplateObject		*template;
+	struct ldap_adddeflist	*def;
+} TemplateDefListObject;
+
+typedef struct {
+	PyObject_HEAD
+	TemplateObject		*template;
+	struct ldap_adddeflist	*def;
+} TemplateDefaultObject;
 
 void LDAPinit_template(PyObject *);
 PyObject *l_init_templates(PyObject *, PyObject *);
