@@ -1,8 +1,10 @@
-# $Id: __init__.py,v 1.9 2002/07/01 13:53:48 stroeder Exp $
+# $Id: __init__.py,v 1.10 2002/07/01 23:44:15 stroeder Exp $
 
 __version__ = '2.0.0pre05'
 
 from _ldap import *
+
+LIBLDAP_R = 0
 
 try:
   # Check if Python installation was build with thread support
