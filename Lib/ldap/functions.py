@@ -2,7 +2,7 @@
 functions.py - wraps functions of module _ldap
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: functions.py,v 1.10 2002/07/12 17:15:49 stroeder Exp $
+\$Id: functions.py,v 1.11 2002/08/01 14:00:20 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -70,8 +70,7 @@ def initialize(uri,trace_level=0,trace_file=sys.stdout):
         File object where to write the trace output to.
         Default is to use stdout.
   """
-  if not is_ldap_url(uri):
-    raise ValueError,"Parameter uri has to be a LDAP URL."
+  assert is_ldap_url(uri),ValueError("uri has to be a LDAP URL.")
   return LDAPObject(uri,trace_level,trace_file)
 
 
