@@ -2,7 +2,7 @@
 ldapurl - handling of LDAP URLs as described in RFC 2255
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapurl.py,v 1.14 2002/08/02 17:04:06 stroeder Exp $
+\$Id: ldapurl.py,v 1.15 2002/08/02 17:59:35 stroeder Exp $
 
 This module is part of the python-ldap project:
 http://python-ldap.sourceforge.net
@@ -362,7 +362,7 @@ class LDAPUrl:
           for e in self.extensions.values()
         ]
       )
-    return ldap_url
+    return ldap_url.encode('ascii')
   
   def htmlHREF(self,urlPrefix='',hrefText=None,hrefTarget=None,httpCharset='utf-8'):
     """Complete """
