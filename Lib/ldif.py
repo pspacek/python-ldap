@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.35 2004/04/27 17:42:48 stroeder Exp $
+$Id: ldif.py,v 1.36 2004/05/04 22:28:42 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -27,7 +27,7 @@ except ImportError:
   from StringIO import StringIO
 
 attrtype_pattern = r'[\w;.]+(;[\w_-]+)*'
-attrvalue_pattern = r'(([^,]|\\,)*|".*?")'
+attrvalue_pattern = r'(([^,]|\\,)+|".*?")'
 rdn_pattern = attrtype_pattern + r'[ ]*=[ ]*' + attrvalue_pattern
 dn_pattern   = rdn_pattern + r'([ ]*,[ ]*' + rdn_pattern + r')*[ ]*'
 dn_regex   = re.compile('^%s$' % dn_pattern)
