@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.2 2000/08/14 03:30:52 leonard Exp $
+# $Id: Makefile,v 1.3 2000/08/20 15:04:23 leonard Exp $
 
 WRKDIST=		${.CURDIR}/../..
 VERSION!=		sh ${WRKDIST}/Build/version.sh
@@ -21,5 +21,11 @@ do-fetch:;
 #-- put package on sourceforge ftp server
 export-ftp: ${PKGFILE}
 	scp ${PKGFILE} python-ldap.sourceforge.net:/home/groups/ftp/pub/python-ldap/${PKGNAME}-${OPSYS}-${ARCH}${PKG_SUFX}
+
+post-build:
+	sed -e 's,^${PREFIX}/,,' <${WRKBUILD}/filelist >${WRKBUILD}/filelist2
+
+SED_PLIST+=	|sed -e '/^%%filelist/r${WRKBUILD}/filelist2' -e '//d'
+ALL_TARGET=	build filelist
 
 .include <bsd.port.mk>
