@@ -1,2 +1,3 @@
-# $Id: ldap.py,v 1.1 2000/07/27 16:08:58 leonard Exp $
+# $Id: ldap.py,v 1.2 2000/08/14 22:37:44 leonard Exp $
+from _ldap import __version__
 from _ldap import *
