@@ -2,7 +2,7 @@
 ldapthreadlock.py - mimics LDAPObject class in a thread-safe way
 (c) 2001 by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapthreadlock.py,v 1.10 2001/11/02 11:08:02 stroeder Exp $
+\$Id: ldapthreadlock.py,v 1.11 2001/11/02 11:30:37 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -32,7 +32,7 @@ import time,threading,ldap
 
 if __debug__:
   import sys,traceback
-  _module_debug_level = 1
+  _module_debug_level = 0
 
 _ldapmodule_lock = threading.Lock()
 
@@ -45,7 +45,7 @@ class LDAPObject:
   def _ldap_call(self,func,*args,**kwargs):
     """Wrapper function which locks calls to func with via ldap_module_lock"""
     if __debug__:
-      if _module_debug_level>=1:
+      if _module_debug_level>=1 and func.__name__!='result':
         print '*** %s:' % (self.__module__),\
           self.__class__.__name__+'.'+func.__name__,\
           repr(args),repr(kwargs)
