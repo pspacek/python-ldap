@@ -4,7 +4,7 @@ written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: sasl.py,v 1.11 2004/03/25 14:57:02 stroeder Exp $
+\$Id: sasl.py,v 1.12 2004/11/09 00:15:55 stroeder Exp $
 
 Description:
 The ldap.sasl module provides SASL authentication classes.
@@ -46,7 +46,7 @@ class sasl:
         question-answer pairs. Questions are specified by the respective
         SASL callback id's. The mech argument is a string that specifies
         the SASL mechaninsm to be uesd."""
-        self.cb_value_dict = cb_value_dict
+        self.cb_value_dict = cb_value_dict or {}
         self.mech = mech
 
     def callback(self,cb_id,challenge,prompt,defresult):
