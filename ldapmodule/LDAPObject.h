@@ -2,7 +2,7 @@
 #ifndef __h_LDAPObject 
 #define __h_LDAPObject 
 
-/* $Id: LDAPObject.h,v 1.1 2000/02/01 05:41:16 leonard Exp $ */
+/* $Id: LDAPObject.h,v 1.2 2000/07/26 13:15:55 leonard Exp $ */
 
 #include "lber.h"
 #include "ldap.h"
@@ -25,7 +25,6 @@ extern PyTypeObject LDAP_Type;
 #define LDAPObject_Check(v)     ((v)->ob_type == &LDAP_Type)
 
 extern LDAPObject *newLDAPObject( LDAP* );
-void LDAPinit_LDAPObject( PyObject* d );
 
 /* macros to allow thread saving in the context of an LDAP connection */
 
