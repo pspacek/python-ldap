@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.16 2001/11/13 15:09:12 leonard Exp $
+ * $Id: LDAPObject.c,v 1.17 2001/11/13 18:35:56 jajcus Exp $
  */
 
 #include <math.h>
@@ -1674,7 +1674,7 @@ l_ldap_set_option(PyObject* self, PyObject *args)
 }
 
 static char doc_set_option[] = 
-"set_option(name,value)\n\n"
+"set_option(option,value)\n\n"
 "\tSets value of LDAP option.\n";
 
 /* ldap_get_option */
@@ -1796,7 +1796,7 @@ l_ldap_get_option(PyObject* self, PyObject *args)
 }
 
 static char doc_get_option[] = 
-"get_option(name,value)\n\n"
+"get_option(option)\n\n"
 "\tGets value of LDAP option.\n";
 
 /* methods */
