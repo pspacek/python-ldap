@@ -2,7 +2,7 @@
 ldap.modlist - create add/modify modlist's
 (c) by Michael Stroeder <michael@stroeder.com>
 
-$Id: modlist.py,v 1.4 2001/12/19 11:42:30 stroeder Exp $
+$Id: modlist.py,v 1.5 2002/02/16 17:15:40 stroeder Exp $
 
 Python compability note:
 This module is known to work with Python 2.0+ but should work
@@ -10,7 +10,7 @@ with Python 1.5.2 as well.
 """
 
 
-__version__ = '0.0.4'
+__version__ = '0.0.5'
 
 
 import string,ldap
@@ -66,19 +66,35 @@ def modifyModlist(
       del attrtype_lower_map[attrtype_lower]
     else:
       old_value = []
+
     if not old_value and new_value:
       # Add a new attribute to entry
       modlist.append((ldap.MOD_ADD,attrtype,new_value))
+
     elif old_value and new_value:
-      new_value.sort() ; old_value.sort()
-      if new_value!=old_value:
-        # Replace attribute value of existing attribute
-        # modify an existing attribute
-        modlist.append((ldap.MOD_REPLACE,attrtype,new_value))
+      # Replace existing attribute
+      old_value_dict={}
+      for v in old_value: old_value_dict[v]=None
+      new_value_dict={}
+      for v in new_value: new_value_dict[v]=None
+      delete_values = []
+      for v in old_value:
+        if not new_value_dict.has_key(v):
+          delete_values.append(v)
+      if delete_values:
+        modlist.append((ldap.MOD_DELETE,attrtype,delete_values))
+      add_values = []
+      for v in new_value:
+        if not old_value_dict.has_key(v):
+          add_values.append(v)
+      if add_values:
+        modlist.append((ldap.MOD_ADD,attrtype,add_values))
+
     elif old_value and not new_value:
       # delete an existing attribute because attribute
       # value list is empty
       modlist.append((ldap.MOD_DELETE,attrtype,old_value))
+
   if not ignore_oldexistent:
     # Remove all attributes of old_entry which are not present
     # in new_entry at all
