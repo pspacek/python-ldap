@@ -1,6 +1,6 @@
 \documentclass{manual}
 \title{LDAP programming with Python}
-% $Id: python-ldap.tex,v 1.1 2002/02/09 16:08:29 stroeder Exp $
+% $Id: python-ldap.tex,v 1.2 2002/02/09 19:34:02 stroeder Exp $
 
 \author{David Leonard, Michael Str\"oder}
 \authoraddress{
@@ -10,11 +10,17 @@
 
 \input{version.tex}
 
-\makeindex
-%\makemodindex
+\makeindex                      % tell \index to actually write the
+                                % .idx file
+\makemodindex                   % ... and the module index as well.
 
 \begin{document}
+
 \maketitle
+
+\ifhtml
+\chapter*{Front Matter\label{front}}
+\fi
 
 \begin{abstract}
 \noindent
@@ -23,7 +29,8 @@ This document describes the package python-ldap with its various modules
 
 \tableofcontents
 
-\chapter{ python-ldap }
+\chapter{python-ldap package}
+
 \input{ldap}
 \input{ldap_async}
 \input{ldap_modlist}
@@ -32,9 +39,9 @@ This document describes the package python-ldap with its various modules
 
 
 %begin{latexonly}
-%\renewcommand{\indexname}{Module Index}
+\renewcommand{\indexname}{Module Index}
 %end{latexonly}
-%\input{modlib.ind}		% Module Index
+\input{modpython-ldap.ind}		% Module Index
 
 %begin{latexonly}
 \renewcommand{\indexname}{Index}
