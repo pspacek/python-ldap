@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.19 2002/02/01 13:25:24 stroeder Exp $
+# $Id: setup.py,v 1.20 2002/02/02 11:14:52 stroeder Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
@@ -48,7 +48,7 @@ else:
 #-- Let distutils do the rest
 setup(
 	#-- Package description
-	name =		'Python-LDAP',
+	name =		'python-ldap',
 	version =	version,
 	description =	'Various LDAP-related Python modules',
 	author =	'David Leonard et al.', 
