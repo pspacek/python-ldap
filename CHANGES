@@ -3,6 +3,9 @@ Released 2.0.0pre21 2004-03-xx
 
 Changes since 2.0.0pre20:
 
+Modules/:
+* Removed meaningless repr() function from LDAPObject.c
+
 ----------------------------------------------------------------
 Released 2.0.0pre20 2004-03-19
 
@@ -323,4 +326,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.78 2004/03/24 07:53:35 stroeder Exp $
+$Id: CHANGES,v 1.79 2004/03/24 07:55:27 stroeder Exp $

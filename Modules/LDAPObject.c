@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.50 2004/03/18 19:22:09 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.51 2004/03/24 07:55:26 stroeder Exp $
  */
 
 #include "Python.h"
@@ -992,31 +992,6 @@ static PyMethodDef methods[] = {
     { NULL, NULL }
 };
 
-/* representation */
-
-static PyObject*
-repr( LDAPObject* self )
-{
-    static char buf[4096];
-
-#   define STRFMT	"%s%s%s"
-#   define STRFMTP(s)							\
-    		(s)==NULL?"":"'",					\
-		(s)==NULL?"None":(s),					\
-		(s)==NULL?"":"'"
-
-#   define LIMITFMT	"%d%s"
-#   define LIMITFMTP(v)							\
-    		(v),							\
-		(v)==LDAP_NO_LIMIT?" (NO_LIMIT)":""
-    		
-
-    sprintf(buf,
-	"<LDAP>"
-    );
-    return PyString_FromString( buf );
-}
-
 /* get attribute */
 
 static PyObject*
@@ -1065,7 +1040,7 @@ PyTypeObject LDAP_Type = {
 	(getattrfunc)getattr,	/*tp_getattr*/
 	(setattrfunc)setattr,	/*tp_setattr*/
 	0,                      /*tp_compare*/
-	(reprfunc)repr,         /*tp_repr*/
+	0,                      /*tp_repr*/
 	0,                      /*tp_as_number*/
 	0,                      /*tp_as_sequence*/
 	0,                      /*tp_as_mapping*/
