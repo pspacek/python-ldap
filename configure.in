@@ -1,4 +1,4 @@
-AC_REVISION($Id: configure.in,v 1.5 2000/08/13 14:23:48 leonard Exp $)
+AC_REVISION($Id: configure.in,v 1.6 2000/08/14 00:16:15 leonard Exp $)
 AC_PREREQ(2.0)
 AC_INIT(Modules/LDAPObject.c)
 AC_CONFIG_HEADER(Modules/config.h)
@@ -224,6 +224,7 @@ else
 	pymf="$srcdir/Makefile.python-1.4"
 fi
 AC_MSG_RESULT($pymf)
+test -d Modules || mkdir Modules
 cp "$pymf" Modules/Makefile.pre.in
 
 AC_OUTPUT_COMMANDS([
