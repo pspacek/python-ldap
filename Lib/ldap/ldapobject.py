@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.83 2004/11/09 01:13:41 stroeder Exp $
+\$Id: ldapobject.py,v 1.84 2005/02/25 16:19:06 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -462,13 +462,13 @@ class SimpleLDAPObject:
     return self.result(msgid,all=1,timeout=timeout)[1]
 
   def search(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0):
-    return self.search_ext(base,scope,filterstr,attrlist,attrsonly)
+    return self.search_ext(base,scope,filterstr,attrlist,attrsonly,None,None)
 
   def search_s(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0):
-    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,timeout=self.timeout)
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
 
   def search_st(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0,timeout=-1):
-    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,timeout)
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout)
 
   def set_cache_options(self,*args,**kwargs):
     """
