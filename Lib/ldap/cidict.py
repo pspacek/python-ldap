@@ -1,11 +1,11 @@
-# $Id: cidict.py,v 1.2 2001/11/14 23:51:17 leonard Exp $
+# $Id: cidict.py,v 1.1 2002/07/25 14:11:28 stroeder Exp $
 """
 	This is a convenience wrapper for dictionaries
 	returned from LDAP servers containing attribute
 	names of variable case.
 """
 
-__version__ = """$Revision: 1.2 $"""
+__version__ = """$Revision: 1.1 $"""
 
 from UserDict import UserDict
 from string import lower
