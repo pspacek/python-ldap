@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.36 2002/07/27 13:23:47 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.37 2002/08/16 18:03:47 stroeder Exp $
  */
 
 #include <math.h>
@@ -217,6 +217,12 @@ List_to_LDAPMods( PyObject *list, int no_op ) {
     }
 
     len = PySequence_Length(list);
+
+    if (len < 0) {
+       PyErr_SetObject( PyExc_TypeError, Py_BuildValue("sO",
+                       "expected list of tuples", list ));
+       return NULL;
+    }
 
     lms = PyMem_NEW(LDAPMod *, len + 1);
     if (lms == NULL) 
