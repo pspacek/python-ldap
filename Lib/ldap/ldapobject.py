@@ -2,7 +2,7 @@
 ldapobject.py - wraps class _ldap.LDAPObject
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.35 2002/08/02 17:47:25 stroeder Exp $
+\$Id: ldapobject.py,v 1.36 2002/08/03 13:28:09 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -548,9 +548,12 @@ class SimpleLDAPObject:
           return search_subschemasubentry_dn
       # Fall back to directly read attribute subschemaSube
       # from RootDSE
-      r = self.search_s(
-        '',ldap.SCOPE_BASE,'(objectClass=*)',['subschemaSubentry']
-      )
+      try:
+        r = self.search_s(
+          '',ldap.SCOPE_BASE,'(objectClass=*)',['subschemaSubentry']
+        )
+      except ldap.NO_SUCH_OBJECT:
+        return None
       e = ldap.cidict.cidict(r[0][1])
       return e.get('subschemaSubentry',[None])[0]
     except IndexError:
