@@ -2,7 +2,7 @@
 #ifndef __h_LDAPObject 
 #define __h_LDAPObject 
 
-/* $Id: LDAPObject.h,v 1.2 2001/11/12 14:55:24 jajcus Exp $ */
+/* $Id: LDAPObject.h,v 1.3 2001/11/13 15:00:27 jajcus Exp $ */
 
 #include "lber.h"
 #include "ldap.h"
@@ -46,6 +46,9 @@ extern LDAPObject *newLDAPObject( LDAP* );
 	  lo->_save = NULL;                                             \
 	  PyEval_RestoreThread( _save );                                \
 	}
+
+PyObject* l_ldap_get_option(PyObject* self, PyObject *args);
+PyObject* l_ldap_set_option(PyObject* self, PyObject *args);
 
 #endif /* __h_LDAPObject */
 
