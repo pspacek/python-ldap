@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapurl.py,v 1.27 2002/09/06 20:59:33 stroeder Exp $
+\$Id: ldapurl.py,v 1.28 2002/12/17 15:51:53 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -362,7 +362,7 @@ class LDAPUrl:
     )
     if self.extensions:
       ldap_url = ldap_url+'?'+self.extensions.unparse()
-    return ldap_url.encode('ascii')
+    return ldap_url
   
   def htmlHREF(self,urlPrefix='',hrefText=None,hrefTarget=None):
     """Complete """
