@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.59 2003/05/08 12:08:37 stroeder Exp $
+\$Id: ldapobject.py,v 1.60 2003/05/18 21:42:17 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -422,17 +422,17 @@ class SimpleLDAPObject:
     """
     self._ldap_call(self._l.set_rebind_proc,func)
 
-  def simple_bind(self,who,passwd):
+  def simple_bind(self,who='',cred=''):
     """
-    simple_bind(who, passwd) -> int
+    simple_bind(who, cred) -> int
     """
-    return self.bind(who,passwd,_ldap.AUTH_SIMPLE)
+    return self.bind(who,cred,_ldap.AUTH_SIMPLE)
 
-  def simple_bind_s(self,who,passwd):
+  def simple_bind_s(self,who='',cred=''):
     """
-    simple_bind_s(who, passwd) -> None
+    simple_bind_s(who, cred) -> None
     """
-    self.bind_s(who,passwd,_ldap.AUTH_SIMPLE)
+    self.bind_s(who,cred,_ldap.AUTH_SIMPLE)
 
   def start_tls_s(self,*args,**kwargs):
     """
