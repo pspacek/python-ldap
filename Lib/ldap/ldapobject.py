@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.64 2003/05/27 13:40:15 stroeder Exp $
+\$Id: ldapobject.py,v 1.65 2003/06/11 10:33:45 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -19,7 +19,7 @@ Basically calls into the LDAP lib are serialized by the module-wide
 lock self._ldap_object_lock.
 """
 
-__version__ = '0.5.0'
+__version__ = '0.5.1'
 
 __all__ = [
   'LDAPObject',
@@ -540,10 +540,11 @@ class SimpleLDAPObject:
     except IndexError:
       return None
 
-  def read_subschemasubentry_s(self,subschemasubentry_dn,attrs=ldap.schema.SCHEMA_ATTRS):
+  def read_subschemasubentry_s(self,subschemasubentry_dn,attrs=None):
     """
     Returns the sub schema sub entry's data
     """
+    attrs = attrs or ldap.schema.SCHEMA_ATTRS
     try:
       r = self.search_s(
         subschemasubentry_dn,ldap.SCOPE_BASE,
