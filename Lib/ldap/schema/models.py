@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.4 2002/09/06 07:15:01 stroeder Exp $
+\$Id: models.py,v 1.5 2002/09/06 22:50:22 stroeder Exp $
 """
 
 import ldap.cidict
@@ -421,10 +421,10 @@ class Entry(ldap.cidict.cidict):
   the OID as key.
   """
 
-  def __init__(self,schema,entry={}):
+  def __init__(self,schema,entry=None):
     self._at_oid2name = {}
     self._s = schema
-    ldap.cidict.cidict.__init__(self,entry)
+    ldap.cidict.cidict.__init__(self,(entry or {}))
 
   def _at_oid(self,nameoroid):
     """

@@ -5,10 +5,10 @@ names of variable case.
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: cidict.py,v 1.6 2002/09/06 07:15:00 stroeder Exp $
+$Id: cidict.py,v 1.7 2002/09/06 22:50:22 stroeder Exp $
 """
 
-__version__ = """$Revision: 1.6 $"""
+__version__ = """$Revision: 1.7 $"""
 
 from UserDict import UserDict
 from string import lower
@@ -18,10 +18,10 @@ class cidict(UserDict):
   Case-insensitive bud case-respecting dictionary.
   """
 
-  def __init__(self,default={}):
+  def __init__(self,default=None):
     self._keys = {}
     UserDict.__init__(self,{})
-    self.update(default)
+    self.update(default or {})
 
   def __getitem__(self,key):
     return self.data[lower(key)]
