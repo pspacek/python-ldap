@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.25 2004/06/21 18:04:09 stroeder Exp $
+\$Id: models.py,v 1.26 2004/12/02 21:41:26 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -127,9 +127,9 @@ class ObjectClass(SchemaElement):
       self.kind = 1
     elif d['AUXILIARY']!=None:
       self.kind = 2
-    if self.kind==0:
-      # STRUCTURAL object classes are sub-classes of 'top' be default
-      self.sup = d['SUP'] or ('top',)
+    if self.kind==0 and not d['SUP'] and self.oid!='2.5.6.0':
+      # STRUCTURAL object classes are sub-classes of 'top' by default
+      self.sup = ('top',)
     else:
       self.sup = d['SUP']
     assert type(self.names)==TupleType
