@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapurl.py,v 1.26 2002/09/06 18:12:49 stroeder Exp $
+\$Id: ldapurl.py,v 1.27 2002/09/06 20:59:33 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -134,9 +134,9 @@ class LDAPUrlExtensions(UserDict.UserDict):
   dictionary type
   """
 
-  def __init__(self,default={}):
-    UserDict.UserDict.__init__(self,{})
-    for k,v in default.items():
+  def __init__(self,default=None):
+    UserDict.UserDict.__init__(self)
+    for k,v in (default or {}).items():
       self[k]=v
 
   def __setitem__(self,name,value):
@@ -226,7 +226,7 @@ class LDAPUrl:
     ldapUrl=None,
     urlscheme='ldap',
     hostport='',dn='',attrs=None,scope=None,filterstr=None,
-    extensions=LDAPUrlExtensions({}),
+    extensions=None,
     who=None,cred=None
   ):
     self.urlscheme=urlscheme
@@ -235,7 +235,7 @@ class LDAPUrl:
     self.attrs=attrs
     self.scope=scope
     self.filterstr=filterstr
-    self.extensions=extensions
+    self.extensions=(extensions or LDAPUrlExtensions({}))
     if ldapUrl!=None:
       self._parse(ldapUrl)
     if who!=None:
