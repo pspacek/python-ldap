@@ -1,7 +1,7 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 /*
  * LDAPMessageObject - wrapper around an LDAPMessage*
- * $Id: message.c,v 1.5 2000/08/17 23:49:35 leonard Exp $
+ * $Id: message.c,v 1.6 2000/08/18 00:21:46 leonard Exp $
  */
 
 #include "common.h"
@@ -109,10 +109,10 @@ LDAPmessage_to_python( LDAP*ld, LDAPMessage*m )
 	 }
 
 	 entrytuple = Py_BuildValue("(sO)", dn, attrdict);
+         free(dn);
 	 Py_DECREF(attrdict);
 	 PyList_Append(result, entrytuple);
 	 Py_DECREF(entrytuple);
-         free(dn);
      }
      ldap_msgfree( m );
      return result;
