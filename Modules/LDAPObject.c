@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.19 2001/11/14 01:01:47 leonard Exp $
+ * $Id: LDAPObject.c,v 1.20 2001/11/14 15:55:42 jajcus Exp $
  */
 
 #include <math.h>
@@ -1664,7 +1664,9 @@ l_ldap_set_option(PyObject* self, PyObject *args)
     		return NULL;
     }
 	
+    if (self) LDAP_BEGIN_ALLOW_THREADS( (LDAPObject *) self );
     res = ldap_set_option(ld, option, ptr);
+    if (self) LDAP_END_ALLOW_THREADS( (LDAPObject *) self );
 
     if (res<0){
 	PyErr_SetString( LDAPexception_class, "set_option failed" );
@@ -1704,7 +1706,9 @@ l_ldap_get_option(PyObject* self, PyObject *args)
     switch(option){
 	case LDAP_OPT_API_INFO:
 		apiinfo.ldapai_info_version = LDAP_API_INFO_VERSION;
+    		if (self) LDAP_BEGIN_ALLOW_THREADS( (LDAPObject *) self );
 		res = ldap_get_option( ld, option, &apiinfo );
+    		if (self) LDAP_END_ALLOW_THREADS( (LDAPObject *) self );
 		if ( res < 0 ){
 			PyErr_SetString( LDAPexception_class, "get_option failed" );
 			return NULL;
@@ -1756,7 +1760,9 @@ l_ldap_get_option(PyObject* self, PyObject *args)
 	case LDAP_OPT_X_TLS_REQUIRE_CERT:
 	case LDAP_OPT_X_SASL_SSF_MIN:
 	case LDAP_OPT_X_SASL_SSF_MAX:
+    		if (self) LDAP_BEGIN_ALLOW_THREADS( (LDAPObject *) self );
 		res = ldap_get_option( ld, option, &intval );
+    		if (self) LDAP_END_ALLOW_THREADS( (LDAPObject *) self );
 		if ( res < 0 ){
 			PyErr_SetString( LDAPexception_class, "get_option failed" );
 			return NULL;
@@ -1774,7 +1780,9 @@ l_ldap_get_option(PyObject* self, PyObject *args)
 	case LDAP_OPT_X_TLS_CIPHER_SUITE:
 	case LDAP_OPT_X_TLS_RANDOM_FILE:
 	case LDAP_OPT_X_SASL_SECPROPS:
-		res = ldap_get_option( ld, option, &strval );
+    		if (self) LDAP_BEGIN_ALLOW_THREADS( (LDAPObject *) self );
+		res = ldap_get_option( ld, option, &strval ); 
+    		if (self) LDAP_END_ALLOW_THREADS( (LDAPObject *) self );
 		if ( res < 0 ){
 			PyErr_SetString( LDAPexception_class, "get_option failed" );
 			return NULL;
