@@ -19,6 +19,9 @@ ldap.ldapobject:
 ldif:
 * Abandoned argument all_records of LDIFRecordList.__init__()
 
+ldapurl:
+* urllib.unquote() used instead of urllib.unquote_plus()
+
 ----------------------------------------------------------------
 Released 2.0.0pre11 2003-05-02
 
@@ -136,4 +139,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.23 2003/05/18 21:51:05 stroeder Exp $
+$Id: CHANGES,v 1.24 2003/05/26 07:49:37 stroeder Exp $
