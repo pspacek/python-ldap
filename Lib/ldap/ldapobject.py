@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.75 2003/12/23 12:49:09 stroeder Exp $
+\$Id: ldapobject.py,v 1.76 2004/03/15 10:23:42 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -491,14 +491,14 @@ class SimpleLDAPObject:
     """
     self.bind_s(who,cred,_ldap.AUTH_SIMPLE)
 
-  def start_tls_s(self,*args,**kwargs):
+  def start_tls_s(self):
     """
     start_tls_s() -> None    
     Negotiate TLS with server. The `version' attribute must have been
     set to VERSION3 before calling start_tls_s.
     If TLS could not be started an exception will be raised.
     """
-    self._ldap_call(self._l.start_tls_s,*args,**kwargs)
+    self._ldap_call(self._l.start_tls_s)
   
   def unbind_ext(self,serverctrls=None,clientctrls=None):
     """
@@ -748,8 +748,8 @@ class ReconnectLDAPObject(SimpleLDAPObject):
     self._last_bind = (self.bind_s,args,kwargs)
     return SimpleLDAPObject.bind_s(self,*args,**kwargs)
 
-  def start_tls_s(self,*args,**kwargs):
-    res = SimpleLDAPObject.start_tls_s(self,*args,**kwargs)
+  def start_tls_s(self):
+    res = SimpleLDAPObject.start_tls_s(self)
     self._start_tls = 1
     return res
 
