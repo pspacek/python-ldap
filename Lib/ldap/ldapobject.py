@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.74 2003/12/23 12:15:58 stroeder Exp $
+\$Id: ldapobject.py,v 1.75 2003/12/23 12:49:09 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -132,7 +132,7 @@ class SimpleLDAPObject:
     return self._ldap_call(self._l.abandon_ext,msgid,serverctrls,clientctrls)
 
   def abandon(self,msgid):
-    return self.abandon.ext(msgid,None,None)
+    return self.abandon_ext(msgid,None,None)
 
   def add_ext(self,dn,modlist,serverctrls=None,clientctrls=None):
     """
