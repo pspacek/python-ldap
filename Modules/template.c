@@ -2,7 +2,7 @@
 
 /* 
  * DispTmplObject - wrapper around an LDAP Display Template (disptmpl)
- * $Id: template.c,v 1.1 2000/07/27 16:08:58 leonard Exp $
+ * $Id: template.c,v 1.2 2000/07/29 03:17:31 leonard Exp $
  */
 
 #include "common.h"
@@ -663,8 +663,17 @@ l_init_templates(self, args)
 
 	if (!PyArg_ParseTuple(args, "O", &bufobj))
 		return NULL;
+#if defined(PY_MAJOR_VERSION) && PY_VERSION_HEX >= 0x01060000
 	if (PyObject_AsReadBuffer(bufobj, &buf, &buflen) == -1)
 		return NULL;
+#else
+	if (!PyString_Check(bufobj)) {
+		PyErr_SetObject(PyExc_TypeError, bufobj);
+		return NULL;
+	}
+	buf = PyString_AS_STRING(bufobj);
+	buflen = PyString_GET_SIZE(bufobj);
+#endif
 	err = ldap_init_templates_buf((char *)buf, buflen, &tmpllist);
 
 	switch (err) {
