@@ -2,7 +2,7 @@
 
 /* 
  * constants defined for LDAP
- * $Id: constants.c,v 1.14 2002/08/17 12:24:15 stroeder Exp $
+ * $Id: constants.c,v 1.15 2002/12/17 15:50:42 stroeder Exp $
  */
 
 #include "common.h"
@@ -164,15 +164,6 @@ LDAPinit_constants( PyObject* d )
 
 	/* (errors.c contains the error constants) */
 
-#ifdef LDAP_CACHE_BUCKETS
-	add_int(d,CACHE_BUCKETS);
-#endif
-#ifdef LDAP_CACHE_OPT_CACHENOERRS
-	add_int(d,CACHE_OPT_CACHENOERRS);
-#endif
-#ifdef LDAP_CACHE_OPT_CACHEALLERRS
-	add_int(d,CACHE_OPT_CACHEALLERRS);
-#endif
 	add_int(d,DEREF_NEVER);
 	add_int(d,DEREF_SEARCHING);
 	add_int(d,DEREF_FINDING);
