@@ -2,7 +2,7 @@
 ldif - generate and parse LDIF data (see RFC 2849)
 written by Michael Stroeder <michael@stroeder.com>
 
-$Id: ldif.py,v 1.23 2002/01/11 19:16:20 stroeder Exp $
+$Id: ldif.py,v 1.24 2002/09/05 17:18:39 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -296,7 +296,11 @@ class LDIFParser:
       unfolded_line = self._unfoldLDIFLine()
     if not unfolded_line or unfolded_line=='\n' or unfolded_line=='\r\n':
       return None,None
-    attr_type,attr_value = string.split(unfolded_line,' ',1)
+    try:
+      attr_type,attr_value = string.split(unfolded_line,' ',1)
+    except ValueError:
+      # Treat malformed attrType: attrValue lines as non-existent
+      return None,None
     # if needed attribute value is BASE64 decoded
     value_spec = attr_type[-2:]
     attr_type = string.strip(string.split(attr_type,':')[0])
