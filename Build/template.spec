@@ -1,4 +1,4 @@
-# $Id: template.spec,v 1.2 2000/08/16 12:17:17 leonard Exp $
+# $Id: template.spec,v 1.3 2000/08/20 15:03:42 leonard Exp $
 # This is a template file
 Summary: Python module for LDAP clients
 Name: python-ldap
@@ -10,7 +10,7 @@ Source: ftp://python-ldap.sourceforge.net/pub/python-ldap/python-ldap-@version@-
 URL: http://python-ldap.sourceforge.net/
 Packager: python-ldap-dev@lists.sourceforge.net
 Requires: python >= 1.5
-Prefix: /usr
+Prefix: %{_usr}
 BuildRoot: /var/tmp/%{name}-buildroot
 
 %description
@@ -22,19 +22,19 @@ It includes OpenLDAP 1.2.11
 %setup
 
 %build
-rm -rf /tmp/ldap-pfx; mkdir -p ./ldap-pfx; ln -s `pwd`/ldap-pfx /tmp/ldap-pfx
+%{__rm} -rf /tmp/ldap-pfx; mkdir -p ./ldap-pfx; ln -s `pwd`/ldap-pfx /tmp/ldap-pfx
 sh Misc/openldap.sh
 sh configure
-make
-make filelist
+%{__make}
+%{__make} filelist
 
 %install
-rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr
-make install DESTDIR=%{buildroot}
+%{__rm} -rf %{buildroot}
+%{__mkdir_p} %{buildroot}/usr
+%{__make} install DESTDIR=%{buildroot}
 
 %clean
-rm -rf %{buildroot}
+%{__rm} -rf %{buildroot}
 
 %files -f filelist
 %defattr(-,root,root)
