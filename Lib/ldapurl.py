@@ -2,7 +2,7 @@
 ldapurl - handling of LDAP URLs as described in RFC 2255
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapurl.py,v 1.19 2002/08/07 19:39:34 stroeder Exp $
+\$Id: ldapurl.py,v 1.20 2002/08/08 07:48:05 stroeder Exp $
 
 This module is part of the python-ldap project:
 http://python-ldap.sourceforge.net
@@ -336,7 +336,7 @@ class LDAPUrl:
         Dictionary containing a mapping from class attributes
         to default values
     """
-    for k in defaults:
+    for k in defaults.keys():
       if getattr(self,k) is None:
         setattr(self,k,defaults[k])
 
