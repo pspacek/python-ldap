@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>,
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.41 2002/08/18 14:07:28 stroeder Exp $
+\$Id: schema.py,v 1.42 2002/08/19 10:21:49 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -211,7 +211,7 @@ class ObjectClass:
 
 
 AttributeUsage = ldap.cidict.cidict({
-  'userApplications':0,
+  'userApplication':0,
   'directoryOperation':1,
   'distributedOperation':2,
   'dSAOperation':3,
