@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.29 2002/12/01 15:20:20 stroeder Exp $
+$Id: ldif.py,v 1.30 2002/12/01 22:08:34 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -309,7 +309,7 @@ class LDIFParser:
     """
     Parse a single attribute type and value pair from one or
     more lines of LDIF data
-    """ 
+    """
     # Reading new attribute line
     unfolded_line = self._unfoldLDIFLine()
     # Ignore comments which can also be folded
