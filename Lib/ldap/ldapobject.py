@@ -2,7 +2,7 @@
 ldapobject.py - wraps class _ldap.LDAPObject
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.39 2002/08/07 20:25:26 stroeder Exp $
+\$Id: ldapobject.py,v 1.40 2002/08/14 22:04:06 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -550,7 +550,7 @@ class SimpleLDAPObject:
       )
     except ldap.NO_SUCH_OBJECT:
       r = []
-    except ldap.UNDEFINED_TYPE:
+    except (ldap.UNDEFINED_TYPE,ldap.NO_SUCH_ATTRIBUTE):
       return None
     try:
       if r:
