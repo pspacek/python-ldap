@@ -2,7 +2,7 @@
 ldif - generate and parse LDIF data (see RFC 2849)
 written by Michael Stroeder <michael@stroeder.com>
 
-$Id: ldif.py,v 1.19 2001/12/17 00:32:42 stroeder Exp $
+$Id: ldif.py,v 1.20 2001/12/17 14:34:27 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -162,7 +162,7 @@ def CreateLDIF(dn,data,base64_attrs=[],cols=76):
             mod_type,mod_val,base64_attrs,cols
           )
         )
-  result.append('')
+  result.append(linesep)
   return string.join(result,linesep)
 
 
