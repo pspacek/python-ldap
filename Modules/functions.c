@@ -2,34 +2,14 @@
 
 /* 
  * functions - functions available at the module level
- * $Id: functions.c,v 1.16 2002/07/02 18:00:00 stroeder Exp $
- */
+ * $Id: functions.c,v 1.17 2004/01/20 10:44:28 stroeder Exp $
+ #*/
 
 #include "common.h"
 #include "functions.h"
 #include "LDAPObject.h"
 #include "errors.h"
 #include "options.h"
-
-static short default_ldap_port(void);
-
-/* Return the port number for LDAP servers */
-static short
-default_ldap_port()
-{
-#ifndef WIN32
-	struct servent *se;
-
-	/* Prefer getting the LDAP port number from /etc/services */
-	Py_BEGIN_ALLOW_THREADS
-	se = getservbyname("ldap", "tcp");
-	Py_END_ALLOW_THREADS
-	if (se != NULL)
-		return ntohs(se->s_port);
-#endif
-	return LDAP_PORT;
-}
-
 
 /* ldap_initialize */
 
