@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.33 2003/05/03 22:13:31 stroeder Exp $
+$Id: ldif.py,v 1.34 2003/11/22 20:00:49 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -289,7 +289,7 @@ class LDIFParser:
     self._line_sep = line_sep
     self.records_read = 0
 
-  def handle(self,*args,**kwargs):
+  def handle(self,dn,entry):
     """
     Process a single content LDIF record. This method should be
     implemented by applications using LDIFParser.
