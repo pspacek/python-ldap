@@ -5,7 +5,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: dsml.py,v 1.6 2003/11/14 09:52:49 stroeder Exp $
+$Id: dsml.py,v 1.7 2003/11/22 20:02:37 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+.
@@ -169,6 +169,7 @@ else:
 
     def __init__(self,parser_instance):
       self._parser_instance = parser_instance
+      xml.sax.handler.ContentHandler.__init__(self)
 
     def startDocument(self):
       pass
@@ -261,7 +262,6 @@ else:
       ContentHandlerClass,
       ignored_attr_types=None,
       max_entries=0,
-      line_sep='\n'
     ):
       """
       Parameters:
