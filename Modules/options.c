@@ -1,6 +1,6 @@
 /* 
  * Options support
- * $Id: options.c,v 1.12 2005/02/27 17:59:22 stroeder Exp $
+ * $Id: options.c,v 1.13 2005/03/01 20:16:38 stroeder Exp $
  */
 
 #include "common.h"
@@ -262,6 +262,9 @@ LDAP_get_option(LDAPObject *self, int option)
 
 	    if (res != LDAP_OPT_SUCCESS)
 		return LDAPerr(res);
+
+            if (lcs == NULL)
+                return PyList_New(0);
             
             /* Get the number of controls */
             num_controls = 0;
