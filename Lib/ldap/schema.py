@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.18 2002/08/02 13:58:49 stroeder Exp $
+\$Id: schema.py,v 1.19 2002/08/07 13:42:49 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -149,9 +149,9 @@ class attributeType:
          self.substr_oid,      #OPTIONAL
          self.syntax_oid,      #OPTIONAL
          self.syntax_len,      #OPTIONAL
-         self.single_value,    #0=no, 1=yes		    
-         self.collectiove,     #0=no, 1=yes			    
-         self.no_user_mod,     #0=no, 1=yes 			    
+         self.single_value,    #0=no, 1=yes
+         self.collective,     #0=no, 1=yes
+         self.no_user_mod,     #0=no, 1=yes
          self.usage,           #0=userApplications, 1=directoryOperation,
                                #2=distributedOperation, 3=dSAOperation
          self.ext              #OPTIONAL
