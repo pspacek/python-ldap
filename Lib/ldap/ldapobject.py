@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.56 2003/05/02 06:52:09 stroeder Exp $
+\$Id: ldapobject.py,v 1.57 2003/05/02 09:16:41 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -693,12 +693,12 @@ class ReconnectLDAPObject(SimpleLDAPObject):
 
   def _apply_method_s(self,func,*args,**kwargs):
     try:
-      return func(*args,**kwargs)
+      return func(self,*args,**kwargs)
     except ldap.SERVER_DOWN:
       # Reconnect
       self.reconnect(self._uri)
       # Re-try last operation
-      return func(*args,**kwargs)
+      return func(self,*args,**kwargs)
 
   def set_option(self,option,invalue):
     self._options[option] = invalue
@@ -720,22 +720,22 @@ class ReconnectLDAPObject(SimpleLDAPObject):
     return self._ldap_call(self._l.sasl_bind_s,who,auth)
 
   def add_s(self,*args,**kwargs):
-    return self._apply_method_s(SimpleLDAPObject.add_s,self,*args,**kwargs)
+    return self._apply_method_s(SimpleLDAPObject.add_s,*args,**kwargs)
 
   def compare_s(self,*args,**kwargs):
-    return self._apply_method_s(SimpleLDAPObject.compare_s,self,*args,**kwargs)
+    return self._apply_method_s(SimpleLDAPObject.compare_s,*args,**kwargs)
 
   def delete_s(self,*args,**kwargs):
-    return self._apply_method_s(SimpleLDAPObject.delete_s,self,*args,**kwargs)
+    return self._apply_method_s(SimpleLDAPObject.delete_s,*args,**kwargs)
 
   def modify_s(self,*args,**kwargs):
-    return self._apply_method_s(SimpleLDAPObject.modify_s,self,*args,**kwargs)
+    return self._apply_method_s(SimpleLDAPObject.modify_s,*args,**kwargs)
 
   def rename_s(self,*args,**kwargs):
-    return self._apply_method_s(SimpleLDAPObject.rename_s,self,*args,**kwargs)
+    return self._apply_method_s(SimpleLDAPObject.rename_s,*args,**kwargs)
 
   def search_ext_s(self,*args,**kwargs):
-    return self._apply_method_s(SimpleLDAPObject.search_ext_s,self,*args,**kwargs)
+    return self._apply_method_s(SimpleLDAPObject.search_ext_s,*args,**kwargs)
 
 
 class SmartLDAPObject(ReconnectLDAPObject):
