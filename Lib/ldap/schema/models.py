@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.9 2002/09/22 02:09:36 stroeder Exp $
+\$Id: models.py,v 1.10 2002/09/23 23:06:14 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -421,12 +421,13 @@ class Entry(UserDict.UserDict):
   the OID as key.
   """
 
-  def __init__(self,schema,entry=None):
+  def __init__(self,schema,dn,entry):
     self._keytuple2attrtype = {}
     self._attrtype2keytuple = {}
     self._s = schema
-    UserDict.UserDict.__init__(self,(entry or {}))
-    self.update(entry or {})
+    self.dn = dn
+    UserDict.UserDict.__init__(self,{})
+    self.update(entry)
 
   def _at2key(self,nameoroid):
     """
