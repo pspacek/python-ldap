@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.36 2002/07/27 13:14:04 stroeder Exp $
+# $Id: setup.py,v 1.37 2002/07/27 13:23:47 stroeder Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
@@ -67,7 +67,7 @@ setup(
 		    define_macros =	LDAP_CLASS.defines + \
               ('ldap_r' in LDAP_CLASS.libs)*[('HAVE_LIBLDAP_R',None)] + \
               ('sasl' in LDAP_CLASS.libs)*[('HAVE_SASL',None)] + \
-              ('ssl' in LDAP_CLASS.libs and 'crypto' in LDAP_CLASS.libs)*[('HAVE_LDAP_START_TLS_S',None)] + \
+              ('ssl' in LDAP_CLASS.libs and 'crypto' in LDAP_CLASS.libs)*[('HAVE_TLS',None)] + \
               [('LDAPMODULE_VERSION', version)]
 		),
 	],

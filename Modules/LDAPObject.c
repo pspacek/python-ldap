@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.35 2002/07/25 22:49:37 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.36 2002/07/27 13:23:47 stroeder Exp $
  */
 
 #include <math.h>
@@ -1053,7 +1053,7 @@ static char doc_search[] = "";
 
 /* ldap_sort_entries */
 
-#ifdef HAVE_LDAP_START_TLS_S
+#ifdef HAVE_TLS
 /* ldap_start_tls_s */
 
 static PyObject*
@@ -1212,7 +1212,7 @@ static PyMethodDef methods[] = {
     {"rename",		(PyCFunction)l_ldap_rename,		METH_VARARGS,	doc_rename},
     {"result",		(PyCFunction)l_ldap_result,		METH_VARARGS,	doc_result},
     {"search",		(PyCFunction)l_ldap_search,		METH_VARARGS,	doc_search},
-#ifdef HAVE_LDAP_START_TLS_S
+#ifdef HAVE_TLS
     {"start_tls_s",	(PyCFunction)l_ldap_start_tls_s,	METH_VARARGS,	doc_start_tls},
 #endif
     {"manage_dsa_it",	(PyCFunction)l_ldap_manage_dsa_it,	METH_VARARGS,	doc_manage_dsa_it},
