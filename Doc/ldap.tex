@@ -1,4 +1,4 @@
-% $Id: ldap.tex,v 1.24 2004/10/13 19:03:04 stroeder Exp $
+% $Id: ldap.tex,v 1.25 2005/03/02 09:32:52 stroeder Exp $
 
 % ==== 1. ====
 % The section prologue.  Give the section a title and provide some
@@ -533,9 +533,9 @@ call does not indicate success.
 % also used to give a filename when generating HTML.
 
 %\noindent
-Instances of ldap.LDAPObject are returned by \function{open()}
-and \function{initialize()}. The connection is automatically unbound and closed 
-when the LDAP object is deleted.
+Instances of \class{ldap.LDAPObject} are returned by \function{initialize()}
+and \function{open()} (deprecated). The connection is automatically unbound
+and closed  when the LDAP object is deleted.
 
 Most methods on LDAP objects initiate an asynchronous request to the
 LDAP server and return a message id that can be used later to retrieve
