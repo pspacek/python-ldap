@@ -1,4 +1,4 @@
-/* $Id: acconfig.h,v 1.2 2000/08/14 00:38:11 leonard Exp $ */
+/* $Id: acconfig.h,v 1.3 2000/08/20 15:01:17 leonard Exp $ */
 @TOP@
 
 /*
@@ -45,3 +45,8 @@
  * Are templates available?
  */
 #undef HAVE_LDAP_INIT_TEMPLATES 
+
+/*
+ * Can we find out the LDAP file descriptor?
+ */
+#undef HAVE_FILENO_LD_SB_SB_SD
