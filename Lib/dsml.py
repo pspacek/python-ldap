@@ -4,13 +4,13 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: dsml.py,v 1.3 2003/08/13 20:10:57 stroeder Exp $
+$Id: dsml.py,v 1.4 2003/08/13 20:11:53 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+.
 """
 
-__version__ = '0.5.0'
+__version__ = '0.5.1'
 
 import string,base64
 
