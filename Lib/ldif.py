@@ -1,5 +1,5 @@
 # python
-# $Id: ldif.py,v 1.4 2001/06/05 14:51:53 stroeder Exp $
+# $Id: ldif.py,v 1.5 2001/07/04 20:59:44 uid32935 Exp $
 
 """
 ldif.py - Various routines for handling LDIF data
@@ -11,7 +11,7 @@ GPL (GNU GENERAL PUBLIC LICENSE) Version 2
 
 __version__ = '0.2.8'
 
-import sys,string,binascii,re
+import string,binascii,re
 
 try:
   from cStringIO import StringIO
