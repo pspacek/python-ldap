@@ -1,6 +1,6 @@
 /* 
  * Options support
- * $Id: options.c,v 1.6 2002/07/25 23:46:01 stroeder Exp $
+ * $Id: options.c,v 1.7 2002/08/04 14:54:26 stroeder Exp $
  */
 
 #include "common.h"
@@ -48,7 +48,6 @@ LDAP_set_option(LDAPObject *self, int option, PyObject *value)
     int res;
     int intval;
     char *strval;
-    double doubleval;
     struct timeval tv;
     void *ptr;
     LDAP *ld;
