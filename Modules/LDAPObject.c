@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.56 2004/05/05 18:02:21 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.57 2004/07/20 11:29:30 stroeder Exp $
  */
 
 #include "Python.h"
@@ -852,8 +852,8 @@ l_ldap_search_ext( LDAPObject* self, PyObject* args )
 }	
 
 
-#if LDAP_VENDOR_VERSION>=20100
-/* ldap_whoami_s (available since OpenLDAP 2.1.x) */
+#if LDAP_VENDOR_VERSION>=20113
+/* ldap_whoami_s (available since OpenLDAP 2.1.13) */
 
 static PyObject*
 l_ldap_whoami_s( LDAPObject* self, PyObject* args )
@@ -987,7 +987,7 @@ static PyMethodDef methods[] = {
 #ifdef HAVE_TLS
     {"start_tls_s",	(PyCFunction)l_ldap_start_tls_s,	METH_VARARGS },
 #endif
-#if LDAP_VENDOR_VERSION>=20100
+#if LDAP_VENDOR_VERSION>=20113
     {"whoami_s",	(PyCFunction)l_ldap_whoami_s,	        METH_VARARGS },
 #endif
     {"manage_dsa_it",	(PyCFunction)l_ldap_manage_dsa_it,	METH_VARARGS },

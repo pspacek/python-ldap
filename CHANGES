@@ -1,4 +1,13 @@
 ----------------------------------------------------------------
+Released 2.0.2 2004-07-xx
+
+Changes since 2.0.1:
+
+Modules:
+* Fixed detecting OpenLDAP libs version for determining
+  whether ldap_whoami_s() is available or not.
+
+----------------------------------------------------------------
 Released 2.0.1 2004-06-29
 
 Changes since 2.0.0:
@@ -376,4 +385,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.94 2004/06/29 13:16:11 stroeder Exp $
+$Id: CHANGES,v 1.95 2004/07/20 11:29:30 stroeder Exp $
