@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.29 2002/08/11 15:24:15 stroeder Exp $
+\$Id: schema.py,v 1.30 2002/08/11 15:42:07 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -505,6 +505,8 @@ def urlfetch(uri,schema_allow=0):
       subschemasubentry_entry = l.read_subschemasubentry_s(
         subschemasubentry_dn,attrs=schema_attrs
       )
+    l.unbind_s()
+    del l
 
   else:
     import urllib,ldif
