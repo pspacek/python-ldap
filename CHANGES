@@ -1,5 +1,5 @@
 ----------------------------------------------------------------
-Released 2.0.0pre19 2003-12-xx
+Released 2.0.0pre19 2004-01-22
 
 Changes since 2.0.0pre18:
 
@@ -16,9 +16,14 @@ Modules/:
   (errors caused by negative error constants in ldap.h)
 
 ldap.ldapobject.LDAPObject:
-* Removed unused methods uncache_entry(), uncache_request(),
+* Removed unused wrapper methods uncache_entry(), uncache_request(),
   url_search(), url_search_st() and url_search_s()
 * New wrapper methods for all the _ext() methods in _ldap.LDAPObject.
+
+ldap.modlist:
+* Some performance optimizations and simplifactions
+  in function modifyModlist()
+
 ----------------------------------------------------------------
 Released 2.0.0pre18 2003-12-09
 
@@ -284,4 +289,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.68 2004/01/20 10:47:45 stroeder Exp $
+$Id: CHANGES,v 1.69 2004/01/22 22:26:56 stroeder Exp $
