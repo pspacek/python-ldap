@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: subentry.py,v 1.13 2003/06/01 12:48:16 stroeder Exp $
+\$Id: subentry.py,v 1.14 2003/06/11 14:58:39 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema
@@ -200,7 +200,10 @@ class SubSchema:
         except KeyError:
           if raise_keyerror:
             raise
-        r_must[at_obj.oid] = at_obj
+          else:
+            r_must[a] = None
+        else:
+          r_must[at_obj.oid] = at_obj
       for a in object_class.may:
         try:
           at_obj = self.sed[AttributeType][self.name2oid[AttributeType].get(a,a)]
@@ -208,8 +211,10 @@ class SubSchema:
           if raise_keyerror:
             raise
           else:
-            continue
-        r_may[at_obj.oid] = at_obj
+            r_may[a] = None
+        else:
+          r_may[at_obj.oid] = at_obj
+
       object_class_oids.extend([
         self.name2oid[ObjectClass].get(o,o)
         for o in object_class.sup
@@ -239,7 +244,8 @@ class SubSchema:
                   try: del l[a]
                   except KeyError: pass
           else:
-            raise KeyError,'No schema element found with name %s' % (a)
+            if raise_keyerror:
+              raise KeyError,'No schema element found with name %s' % (a)
 
     return r_must,r_may # attribute_types()
 
