@@ -2,7 +2,7 @@
 ldapthreadlock.py - mimics LDAPObject class in a thread-safe way
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapthreadlock.py,v 1.16 2001/11/17 17:41:30 stroeder Exp $
+\$Id: ldapthreadlock.py,v 1.17 2001/12/20 20:20:38 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -172,6 +172,13 @@ class LDAPObject:
 
   def modrdn_s(self,dn,newrdn,delold=1):
     msgid = self.modrdn(dn,newrdn,delold)
+    return self.result(msgid)
+
+  def rename(self,dn,newrdn,newSuperior,delold=1):
+    return self._ldap_call(self._l.rename,dn,newrdn,newSuperior,delold)
+
+  def rename_s(self,dn,newrdn,newSuperior,delold=1):
+    msgid = self.rename(dn,newrdn,newSuperior,delold)
     return self.result(msgid)
 
   def result(self,msgid=ldap.RES_ANY,all=1,timeout=-1):
