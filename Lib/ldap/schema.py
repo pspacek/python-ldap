@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 modified by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.15 2002/08/01 09:07:12 aschauer Exp $
+\$Id: schema.py,v 1.16 2002/08/01 09:41:06 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -35,7 +35,6 @@ ALLOW_NONE = 0x00
 ALLOW_ALL = 0x1f
 
 
-
 class SchemaError(Exception): pass
 
 class SCHERR_OUTOFMEM(SchemaError): pass
@@ -57,6 +56,7 @@ class SCHERR_BADSUP(SchemaError): pass
 class SCHERR_DUPOPT(SchemaError): pass
 
 class SCHERR_EMPTY(SchemaError): pass
+
 
 ERRCODE2SCHERR = {
     1:SCHERR_OUTOFMEM,
@@ -82,7 +82,6 @@ def schema_func_wrapper(func,schema_element_str,schema_allow=0):
         func,schema_element_str,schema_allow
         )
     if type(res)==type(0):
-        assert res in ERRCODE2SCHERR.keys()
         raise ERRCODE2SCHERR.get(res,SchemaError)(
             res,schema_element_str
             )
