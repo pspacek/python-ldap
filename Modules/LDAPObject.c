@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.57 2004/07/20 11:29:30 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.58 2004/07/29 13:47:03 stroeder Exp $
  */
 
 #include "Python.h"
@@ -968,6 +968,35 @@ l_ldap_get_option(PyObject* self, PyObject *args)
 }
 
 
+/* ldap_passwd */
+
+static PyObject *
+l_ldap_passwd( LDAPObject* self, PyObject *args )
+{
+    struct berval user;
+    struct berval oldpw;
+    struct berval newpw;
+    PyObject *serverctrls = Py_None;
+    PyObject *clientctrls = Py_None;
+
+    int msgid;
+    int ldaperror;
+
+    if (!PyArg_ParseTuple( args, "s#s#s#|OO", &user.bv_val, &user.bv_len, &oldpw.bv_val, &oldpw.bv_len, &newpw.bv_val, &newpw.bv_len, &serverctrls, &clientctrls ))
+    	return NULL;
+    if (not_valid(self)) return NULL;
+
+    LDAP_BEGIN_ALLOW_THREADS( self );
+    ldaperror = ldap_passwd( self->ldap, &user, &oldpw, &newpw, NULL, NULL, &msgid );
+    LDAP_END_ALLOW_THREADS( self );
+
+    if ( ldaperror!=LDAP_SUCCESS )
+    	return LDAPerror( self->ldap, "ldap_passwd" );
+
+    return PyInt_FromLong( msgid );
+}
+
+
 /* methods */
 
 static PyMethodDef methods[] = {
@@ -989,6 +1018,9 @@ static PyMethodDef methods[] = {
 #endif
 #if LDAP_VENDOR_VERSION>=20113
     {"whoami_s",	(PyCFunction)l_ldap_whoami_s,	        METH_VARARGS },
+#endif
+#if LDAP_VENDOR_VERSION>=20100
+    {"passwd",	        (PyCFunction)l_ldap_passwd,	        METH_VARARGS },
 #endif
     {"manage_dsa_it",	(PyCFunction)l_ldap_manage_dsa_it,	METH_VARARGS },
     {"set_option",	(PyCFunction)l_ldap_set_option,		METH_VARARGS },

@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.81 2004/05/18 18:14:43 stroeder Exp $
+\$Id: ldapobject.py,v 1.82 2004/07/29 13:47:02 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -296,7 +296,7 @@ class SimpleLDAPObject:
 
   def modify_s(self,dn,modlist):
     msgid = self.modify(dn,modlist)
-    self.result(msgid,all=1,timeout=self.timeout)
+    return self.result(msgid,all=1,timeout=self.timeout)
 
   def modrdn(self,dn,newrdn,delold=1):
     """
@@ -316,6 +316,13 @@ class SimpleLDAPObject:
 
   def modrdn_s(self,dn,newrdn,delold=1):
     self.rename_s(dn,newrdn,None,delold)
+
+  def passwd(self,user,oldpw,newpw,serverctrls=None,clientctrls=None):
+    return self._ldap_call(self._l.passwd,user,oldpw,newpw,serverctrls,clientctrls)
+
+  def passwd_s(self,user,oldpw,newpw,serverctrls=None,clientctrls=None):
+    msgid = self.passwd(user,oldpw,newpw,serverctrls,clientctrls)
+    return self.result(msgid,all=1,timeout=self.timeout)
 
   def rename(self,dn,newrdn,newsuperior=None,delold=1,serverctrls=None,clientctrls=None):
     """

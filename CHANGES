@@ -1,9 +1,27 @@
 ----------------------------------------------------------------
+Released 2.0.3 2004-08-xx
+
+Changes since 2.0.2:
+
+* Added support for LDAP Password Modify Extended Operation
+  (see RFC 3062)
+
+Demo/:
+* Added passwd_ext_op.py
+
+Modules/:
+* Added l_ldap_passwd() in LDAPObject.c
+
+Lib/:
+* Added methods passwd() and passwd_s() to
+  ldap.ldapobject.LDAPObject
+
+----------------------------------------------------------------
 Released 2.0.2 2004-07-29
 
 Changes since 2.0.1:
 
-Modules:
+Modules/:
 * Fixed detecting appropriate OpenLDAP libs version for
   determining whether ldap_whoami_s() is available or not.
   This fixes build problems with OpenLDAP libs 2.1.0 up
@@ -387,4 +405,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.96 2004/07/28 23:40:30 stroeder Exp $
+$Id: CHANGES,v 1.97 2004/07/29 13:47:02 stroeder Exp $
