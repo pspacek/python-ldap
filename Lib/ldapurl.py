@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapurl.py,v 1.31 2003/05/24 16:21:40 stroeder Exp $
+\$Id: ldapurl.py,v 1.32 2003/05/26 07:49:07 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -395,9 +395,7 @@ class LDAPUrl:
     if self.attr2extype.has_key(name):
       extype = self.attr2extype[name]
       if self.extensions.has_key(extype):
-        result = unquote(
-          self.extensions[extype].exvalue
-        )
+        result = unquote(self.extensions[extype].exvalue)
       else:
         return None
     else:
