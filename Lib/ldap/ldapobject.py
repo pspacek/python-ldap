@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.66 2003/06/11 10:40:58 stroeder Exp $
+\$Id: ldapobject.py,v 1.67 2003/10/03 12:36:31 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -380,7 +380,13 @@ class SimpleLDAPObject:
         The amount of search results retrieved can be limited with the
         sizelimit parameter if non-zero.
     """
-    return self._ldap_call(self._l.search_ext,base,scope,filterstr,attrlist,attrsonly,timeout,sizelimit)
+    return self._ldap_call(
+      self._l.search_ext,
+      base,scope,filterstr,
+      attrlist,attrsonly,
+      serverctrls,clientctrls,
+      timeout,sizelimit
+    )
 
   def search_ext_s(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0,serverctrls=None,clientctrls=None,timeout=-1,sizelimit=0):
     msgid = self._ldap_call(self._l.search_ext,base,scope,filterstr,attrlist,attrsonly,serverctrls,clientctrls,timeout,sizelimit)
