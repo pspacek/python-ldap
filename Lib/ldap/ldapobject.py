@@ -2,7 +2,7 @@
 ldapobject.py - wraps class _ldap.LDAPObject
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.15 2002/01/20 23:46:35 stroeder Exp $
+\$Id: ldapobject.py,v 1.16 2002/01/21 00:08:27 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -221,12 +221,12 @@ class LDAPObject:
     """
     self._ldap_call(self._l.flush_cache)
 
-  def manage_dsa_it(self,flag):
+  def manage_dsa_it(self,enable):
     """
     manage_dsa_it() -> None
-    Turn on manageDSAit mode on or off (see draft-zeilenga-ldap-namedref)
+    Enable or disable manageDSAit mode (see draft-zeilenga-ldap-namedref)
     """
-    self._ldap_call(self._l.manage_dsa_it,flag)
+    self._ldap_call(self._l.manage_dsa_it,enable)
   
   def modify(self,dn,modlist):
     """
