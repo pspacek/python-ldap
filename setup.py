@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.8 2001/11/13 17:21:22 stroeder Exp $
+# $Id: setup.py,v 1.9 2001/11/14 23:22:18 leonard Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
@@ -70,6 +70,7 @@ setup(
 			'Modules/message.c',
 			'Modules/template.c',
 			'Modules/version.c',
+			'Modules/options.c',
 		    ],
 		    libraries =		LDAP_CLASS.libs,
 		    include_dirs =	['Modules'] + LDAP_CLASS.include_dirs,
