@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.26 2004/12/02 21:41:26 stroeder Exp $
+\$Id: models.py,v 1.27 2005/02/25 16:40:15 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -43,7 +43,7 @@ class SchemaElement:
   
   def __init__(self,schema_element_str=None):
     if schema_element_str:
-      l = split_tokens(schema_element_str)
+      l = split_tokens(schema_element_str,self.token_defaults)
       self.set_id(l[1])
       assert type(self.get_id())==StringType
       d = extract_tokens(l,self.token_defaults)
