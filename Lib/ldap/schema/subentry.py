@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: subentry.py,v 1.17 2003/11/07 17:47:26 stroeder Exp $
+\$Id: subentry.py,v 1.18 2003/11/22 20:17:30 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema
@@ -227,7 +227,7 @@ class SubSchema:
       return self.listall(ObjectClass,[('kind',[2])])
 
   def attribute_types(
-    self,object_class_list,attr_type_filter=None,strict=1,raise_keyerror=1
+    self,object_class_list,attr_type_filter=None,raise_keyerror=1
   ):
     """
     Returns a 2-tuple of all must and may attributes including

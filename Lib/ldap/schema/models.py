@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.22 2003/06/01 12:48:16 stroeder Exp $
+\$Id: models.py,v 1.23 2003/11/22 20:17:30 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -597,7 +597,7 @@ class Entry(UserDict.UserDict):
     ]
 
   def attribute_types(
-    self,attr_type_filter=None,strict=1,raise_keyerror=1
+    self,attr_type_filter=None,raise_keyerror=1
   ):
     """
     Convenience wrapper around SubSchema.attribute_types() which
@@ -605,5 +605,5 @@ class Entry(UserDict.UserDict):
     SubSchema.attribute_types()
     """
     return self._s.attribute_types(
-      self.get('objectClass',[]),attr_type_filter,strict,raise_keyerror
+      self.get('objectClass',[]),attr_type_filter,raise_keyerror
     )
