@@ -2,8 +2,10 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.42 2003/03/17 14:20:29 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.43 2003/10/28 10:32:21 stroeder Exp $
  */
+
+#include "Python.h"
 
 #include <math.h>
 #include <limits.h>

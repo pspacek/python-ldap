@@ -2,8 +2,10 @@
 
 /* 
  * 
- * $Id: schema.c,v 1.4 2002/08/01 09:07:11 aschauer Exp $
+ * $Id: schema.c,v 1.5 2003/10/28 10:32:21 stroeder Exp $
  */
+
+#include "Python.h"
 
 #include "schema.h"
 #include "ldap_schema.h"

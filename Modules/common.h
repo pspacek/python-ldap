@@ -2,8 +2,10 @@
 /*
  * common utility macros
  *
- * $Id: common.h,v 1.2 2001/05/12 08:08:39 leonard Exp $ 
+ * $Id: common.h,v 1.3 2003/10/28 10:32:21 stroeder Exp $ 
  */
+
+#include "Python.h"
 
 #ifndef __h_common 
 #define __h_common 
@@ -23,8 +25,6 @@
 #include <string.h>
 #define streq( a, b ) \
 	( (*(a)==*(b)) && 0==strcmp(a,b) )
-
-#include "Python.h"
 
 void LDAPadd_methods( PyObject*d, PyMethodDef*methods );
 #define PyNone_Check(o) ((o) == Py_None)

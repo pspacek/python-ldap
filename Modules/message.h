@@ -2,11 +2,11 @@
 #ifndef __h_message 
 #define __h_message 
 
-/* $Id: message.h,v 1.1 2000/07/27 16:08:58 leonard Exp $ */
+/* $Id: message.h,v 1.2 2003/10/28 10:32:21 stroeder Exp $ */
 
+#include "Python.h"
 #include "lber.h"
 #include "ldap.h"
-#include "Python.h"
 
 extern PyObject* LDAPmessage_to_python( LDAP*ld, LDAPMessage*m );
 
