@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: functions.py,v 1.15 2003/12/02 17:11:28 stroeder Exp $
+\$Id: functions.py,v 1.16 2003/12/03 09:32:25 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -19,7 +19,7 @@ Basically calls into the LDAP lib are serialized by the module-wide
 lock _ldapmodule_lock.
 """
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 __all__ = [
   'open','initialize','init',
@@ -29,10 +29,14 @@ __all__ = [
 
 import sys,_ldap
 
-from ldap import _trace_level,_trace_file,_trace_stack_limit,_ldap_module_lock,LDAPError
+from ldap import _ldap_module_lock,LDAPError
 
 from ldap.ldapobject import LDAPObject
 
+if __debug__:
+  # Tracing is only supported in debugging mode
+  import traceback
+  from ldap import _trace_level,_trace_file,_trace_stack_limit
 
 def _ldap_function_call(func,*args,**kwargs):
   """
