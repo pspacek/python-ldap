@@ -2,7 +2,7 @@
 ldif - generate and parse LDIF data (see RFC 2849)
 written by Michael Stroeder <michael@stroeder.com>
 
-$Id: ldif.py,v 1.22 2002/01/11 18:27:17 stroeder Exp $
+$Id: ldif.py,v 1.23 2002/01/11 19:16:20 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -177,6 +177,9 @@ class LDIFWriter:
           Either a dictionary holding the LDAP entry {attrtype:record}
           or a list with a modify list like for LDAPObject.modify().
     """
+    if not record:
+      # Don't know what to do with empty records
+      raise ValueError,"LDIF record is not allowed to be empty"
     # Start with line containing the distinguished name
     self._unparseAttrTypeandValue('dn',dn)
     # Dispatch to record type specific writers
