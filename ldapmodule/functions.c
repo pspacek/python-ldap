@@ -2,13 +2,14 @@
 
 /* 
  * functions - functions available at the module level
- * $Id: functions.c,v 1.1 2000/02/01 05:41:27 leonard Exp $
+ * $Id: functions.c,v 1.2 2000/07/26 13:05:40 leonard Exp $
  */
 
 #include "common.h"
 #include "functions.h"
 #include "LDAPObject.h"
 #include "errors.h"
+#include "template.h"
 
 /* ldap_open */
 
@@ -137,6 +138,10 @@ static PyMethodDef methods[] = {
     	doc_explode_dn },
     { "is_ldap_url",	(PyCFunction)l_ldap_is_ldap_url,	METH_VARARGS,
     	doc_is_ldap_url },
+#if defined(HAVE_LDAP_INIT_TEMPLATES)
+    { "init_templates", (PyCFunction)l_init_templates,		METH_VARARGS,
+    	l_init_templates_doc },
+#endif
     { NULL, NULL }
 };
 

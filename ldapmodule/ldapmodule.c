@@ -1,17 +1,17 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 /* 
  * LDAP module
- * $Id: ldapmodule.c,v 1.2 2000/02/10 12:10:15 leonard Exp $
+ * $Id: ldapmodule.c,v 1.3 2000/07/26 13:06:01 leonard Exp $
  */
 
-#include "version.h"
 #include "common.h"
+#include "version.h"
 #include "constants.h"
 #include "errors.h"
 #include "functions.h"
 /* #include "string_translators.h" */
+#include "template.h"
 
-#include "Python.h"
 #include "LDAPObject.h"
 
 /* dummy module methods */
@@ -43,6 +43,10 @@ init_ldap()
 	LDAPinit_errors(d);
 	LDAPinit_functions(d);
 /*	LDAPinit_string_translators(d); */
+
+#if defined(HAVE_LDAP_INIT_TEMPLATES)
+	LDAPinit_template(d);
+#endif
 
 	/* Check for errors */
 	if (PyErr_Occurred())
