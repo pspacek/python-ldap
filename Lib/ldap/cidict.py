@@ -5,10 +5,10 @@ names of variable case.
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: cidict.py,v 1.8 2002/09/07 15:24:48 stroeder Exp $
+$Id: cidict.py,v 1.9 2002/10/22 19:27:32 stroeder Exp $
 """
 
-__version__ = """$Revision: 1.8 $"""
+__version__ = """$Revision: 1.9 $"""
 
 from UserDict import UserDict
 from string import lower
@@ -32,7 +32,9 @@ class cidict(UserDict):
     self.data[lower_key] = value
 
   def __delitem__(self,key):
-    del self.data[lower(key)]
+    lower_key = lower(key)
+    del self._keys[lower_key]
+    del self.data[lower_key]
 
   def update(self,dict):
     for key in dict.keys():
@@ -116,4 +118,5 @@ if __debug__ and __name__ == '__main__':
   cix_items.sort()
   assert cix_items==[('AbCDeF',123),('xYZ',987)],ValueError(repr(cix_items))
   del cix["abcdEF"]
+  assert not cix._keys.has_key("abcdef")
   assert not cix.has_key("AbCDef")
