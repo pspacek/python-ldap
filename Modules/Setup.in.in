@@ -1,5 +1,5 @@
 # David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain.
-# $Id: Setup.in.in,v 1.1 2000/07/27 16:08:58 leonard Exp $
+# $Id: Setup.in.in,v 1.2 2000/08/14 00:42:48 leonard Exp $
 
 *shared*
 
@@ -15,7 +15,7 @@ _ldap  \
 	LDAPObject.o common.o constants.o errors.o functions.o  \
 	ldapmodule.o message.o version.o linkedlist.o template.o \
 	CIDict.o \
-	-DLDAP_REFERRALS \
+	-I. -DLDAP_REFERRALS \
 	@CPPFLAGS@ \
 	@LDFLAGS@ \
 	@LIBS@
