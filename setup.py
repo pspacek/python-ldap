@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.7 2001/11/12 15:39:32 stroeder Exp $
+# $Id: setup.py,v 1.8 2001/11/13 17:21:22 stroeder Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
@@ -50,11 +50,10 @@ setup(
 	#-- Package description
 	name =		'Python-LDAP',
 	version =	version,
-	description =	'API for LDAP C library',
+	description =	'Various LDAP-related Python modules',
 	author =	'David Leonard et al.', 
 	author_email =	'python-ldap-dev@lists.sourceforge.net',
 	url =		'http://python-ldap.sourceforge.net/',
-
 	#-- C extension modules
 	ext_modules = [
 		Extension(
@@ -81,10 +80,11 @@ setup(
 					],
 		),
 	],
-
 	#-- Python modules
 	py_modules = [
-		'ldap',
+                'ldap',
+                'ldap.ldapurl',
+                'ldap.modlist',
 		'ldif',
 		'ldapthreadlock',
 		#'perldap',
