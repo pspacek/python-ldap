@@ -2,7 +2,7 @@
 ldapobject.py - mimics LDAPObject class with some extra features
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.6 2001/12/23 15:48:28 stroeder Exp $
+\$Id: ldapobject.py,v 1.7 2001/12/23 19:32:50 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -29,7 +29,7 @@ The timeout handling is done within the method result() which probably leads
 to less exact timing.
 """
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 __all__ = ['open','initialize','init','get_option','set_option']
 
@@ -374,7 +374,7 @@ class LDAPObject:
     ldap_result = self._ldap_call(self._l.result,msgid,0,0)
 
     while all:
-      while ldap_result==(None,None):
+      while ldap_result[0] is None:
         if (timeout>=0) and (time.time()-start_time>timeout):
           self._ldap_call(self._l.abandon,msgid)
           raise _ldap.TIMELIMIT_EXCEEDED(
