@@ -2,7 +2,7 @@
 ldapurl - handling of LDAP URLs as described in RFC 2255
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapurl.py,v 1.8 2002/07/29 21:37:48 stroeder Exp $
+\$Id: ldapurl.py,v 1.9 2002/08/01 12:11:21 stroeder Exp $
 
 This module is part of the python-ldap project:
 http://python-ldap.sourceforge.net
@@ -16,7 +16,7 @@ are assumed to be Unicode objects, string methods are used instead of
 module string and list comprehensions are used.
 """
 
-__version__ = '0.4.0'
+__version__ = '0.5.0'
 
 __all__ = [
   # constants
@@ -184,8 +184,8 @@ class LDAPUrl:
     hostport='',
     dn=None,
     attrs=None,
-    scope=LDAP_SCOPE_BASE,
-    filterstr='(objectclass=*)',
+    scope=None,
+    filterstr=None,
     extensions = {},
     charset='utf-8',
     who=None,
