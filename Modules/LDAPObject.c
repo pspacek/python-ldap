@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.3 2000/08/13 15:03:25 leonard Exp $
+ * $Id: LDAPObject.c,v 1.4 2000/08/14 00:38:11 leonard Exp $
  */
 
 #include <math.h>
@@ -1119,7 +1119,12 @@ l_ldap_modrdn( LDAPObject* self, PyObject *args )
 #if defined(HAVE_LDAP_MODRDN2)
     msgid = ldap_modrdn2( self->ldap, dn, newrdn, delold );
 #else
+#if    defined(LDAP_MODRDN_3ARGS)
+    /* XXX the delold parameter is being ignored! should tell user */
+    msgid = ldap_modrdn( self->ldap, dn, newrdn );
+#else
     msgid = ldap_modrdn( self->ldap, dn, newrdn, delold );
+#endif
 #endif
     LDAP_END_ALLOW_THREADS( self );
     if (msgid == -1)
@@ -1144,7 +1149,12 @@ l_ldap_modrdn_s( LDAPObject* self, PyObject *args )
 #if defined(HAVE_LDAP_MODRDN2_S)
     result = ldap_modrdn2_s( self->ldap, dn, newrdn, delold );
 #else
+#if    defined(LDAP_MODRDN_S_3ARGS)
+    /* XXX the delold parameter is being ignored! should tell user */
+    result = ldap_modrdn_s( self->ldap, dn, newrdn );
+#else
     result = ldap_modrdn_s( self->ldap, dn, newrdn, delold );
+#endif
 #endif
     LDAP_END_ALLOW_THREADS( self );
 

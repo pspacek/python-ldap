@@ -1,4 +1,4 @@
-/* $Id: acconfig.h,v 1.1 2000/07/27 16:08:57 leonard Exp $ */
+/* $Id: acconfig.h,v 1.2 2000/08/14 00:38:11 leonard Exp $ */
 @TOP@
 
 /*
@@ -20,6 +20,15 @@
  * ldap_set_rebind_proc() with three arguments (Solaris, not OpenLDAP)
  */
 #undef LDAP_SET_REBIND_PROC_3ARGS
+
+/*
+ * ldap_modrdn_s is documented in the RFC as having 4 args, but OpenLDAP
+ * and I think some other libraries don't have the 4th arg - instead
+ * they supply a separate function (ldap_modrdn2_s). This is just in case
+ * they are broken and don't supply the 2nd form.
+ */
+#undef LDAP_MODRDN_3ARGS
+#undef LDAP_MODRDN_S_3ARGS
 
 /*
  * 'LDAP' is an opaque data type, struct ldap, in ldap.h (iSolaris, Netscape)
