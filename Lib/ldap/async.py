@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: async.py,v 1.16 2003/05/26 07:41:13 stroeder Exp $
+\$Id: async.py,v 1.17 2003/05/26 07:48:15 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -223,11 +223,13 @@ class LDIFWriter(FileWriter):
         Either a file-like object or a ldif.LDIFWriter instance
         used for output
     """
+    import ldif
     if isinstance(writer_obj,file):
-      import ldif
       self._ldif_writer = ldif.LDIFWriter(writer_obj)
-    else:
+    elif isinstance(writer_obj,ldif.LDIFWriter):
       self._ldif_writer = writer_obj
+    else:
+      raise TypeError,"Argument writer_obj must either be a file-like object or a ldif.LDIFWriter instance"
     FileWriter.__init__(self,l,self._ldif_writer._output_file,headerStr,footerStr)
 
   def _processSingleResult(self,resultType,resultItem):
