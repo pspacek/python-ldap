@@ -1,7 +1,7 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 /* 
  * LDAP module
- * $Id: ldapmodule.c,v 1.1 2000/07/27 16:08:58 leonard Exp $
+ * $Id: ldapmodule.c,v 1.2 2001/03/09 03:36:05 jlt63 Exp $
  */
 
 #include "common.h"
@@ -22,12 +22,12 @@ static PyMethodDef methods[]  = {
 
 /* module initialisation */
 
-void
+DL_EXPORT(void)
 init_ldap()
 {
 	PyObject *m, *d;
 
-#ifdef WIN32
+#if defined(WIN32) || defined(__CYGWIN__)
 	/* See http://www.python.org/doc/FAQ.html#3.24 */
 	LDAP_Type.ob_type = &PyType_Type;
 #endif

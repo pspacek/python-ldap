@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.8 2000/10/19 08:25:14 leonard Exp $
+ * $Id: LDAPObject.c,v 1.9 2001/03/09 03:36:05 jlt63 Exp $
  */
 
 #include <math.h>
@@ -1842,7 +1842,7 @@ setattr( LDAPObject* self, char* name, PyObject* value )
 /* type entry */
 
 PyTypeObject LDAP_Type = {
-#ifdef WIN32
+#if defined(WIN32) || defined(__CYGWIN__)
 	/* see http://www.python.org/doc/FAQ.html#3.24 */
 	PyObject_HEAD_INIT(NULL)
 #else /* ! WIN32 */
