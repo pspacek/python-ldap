@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.62 2003/05/18 21:48:55 stroeder Exp $
+\$Id: ldapobject.py,v 1.63 2003/05/18 21:50:29 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -63,6 +63,7 @@ class SimpleLDAPObject:
     self._ldap_object_lock = self._ldap_lock()
     self._l = ldap._ldap_function_call(_ldap.initialize,uri)
     self.timeout = -1
+    self.protocol_version = ldap.VERSION3
 
   def _ldap_lock(self):
     if ldap.LIBLDAP_R:
