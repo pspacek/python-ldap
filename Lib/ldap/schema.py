@@ -2,7 +2,7 @@
 schema.py - support for subSchemaSubEntry information
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: schema.py,v 1.58 2002/09/01 15:55:27 stroeder Exp $
+\$Id: schema.py,v 1.59 2002/09/02 07:37:30 stroeder Exp $
 """
 
 __version__ = '0.1.0'
@@ -648,6 +648,10 @@ class SubSchema(UserDict):
       # 2. Pass: Register all sup references
       for se_oid in avail_se:
         se_obj = self[se_oid]
+        if se_obj.__class__!=schema_element_class:
+          # Ignore schema elements not matching schema_element_class.
+          # This helps with falsely assigned OIDs.
+          continue
         assert se_obj.__class__==schema_element_class, \
           "Schema element referenced by %s must be of class %s but was %s" % (
             se_oid,schema_element_class.__name__,se_obj.__class__
