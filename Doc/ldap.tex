@@ -1,4 +1,4 @@
-% $Id: ldap.tex,v 1.6 2002/02/20 16:17:16 stroeder Exp $
+% $Id: ldap.tex,v 1.7 2002/07/02 14:33:20 stroeder Exp $
 
 % ==== 1. ====
 % The section prologue.  Give the section a title and provide some
@@ -835,18 +835,6 @@ Further invocation of methods on the object will yield exceptions.
 
 The \method{unbind()} and \method{unbind_s()} methods are both
 synchronous in nature
-\end{methoddesc}
-
-%%------------------------------------------------------------
-%% url_search
-
-\begin{methoddesc}[LDAP]{url_search_s}{url \optional{, attrsonly=\constant{0}}}
-       \methodline[LDAP]{url_search_s}{url \optional{, attrsonly=\constant{0} \optional{, timeout=\constant{-1}}}}
-These routine works much like the \method{search()} family of methods, 
-except that many of the search parameters are extracted from the \var{url}
-argument.
-
-LDAP URLs are fully described in \rfc{2255}.
 \end{methoddesc}
 
 \subsubsection{LDAP options}
