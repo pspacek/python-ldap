@@ -5,7 +5,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: dsml.py,v 1.7 2003/11/22 20:02:37 stroeder Exp $
+$Id: dsml.py,v 1.8 2004/06/16 18:04:32 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+.
@@ -200,7 +200,7 @@ else:
         self._oc_value = ''
       # Unhandled tags
       else:
-        raise ValueError,'Unknown tag' % (raw_name)
+        raise ValueError,'Unknown tag %s' % (raw_name)
 
     def endElement(self,raw_name):
       assert raw_name.startswith('dsml:'),'Illegal name'
