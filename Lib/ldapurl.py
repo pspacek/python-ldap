@@ -2,7 +2,7 @@
 ldapurl - handling of LDAP URLs as described in RFC 2255
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapurl.py,v 1.9 2002/08/01 12:11:21 stroeder Exp $
+\$Id: ldapurl.py,v 1.10 2002/08/01 13:50:27 stroeder Exp $
 
 This module is part of the python-ldap project:
 http://python-ldap.sourceforge.net
@@ -319,7 +319,7 @@ class LDAPUrl:
       hostport = quote_plus(self.hostport)
     else:
       hostport = self.hostport
-    return '%s://%s' % (self.urlscheme,self.hostport)
+    return '%s://%s' % (self.urlscheme,hostport)
 
   def unparse(self,charset=None,urlEncode=0):
     """
