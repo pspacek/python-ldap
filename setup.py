@@ -1,16 +1,12 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.18 2002/02/01 11:38:31 stroeder Exp $
+# $Id: setup.py,v 1.19 2002/02/01 13:25:24 stroeder Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
 import sys,string
 
-sys.path.insert(0,'Lib/')
-
-import ldap
-
 #-- Release version of Python-ldap
-version = ldap.__version__
+version = '2.0.0pre03'
 
 #-- A class describing the features and requirements of OpenLDAP 2.0
 class OpenLDAP2:
