@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.23 2003/11/22 20:17:30 stroeder Exp $
+\$Id: models.py,v 1.24 2004/01/19 19:12:09 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -593,7 +593,7 @@ class Entry(UserDict.UserDict):
   def items(self):
     return [
       (k,self[k])
-      for k in self._keytuple2attrtype.values()
+      for k in self.keys()
     ]
 
   def attribute_types(
