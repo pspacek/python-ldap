@@ -4,7 +4,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: setup.py,v 1.50 2003/05/01 14:46:54 stroeder Exp $
+$Id: setup.py,v 1.51 2003/05/23 18:02:31 stroeder Exp $
 """
 
 from distutils.core import setup, Extension
@@ -52,7 +52,7 @@ setup(
 	name =		'python-ldap',
 	version =	version,
 	description =	'Various LDAP-related Python modules',
-	author =	'David Leonard et al.', 
+	author =	'David Leonard, Michael Stroeder, et al.',
 	author_email =	'python-ldap-dev@lists.sourceforge.net',
 	url =		'http://python-ldap.sourceforge.net/',
 	#-- C extension modules
@@ -102,7 +102,8 @@ setup(
 		'ldap.schema.subentry',
 		'ldap.schema.tokenizer',
 	],
-	#-- where to find the python modules
-	package_dir = { '': 'Lib' },
+	package_dir = {
+          '': 'Lib',
+        },
 )
 
