@@ -3,10 +3,12 @@ This is a convenience wrapper for dictionaries
 returned from LDAP servers containing attribute
 names of variable case.
 
-$Id: cidict.py,v 1.5 2002/08/31 16:24:01 stroeder Exp $
+See http://python-ldap.sourceforge.net for details.
+
+$Id: cidict.py,v 1.6 2002/09/06 07:15:00 stroeder Exp $
 """
 
-__version__ = """$Revision: 1.5 $"""
+__version__ = """$Revision: 1.6 $"""
 
 from UserDict import UserDict
 from string import lower

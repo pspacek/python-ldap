@@ -1,5 +1,11 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.41 2002/09/05 13:00:50 stroeder Exp $
+"""
+setup.py - Setup package with the help Python's DistUtils
+
+See http://python-ldap.sourceforge.net for details.
+
+$Id: setup.py,v 1.42 2002/09/06 07:14:58 stroeder Exp $
+"""
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser

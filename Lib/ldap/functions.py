@@ -2,10 +2,9 @@
 functions.py - wraps functions of module _ldap
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: functions.py,v 1.12 2002/08/02 17:47:25 stroeder Exp $
+See http://python-ldap.sourceforge.net for details.
 
-License:
-Public domain. Do anything you want with this module.
+\$Id: functions.py,v 1.13 2002/09/06 07:15:00 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x

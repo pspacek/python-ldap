@@ -2,10 +2,9 @@
 ldapobject.py - wraps class _ldap.LDAPObject
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.43 2002/09/01 12:05:15 stroeder Exp $
+See http://python-ldap.sourceforge.net for details.
 
-License:
-Public domain. Do anything you want with this module.
+\$Id: ldapobject.py,v 1.44 2002/09/06 07:15:00 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x

@@ -2,10 +2,9 @@
 ldif - generate and parse LDIF data (see RFC 2849)
 written by Michael Stroeder <michael@stroeder.com>
 
-$Id: ldif.py,v 1.24 2002/09/05 17:18:39 stroeder Exp $
+See http://python-ldap.sourceforge.net for details.
 
-License:
-Public domain. Do anything you want with this module.
+$Id: ldif.py,v 1.25 2002/09/06 07:14:59 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.

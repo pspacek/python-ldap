@@ -1,8 +1,10 @@
 """
-ldap.schema.subentry -  subschema subentry
+ldap.schema.subentry -  subschema subentry handling
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: subentry.py,v 1.2 2002/09/05 21:47:46 stroeder Exp $
+See http://python-ldap.sourceforge.net for details.
+
+\$Id: subentry.py,v 1.3 2002/09/06 07:15:01 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema

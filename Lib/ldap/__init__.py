@@ -1,4 +1,11 @@
-# $Id: __init__.py,v 1.14 2002/09/01 12:05:15 stroeder Exp $
+"""
+ldap - base module
+written by Michael Stroeder <michael@stroeder.com>
+
+See http://python-ldap.sourceforge.net for details.
+
+$Id: __init__.py,v 1.15 2002/09/06 07:14:59 stroeder Exp $
+"""
 
 __version__ = '2.0.0pre06'
 

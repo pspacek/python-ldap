@@ -2,7 +2,9 @@
 sasl.py - support for SASL mechanism
 written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
-\$Id: sasl.py,v 1.2 2002/05/04 18:47:23 stroeder Exp $
+See http://python-ldap.sourceforge.net for details.
+
+\$Id: sasl.py,v 1.3 2002/09/06 07:15:01 stroeder Exp $
 
 Description:
 The ldap.sasl module provides SASL authentication classes.
@@ -12,9 +14,6 @@ LDAPObject's sasl_bind_s() method.
 
 Implementing support for new sasl mechanism is very easy --- see
 the examples of digest_md5 and gssapi.
-
-License:
-Public domain. Do anything you want with this module.
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x

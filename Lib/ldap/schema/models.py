@@ -2,7 +2,9 @@
 schema.py - support for subSchemaSubEntry information
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: models.py,v 1.3 2002/09/05 21:49:04 stroeder Exp $
+See http://python-ldap.sourceforge.net for details.
+
+\$Id: models.py,v 1.4 2002/09/06 07:15:01 stroeder Exp $
 """
 
 import ldap.cidict

@@ -2,13 +2,9 @@
 ldap.async - handle async LDAP operations
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: async.py,v 1.12 2002/07/12 17:08:07 stroeder Exp $
+See http://python-ldap.sourceforge.net for details.
 
-This module is part of the python-ldap project:
-http://python-ldap.sourceforge.net
-
-License:
-Public domain. Do anything you want with this module.
+\$Id: async.py,v 1.13 2002/09/06 07:15:00 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.

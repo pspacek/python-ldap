@@ -1,10 +1,10 @@
 """
-ldap.schema.tokenizer
+ldap.schema.tokenizer - Low-level parsing functions for schema element strings
 written by Michael Stroeder <michael@stroeder.com>
 
-Low-level parsing functions for schema element strings
+See http://python-ldap.sourceforge.net for details.
 
-\$Id: tokenizer.py,v 1.2 2002/09/05 21:48:25 stroeder Exp $
+\$Id: tokenizer.py,v 1.3 2002/09/06 07:15:01 stroeder Exp $
 """
 
 def split_tokens(s):
