@@ -2,7 +2,7 @@
 
 /* 
  * functions - functions available at the module level
- * $Id: functions.c,v 1.5 2001/11/11 18:41:58 jajcus Exp $
+ * $Id: functions.c,v 1.6 2001/11/12 14:58:13 jajcus Exp $
  */
 
 #include "common.h"
@@ -54,7 +54,6 @@ static char doc_open[] =
 "\tThis function is depreciated. init() or initialize() should be used instead.";
 
 
-#if LDAP_API_VERSION > 2000
 /* ldap_init */
 
 static PyObject*
@@ -124,8 +123,6 @@ static char doc_initialize[] =
 "\tReturns an LDAP object for new connection to LDAP server.\n"
 "\tThe actual connection open will occur when the first operation is attempted.\n"
 "\trepresentative of this.";
-
-#endif /* LDAP_API_VERSION > 2000 */
 
 /* ldap_dn2ufn */
 
