@@ -2,7 +2,7 @@
 ldapobject.py - mimics LDAPObject class with some extra features
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.2 2001/12/21 17:49:07 jajcus Exp $
+\$Id: ldapobject.py,v 1.3 2001/12/21 17:53:04 jajcus Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -16,8 +16,8 @@ Compability:
   thread support (module threading is imported).
 
 Usage:
-You can simply use function open() / intialize() of this module
-instead of function open() / intialize() of module ldap to create
+You can simply use function open() / initialize() of this module
+instead of function open() / initialize() of module ldap to create
 an instance of LDAPObject class.
 
 Basically calls into the LDAP lib are serialized by the module-wide
@@ -80,7 +80,7 @@ class LDAPObject:
     self._trace_level = trace_level
     self._trace_file = trace_file
     if uri!=None:
-      self._l = self._ldap_call(_ldap.intialize,uri)
+      self._l = self._ldap_call(_ldap.initialize,uri)
     elif host!=None:
       self._l = self._ldap_call(_ldap.open,host)
     else:
