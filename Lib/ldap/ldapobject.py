@@ -2,7 +2,7 @@
 ldapobject.py - wraps class _ldap.LDAPObject
 written by Michael Stroeder <michael@stroeder.com>
 
-\$Id: ldapobject.py,v 1.41 2002/08/22 13:19:56 stroeder Exp $
+\$Id: ldapobject.py,v 1.42 2002/08/22 17:18:27 stroeder Exp $
 
 License:
 Public domain. Do anything you want with this module.
@@ -578,11 +578,15 @@ class SimpleLDAPObject:
     """
     Returns the sub schema sub entry's data
     """
-    return self.search_s(
+    r = self.search_s(
       subschemasubentry_dn,ldap.SCOPE_BASE,
       '(objectClass=subschema)',
       attrs
-    )[0][1]
+    )
+    if r:
+      return r[0][1]
+    else:
+      return None
 
 
 class NonblockingLDAPObject(SimpleLDAPObject):
