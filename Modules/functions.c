@@ -2,7 +2,7 @@
 
 /* 
  * functions - functions available at the module level
- * $Id: functions.c,v 1.11 2001/11/14 23:22:18 leonard Exp $
+ * $Id: functions.c,v 1.12 2001/11/14 23:31:33 leonard Exp $
  */
 
 #include "common.h"
@@ -10,7 +10,6 @@
 #include "LDAPObject.h"
 #include "errors.h"
 #include "template.h"
-#include "CIDict.h"
 #include "options.h"
 
 static short default_ldap_port(void);

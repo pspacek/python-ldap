@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# $Id: setup.py,v 1.9 2001/11/14 23:22:18 leonard Exp $
+# $Id: setup.py,v 1.10 2001/11/14 23:31:33 leonard Exp $
 
 from distutils.core import setup, Extension
 from ConfigParser import ConfigParser
@@ -13,7 +13,7 @@ class OpenLDAP2:
 	library_dirs =	[ ]
 	include_dirs =	[ ]
 	libs =		['ldap', 'lber']
-	defines =	[#('USE_CIDICT', None),
+	defines =	[
 			 #('WITH_KERBEROS', None),
 			 #('HAVE_DES_SETKEY', None),
 			 ('LDAP_TYPE_IS_OPAQUE', None),
@@ -59,7 +59,6 @@ setup(
 		Extension(
 		    '_ldap',
 		    [
-			'Modules/CIDict.c',
 			'Modules/LDAPObject.c',
 			'Modules/common.c',
 			'Modules/constants.c',

@@ -1,13 +1,12 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 /*
  * LDAPMessageObject - wrapper around an LDAPMessage*
- * $Id: message.c,v 1.9 2001/11/12 14:58:13 jajcus Exp $
+ * $Id: message.c,v 1.10 2001/11/14 23:31:33 leonard Exp $
  */
 
 #include "common.h"
 #include "message.h"
 #include "errors.h"
-#include "CIDict.h"
 
 PyObject*
 LDAPmessage_to_python( LDAP*ld, LDAPMessage*m )
@@ -43,11 +42,7 @@ LDAPmessage_to_python( LDAP*ld, LDAPMessage*m )
 	     return LDAPerror( ld, "ldap_get_dn" );
 	 }
 
-#ifdef USE_CIDICT
-	 attrdict = CIDict_New();
-#else /* use standard python dictionary */
 	 attrdict = PyDict_New();
-#endif /* !CIDICT */
 	 if (attrdict == NULL) {
 		Py_DECREF(result);
 		ldap_msgfree( m );
