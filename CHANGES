@@ -3,6 +3,9 @@ Released 2.0.0pre12 2003-05-xx
 
 Changes since 2.0.0pre11:
 
+New module ldap.filter:
+* New function escape_filter_chars()
+
 ldap.ldapobject:
 * Trace log writes LDAP URI of connection instead of module name
 * search_s() passes self.timeout as argument timeout when
@@ -128,4 +131,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.21 2003/05/08 12:10:11 stroeder Exp $
+$Id: CHANGES,v 1.22 2003/05/11 13:54:35 stroeder Exp $
