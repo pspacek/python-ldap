@@ -1,4 +1,12 @@
 ----------------------------------------------------------------
+Released 2.0.4 2004-10-xx
+
+Changes since 2.0.3:
+
+Modules/:
+* Applied some fixes for 64-bit platforms to LDAPObject.c
+
+----------------------------------------------------------------
 Released 2.0.3 2004-10-06
 
 Changes since 2.0.2:
@@ -405,4 +413,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.98 2004/10/06 19:02:42 stroeder Exp $
+$Id: CHANGES,v 1.99 2004/10/06 19:45:17 stroeder Exp $
