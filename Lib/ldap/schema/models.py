@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.27 2005/02/25 16:40:15 stroeder Exp $
+\$Id: models.py,v 1.28 2005/06/03 10:49:56 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -22,7 +22,6 @@ if __debug__:
 NOT_HUMAN_READABLE_LDAP_SYNTAXES = {
   '1.3.6.1.4.1.1466.115.121.1.4':None,  # Audio
   '1.3.6.1.4.1.1466.115.121.1.5':None,  # Binary
-  '1.3.6.1.4.1.1466.115.121.1.6':None,  # Bit String
   '1.3.6.1.4.1.1466.115.121.1.8':None,  # Certificate
   '1.3.6.1.4.1.1466.115.121.1.9':None,  # Certificate List
   '1.3.6.1.4.1.1466.115.121.1.10':None, # Certificate Pair
