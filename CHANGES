@@ -1,14 +1,14 @@
 ----------------------------------------------------------------
 Released 2.0.8 2005-06-xx
 
+Changes since 2.0.7:
+
 Lib:/
 - Added classes in module ldif to ldif.__all__ to fix
   from ldif import *
 - Removed BitString syntax from
   ldap.schema.models.NOT_HUMAN_READABLE_LDAP_SYNTAXES
   since the LDAP encoding is in fact human-readable
-
-Changes since 2.0.7:
 
 ----------------------------------------------------------------
 Released 2.0.7 2005-04-29
@@ -493,4 +493,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.119 2005/06/03 10:49:56 stroeder Exp $
+$Id: CHANGES,v 1.120 2005/06/03 10:56:21 stroeder Exp $
