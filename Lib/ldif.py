@@ -4,19 +4,24 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.36 2004/05/04 22:28:42 stroeder Exp $
+$Id: ldif.py,v 1.37 2005/06/03 10:45:20 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
 """
 
-__version__ = '0.5.2'
+__version__ = '0.5.3'
 
 __all__ = [
   # constants
   'ldif_pattern',
   # functions
   'AttrTypeandValueLDIF','CreateLDIF','ParseLDIF',
+  # classes
+  'LDIFWriter',
+  'LDIFParser',
+  'LDIFRecordList',
+  'LDIFCopy',
 ]
 
 import string,urlparse,urllib,base64,re,types
