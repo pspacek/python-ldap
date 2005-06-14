@@ -1,7 +1,7 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 /* 
  * LDAP module
- * $Id: ldapmodule.c,v 1.6 2004/10/06 21:26:07 stroeder Exp $
+ * $Id: ldapmodule.c,v 1.7 2005/06/14 17:49:14 stroeder Exp $
  */
 
 #include "common.h"
@@ -10,6 +10,7 @@
 #include "errors.h"
 #include "functions.h"
 #include "schema.h"
+#include "ldapcontrol.h"
 
 #include "LDAPObject.h"
 
@@ -43,6 +44,7 @@ init_ldap()
 	LDAPinit_errors(d);
 	LDAPinit_functions(d);
 	LDAPinit_schema(d);
+	LDAPinit_control(d);
 
 	/* Check for errors */
 	if (PyErr_Occurred())

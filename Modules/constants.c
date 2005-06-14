@@ -2,7 +2,7 @@
 
 /* 
  * constants defined for LDAP
- * $Id: constants.c,v 1.23 2004/11/09 01:13:43 stroeder Exp $
+ * $Id: constants.c,v 1.24 2005/06/14 17:49:14 stroeder Exp $
  */
 
 #include "common.h"
@@ -231,6 +231,10 @@ LDAPinit_constants( PyObject* d )
 	obj = PyInt_FromLong(0);
 #endif
 	PyDict_SetItemString( d, "TLS_AVAIL", obj );
+	Py_DECREF(obj);
+
+	obj = PyString_FromString(LDAP_CONTROL_PAGE_OID);
+	PyDict_SetItemString( d, "LDAP_CONTROL_PAGE_OID", obj );
 	Py_DECREF(obj);
 
 }
