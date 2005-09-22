@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.90 2005/06/14 17:49:13 stroeder Exp $
+\$Id: ldapobject.py,v 1.91 2005/09/22 04:26:12 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -578,7 +578,7 @@ class SimpleLDAPObject:
       r = self.search_s(
         dn,ldap.SCOPE_BASE,'(objectClass=*)',['subschemaSubentry']
       )
-    except (ldap.NO_SUCH_OBJECT,ldap.NO_SUCH_ATTRIBUTE):
+    except (ldap.NO_SUCH_OBJECT,ldap.NO_SUCH_ATTRIBUTE,ldap.INSUFFICIENT_ACCESS):
       r = []
     except ldap.UNDEFINED_TYPE:
       return None

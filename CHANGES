@@ -1,4 +1,16 @@
 ----------------------------------------------------------------
+Released 2.0.10 2005-09-xx
+
+Changes since 2.0.9:
+
+Lib/
+* Switched back to old implementation of
+  ldap.schema.tokenizer.split_tokens() since the new one
+  had a bug which deletes the spaces from DESC
+* ldap.INSUFFICIENT_ACCESS is now ignored in 
+  ldap.ldapobject.LDAPObject.search_subschemasubentry_s()
+
+----------------------------------------------------------------
 Released 2.0.9 2005-07-28
 
 Changes since 2.0.8:
@@ -509,4 +521,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.126 2005/07/28 12:58:27 stroeder Exp $
+$Id: CHANGES,v 1.127 2005/09/22 04:26:10 stroeder Exp $
