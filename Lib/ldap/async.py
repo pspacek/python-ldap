@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: async.py,v 1.22 2005/06/21 14:59:47 stroeder Exp $
+\$Id: async.py,v 1.23 2005/09/23 16:56:38 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -82,7 +82,7 @@ class AsyncSearchHandler:
         See parameter attrsonly of method LDAPObject.search()
     timeout
         Maximum time the server shall use for search operation
-    sizeLimit
+    sizelimit
         Maximum number of entries a server should return
         (request client-side limit)
     serverctrls
