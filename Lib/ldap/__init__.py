@@ -4,10 +4,11 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: __init__.py,v 1.45 2005/09/23 08:55:53 stroeder Exp $
+$Id: __init__.py,v 1.46 2005/11/03 09:09:54 stroeder Exp $
 """
 
-__version__ = '2.0.10'
+# This is also the overall release version number
+__version__ = '2.0.11'
 
 import sys
 
