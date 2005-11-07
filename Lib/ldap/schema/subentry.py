@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: subentry.py,v 1.19 2003/11/28 07:41:47 stroeder Exp $
+\$Id: subentry.py,v 1.20 2005/11/07 11:46:30 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema
@@ -357,22 +357,20 @@ class SubSchema:
     if attr_type_filter:
       for l in [r_must,r_may]:
         for a in l.keys():
-          if self.sed[AttributeType].has_key(a):
-            for afk,afv in attr_type_filter:
+          for afk,afv in attr_type_filter:
+            try:
               schema_attr_type = self.sed[AttributeType][a]
-              try:
-                if not getattr(schema_attr_type,afk) in afv:
-                  del l[a]
-                  break
-              except AttributeError:
-                if raise_keyerror:
-                  raise
-                else:
-                  try: del l[a]
-                  except KeyError: pass
-          else:
-            if raise_keyerror:
-              raise KeyError,'No schema element found with name %s' % (a)
+            except KeyError:
+              if raise_keyerror:
+                raise KeyError,'No attribute type found in sub schema by name %s' % (a)
+              # If there's no schema element for this attribute type
+              # but still KeyError is to be ignored we filter it away
+              del l[a]
+              break
+            else:
+              if not getattr(schema_attr_type,afk) in afv:
+                del l[a]
+                break
 
     return r_must,r_may # attribute_types()
 
