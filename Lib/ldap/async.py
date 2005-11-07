@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: async.py,v 1.23 2005/09/23 16:56:38 stroeder Exp $
+\$Id: async.py,v 1.24 2005/11/07 11:43:00 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -179,6 +179,22 @@ class List(AsyncSearchHandler):
 
   def _processSingleResult(self,resultType,resultItem):
     self.allResults.append((resultType,resultItem))
+
+
+class Dict(AsyncSearchHandler):
+  """
+  Class for collecting all search results into a dictionary {dn:entry}
+  """
+
+  def __init__(self,l):
+    AsyncSearchHandler.__init__(self,l)
+    self.allEntries = {}
+
+  def _processSingleResult(self,resultType,resultItem):
+    if _entryResultTypes.has_key(resultType):
+      # Search continuations are ignored
+      dn,entry = resultItem    
+      self.allEntries[dn] = entry
 
 
 class FileWriter(AsyncSearchHandler):
