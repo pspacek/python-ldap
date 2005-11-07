@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.37 2005/06/03 10:45:20 stroeder Exp $
+$Id: ldif.py,v 1.38 2005/11/07 11:44:48 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -55,7 +55,6 @@ for c in CHANGE_TYPES:
 
 SAFE_STRING_PATTERN = '(^(\000|\n|\r| |:|<)|[\000\n\r\200-\377]+|[ ]+$)'
 safe_string_re = re.compile(SAFE_STRING_PATTERN)
-
 
 def is_dn(s):
   """
