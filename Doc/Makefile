@@ -1,6 +1,6 @@
-# $Id: Makefile,v 1.12 2005/06/21 15:01:45 stroeder Exp $
+# $Id: Makefile,v 1.13 2005/11/07 11:43:57 stroeder Exp $
 
-PYTHONSRC=	/home/michael/src/Python-2.4.1
+PYTHONSRC=	/home/michael/src/Python-2.4.2
 DOCTOOLSDIR=	$(PYTHONSRC)/Doc/tools
 PAPER=		a4
 DVIPS=		dvips -N0 -t $(PAPER)
