@@ -2,7 +2,7 @@
 
 /*
  * errors that arise from ldap use
- * $Id: errors.c,v 1.13 2004/03/29 16:22:14 stroeder Exp $
+ * $Id: errors.c,v 1.14 2005/11/17 20:49:28 stroeder Exp $
  *
  * Most errors become their own exception
  */
@@ -17,17 +17,9 @@ LDAPexception_class;
 
 /* list of error objects */
 
-
-#if LDAP_VENDOR_VERSION>=20200
-  /* OpenLDAP 2.2+ defines negative error constants */
-  #define LDAP_ERROR_MIN          LDAP_REFERRAL_LIMIT_EXCEEDED
-  #define LDAP_ERROR_MAX          LDAP_OTHER
-  #define LDAP_ERROR_OFFSET       -LDAP_ERROR_MIN
-#else
-  #define LDAP_ERROR_MIN          0
-  #define LDAP_ERROR_MAX          LDAP_REFERRAL_LIMIT_EXCEEDED
-  #define LDAP_ERROR_OFFSET       0
-#endif
+#define LDAP_ERROR_MIN          LDAP_REFERRAL_LIMIT_EXCEEDED
+#define LDAP_ERROR_MAX          LDAP_OTHER
+#define LDAP_ERROR_OFFSET       -LDAP_ERROR_MIN
 
 static PyObject* errobjects[ LDAP_ERROR_MAX-LDAP_ERROR_MIN+1 ];
 

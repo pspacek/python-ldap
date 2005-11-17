@@ -1,6 +1,6 @@
 /* 
  * Options support
- * $Id: options.c,v 1.13 2005/03/01 20:16:38 stroeder Exp $
+ * $Id: options.c,v 1.14 2005/11/17 20:49:28 stroeder Exp $
  */
 
 #include "common.h"
@@ -124,12 +124,6 @@ LDAP_set_option(LDAPObject *self, int option, PyObject *value)
             if (ptr == NULL)
                 return -1;
             break;
-#if LDAP_VENDOR_VERSION>=20013			 
-    case LDAP_OPT_X_TLS_CTX:
-	    PyErr_SetString(PyExc_NotImplementedError,
-		"option not yet supported");
-	    return -1;
-#endif
     default:
 	    PyErr_SetNone(PyExc_ValueError);
 	    return -1;
@@ -284,14 +278,6 @@ LDAP_get_option(LDAPObject *self, int option)
             
             return v;
             
-    case LDAP_OPT_API_FEATURE_INFO:
-#if LDAP_VENDOR_VERSION>=20013
-    case LDAP_OPT_X_TLS_CTX:
-	    /* Unsupported options */
-	    PyErr_SetString(PyExc_NotImplementedError,
-		"option not yet supported");
-	    return NULL;
-#endif
     default:
 	    PyErr_SetObject(PyExc_ValueError, Py_None);
 	    return NULL;
