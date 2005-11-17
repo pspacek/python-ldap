@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.28 2005/06/03 10:49:56 stroeder Exp $
+\$Id: models.py,v 1.29 2005/11/17 20:01:19 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -475,7 +475,7 @@ class DITStructureRule(SchemaElement):
     result.append(self.key_attr('DESC',self.desc,quoted=1))
     result.append({0:'',1:' OBSOLETE'}[self.obsolete])
     result.append(self.key_attr('FORM',self.form,quoted=0))
-    result.append(self.key_list('SUP',self.sup,sep=' $ '))
+    result.append(self.key_list('SUP',self.sup,sep=' '))
     return '( %s )' % ''.join(result)
 
 
