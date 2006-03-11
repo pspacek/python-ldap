@@ -1,6 +1,6 @@
 /* 
  * Options support
- * $Id: options.c,v 1.14 2005/11/17 20:49:28 stroeder Exp $
+ * $Id: options.c,v 1.15 2006/03/11 21:11:40 stroeder Exp $
  */
 
 #include "common.h"
@@ -180,7 +180,7 @@ LDAP_get_option(LDAPObject *self, int option)
 		    PyString_FromString(apiinfo.ldapai_extensions[i]));
 
 	    /* return api info as a dictionary */
-	    v = Py_BuildValue("{s:i, s:i, s:i, s:s, s:s, s:O}",
+	    v = Py_BuildValue("{s:i, s:i, s:i, s:s, s:i, s:O}",
 		    "info_version",     apiinfo.ldapai_info_version,
 		    "api_version",      apiinfo.ldapai_api_version,
 		    "protocol_version", apiinfo.ldapai_protocol_version,
