@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.71 2005/11/30 21:04:09 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.72 2006/03/11 21:05:57 stroeder Exp $
  */
 
 #include "Python.h"
@@ -925,7 +925,7 @@ l_ldap_result3( LDAPObject* self, PyObject *args )
     if (res_type == 0) {
 	/* Polls return (None, None, None, None); timeouts raise an exception */
 	if (timeout == 0)
-		return Py_BuildValue("(OOOO)", Py_None, Py_None, Py_None);
+		return Py_BuildValue("(OOOO)", Py_None, Py_None, Py_None, Py_None);
 	else
 		return LDAPerr(LDAP_TIMEOUT);
     }
