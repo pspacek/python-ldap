@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.72 2006/03/11 21:05:57 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.73 2006/03/26 12:07:15 stroeder Exp $
  */
 
 #include "Python.h"
@@ -971,8 +971,16 @@ l_ldap_result3( LDAPObject* self, PyObject *args )
     if (pmsg == NULL) {
 	    retval = NULL;
     } else {
-        retval = Py_BuildValue("(OOiO)", result_str, pmsg, res_msgid,
-			       pyctrls ? pyctrls : PyList_New(0));
+	if (pyctrls != NULL) {
+        	retval = Py_BuildValue("(OOiO)", result_str, pmsg, res_msgid,
+				       pyctrls);
+	} else { 
+		PyObject *pNewList = PyList_New(0);
+        	retval = Py_BuildValue("(OOiO)", result_str, pmsg, res_msgid,
+				       pNewList);
+		Py_DECREF(pNewList);
+	}
+
 	if (pmsg != Py_None) {
         Py_DECREF(pmsg);
     }

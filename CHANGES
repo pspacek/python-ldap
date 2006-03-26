@@ -9,7 +9,8 @@ Modules/
 * Dropped all occurences of '#ifdef #LDAP_VENDOR_VERSION'.
 * Fixed wrong tuple size in l_ldap_result3() (see SF#1368108)
 * Fixed get_option(ldap.OPT_API_INFO) (see SF#1440165)
-
+* Fixed memory leak in l_ldap_result3() when all=0
+  (see SF#1457325)
 
 Lib/
 * Fixed ldap.schema.models.DITStructureRule.__str__() to
@@ -556,4 +557,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.138 2006/03/11 21:13:15 stroeder Exp $
+$Id: CHANGES,v 1.139 2006/03/26 12:07:15 stroeder Exp $
