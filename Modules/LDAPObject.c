@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.73 2006/03/26 12:07:15 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.74 2006/04/05 22:40:14 stroeder Exp $
  */
 
 #include "Python.h"
@@ -953,12 +953,14 @@ l_ldap_result3( LDAPObject* self, PyObject *args )
 		e = err;
 	    } else
 		e = "ldap_parse_result";
+	    ldap_msgfree(msg);
 	    return LDAPerror( self->ldap, e );
 	}
 
         if (!(pyctrls = LDAPControls_to_List(serverctrls))) {
             int err = LDAP_NO_MEMORY;
             ldap_set_option(self->ldap, LDAP_OPT_ERROR_NUMBER, &err);
+	    ldap_msgfree(msg);
             return LDAPerror(self->ldap, "LDAPControls_to_List");
         }
         ldap_controls_free(serverctrls);
