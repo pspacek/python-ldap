@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.38 2005/11/07 11:44:48 stroeder Exp $
+$Id: ldif.py,v 1.39 2006/05/17 15:11:59 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -202,9 +202,9 @@ class LDIFWriter:
     # Start with line containing the distinguished name
     self._unparseAttrTypeandValue('dn',dn)
     # Dispatch to record type specific writers
-    if type(record)==types.DictType:
+    if isinstance(record,types.DictType):
       self._unparseEntryRecord(record)
-    elif type(record)==types.ListType:
+    elif isinstance(record,types.ListType):
       self._unparseChangeRecord(record)
     else:
       raise ValueError, "Argument record must be dictionary or list"
