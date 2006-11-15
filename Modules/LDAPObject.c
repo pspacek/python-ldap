@@ -2,7 +2,7 @@
 
 /* 
  * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.75 2006/04/18 11:17:30 stroeder Exp $
+ * $Id: LDAPObject.c,v 1.76 2006/11/15 16:31:24 stroeder Exp $
  */
 
 #include "Python.h"
@@ -52,7 +52,7 @@ dealloc( LDAPObject* self )
 	}
 	self->ldap = NULL;
     }
-    PyMem_DEL(self);
+    PyObject_DEL(self);
 }
 
 /*------------------------------------------------------------
