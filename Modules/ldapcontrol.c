@@ -4,7 +4,7 @@
 
 /*
  * ldapcontrol.c - wrapper around libldap LDAPControl structs.
- * $Id: ldapcontrol.c,v 1.5 2006/04/10 05:19:46 stroeder Exp $
+ * $Id: ldapcontrol.c,v 1.6 2006/11/16 13:13:56 stroeder Exp $
  */
 
 #include "common.h"
@@ -130,7 +130,7 @@ Tuple_to_LDAPControl( PyObject* tup )
 LDAPControl**
 List_to_LDAPControls( PyObject* list )
 {
-    int len, i;
+    Py_ssize_t len, i;
     LDAPControl** ldcs;
     LDAPControl* ldc;
     PyObject* item;
@@ -173,7 +173,7 @@ LDAPControls_to_List(LDAPControl **ldcs)
 {
     PyObject *res = 0, *pyctrl;
     LDAPControl **tmp = ldcs;
-    unsigned num_ctrls = 0, i;
+    Py_ssize_t num_ctrls = 0, i;
 
     if (tmp)
         while (*tmp++) num_ctrls++;

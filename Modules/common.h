@@ -2,7 +2,7 @@
 /*
  * common utility macros
  *
- * $Id: common.h,v 1.4 2004/10/06 21:26:07 stroeder Exp $ 
+ * $Id: common.h,v 1.5 2006/11/16 13:13:56 stroeder Exp $ 
  */
 
 #include "Python.h"
@@ -20,6 +20,13 @@
 #include <netdb.h>
 #include <sys/time.h>
 #include <sys/types.h>
+#endif
+
+/* Backwards compability with Python prior 2.5 */
+#if PY_VERSION_HEX < 0x02050000
+typedef int Py_ssize_t;
+#define PY_SSIZE_T_MAX INT_MAX
+#define PY_SSIZE_T_MIN INT_MIN
 #endif
 
 #include <string.h>
