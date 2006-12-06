@@ -4,7 +4,7 @@
 
 /*
  * ldapcontrol.c - wrapper around libldap LDAPControl structs.
- * $Id: ldapcontrol.c,v 1.6 2006/11/16 13:13:56 stroeder Exp $
+ * $Id: ldapcontrol.c,v 1.7 2006/12/06 07:36:00 stroeder Exp $
  */
 
 #include "common.h"
@@ -75,7 +75,7 @@ Tuple_to_LDAPControl( PyObject* tup )
     struct berval berbytes;
     PyObject *bytes;
     LDAPControl *lc = NULL;
-    int len;
+    Py_ssize_t len;
 
     if (!PyTuple_Check(tup)) {
 	PyErr_SetObject(PyExc_TypeError, Py_BuildValue("sO",

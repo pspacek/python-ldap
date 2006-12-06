@@ -2,9 +2,9 @@
 #ifndef __h_message 
 #define __h_message 
 
-/* $Id: message.h,v 1.2 2003/10/28 10:32:21 stroeder Exp $ */
+/* $Id: message.h,v 1.3 2006/12/06 07:36:00 stroeder Exp $ */
 
-#include "Python.h"
+#include "common.h"
 #include "lber.h"
 #include "ldap.h"
 

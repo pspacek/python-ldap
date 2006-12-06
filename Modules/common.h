@@ -2,13 +2,15 @@
 /*
  * common utility macros
  *
- * $Id: common.h,v 1.5 2006/11/16 13:13:56 stroeder Exp $ 
+ * $Id: common.h,v 1.6 2006/12/06 07:36:00 stroeder Exp $ 
  */
-
-#include "Python.h"
 
 #ifndef __h_common 
 #define __h_common 
+
+#define PY_SSIZE_T_CLEAN
+
+#include "Python.h"
 
 #if defined(HAVE_CONFIG_H)
 #include "config.h"

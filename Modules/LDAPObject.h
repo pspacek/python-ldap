@@ -2,9 +2,9 @@
 #ifndef __h_LDAPObject 
 #define __h_LDAPObject 
 
-/* $Id: LDAPObject.h,v 1.7 2005/02/27 17:59:22 stroeder Exp $ */
+/* $Id: LDAPObject.h,v 1.8 2006/12/06 07:36:00 stroeder Exp $ */
 
-#include "Python.h"
+#include "common.h"
 
 #include "lber.h"
 #include "ldap.h"

@@ -1,10 +1,10 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-/* $Id: errors.h,v 1.3 2001/11/14 23:14:13 leonard Exp $ */
+/* $Id: errors.h,v 1.4 2006/12/06 07:36:00 stroeder Exp $ */
 
 #ifndef __h_errors_
 #define __h_errors_
 
-#include "Python.h"
+#include "common.h"
 #include "lber.h"
 #include "ldap.h"
 

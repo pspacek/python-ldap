@@ -2,10 +2,10 @@
 
 /* 
  * 
- * $Id: schema.c,v 1.5 2003/10/28 10:32:21 stroeder Exp $
+ * $Id: schema.c,v 1.6 2006/12/06 07:36:00 stroeder Exp $
  */
 
-#include "Python.h"
+#include "common.h"
 
 #include "schema.h"
 #include "ldap_schema.h"
@@ -18,7 +18,7 @@
 */
 PyObject* c_string_array_to_python(char **string_array)
 {
-  int count = 0;
+  Py_ssize_t count = 0;
   char **s;
   PyObject *py_list;
   if (string_array) {
@@ -46,7 +46,7 @@ PyObject* c_string_array_to_python(char **string_array)
  */
 PyObject* schema_extension_to_python(LDAPSchemaExtensionItem **extensions)
 {
-  int count = 0;
+  Py_ssize_t count = 0;
   LDAPSchemaExtensionItem **e;
   PyObject *py_list, *item_tuple;
   if (extensions) {

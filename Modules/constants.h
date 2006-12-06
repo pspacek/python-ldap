@@ -2,9 +2,9 @@
 #ifndef __h_constants_
 #define __h_constants_
 
-/* $Id: constants.h,v 1.2 2005/06/14 17:49:14 stroeder Exp $ */
+/* $Id: constants.h,v 1.3 2006/12/06 07:36:00 stroeder Exp $ */
 
-#include "Python.h"
+#include "common.h"
 extern void LDAPinit_constants( PyObject* d );
 extern PyObject* LDAPconstant( int );
 

@@ -2,9 +2,9 @@
 #ifndef __h_functions_
 #define __h_functions_
 
-/* $Id: functions.h,v 1.1 2000/07/27 16:08:58 leonard Exp $ */
+/* $Id: functions.h,v 1.2 2006/12/06 07:36:00 stroeder Exp $ */
 
-#include "Python.h"
+#include "common.h"
 extern void LDAPinit_functions( PyObject* );
 
 #endif /* __h_functions_ */

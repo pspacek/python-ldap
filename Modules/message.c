@@ -1,7 +1,7 @@
 /* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
 /*
  * LDAPMessageObject - wrapper around an LDAPMessage*
- * $Id: message.c,v 1.10 2001/11/14 23:31:33 leonard Exp $
+ * $Id: message.c,v 1.11 2006/12/06 07:36:00 stroeder Exp $
  */
 
 #include "common.h"
@@ -83,7 +83,7 @@ LDAPmessage_to_python( LDAP*ld, LDAPMessage*m )
 	     }
 
 	     if (bvals != NULL) {
-	        int i;
+	        Py_ssize_t i;
 		for (i=0; bvals[i]; i++) {
 		    PyObject *valuestr;
 
@@ -137,7 +137,7 @@ LDAPmessage_to_python( LDAP*ld, LDAPMessage*m )
 	     return LDAPerror( ld, "ldap_parse_reference" );
 	 }
 	 if (refs) {
-	     int i;
+	     Py_ssize_t i;
 	     for (i=0; refs[i] != NULL; i++) {
 		 PyObject *refstr = PyString_FromString(refs[i]);
 		 PyList_Append(reflist, refstr);

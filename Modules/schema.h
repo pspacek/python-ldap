@@ -2,7 +2,7 @@
 
 /* 
  * 
- * $Id: schema.h,v 1.2 2002/05/04 18:14:48 stroeder Exp $
+ * $Id: schema.h,v 1.3 2006/12/06 07:36:00 stroeder Exp $
  */
 
 #ifndef __h_schema_
@@ -10,7 +10,6 @@
 
 
 
-#include "Python.h"
 #include "common.h"
 extern void LDAPinit_schema( PyObject* );
 
