@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.42 2006/12/19 04:24:10 stroeder Exp $
+$Id: ldif.py,v 1.43 2006/12/19 14:15:08 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -248,7 +248,7 @@ class LDIFParser:
     """
     if s[-2:]=='\r\n':
       return s[:-2]
-    elif s[-1]=='\n':
+    elif s[-1:]=='\n':
       return s[:-1]
     else:
       return s
