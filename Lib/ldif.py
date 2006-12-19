@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.41 2006/12/19 04:21:31 stroeder Exp $
+$Id: ldif.py,v 1.42 2006/12/19 04:24:10 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -297,9 +297,9 @@ class LDIFParser:
     unfolded_lines = [ self._stripLineSep(self._line) ]
     self._line = self._input_file.readline()
     while self._line and self._line[0]==' ':
-      unfolded_lines = unfolded_lines.append(self._stripLineSep(self._line[1:]))
+      unfolded_lines.append(self._stripLineSep(self._line[1:]))
       self._line = self._input_file.readline()
-    return unfolded_lines.join('')
+    return ''.join(unfolded_lines)
 
   def _parseAttrTypeandValue(self):
     """
