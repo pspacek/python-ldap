@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.93 2006/11/16 13:13:56 stroeder Exp $
+\$Id: ldapobject.py,v 1.94 2007/01/26 14:13:06 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -809,6 +809,9 @@ class ReconnectLDAPObject(SimpleLDAPObject):
 
   def search_ext_s(self,*args,**kwargs):
     return self._apply_method_s(SimpleLDAPObject.search_ext_s,*args,**kwargs)
+
+  def whoami_s(self,*args,**kwargs):
+    return self._apply_method_s(SimpleLDAPObject.whoami_s,*args,**kwargs)
 
 
 class SmartLDAPObject(ReconnectLDAPObject):
