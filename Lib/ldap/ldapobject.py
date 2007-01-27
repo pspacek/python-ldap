@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.94 2007/01/26 14:13:06 stroeder Exp $
+\$Id: ldapobject.py,v 1.95 2007/01/27 00:57:50 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -690,12 +690,7 @@ class ReconnectLDAPObject(SimpleLDAPObject):
     self._uri = uri
     self._options = {}
     self._last_bind = None
-    SimpleLDAPObject.__init__(
-      self,uri,
-      trace_level,
-      trace_file,
-      trace_stack_limit
-    )
+    SimpleLDAPObject.__init__(self,uri,trace_level,trace_file,trace_stack_limit)
     self._retry_max = retry_max
     self._retry_delay = retry_delay
     self._start_tls = 0
@@ -744,7 +739,9 @@ class ReconnectLDAPObject(SimpleLDAPObject):
           self.start_tls_s()
         # Repeat last simple or SASL bind
         self._apply_last_bind()
-      except:
+      except ldap.SERVER_DOWN,e:
+        SimpleLDAPObject.unbind_s(self)
+        del self._l
         if __debug__ and self._trace_level>=1:
           self._trace_file.write('*** %d. reconnect to %s failed\n' % (
             self._retry_max-reconnect_counter+1,uri
@@ -764,10 +761,14 @@ class ReconnectLDAPObject(SimpleLDAPObject):
         break
 
   def _apply_method_s(self,func,*args,**kwargs):
+    if not self.__dict__.has_key('_l'):
+       self.reconnect(self._uri)
     try:
       return func(self,*args,**kwargs)
     except ldap.SERVER_DOWN:
-      # Reconnect
+      SimpleLDAPObject.unbind_s(self)
+      del self._l
+      # Try to reconnect
       self.reconnect(self._uri)
       # Re-try last operation
       return func(self,*args,**kwargs)
@@ -794,6 +795,9 @@ class ReconnectLDAPObject(SimpleLDAPObject):
 
   def add_ext_s(self,*args,**kwargs):
     return self._apply_method_s(SimpleLDAPObject.add_ext_s,*args,**kwargs)
+
+  def cancel_s(self,*args,**kwargs):
+    return self._apply_method_s(SimpleLDAPObject.cancel_s,*args,**kwargs)
 
   def compare_s(self,*args,**kwargs):
     return self._apply_method_s(SimpleLDAPObject.compare_s,*args,**kwargs)
