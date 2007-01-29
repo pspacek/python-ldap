@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.96 2007/01/29 10:53:09 stroeder Exp $
+\$Id: ldapobject.py,v 1.97 2007/01/29 11:13:40 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -39,7 +39,6 @@ import sys,time,_ldap,ldap,ldap.functions
 from ldap.schema import SCHEMA_ATTRS
 from ldap.controls import LDAPControl,DecodeControlTuples,EncodeControlTuples
 from ldap import LDAPError
-from ldap.functions import _ldap_function_call
 
 
 class SimpleLDAPObject:
@@ -68,7 +67,7 @@ class SimpleLDAPObject:
     self._trace_stack_limit = trace_stack_limit
     self._uri = uri
     self._ldap_object_lock = self._ldap_lock()
-    self._l = _ldap_function_call(_ldap.initialize,uri)
+    self._l = ldap.functions._ldap_function_call(_ldap.initialize,uri)
     self.timeout = -1
     self.protocol_version = ldap.VERSION3
 
@@ -734,7 +733,7 @@ class ReconnectLDAPObject(SimpleLDAPObject):
         ))
       try:
         # Do the connect
-        self._l = _ldap_function_call(_ldap.initialize,uri)
+        self._l = ldap.functions._ldap_function_call(_ldap.initialize,uri)
         self._restore_options()
         # StartTLS extended operation in case this was called before
         if self._start_tls:
@@ -882,7 +881,7 @@ class SmartLDAPObject(ReconnectLDAPObject):
     except ldap.PROTOCOL_ERROR:
       # Drop connection completely
       self.unbind_s() ; del self._l
-      self._l = _ldap_function_call(_ldap.initialize,self._uri)
+      self._l = ldap.functions._ldap_function_call(_ldap.initialize,self._uri)
       self.protocol_version = ldap.VERSION2
       self.simple_bind_s(who,cred)
     # Try to start TLS if requested
