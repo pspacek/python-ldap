@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.43 2006/12/19 14:15:08 stroeder Exp $
+$Id: ldif.py,v 1.44 2007/03/22 22:40:41 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -370,7 +370,7 @@ class LDIFParser:
 	    raise ValueError, 'Two lines starting with changetype: in one record.'
           if not valid_changetype_dict.has_key(attr_value):
 	    raise ValueError, 'changetype value %s is invalid.' % (repr(attr_value))
-          dn = attr_value
+          changetype = attr_value
         elif attr_value!=None and \
              not self._ignored_attr_types.has_key(attr_type.lower()):
           # Add the attribute to the entry if not ignored attribute
