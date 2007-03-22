@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: functions.py,v 1.19 2007/03/22 22:06:06 stroeder Exp $
+\$Id: functions.py,v 1.20 2007/03/22 23:12:36 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -19,7 +19,7 @@ Basically calls into the LDAP lib are serialized by the module-wide
 lock _ldapmodule_lock.
 """
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 __all__ = [
   'open','initialize','init',
