@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: __init__.py,v 1.51 2007/03/22 21:58:36 stroeder Exp $
+$Id: __init__.py,v 1.52 2007/03/22 23:11:56 stroeder Exp $
 """
 
 # This is also the overall release version number
@@ -45,5 +45,6 @@ else:
 # into underlying LDAP lib
 _ldap_module_lock = LDAPLock()
 
-from functions import open,initialize,init,explode_dn,explode_rdn,get_option,set_option
+from functions import open,initialize,init,get_option,set_option
 
+from ldap.dn import explode_dn,explode_rdn
