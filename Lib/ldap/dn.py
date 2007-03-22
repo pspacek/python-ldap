@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: dn.py,v 1.2 2007/03/22 22:06:06 stroeder Exp $
+\$Id: dn.py,v 1.3 2007/03/22 22:26:24 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+
@@ -40,6 +40,8 @@ def escape_dn_chars(s):
 
 
 def str2dn(dn,flags=0):
+  if not dn:
+    return []
   return ldap.functions._ldap_function_call(_ldap.str2dn,dn,flags)
 
 
