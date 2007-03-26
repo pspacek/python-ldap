@@ -2,7 +2,7 @@
 
 /* 
  * functions - functions available at the module level
- * $Id: functions.c,v 1.19 2007/03/22 22:06:06 stroeder Exp $
+ * $Id: functions.c,v 1.20 2007/03/26 18:37:24 stroeder Exp $
  #*/
 
 #include "common.h"
@@ -140,7 +140,6 @@ l_ldap_get_option(PyObject* self, PyObject *args)
 
 static PyMethodDef methods[] = {
     { "initialize",	(PyCFunction)l_ldap_initialize,		METH_VARARGS },
-    { "dn2str",	    (PyCFunction)l_ldap_dn2str,			METH_VARARGS },
     { "str2dn",	    (PyCFunction)l_ldap_str2dn,			METH_VARARGS },
     { "set_option", (PyCFunction)l_ldap_set_option,		METH_VARARGS },
     { "get_option", (PyCFunction)l_ldap_get_option,		METH_VARARGS },
