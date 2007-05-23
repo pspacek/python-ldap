@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.44 2007/03/22 22:40:41 stroeder Exp $
+$Id: ldif.py,v 1.45 2007/05/23 22:03:06 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -100,7 +100,7 @@ class LDIFWriter:
         String used as line separator
     """
     self._output_file = output_file
-    self._base64_attrs = list_dict(a.lower() for a in (base64_attrs or []))
+    self._base64_attrs = list_dict([a.lower() for a in (base64_attrs or [])])
     self._cols = cols
     self._line_sep = line_sep
     self.records_written = 0
