@@ -4,13 +4,13 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.45 2007/05/23 22:03:06 stroeder Exp $
+$Id: ldif.py,v 1.46 2007/05/23 22:04:15 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
 """
 
-__version__ = '0.5.4'
+__version__ = '0.5.5'
 
 __all__ = [
   # constants
