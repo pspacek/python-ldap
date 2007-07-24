@@ -24,7 +24,7 @@ For module documentation, see:
 
 Quick usage example:
     import ldap
-    l = ldap.open("my_ldap_server.my_domain")
+    l = ldap.initialize("ldap://my_ldap_server.my_domain")
     l.simple_bind_s("","")
     l.search_s("o=My Organisation, c=AU", ldap.SCOPE_SUBTREE, "objectclass=*")
 
@@ -86,4 +86,4 @@ Acknowledgements:
    Thanks! We may have missed someone: please mail us if we have omitted
    your name.
 
-$Id: README,v 1.13 2007/07/24 21:46:57 stroeder Exp $
+$Id: README,v 1.14 2007/07/24 22:44:59 stroeder Exp $
