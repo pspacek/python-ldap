@@ -4,9 +4,13 @@ Released 2.3.1 2007-07-xx
 Changes since 2.3.0:
 
 * Support for setuptools (building .egg, thanks to Torsten)
+* Support for matched values control (RFC 3876, thanks to Andreas)
 
 Lib/
 * Fixed ldif (see SF#1709111, thanks to Dmitry)
+* ldap.schema.models:
+  SUP now separated by $ (method __str__() of classes
+  AttributeType, ObjectClass and DITStructureRule, thanks to Stefan)
 
 Modules/
 * Added constant MOD_INCREMENT to support
@@ -622,4 +626,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.156 2007/07/16 10:40:29 stroeder Exp $
+$Id: CHANGES,v 1.157 2007/07/24 14:42:18 stroeder Exp $
