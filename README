@@ -76,11 +76,14 @@ Acknowledgements:
        Wido Depping <wido.depping at gmail.com>
        Deepak Giridharagopal <deepak at arlut.utexas.edu>
        Ingo Steuwer <steuwer at univention.de>
-       
+       Andreas Hasenack <ahasenack at terra.com.br>
+       Torsten Kurbad <torsten at tk-webart.de>
+       Matej Vela <vela at debian.org>
+
    Thanks to all the guys on the python-ldap-dev mailing list for
    their contributions and input into this package.
 
    Thanks! We may have missed someone: please mail us if we have omitted
    your name.
 
-$Id: README,v 1.12 2005/02/25 17:05:07 stroeder Exp $
+$Id: README,v 1.13 2007/07/24 21:46:57 stroeder Exp $
