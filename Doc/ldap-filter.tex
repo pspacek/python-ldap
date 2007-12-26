@@ -1,4 +1,4 @@
-% $Id: ldap-filter.tex,v 1.2 2007/03/27 22:10:17 stroeder Exp $
+% $Id: ldap-filter.tex,v 1.3 2007/12/26 11:53:54 stroeder Exp $
 
 \section{\module{ldap.filter} ---
   LDAP filter handling }
@@ -12,17 +12,22 @@
 
 \modulesynopsis{LDAP filter handling.}
 
+\begin{seealso}
+\seerfc{4515}{Lightweight Directory Access Protocol (LDAP): String Representation of Search Filters.}{}
+\end{seealso}
+
 The \module{ldap.filter} module defines the following functions:
 
-\begin{funcdesc}{escape_filter_chars}{assertion_value} % -> string
+\begin{funcdesc}{escape_filter_chars}{assertion_value\optional{, escape_mode=\constant{0}}} % -> string
 
 This function escapes characters in \var{assertion_value} which
 are special in LDAP filters. You should use this function when
 building LDAP filter strings from arbitrary input.
 
-\begin{seealso}
-\seerfc{4515}{Lightweight Directory Access Protocol (LDAP): String Representation of Search Filters.}{}
-\end{seealso}
+\var{escape_mode} means:
+If \constant{0} only special chars mentioned in RFC 4515 are escaped.
+If \constant{1} all NON-ASCII chars are escaped.
+If \constant{2} all chars are escaped.
 
 \end{funcdesc}
 
@@ -34,4 +39,3 @@ as many \constant{\%s} placeholders as count of assertion values is
 used to build the whole filter string.
 
 \end{funcdesc}
-
