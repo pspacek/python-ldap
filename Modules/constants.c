@@ -2,7 +2,7 @@
 
 /* 
  * constants defined for LDAP
- * $Id: constants.c,v 1.30 2007/07/17 19:37:27 stroeder Exp $
+ * $Id: constants.c,v 1.31 2007/12/26 12:24:23 stroeder Exp $
  */
 
 #include "common.h"
@@ -154,7 +154,6 @@ LDAPinit_constants( PyObject* d )
 	add_int(d,OPT_HOST_NAME);
 	add_int(d,OPT_ERROR_STRING);
 	add_int(d,OPT_MATCHED_DN);
-	add_int(d,OPT_PRIVATE_EXTENSION_BASE);
 	add_int(d,OPT_DEBUG_LEVEL);
 	add_int(d,OPT_TIMEOUT);
 	add_int(d,OPT_REFHOPLIMIT);
