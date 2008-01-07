@@ -1,5 +1,5 @@
 ----------------------------------------------------------------
-Released 2.3.2 2007-12-29
+Released 2.3.2 2008-01-20
 
 Changes since 2.3.1:
 
@@ -8,6 +8,9 @@ Lib/
   RFC 4514 section 2.4 by escaping null characters and a
   space occurring at the beginning of the string
 * New method ldap.cidict.cidict.__contains__()
+* ldap.dn.explode_dn() and ldap.dn.explode_rdn()
+  have a new optional key-word argument flags which is
+  passed to ldap.dn.str2dn().
 
 Modules/
 * Removed unused OPT_PRIVATE_EXTENSION_BASE from constants.c
@@ -643,4 +646,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.162 2007/12/26 12:24:23 stroeder Exp $
+$Id: CHANGES,v 1.163 2008/01/07 11:50:42 stroeder Exp $
