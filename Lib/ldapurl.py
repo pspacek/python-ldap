@@ -1,10 +1,9 @@
 """
 ldapurl - handling of LDAP URLs as described in RFC 2255
-written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapurl.py,v 1.33 2005/06/01 22:11:20 stroeder Exp $
+\$Id: ldapurl.py,v 1.34 2008/03/10 08:34:29 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since

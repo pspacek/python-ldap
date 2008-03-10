@@ -1,11 +1,10 @@
 """
 dsml - generate and parse DSMLv1 data
 (see http://www.oasis-open.org/committees/dsml/)
-written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: dsml.py,v 1.9 2004/06/17 13:52:07 stroeder Exp $
+$Id: dsml.py,v 1.10 2008/03/10 08:34:29 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+.

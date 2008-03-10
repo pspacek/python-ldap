@@ -1,10 +1,9 @@
 """
 ldif - generate and parse LDIF data (see RFC 2849)
-written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: ldif.py,v 1.46 2007/05/23 22:04:15 stroeder Exp $
+$Id: ldif.py,v 1.47 2008/03/10 08:34:29 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.

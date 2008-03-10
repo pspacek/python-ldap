@@ -1,10 +1,9 @@
 """
 sasl.py - support for SASL mechanism
-written by Hans Aschauer <Hans.Aschauer@Physik.uni-muenchen.de>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: sasl.py,v 1.12 2004/11/09 00:15:55 stroeder Exp $
+\$Id: sasl.py,v 1.13 2008/03/10 08:34:29 stroeder Exp $
 
 Description:
 The ldap.sasl module provides SASL authentication classes.

@@ -1,10 +1,9 @@
 """
 ldap.async - handle async LDAP operations
-written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: async.py,v 1.25 2006/04/10 05:19:09 stroeder Exp $
+\$Id: async.py,v 1.26 2008/03/10 08:34:29 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.

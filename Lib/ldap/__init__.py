@@ -1,10 +1,9 @@
 """
 ldap - base module
-written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: __init__.py,v 1.53 2007/05/23 22:04:15 stroeder Exp $
+$Id: __init__.py,v 1.54 2008/03/10 08:34:29 stroeder Exp $
 """
 
 # This is also the overall release version number
