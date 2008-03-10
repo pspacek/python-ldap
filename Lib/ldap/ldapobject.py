@@ -4,7 +4,7 @@ written by Michael Stroeder <michael@stroeder.com>
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: ldapobject.py,v 1.98 2007/06/05 09:56:15 stroeder Exp $
+\$Id: ldapobject.py,v 1.99 2008/03/10 08:21:14 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -435,8 +435,12 @@ class SimpleLDAPObject:
   def result3(self,msgid=_ldap.RES_ANY,all=1,timeout=None):
     if timeout is None:
       timeout = self.timeout
-    rtype, rdata, rmsgid, serverctrls = self._ldap_call(self._l.result3,msgid,all,timeout)
-    decoded_serverctrls = DecodeControlTuples(serverctrls)
+    ldap_result = self._ldap_call(self._l.result3,msgid,all,timeout)
+    if ldap_result is None:
+      rtype, rdata, rmsgid, decoded_serverctrls = (None,None,None,None)
+    else:
+      rtype, rdata, rmsgid, serverctrls = ldap_result
+      decoded_serverctrls = DecodeControlTuples(serverctrls)
     return rtype, rdata, rmsgid, decoded_serverctrls
  
   def search_ext(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0,serverctrls=None,clientctrls=None,timeout=-1,sizelimit=0):
