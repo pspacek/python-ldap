@@ -1,11 +1,8 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-
 /*
  * errors that arise from ldap use
- * $Id: errors.c,v 1.15 2006/11/16 13:13:56 stroeder Exp $
- *
  * Most errors become their own exception
- */
+ * See http://python-ldap.sourceforge.net for details.
+ * $Id: errors.c,v 1.16 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"

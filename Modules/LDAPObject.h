@@ -1,8 +1,8 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
+/* See http://python-ldap.sourceforge.net for details.
+ * $Id: LDAPObject.h,v 1.9 2008/03/20 12:24:56 stroeder Exp $ */
+
 #ifndef __h_LDAPObject 
 #define __h_LDAPObject 
-
-/* $Id: LDAPObject.h,v 1.8 2006/12/06 07:36:00 stroeder Exp $ */
 
 #include "common.h"
 

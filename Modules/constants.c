@@ -1,9 +1,6 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-
-/* 
- * constants defined for LDAP
- * $Id: constants.c,v 1.31 2007/12/26 12:24:23 stroeder Exp $
- */
+/* constants defined for LDAP
+ * See http://python-ldap.sourceforge.net for details.
+ * $Id: constants.c,v 1.32 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 #include "constants.h"

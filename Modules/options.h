@@ -1,4 +1,5 @@
-/* $Id: options.h,v 1.2 2002/07/25 22:49:37 stroeder Exp $ */
+/* See http://python-ldap.sourceforge.net for details.
+ * $Id: options.h,v 1.3 2008/03/20 12:24:56 stroeder Exp $ */
 
 int	LDAP_optionval_by_name(const char *name);
 int	LDAP_set_option(LDAPObject *self, int option, PyObject *value);

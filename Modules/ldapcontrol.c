@@ -1,11 +1,5 @@
-/* Deepak Giridharagopal <deepak@arlut.utexas.edu>, 2004.
- * Applied Research Laboratories, University of Texas at Austin
- */
-
-/*
- * ldapcontrol.c - wrapper around libldap LDAPControl structs.
- * $Id: ldapcontrol.c,v 1.8 2007/07/16 10:49:48 stroeder Exp $
- */
+/* See http://python-ldap.sourceforge.net for details.
+ * $Id: ldapcontrol.c,v 1.9 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 #include "LDAPObject.h"

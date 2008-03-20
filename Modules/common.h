@@ -1,9 +1,6 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-/*
- * common utility macros
- *
- * $Id: common.h,v 1.6 2006/12/06 07:36:00 stroeder Exp $ 
- */
+/* common utility macros
+ * See http://python-ldap.sourceforge.net for details.
+ * $Id: common.h,v 1.7 2008/03/20 12:24:56 stroeder Exp $ */
 
 #ifndef __h_common 
 #define __h_common 

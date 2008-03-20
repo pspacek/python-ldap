@@ -1,9 +1,5 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-
-/* 
- * LDAPObject - wrapper around an LDAP* context
- * $Id: LDAPObject.c,v 1.78 2006/12/06 07:36:00 stroeder Exp $
- */
+/* See http://python-ldap.sourceforge.net for details.
+ * $Id: LDAPObject.c,v 1.79 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 #include "patchlevel.h"

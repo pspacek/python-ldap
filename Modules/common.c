@@ -1,9 +1,6 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-
-/*
- * Miscellaneous common routines
- * $Id: common.c,v 1.1 2000/07/27 16:08:58 leonard Exp $
- */
+/* Miscellaneous common routines
+ * See http://python-ldap.sourceforge.net for details.
+ * $Id: common.c,v 1.2 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 

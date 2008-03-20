@@ -1,7 +1,5 @@
-/* 
- * Options support
- * $Id: options.c,v 1.16 2006/11/16 13:13:56 stroeder Exp $
- */
+/* See http://python-ldap.sourceforge.net for details.
+ * $Id: options.c,v 1.17 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"

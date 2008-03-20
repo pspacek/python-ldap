@@ -1,9 +1,6 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-
-/* 
- * version info
- * $Id: version.c,v 1.2 2000/08/14 22:37:37 leonard Exp $
- */
+/* Set release version
+ * See http://python-ldap.sourceforge.net for details.
+ * $Id: version.c,v 1.3 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 

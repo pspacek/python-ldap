@@ -1,9 +1,5 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-
-/* 
- * functions - functions available at the module level
- * $Id: functions.c,v 1.20 2007/03/26 18:37:24 stroeder Exp $
- #*/
+/* See http://python-ldap.sourceforge.net for details.
+ * $Id: functions.c,v 1.21 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 #include "functions.h"

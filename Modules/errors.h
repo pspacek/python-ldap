@@ -1,5 +1,5 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-/* $Id: errors.h,v 1.4 2006/12/06 07:36:00 stroeder Exp $ */
+/* See http://python-ldap.sourceforge.net for details.
+ * $Id: errors.h,v 1.5 2008/03/20 12:24:56 stroeder Exp $ */
 
 #ifndef __h_errors_
 #define __h_errors_

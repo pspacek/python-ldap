@@ -1,8 +1,5 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-/*
- * LDAPMessageObject - wrapper around an LDAPMessage*
- * $Id: message.c,v 1.11 2006/12/06 07:36:00 stroeder Exp $
- */
+/* See http://python-ldap.sourceforge.net for details.
+ * $Id: message.c,v 1.12 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 #include "message.h"

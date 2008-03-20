@@ -1,9 +1,5 @@
-/* Hans Aschauer <Hans.Aschauer@epost.de>, 2002. Public domain. */
-
-/* 
- * 
- * $Id: schema.c,v 1.6 2006/12/06 07:36:00 stroeder Exp $
- */
+/* See http://python-ldap.sourceforge.net for details.
+ * $Id: schema.c,v 1.7 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 

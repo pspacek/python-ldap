@@ -1,8 +1,5 @@
-/* David Leonard <david.leonard@csee.uq.edu.au>, 1999. Public domain. */
-/* 
- * LDAP module
- * $Id: ldapmodule.c,v 1.7 2005/06/14 17:49:14 stroeder Exp $
- */
+/* See http://python-ldap.sourceforge.net for details.
+ * $Id: ldapmodule.c,v 1.8 2008/03/20 12:24:56 stroeder Exp $ */
 
 #include "common.h"
 #include "version.h"
