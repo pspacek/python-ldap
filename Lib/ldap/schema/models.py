@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.32 2008/03/10 08:34:30 stroeder Exp $
+\$Id: models.py,v 1.33 2008/03/26 16:42:22 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -562,6 +562,9 @@ class Entry(UserDict.UserDict):
   def update(self,dict):
     for key in dict.keys():
       self[key] = dict[key]
+
+  def __contains__(self,key):
+    return self.has_key(self,key)
 
   def __getitem__(self,nameoroid):
     return self.data[self._at2key(nameoroid)]
