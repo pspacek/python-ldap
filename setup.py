@@ -3,7 +3,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: setup.py,v 1.61 2007/07/16 10:40:29 stroeder Exp $
+$Id: setup.py,v 1.62 2008/03/26 12:29:01 stroeder Exp $
 """
 
 has_setuptools = False
@@ -24,7 +24,7 @@ package_init_file_name = reduce(os.path.join,[exec_startdir,'Lib','ldap','__init
 f = open(package_init_file_name,'r')
 s = f.readline()
 while s:
-	s = string.strip(f.readline())
+	s = string.strip(s)
 	if s[0:11]=='__version__':
 		version = eval(string.split(s,'=')[1])
 		break
