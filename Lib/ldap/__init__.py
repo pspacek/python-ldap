@@ -3,7 +3,7 @@ ldap - base module
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: __init__.py,v 1.55 2008/03/26 11:13:13 stroeder Exp $
+$Id: __init__.py,v 1.56 2008/03/26 16:17:25 stroeder Exp $
 """
 
 # This is also the overall release version number
@@ -47,3 +47,9 @@ _ldap_module_lock = LDAPLock()
 from functions import open,initialize,init,get_option,set_option
 
 from ldap.dn import explode_dn,explode_rdn
+
+# More constants
+
+# For compability of 2.3 and 2.4 OpenLDAP API
+OPT_DIAGNOSTIC_MESSAGE = OPT_ERROR_STRING
+
