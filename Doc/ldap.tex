@@ -1,4 +1,4 @@
-% $Id: ldap.tex,v 1.34 2008/03/20 12:24:57 stroeder Exp $
+% $Id: ldap.tex,v 1.35 2008/03/26 11:16:30 stroeder Exp $
 
 % ==== 1. ====
 % The section prologue.  Give the section a title and provide some
@@ -149,6 +149,9 @@ following option identifiers are defined as constants:
 \begin{datadesc}{OPT_ERROR_STRING}
 \end{datadesc}
 
+\begin{datadesc}{OPT_DIAGNOSTIC_MESSAGE}
+\end{datadesc}
+
 \begin{datadesc}{OPT_HOST_NAME}
 \end{datadesc}
 
@@ -162,7 +165,7 @@ following option identifiers are defined as constants:
 \end{datadesc}
 
 \begin{datadesc}{OPT_REFERRALS}
-  int specifying whether referrals should be automatically within
+  int specifying whether referrals should be automatically chased within
   the underlying LDAP C lib.
 \end{datadesc}
 
