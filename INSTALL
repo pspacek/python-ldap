@@ -15,7 +15,7 @@ Prerequisites:
 
   Optional:
 
-    - Cyrus SASL 2.1.x or newer (see )
+    - Cyrus SASL 2.1.x or newer (see http://asg.web.cmu.edu/sasl/sasl-library.html)
 
     - OpenSSL 0.9.6 or newer (see http://www.openssl.org)
 
@@ -24,4 +24,4 @@ Quick build instructions:
     python setup.py build
     python setup.py install
 
-$Id: INSTALL,v 1.7 2008/04/15 09:43:54 stroeder Exp $
+$Id: INSTALL,v 1.8 2008/04/15 17:48:32 stroeder Exp $
