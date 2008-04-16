@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.2 2008/04/16 12:35:08 stroeder Exp $
+.. % $Id: ldap.rst,v 1.3 2008/04/16 14:28:02 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
@@ -1054,8 +1054,8 @@ LDAPObject instances have the following methods:
    is assumed by the LDAP server after a SASL bind.
 
 
-LDAP options
-^^^^^^^^^^^^^
+Accessing LDAP options
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. %%------------------------------------------------------------
 .. %% get_option
@@ -1063,8 +1063,8 @@ LDAP options
 
    .. % -> None
 
-  This function returns the value of the LDAPObject option
-  specified by *option*.
+   This method returns the value of the LDAPObject option
+   specified by *option*.
 
 
 .. %%------------------------------------------------------------
@@ -1073,8 +1073,8 @@ LDAP options
 
    .. % -> None
 
-     This function sets the value of the LDAPObject option
-     specified by *option* to *invalue*.
+   This method sets the value of the LDAPObject option
+   specified by *option* to *invalue*.
 
 
 .. %%------------------------------------------------------------
