@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.1 2008/04/04 17:06:59 stroeder Exp $
+.. % $Id: ldap.rst,v 1.2 2008/04/16 12:35:08 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
@@ -1083,10 +1083,15 @@ LDAP options
 
    .. %-> None
 
-   Enables or disables manageDSAit mode (see draft-zeilenga-ldap-namedref)
+   Enables or disables manageDSAit mode
    according to the specified integer flag *enable*. The
    integer flag *critical* specifies if the use of this extended
    control is marked critical.
+
+   .. seealso::
+
+      :rfc:`3296` - Named Subordinate References in
+                    Lightweight Directory Access Protocol (LDAP) Directories
 
    .. note::
 
