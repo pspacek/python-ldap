@@ -1,13 +1,13 @@
-.. % $Id: ldif.rst,v 1.1 2008/04/04 17:06:59 stroeder Exp $
+.. % $Id: ldif.rst,v 1.2 2008/04/16 15:15:55 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
 .. % \refbimodindex, \refstmodindex, \refexmodindex or \refmodindex, as
 .. % appropriate.
 
-
+#####################################
 :mod:`ldif` LDIF parser and generator
-==========================================
+#####################################
 
 .. module:: ldif
    :synopsis: Parses and generates LDIF files

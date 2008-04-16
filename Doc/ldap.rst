@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.4 2008/04/16 14:29:17 stroeder Exp $
+.. % $Id: ldap.rst,v 1.5 2008/04/16 15:15:55 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
@@ -6,8 +6,9 @@
 .. % appropriate.
 
 
+*****************************************
 :mod:`ldap` LDAP library interface module
-=========================================
+*****************************************
 
 .. module:: ldap
    :platform: UNIX,Windows
@@ -39,7 +40,7 @@ and binaries are available from  http://python-ldap.sourceforge.net/.
 
 
 Functions
----------
+=========
 
 The :mod:`ldap` module defines the following functions:
 
@@ -110,12 +111,12 @@ The :mod:`ldap` module defines the following functions:
 .. _ldap-constants:
 
 Constants
----------
+=========
 
 The module defines various constants.
 
 General
---------
+-------
 
 .. data:: PORT
 
@@ -133,7 +134,7 @@ General
 .. _ldap-options:
 
 Options
---------
+-------
 
 .. seealso::
 
@@ -283,7 +284,7 @@ sub-module :mod:`ldap.dn`.
 .. _ldap-exceptions:
 
 Exceptions
-------------
+==========
 
 The module defines the following exceptions:
 
@@ -566,7 +567,7 @@ call does not indicate success.
 .. _ldap-objects:
 
 LDAPObject class
------------------
+================
 
 .. % This label is generally useful for referencing this section, but is
 .. % also used to give a filename when generating HTML.
@@ -1054,8 +1055,8 @@ LDAPObject instances have the following methods:
    is assumed by the LDAP server after a SASL bind.
 
 
-Accessing LDAP options
-^^^^^^^^^^^^^^^^^^^^^^
+Connection-specific LDAP options
+--------------------------------
 
 .. %%------------------------------------------------------------
 .. %% get_option
@@ -1101,7 +1102,7 @@ Accessing LDAP options
 
 
 Object attributes
-^^^^^^^^^^^^^^^^^^
+-----------------
 
 If the underlying library provides enough information,
 each LDAP object will also have the following attributes.

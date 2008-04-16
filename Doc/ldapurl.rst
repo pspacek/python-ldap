@@ -1,4 +1,4 @@
-.. % $Id: ldapurl.rst,v 1.2 2008/04/10 11:07:06 stroeder Exp $
+.. % $Id: ldapurl.rst,v 1.3 2008/04/16 15:15:55 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
@@ -6,8 +6,9 @@
 .. % appropriate.
 
 
+################################
 :mod:`ldapurl` LDAP URL handling
-=====================================
+################################
 
 .. module:: ldapurl
    :synopsis: Parses and generates LDAP URLs

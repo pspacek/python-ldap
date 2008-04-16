@@ -2,11 +2,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-*****************************
-  python-ldap Documentation  
-*****************************
+##########################
+python-ldap Documentation  
+##########################
 
-.. % $Id: index.rst,v 1.2 2008/04/10 11:10:34 stroeder Exp $
+.. % $Id: index.rst,v 1.3 2008/04/16 15:15:55 stroeder Exp $
 
 .. topic:: Abstract
 
@@ -14,12 +14,13 @@
    manual assumes basic knowledge about the Python language and the LDAP standard.
 
 
+********
 Contents
-==========
+********
 
 
 .. toctree::
-   :maxdepth: 2 
+   :maxdepth: 3 
 
    installing.rst
    ldap.rst
@@ -32,8 +33,9 @@ Contents
    ldif.rst
    ldapurl.rst
 
+******************
 Indices and tables
-==================
+******************
 
 * :ref:`genindex`
 * :ref:`modindex`
