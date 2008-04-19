@@ -5,10 +5,10 @@ names of variable case.
 
 See http://python-ldap.sourceforge.net for details.
 
-$Id: cidict.py,v 1.11 2007/12/26 11:49:25 stroeder Exp $
+$Id: cidict.py,v 1.12 2008/04/19 17:55:21 stroeder Exp $
 """
 
-__version__ = """$Revision: 1.11 $"""
+__version__ = """$Revision: 1.12 $"""
 
 from UserDict import UserDict
 from string import lower
@@ -44,7 +44,7 @@ class cidict(UserDict):
     return UserDict.has_key(self,lower(key))
 
   def __contains__(self,key):
-    return self.has_key(self,key)
+    return self.has_key(key)
 
   def get(self,key,failobj=None):
     try:
