@@ -2,7 +2,7 @@
  * errors that arise from ldap use
  * Most errors become their own exception
  * See http://python-ldap.sourceforge.net for details.
- * $Id: errors.c,v 1.16 2008/03/20 12:24:56 stroeder Exp $ */
+ * $Id: errors.c,v 1.17 2008/06/14 16:03:38 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -198,6 +198,10 @@ LDAPinit_errors( PyObject*d ) {
 	seterrobj(NO_SUCH_OPERATION);
 	seterrobj(TOO_LATE);
 	seterrobj(CANNOT_CANCEL);
+#endif
+
+#ifdef LDAP_ASSERTION_FAILED
+	seterrobj(ASSERTION_FAILED);
 #endif
 
 }
