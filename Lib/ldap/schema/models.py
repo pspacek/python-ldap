@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 
 See http://python-ldap.sourceforge.net for details.
 
-\$Id: models.py,v 1.34 2008/04/19 17:55:21 stroeder Exp $
+\$Id: models.py,v 1.35 2008/06/23 23:01:30 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -495,7 +495,7 @@ class NameForm(SchemaElement):
     'NAME':(()),
     'DESC':(None,),
     'OBSOLETE':None,
-    'OC':(()),
+    'OC':(None,),
     'MUST':(()),
     'MAY':(()),
   }
@@ -504,7 +504,7 @@ class NameForm(SchemaElement):
     self.names = d['NAME']
     self.desc = d['DESC'][0]
     self.obsolete = d['OBSOLETE']!=None
-    self.oc = d['OC']
+    self.oc = d['OC'][0]
     self.must = d['MUST']
     self.may = d['MAY']
     assert type(self.names)==TupleType
