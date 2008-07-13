@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.6 2008/04/24 10:07:38 stroeder Exp $
+.. % $Id: ldap.rst,v 1.7 2008/07/13 21:56:09 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
@@ -689,6 +689,7 @@ LDAPObject instances have the following methods:
    In opposite to :meth:`abandon()` this extended operation gets an result from
    the server and thus should be preferred if the server supports it.
 
+   :rfc:`3909` - Lightweight Directory Access Protocol (LDAP): Cancel Operation
 
 
 .. %%------------------------------------------------------------
