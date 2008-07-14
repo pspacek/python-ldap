@@ -4,7 +4,10 @@ Released 2.3.6 2008-07-xx
 Changes since 2.3.5:
 
 Modules/
-* 
+* get_option(): Added support for reading more SASL options.
+  (OPT_X_SASL_MECH, OPT_X_SASL_REALM, OPT_X_SASL_AUTHCID and
+  OPT_X_SASL_AUTHZID)
+
 ----------------------------------------------------------------
 Released 2.3.5 2008-07-06
 
@@ -680,4 +683,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.174 2008/07/14 12:13:14 stroeder Exp $
+$Id: CHANGES,v 1.175 2008/07/14 12:15:24 stroeder Exp $
