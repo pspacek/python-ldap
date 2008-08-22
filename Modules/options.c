@@ -1,5 +1,5 @@
 /* See http://python-ldap.sourceforge.net for details.
- * $Id: options.c,v 1.19 2008/07/14 12:15:24 stroeder Exp $ */
+ * $Id: options.c,v 1.20 2008/08/22 15:30:12 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -105,7 +105,7 @@ LDAP_set_option(LDAPObject *self, int option, PyObject *value)
     if (self) LDAP_END_ALLOW_THREADS(self);
 
     if ((option == LDAP_OPT_SERVER_CONTROLS) || (option == LDAP_OPT_CLIENT_CONTROLS))
-        LDAPControl_List_DEL(ptr);
+        LDAPControl_List_DEL((LDAPControl**) ptr);
     
     if (res != LDAP_OPT_SUCCESS) {
 	LDAPerr(res);
