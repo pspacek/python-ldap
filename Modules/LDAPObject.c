@@ -1,5 +1,5 @@
 /* See http://python-ldap.sourceforge.net for details.
- * $Id: LDAPObject.c,v 1.79 2008/03/20 12:24:56 stroeder Exp $ */
+ * $Id: LDAPObject.c,v 1.80 2008/08/22 15:59:49 stroeder Exp $ */
 
 #include "common.h"
 #include "patchlevel.h"
@@ -683,8 +683,8 @@ l_ldap_sasl_interactive_bind_s( LDAPObject* self, PyObject* args )
     msgid = ldap_sasl_interactive_bind_s(self->ldap, 
 					 who, 
 					 c_mechanism, 
-					 server_ldcs, 
-					 client_ldcs,
+					 (LDAPControl**) server_ldcs, 
+					 (LDAPControl**) client_ldcs,
 					 sasl_flags, 
 					 py_ldap_sasl_interaction, 
 					 SASLObject);
