@@ -3,6 +3,10 @@ Released 2.3.6 2008-07-xx
 
 Changes since 2.3.5:
 
+Lib/
+* Importing ldap.str2dn() which directly imported _ldap.str2dn()
+  is prohibited now (see SF#2181141)
+
 Modules/
 * get_option(): Added support for reading more SASL options.
   (OPT_X_SASL_MECH, OPT_X_SASL_REALM, OPT_X_SASL_AUTHCID and
@@ -685,4 +689,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.176 2008/08/22 15:59:49 stroeder Exp $
+$Id: CHANGES,v 1.177 2008/11/20 15:44:58 stroeder Exp $
