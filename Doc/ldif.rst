@@ -1,4 +1,4 @@
-.. % $Id: ldif.rst,v 1.2 2008/04/16 15:15:55 stroeder Exp $
+.. % $Id: ldif.rst,v 1.3 2008/11/21 11:19:19 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
@@ -72,6 +72,6 @@ with :mod:`ldif` module, skip some entries and write the result to stdout. ::
             if i == dn: return
          self.writer.unparse(dn, entry)
 
-   parser = MyLDIF(open("input.ldif", 'r'), sys.stdout)
+   parser = MyLDIF(open("input.ldif", 'rb'), sys.stdout)
    parser.parse()
 
