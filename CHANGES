@@ -13,7 +13,8 @@ Modules/
   OPT_X_SASL_AUTHZID)
 * Added some explicit type casts to fix issues while building
   with SunStudio
-
+* Fixed compiling issue with GCC 4.4
+  (see SF#2555793, thanks to Matej and Martin)
 ----------------------------------------------------------------
 Released 2.3.5 2008-07-06
 
@@ -689,4 +690,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.177 2008/11/20 15:44:58 stroeder Exp $
+$Id: CHANGES,v 1.178 2009/02/10 23:04:20 stroeder Exp $

@@ -2,7 +2,7 @@
  * errors that arise from ldap use
  * Most errors become their own exception
  * See http://python-ldap.sourceforge.net for details.
- * $Id: errors.c,v 1.17 2008/06/14 16:03:38 stroeder Exp $ */
+ * $Id: errors.c,v 1.18 2009/02/10 23:04:21 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -18,7 +18,7 @@ LDAPexception_class;
 
 #ifdef LDAP_ASSERTION_FAILED
 #define LDAP_ERROR_MAX          LDAP_ASSERTION_FAILED
-#elif
+#else
 #define LDAP_ERROR_MAX          LDAP_OTHER
 #endif
 
