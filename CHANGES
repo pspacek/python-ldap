@@ -4,7 +4,8 @@ Released 2.3.7 2009-03-xx
 Changes since 2.3.6:
 
 Modules/
-* 
+* Fixed ldapcontrol.c not to raise ldap.ENCODING_ERROR in
+  function encode_rfc2696() on 64-bit systems
 
 ----------------------------------------------------------------
 Released 2.3.6 2009-02-22
@@ -704,4 +705,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.181 2009/03/16 14:52:05 stroeder Exp $
+$Id: CHANGES,v 1.182 2009/03/16 14:54:55 stroeder Exp $
