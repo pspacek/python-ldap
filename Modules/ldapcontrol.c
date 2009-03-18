@@ -1,5 +1,5 @@
 /* See http://python-ldap.sourceforge.net for details.
- * $Id: ldapcontrol.c,v 1.11 2009/03/16 17:30:33 stroeder Exp $ */
+ * $Id: ldapcontrol.c,v 1.12 2009/03/18 06:02:04 stroeder Exp $ */
 
 #include "common.h"
 #include "LDAPObject.h"
@@ -303,7 +303,7 @@ decode_rfc2696(PyObject *self, PyObject *args)
     Py_ssize_t ldctl_value_len;
 
     if (!PyArg_ParseTuple(args, "s#:decode_page_control",
-                          &ldctl_value.bv_val, &ldctl_value.bv_len)) {
+                          &ldctl_value.bv_val, &ldctl_value_len)) {
         goto endlbl;
     }
     ldctl_value.bv_len = (ber_len_t) ldctl_value_len;
