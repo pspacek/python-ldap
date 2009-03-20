@@ -2,7 +2,7 @@
  * errors that arise from ldap use
  * Most errors become their own exception
  * See http://python-ldap.sourceforge.net for details.
- * $Id: errors.c,v 1.18 2009/02/10 23:04:21 stroeder Exp $ */
+ * $Id: errors.c,v 1.19 2009/03/20 20:44:48 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -16,10 +16,14 @@ LDAPexception_class;
 
 #define LDAP_ERROR_MIN          LDAP_REFERRAL_LIMIT_EXCEEDED
 
-#ifdef LDAP_ASSERTION_FAILED
-#define LDAP_ERROR_MAX          LDAP_ASSERTION_FAILED
+#ifdef LDAP_PROXIED_AUTHORIZATION_DENIED
+	#define LDAP_ERROR_MAX          LDAP_PROXIED_AUTHORIZATION_DENIED
 #else
-#define LDAP_ERROR_MAX          LDAP_OTHER
+	#ifdef LDAP_ASSERTION_FAILED
+		#define LDAP_ERROR_MAX          LDAP_ASSERTION_FAILED
+	#else
+		#define LDAP_ERROR_MAX          LDAP_OTHER
+	#endif
 #endif
 
 #define LDAP_ERROR_OFFSET       -LDAP_ERROR_MIN
@@ -202,6 +206,10 @@ LDAPinit_errors( PyObject*d ) {
 
 #ifdef LDAP_ASSERTION_FAILED
 	seterrobj(ASSERTION_FAILED);
+#endif
+
+#ifdef LDAP_PROXIED_AUTHORIZATION_DENIED
+  seterrobj(PROXIED_AUTHORIZATION_DENIED);
 #endif
 
 }
