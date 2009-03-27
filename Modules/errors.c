@@ -2,7 +2,7 @@
  * errors that arise from ldap use
  * Most errors become their own exception
  * See http://python-ldap.sourceforge.net for details.
- * $Id: errors.c,v 1.19 2009/03/20 20:44:48 stroeder Exp $ */
+ * $Id: errors.c,v 1.20 2009/03/27 09:41:10 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -52,20 +52,25 @@ LDAPerror( LDAP*l, char*msg )
 		return NULL;
 	}
 	else {
-		int errnum;
+		int errnum, opt_errnum;
 		PyObject *errobj;
 		PyObject *info;
 		PyObject *str;
 
 		char *matched, *error;
-		if (ldap_get_option(l, LDAP_OPT_ERROR_NUMBER, &errnum) < 0)
-			errobj = LDAPexception_class;	/* unknown error XXX */
-		else
-			errobj = errobjects[errnum+LDAP_ERROR_OFFSET];
-		
+
+		opt_errnum = ldap_get_option(l, LDAP_OPT_ERROR_NUMBER, &errnum);
+		if (opt_errnum != LDAP_OPT_SUCCESS)
+			errnum = opt_errnum;
+
 		if (errnum == LDAP_NO_MEMORY)
 			return PyErr_NoMemory();
 
+		if (errnum >= LDAP_ERROR_MIN && errnum <= LDAP_ERROR_MAX)
+			errobj = errobjects[errnum+LDAP_ERROR_OFFSET];
+		else
+			errobj = LDAPexception_class;
+		
 		info = PyDict_New();
 		if (info == NULL)
 			return NULL;
