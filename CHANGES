@@ -17,6 +17,8 @@ Modules/
   if available in OpenLDAP header
 * new exception class ldap.PROXIED_AUTHORIZATION_DENIED
   if available in OpenLDAP header
+* Fixed functions.c not to raise ldap.ENCODING_ERROR in
+  function l_ldap_str2dn() on 64-bit systems (see SF#2725356)
 
 ----------------------------------------------------------------
 Released 2.3.6 2009-02-22
@@ -716,4 +718,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.184 2009/03/30 10:55:05 stroeder Exp $
+$Id: CHANGES,v 1.185 2009/04/07 16:45:57 stroeder Exp $
