@@ -1,9 +1,9 @@
 """
 ldapobject.py - wraps class _ldap.LDAPObject
 
-See http://python-ldap.sourceforge.net for details.
+See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.101 2008/04/19 18:31:33 stroeder Exp $
+\$Id: ldapobject.py,v 1.102 2009/04/17 14:34:34 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x

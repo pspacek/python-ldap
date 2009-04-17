@@ -1,9 +1,9 @@
 """
 ldap - base module
 
-See http://python-ldap.sourceforge.net for details.
+See http://www.python-ldap.org/ for details.
 
-$Id: __init__.py,v 1.62 2009/03/18 14:21:30 stroeder Exp $
+$Id: __init__.py,v 1.63 2009/04/17 14:34:34 stroeder Exp $
 """
 
 # This is also the overall release version number
