@@ -1,5 +1,5 @@
-/* See http://python-ldap.sourceforge.net for details.
- * $Id: constants.h,v 1.5 2008/03/20 12:24:56 stroeder Exp $ */
+/* See http://www.python-ldap.org/ for details.
+ * $Id: constants.h,v 1.6 2009/04/17 12:19:09 stroeder Exp $ */
 
 #ifndef __h_constants_
 #define __h_constants_

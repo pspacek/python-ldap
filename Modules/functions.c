@@ -1,5 +1,5 @@
-/* See http://python-ldap.sourceforge.net for details.
- * $Id: functions.c,v 1.22 2009/04/07 16:45:57 stroeder Exp $ */
+/* See http://www.python-ldap.org/ for details.
+ * $Id: functions.c,v 1.23 2009/04/17 12:19:09 stroeder Exp $ */
 
 #include "common.h"
 #include "functions.h"

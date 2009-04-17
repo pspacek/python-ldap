@@ -1,6 +1,6 @@
 /* Set release version
- * See http://python-ldap.sourceforge.net for details.
- * $Id: version.c,v 1.3 2008/03/20 12:24:56 stroeder Exp $ */
+ * See http://www.python-ldap.org/ for details.
+ * $Id: version.c,v 1.4 2009/04/17 12:19:09 stroeder Exp $ */
 
 #include "common.h"
 

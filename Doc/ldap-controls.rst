@@ -1,4 +1,4 @@
-.. % $Id: ldap-controls.rst,v 1.1 2008/04/04 17:06:59 stroeder Exp $
+.. % $Id: ldap-controls.rst,v 1.2 2009/04/17 12:14:52 stroeder Exp $
 
 
 :mod:`ldap.controls` High-level access to LDAP controls
@@ -6,7 +6,7 @@
 
 .. module:: ldap.controls
    :synopsis: High-level access to LDAP controls.
-.. moduleauthor:: python-ldap project <python-ldap-dev@lists.sourceforge.net>
+.. moduleauthor:: python-ldap project (see http://www.python-ldap.org/)
 
 
 The :mod:`ldap.controls` module defines the following classes:

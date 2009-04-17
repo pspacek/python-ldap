@@ -1,4 +1,4 @@
-.. % $Id: ldapurl.rst,v 1.3 2008/04/16 15:15:55 stroeder Exp $
+.. % $Id: ldapurl.rst,v 1.4 2009/04/17 12:14:52 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
@@ -12,7 +12,7 @@
 
 .. module:: ldapurl
    :synopsis: Parses and generates LDAP URLs
-.. moduleauthor:: python-ldap project <python-ldap-dev@lists.sourceforge.net>
+.. moduleauthor:: python-ldap project (see http://www.python-ldap.org/)
 
 
 This module parses and generates LDAP URLs.    It is implemented in pure Python

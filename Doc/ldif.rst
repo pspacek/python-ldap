@@ -1,4 +1,4 @@
-.. % $Id: ldif.rst,v 1.3 2008/11/21 11:19:19 stroeder Exp $
+.. % $Id: ldif.rst,v 1.4 2009/04/17 12:14:52 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
@@ -11,7 +11,7 @@
 
 .. module:: ldif
    :synopsis: Parses and generates LDIF files
-.. moduleauthor:: python-ldap project <python-ldap-dev@lists.sourceforge.net>
+.. moduleauthor:: python-ldap project (see http://www.python-ldap.org/)
 
 
 This module parses and generates LDAP data in the format LDIF.    It is
