@@ -3,7 +3,7 @@ ldap.schema.tokenizer - Low-level parsing functions for schema element strings
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: tokenizer.py,v 1.12 2009/04/17 14:36:16 stroeder Exp $
+\$Id: tokenizer.py,v 1.13 2009/04/29 18:13:55 stroeder Exp $
 """
 
 
@@ -25,10 +25,11 @@ def split_tokens(s,keywordDict):
         result_append(s[i])
         i +=1 # Consume parentheses
         start = i
-      elif s[i]==" ":
+      elif s[i]==" " or s[i]=="$":
         if i>start:
           result_append(s[start:i])
-        # Consume space chars
+        i +=1
+        # Consume more space chars
         while i<s_len and s[i]==" ":
           i +=1
         start = i
