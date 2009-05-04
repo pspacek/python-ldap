@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.10 2009/04/17 12:14:52 stroeder Exp $
+.. % $Id: ldap.rst,v 1.11 2009/05/04 10:07:52 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
@@ -204,6 +204,10 @@ following option identifiers are defined as constants:
 .. data:: OPT_X_SASL_AUTHZID
 
 .. data:: OPT_X_SASL_MECH
+
+.. data:: OPT_X_SASL_NOCANON
+
+   If set to zero SASL host name canonicalization is disabled.
 
 .. data:: OPT_X_SASL_REALM
 
