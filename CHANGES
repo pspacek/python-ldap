@@ -4,7 +4,10 @@ Released 2.3.9 2009-xx-xx
 Changes since 2.3.8:
 
 Lib/
-* 
+* Non-exported function ldif.needs_base64() was abandoned and is now
+  implemented as method LDIFWriter._needs_base64(). This allows sub-classes
+  of LDIFWriter to implement determining whether attribute values have
+  to be base64-encoded in a different manner.
 
 Modules/
 * New LDAP option constant ldap.OPT_X_SASL_NOCANON supported
@@ -743,4 +746,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.192 2009/05/04 10:07:52 stroeder Exp $
+$Id: CHANGES,v 1.193 2009/06/18 11:52:47 stroeder Exp $
