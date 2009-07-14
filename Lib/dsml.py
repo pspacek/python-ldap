@@ -4,13 +4,13 @@ dsml - generate and parse DSMLv1 data
 
 See http://www.python-ldap.org/ for details.
 
-$Id: dsml.py,v 1.12 2009/04/17 14:34:34 stroeder Exp $
+$Id: dsml.py,v 1.13 2009/07/14 10:44:13 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+.
 """
 
-__version__ = '0.5.3'
+__version__ = '2.3.9'
 
 import string,base64
 
