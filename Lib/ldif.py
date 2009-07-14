@@ -3,7 +3,7 @@ ldif - generate and parse LDIF data (see RFC 2849)
 
 See http://www.python-ldap.org/ for details.
 
-$Id: ldif.py,v 1.50 2009/07/14 10:44:13 stroeder Exp $
+$Id: ldif.py,v 1.51 2009/07/14 10:54:44 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -118,7 +118,7 @@ class LDIFWriter:
         pos = pos+self._cols-1
     return # _unfoldLDIFLine()
 
-  def _needs_base64(self,attr_type,attr_value):
+  def _needs_base64_encoding(self,attr_type,attr_value):
     """
     returns 1 if attr_value has to be base-64 encoded because
     of special chars or because attr_type is in self._base64_attrs
@@ -135,7 +135,7 @@ class LDIFWriter:
     attr_value
           attribute value
     """
-    if self._needs_base64(attr_type,attr_value):
+    if self._needs_base64_encoding(attr_type,attr_value):
       # Encode with base64
       self._unfoldLDIFLine(':: '.join([attr_type,base64.encodestring(attr_value).replace('\n','')]))
     else:
