@@ -10,6 +10,8 @@ Lib/
   This allows sub-classes of LDIFWriter to implement determining whether
   attribute values have to be base64-encoded in a different manner and is
   the same approach like in class dsml.DSMLWriter.
+* LDAPUrlExtension._parse() now gracefully handles LDAP URL extensions
+  without explicit exvalue as being set with implicit value None.
 
 Modules/
 * New LDAP option constant ldap.OPT_X_SASL_NOCANON supported
@@ -748,4 +750,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.195 2009/07/14 10:54:44 stroeder Exp $
+$Id: CHANGES,v 1.196 2009/07/14 11:03:15 stroeder Exp $
