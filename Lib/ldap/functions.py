@@ -3,7 +3,7 @@ functions.py - wraps functions of module _ldap
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: functions.py,v 1.22 2009/04/17 14:34:34 stroeder Exp $
+\$Id: functions.py,v 1.23 2009/07/26 11:09:58 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -18,7 +18,7 @@ Basically calls into the LDAP lib are serialized by the module-wide
 lock _ldapmodule_lock.
 """
 
-__version__ = '0.1.2'
+from ldap import __version__
 
 __all__ = [
   'open','initialize','init',

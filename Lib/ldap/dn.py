@@ -3,13 +3,13 @@ dn.py - misc stuff for handling distinguished names (see RFC 4514)
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: dn.py,v 1.8 2009/04/17 14:34:34 stroeder Exp $
+\$Id: dn.py,v 1.9 2009/07/26 11:09:58 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+
 """
 
-__version__ = '0.2.0'
+from ldap import __version__
 
 
 import _ldap

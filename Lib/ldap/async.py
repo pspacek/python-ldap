@@ -3,7 +3,7 @@ ldap.async - handle async LDAP operations
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: async.py,v 1.27 2009/04/17 14:34:34 stroeder Exp $
+\$Id: async.py,v 1.28 2009/07/26 11:09:57 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -11,7 +11,7 @@ Tested on Python 2.0+ but should run on Python 1.5.x.
 
 import ldap
 
-__version__ = '0.1.0'
+from ldap import __version__
 
 
 _searchResultTypes={

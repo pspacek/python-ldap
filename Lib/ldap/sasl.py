@@ -3,7 +3,7 @@ sasl.py - support for SASL mechanism
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: sasl.py,v 1.14 2009/04/17 14:34:34 stroeder Exp $
+\$Id: sasl.py,v 1.15 2009/07/26 11:09:58 stroeder Exp $
 
 Description:
 The ldap.sasl module provides SASL authentication classes.
@@ -17,7 +17,7 @@ Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
 """
 
-__version__ = '0.0.3'
+from ldap import __version__
 
 if __debug__:
   # Tracing is only supported in debugging mode

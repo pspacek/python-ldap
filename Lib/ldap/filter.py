@@ -3,13 +3,13 @@ filters.py - misc stuff for handling LDAP filter strings (see RFC2254)
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: filter.py,v 1.6 2009/04/17 14:34:34 stroeder Exp $
+\$Id: filter.py,v 1.7 2009/07/26 11:09:58 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+
 """
 
-__version__ = '0.0.3'
+from ldap import __version__
 
 
 def escape_filter_chars(assertion_value,escape_mode=0):
