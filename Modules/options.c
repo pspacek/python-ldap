@@ -1,5 +1,5 @@
 /* See http://www.python-ldap.org/ for details.
- * $Id: options.c,v 1.22 2009/05/04 10:07:52 stroeder Exp $ */
+ * $Id: options.c,v 1.23 2009/08/04 05:39:10 leonard Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -24,6 +24,7 @@ LDAP_set_option(LDAPObject *self, int option, PyObject *value)
     struct timeval tv;
     void *ptr;
     LDAP *ld;
+    LDAPControl **controls = NULL;
 
     ld = self ? self->ldap : NULL;
 
@@ -94,9 +95,9 @@ LDAP_set_option(LDAPObject *self, int option, PyObject *value)
 	    break;
     case LDAP_OPT_SERVER_CONTROLS:
     case LDAP_OPT_CLIENT_CONTROLS:
-            ptr = List_to_LDAPControls(value);
-            if (ptr == NULL)
+            if (!LDAPControls_from_object(value, &controls))
                 return -1;
+            ptr = controls;
             break;
     default:
 	    PyErr_SetNone(PyExc_ValueError);
@@ -108,7 +109,7 @@ LDAP_set_option(LDAPObject *self, int option, PyObject *value)
     if (self) LDAP_END_ALLOW_THREADS(self);
 
     if ((option == LDAP_OPT_SERVER_CONTROLS) || (option == LDAP_OPT_CLIENT_CONTROLS))
-        LDAPControl_List_DEL((LDAPControl**) ptr);
+        LDAPControl_List_DEL(controls);
     
     if (res != LDAP_OPT_SUCCESS) {
 	LDAPerr(res);
