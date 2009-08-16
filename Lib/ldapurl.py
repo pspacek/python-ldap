@@ -3,7 +3,7 @@ ldapurl - handling of LDAP URLs as described in RFC 4516
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapurl.py,v 1.42 2009/08/16 18:35:34 stroeder Exp $
+\$Id: ldapurl.py,v 1.43 2009/08/16 18:45:31 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -102,10 +102,13 @@ class LDAPUrlExtension:
     self.extype = self.extype.strip()
 
   def unparse(self):
-    return '%s%s=%s' % (
-      '!'*(self.critical>0),
-      self.extype,quote(self.exvalue or '')
-    )
+    if self.exvalue is None:
+      return '%s%s' % ('!'*(self.critical>0),self.extype)
+    else:
+      return '%s%s=%s' % (
+        '!'*(self.critical>0),
+        self.extype,quote(self.exvalue or '')
+      )
     
   def __str__(self):
     return self.unparse()
