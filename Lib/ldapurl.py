@@ -3,7 +3,7 @@ ldapurl - handling of LDAP URLs as described in RFC 4516
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapurl.py,v 1.39 2009/07/14 11:03:15 stroeder Exp $
+\$Id: ldapurl.py,v 1.40 2009/08/16 16:25:04 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -378,7 +378,8 @@ class LDAPUrl:
   def __getattr__(self,name):
     if self.attr2extype.has_key(name):
       extype = self.attr2extype[name]
-      if self.extensions.has_key(extype):
+      if self.extensions.has_key(extype) and \
+         not self.extensions[extype].exvalue is None:
         result = unquote(self.extensions[extype].exvalue)
       else:
         return None

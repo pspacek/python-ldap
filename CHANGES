@@ -6,6 +6,8 @@ Changes since 2.3.9:
 Lib/
 * The diagnosticMessage returned by a server is written to the trace
   output also for successful operations.
+* Fixed handling of LDAP URL extensions with implicit value None which are
+  mapped to class attributes of LDAPUrl.
 
 Modules/
 * Changed internal API List_to_LDAPControls() to LDAPControls_from_object()
@@ -762,4 +764,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.199 2009/08/16 14:18:01 stroeder Exp $
+$Id: CHANGES,v 1.200 2009/08/16 16:25:04 stroeder Exp $
