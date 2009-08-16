@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.103 2009/07/26 11:09:58 stroeder Exp $
+\$Id: ldapobject.py,v 1.104 2009/08/16 14:18:01 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -94,15 +94,23 @@ class SimpleLDAPObject:
     try:
       try:
         result = func(*args,**kwargs)
+        if __debug__ and self._trace_level>=2:
+          if func.__name__!="unbind_ext":
+            diagnostic_message_success = self._l.get_option(ldap.OPT_DIAGNOSTIC_MESSAGE)
+          else:
+            diagnostic_message_success = None
       finally:
         self._ldap_object_lock.release()
     except LDAPError,e:
       if __debug__ and self._trace_level>=2:
         self._trace_file.write('=> LDAPError - %s: %s\n' % (e.__class__.__name__,str(e)))
       raise
-    if __debug__ and self._trace_level>=1:
-      if self._trace_level>=2 and result!=None and result!=(None,None):
-        self._trace_file.write('=> result: %s\n' % (repr(result)))
+    else:
+      if __debug__ and self._trace_level>=2:
+        if not diagnostic_message_success is None:
+          self._trace_file.write('=> diagnosticMessage: %s\n' % (repr(diagnostic_message_success)))
+        if result!=None and result!=(None,None):
+          self._trace_file.write('=> result: %s\n' % (repr(result)))
     return result
 
   def __setattr__(self,name,value):
