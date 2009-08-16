@@ -1,5 +1,5 @@
 /* See http://www.python-ldap.org/ for details.
- * $Id: LDAPObject.c,v 1.83 2009/08/04 05:39:10 leonard Exp $ */
+ * $Id: LDAPObject.c,v 1.84 2009/08/16 23:51:26 leonard Exp $ */
 
 #include "common.h"
 #include "patchlevel.h"
@@ -1258,9 +1258,6 @@ static PyMethodDef methods[] = {
     {"passwd",	        (PyCFunction)l_ldap_passwd,	        METH_VARARGS },
     {"set_option",	(PyCFunction)l_ldap_set_option,		METH_VARARGS },
     {"get_option",	(PyCFunction)l_ldap_get_option,		METH_VARARGS },
-#if defined(FILENO_SUPPORTED)
-    {"fileno",		(PyCFunction)l_ldap_fileno,		METH_VARARGS },
-#endif
 #ifdef LDAP_API_FEATURE_CANCEL
     {"cancel",		(PyCFunction)l_ldap_cancel,		METH_VARARGS },
 #endif
