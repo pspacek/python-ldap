@@ -3,7 +3,7 @@ ldapurl - handling of LDAP URLs as described in RFC 4516
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapurl.py,v 1.40 2009/08/16 16:25:04 stroeder Exp $
+\$Id: ldapurl.py,v 1.41 2009/08/16 16:37:26 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -276,7 +276,7 @@ class LDAPUrl:
         rest = rest[qemark_pos:]
       else:
         raise ValueError,'Something completely weird happened!'
-    paramlist=rest.split('?')
+    paramlist=rest.split('?',4)
     paramlist_len = len(paramlist)
     if paramlist_len>=1:
       self.dn = unquote(paramlist[0]).strip()
