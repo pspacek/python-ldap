@@ -1,5 +1,5 @@
 /* See http://www.python-ldap.org/ for details.
- * $Id: LDAPObject.c,v 1.85 2009/08/16 23:56:56 leonard Exp $ */
+ * $Id: LDAPObject.c,v 1.86 2009/08/17 00:01:30 leonard Exp $ */
 
 #include "common.h"
 #include "patchlevel.h"
@@ -11,7 +11,6 @@
 #include "LDAPObject.h"
 #include "ldapcontrol.h"
 #include "message.h"
-#include "berval.h"
 #include "options.h"
 
 #ifdef HAVE_SASL
@@ -1121,7 +1120,7 @@ l_ldap_whoami_s( LDAPObject* self, PyObject* args )
     if ( ldaperror!=LDAP_SUCCESS )
     	return LDAPerror( self->ldap, "ldap_whoami_s" );
 
-    result = LDAPberval_to_object(bvalue);
+    result = PyString_FromStringAndSize(bvalue->bv_val, bvalue->bv_len);
 
     return result;
 }
