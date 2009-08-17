@@ -3,7 +3,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://www.python-ldap.org/ for details.
 
-$Id: setup.py,v 1.63 2009/07/26 11:09:06 stroeder Exp $
+$Id: setup.py,v 1.64 2009/08/17 01:49:47 leonard Exp $
 """
 
 has_setuptools = False
@@ -100,6 +100,7 @@ setup(
 			'Modules/message.c',
 			'Modules/version.c',
 			'Modules/options.c',
+			'Modules/berval.c',
 		],
 		libraries = LDAP_CLASS.libs,
 		include_dirs = ['Modules'] + LDAP_CLASS.include_dirs,
