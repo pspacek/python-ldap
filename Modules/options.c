@@ -1,5 +1,5 @@
 /* See http://www.python-ldap.org/ for details.
- * $Id: options.c,v 1.24 2009/08/17 05:00:57 leonard Exp $ */
+ * $Id: options.c,v 1.25 2009/08/19 07:31:30 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -211,6 +211,9 @@ LDAP_get_option(LDAPObject *self, int option)
 #endif
 #ifdef LDAP_OPT_X_SASL_NOCANON
     case LDAP_OPT_X_SASL_NOCANON:
+#endif
+#ifdef LDAP_OPT_X_SASL_USERNAME
+    case LDAP_OPT_X_SASL_USERNAME:
 #endif
 	    /* Integer-valued options */
 	    if (self) LDAP_BEGIN_ALLOW_THREADS(self);

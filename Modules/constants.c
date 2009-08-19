@@ -1,6 +1,6 @@
 /* constants defined for LDAP
  * See http://www.python-ldap.org/ for details.
- * $Id: constants.c,v 1.36 2009/05/04 10:07:52 stroeder Exp $ */
+ * $Id: constants.c,v 1.37 2009/08/19 07:31:30 stroeder Exp $ */
 
 #include "common.h"
 #include "constants.h"
@@ -192,6 +192,9 @@ LDAPinit_constants( PyObject* d )
 	add_int(d,OPT_X_SASL_SSF_MAX);
 #ifdef LDAP_OPT_X_SASL_NOCANON
 	add_int(d,OPT_X_SASL_NOCANON);
+#endif
+#ifdef LDAP_OPT_X_SASL_USERNAME
+	add_int(d,OPT_X_SASL_USERNAME);
 #endif
 
 	add_int(d,DN_FORMAT_LDAP);
