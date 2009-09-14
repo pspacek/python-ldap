@@ -17,6 +17,8 @@ Modules/
   ldap_get_option(LDAP_OPT_X_SASL_USERNAME) if available in libldap.
 * New LDAP option constant ldap.OPT_X_TLS_NEWCTX supported
   in LDAPObject.set_option()
+* New LDAP option constant ldap.OPT_X_TLS_PROTOCOL_MIN supported
+  in LDAPObject.get/set_option()
 
 ----------------------------------------------------------------
 Released 2.3.9 2009-07-26
@@ -770,4 +772,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.204 2009/09/14 18:31:08 stroeder Exp $
+$Id: CHANGES,v 1.205 2009/09/14 20:02:45 stroeder Exp $
