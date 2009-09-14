@@ -1,5 +1,5 @@
 /* See http://www.python-ldap.org/ for details.
- * $Id: options.c,v 1.30 2009/09/14 20:02:45 stroeder Exp $ */
+ * $Id: options.c,v 1.31 2009/09/14 20:12:03 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -62,6 +62,9 @@ LDAP_set_option(LDAPObject *self, int option, PyObject *value)
     case LDAP_OPT_RESTART:
 #ifdef LDAP_OPT_X_SASL_NOCANON
     case LDAP_OPT_X_SASL_NOCANON:
+#endif
+#ifdef LDAP_OPT_CONNECT_ASYNC
+    case LDAP_OPT_CONNECT_ASYNC:
 #endif
 	    /* Truth-value options */
 	    ptr = PyObject_IsTrue(value) ? LDAP_OPT_ON : LDAP_OPT_OFF;
@@ -220,6 +223,9 @@ LDAP_get_option(LDAPObject *self, int option)
 #endif
 #ifdef LDAP_OPT_X_SASL_NOCANON
     case LDAP_OPT_X_SASL_NOCANON:
+#endif
+#ifdef LDAP_OPT_CONNECT_ASYNC
+    case LDAP_OPT_CONNECT_ASYNC:
 #endif
 	    /* Integer-valued options */
 	    if (self) LDAP_BEGIN_ALLOW_THREADS(self);

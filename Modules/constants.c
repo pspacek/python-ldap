@@ -1,6 +1,6 @@
 /* constants defined for LDAP
  * See http://www.python-ldap.org/ for details.
- * $Id: constants.c,v 1.39 2009/09/14 20:02:45 stroeder Exp $ */
+ * $Id: constants.c,v 1.40 2009/09/14 20:12:03 stroeder Exp $ */
 
 #include "common.h"
 #include "constants.h"
@@ -197,6 +197,9 @@ LDAPinit_constants( PyObject* d )
 #endif
 #ifdef LDAP_OPT_X_SASL_USERNAME
 	add_int(d,OPT_X_SASL_USERNAME);
+#endif
+#ifdef LDAP_OPT_CONNECT_ASYNC
+	add_int(d,OPT_CONNECT_ASYNC);
 #endif
 
 	add_int(d,DN_FORMAT_LDAP);
