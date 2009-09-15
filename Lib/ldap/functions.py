@@ -3,7 +3,7 @@ functions.py - wraps functions of module _ldap
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: functions.py,v 1.23 2009/07/26 11:09:58 stroeder Exp $
+\$Id: functions.py,v 1.24 2009/09/15 13:31:29 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -26,9 +26,9 @@ __all__ = [
   'get_option','set_option',
 ]
 
-import sys,_ldap
+import sys,_ldap,ldap
 
-from ldap import _ldap_module_lock,LDAPError
+from ldap import LDAPError
 
 from ldap.dn import explode_dn,explode_rdn
 
@@ -37,7 +37,6 @@ from ldap.ldapobject import LDAPObject
 if __debug__:
   # Tracing is only supported in debugging mode
   import traceback
-  from ldap import _trace_level,_trace_file,_trace_stack_limit
 
 def _ldap_function_call(func,*args,**kwargs):
   """
@@ -45,26 +44,26 @@ def _ldap_function_call(func,*args,**kwargs):
   module-wide ldap_lock
   """
   if __debug__:
-    if _trace_level>=1:
-      _trace_file.write('*** %s.%s (%s,%s)\n' % (
+    if ldap._trace_level>=1:
+      ldap._trace_file.write('*** %s.%s (%s,%s)\n' % (
         '_ldap',repr(func),
         repr(args),repr(kwargs)
       ))
-      if _trace_level>=3:
-        traceback.print_stack(limit=_trace_stack_limit,file=_trace_file)
-  _ldap_module_lock.acquire()
+      if ldap._trace_level>=3:
+        traceback.print_stack(limit=ldap._trace_stack_limit,file=ldap._trace_file)
+  ldap._ldap_module_lock.acquire()
   try:
     try:
       result = func(*args,**kwargs)
     finally:
-      _ldap_module_lock.release()
+      ldap._ldap_module_lock.release()
   except LDAPError,e:
-    if __debug__ and _trace_level>=2:
-      _trace_file.write('=> LDAPError: %s\n' % (str(e)))
+    if __debug__ and ldap._trace_level>=2:
+      ldap._trace_file.write('=> LDAPError: %s\n' % (str(e)))
     raise
-  if __debug__ and _trace_level>=2:
+  if __debug__ and ldap._trace_level>=2:
     if result!=None and result!=(None,None):
-      _trace_file.write('=> result: %s\n' % (repr(result)))
+      ldap._trace_file.write('=> result: %s\n' % (repr(result)))
   return result
 
 
