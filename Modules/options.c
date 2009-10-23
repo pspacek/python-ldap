@@ -1,5 +1,5 @@
 /* See http://www.python-ldap.org/ for details.
- * $Id: options.c,v 1.32 2009/09/14 23:07:43 stroeder Exp $ */
+ * $Id: options.c,v 1.33 2009/10/23 09:09:37 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -80,7 +80,9 @@ LDAP_set_option(LDAPObject *self, int option, PyObject *value)
     case LDAP_OPT_X_TLS:
     case LDAP_OPT_X_TLS_REQUIRE_CERT:
     case LDAP_OPT_X_TLS_NEWCTX:
+#ifdef OPT_X_TLS_PROTOCOL_MIN
     case LDAP_OPT_X_TLS_PROTOCOL_MIN:
+#endif
 #endif
 #ifdef HAVE_SASL
     case LDAP_OPT_X_SASL_SSF_MIN:
@@ -216,7 +218,9 @@ LDAP_get_option(LDAPObject *self, int option)
 #ifdef HAVE_TLS
     case LDAP_OPT_X_TLS:
     case LDAP_OPT_X_TLS_REQUIRE_CERT:
+#ifdef OPT_X_TLS_PROTOCOL_MIN
     case LDAP_OPT_X_TLS_PROTOCOL_MIN:
+#endif
 #endif
 #ifdef HAVE_SASL
     case LDAP_OPT_X_SASL_SSF_MIN:
