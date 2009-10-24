@@ -6,7 +6,7 @@
 python-ldap Documentation  
 ##########################
 
-.. % $Id: index.rst,v 1.3 2008/04/16 15:15:55 stroeder Exp $
+.. % $Id: index.rst,v 1.4 2009/10/24 19:31:57 stroeder Exp $
 
 .. topic:: Abstract
 
@@ -25,6 +25,7 @@ Contents
    installing.rst
    ldap.rst
    ldap-async.rst
+   ldap-resiter.rst
    ldap-controls.rst
    ldap-dn.rst
    ldap-filter.rst
