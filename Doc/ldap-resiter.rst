@@ -1,4 +1,4 @@
-.. % $Id: ldap-resiter.rst,v 1.1 2009/10/21 17:32:47 stroeder Exp $
+.. % $Id: ldap-resiter.rst,v 1.2 2009/10/24 19:32:12 stroeder Exp $
 
 
 :mod:`ldap.resiter` Generator for stream-processing of large search results
@@ -15,15 +15,15 @@
 .. _ldap.resiter-example:
 
 Examples for ldap.resiter
-------------------------
+-------------------------
 
 .. _ldap.resiter.ResultProcessor-example:
 
 Using ldap.resiter
 ^^^^^^^^^^^^^^^^^^
 
-This example demonstrates how to use class ldap.resiter.ResultProcessor for
-retrieving results and processing them in a for-loop.
+This example demonstrates how to use mix-in class ldap.resiter.ResultProcessor for
+retrieving results and processing them in a for-loop. ::
 
   import sys,ldap,ldap.resiter
 
