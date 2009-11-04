@@ -4,6 +4,8 @@ Released 2.3.11 2009-11-xx
 Changes since 2.3.10:
 
 Modules/
+* Make use of LDAP_OPT_X_TLS_NEWCTX only if available in
+  OpenLDAP libs used for the build
 
 ----------------------------------------------------------------
 Released 2.3.10 2009-10-30
@@ -789,4 +791,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.216 2009/11/04 17:13:46 stroeder Exp $
+$Id: CHANGES,v 1.217 2009/11/04 17:14:36 stroeder Exp $
