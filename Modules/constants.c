@@ -1,6 +1,6 @@
 /* constants defined for LDAP
  * See http://www.python-ldap.org/ for details.
- * $Id: constants.c,v 1.44 2009/11/04 17:14:36 stroeder Exp $ */
+ * $Id: constants.c,v 1.45 2009/11/13 08:44:07 stroeder Exp $ */
 
 #include "common.h"
 #include "constants.h"
@@ -183,8 +183,10 @@ LDAPinit_constants( PyObject* d )
 	add_int(d,OPT_X_TLS_CRL_NONE);
 	add_int(d,OPT_X_TLS_CRL_PEER);
 	add_int(d,OPT_X_TLS_CRL_ALL);
+#ifdef LDAP_OPT_X_TLS_NEWCTX
 	add_int(d,OPT_X_TLS_NEWCTX);
-#ifdef OPT_X_TLS_PROTOCOL_MIN
+#endif
+#ifdef LDAP_OPT_X_TLS_PROTOCOL_MIN
 	add_int(d,OPT_X_TLS_PROTOCOL_MIN);
 #endif
 #endif
