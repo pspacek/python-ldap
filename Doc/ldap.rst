@@ -1,10 +1,4 @@
-.. % $Id: ldap.rst,v 1.14 2010/02/05 13:10:37 stroeder Exp $
-.. % ==== 1. ====
-.. % The section prologue.  Give the section a title and provide some
-.. % meta-information.  References to the module should use
-.. % \refbimodindex, \refstmodindex, \refexmodindex or \refmodindex, as
-.. % appropriate.
-
+.. % $Id: ldap.rst,v 1.15 2010/02/05 13:14:42 stroeder Exp $
 
 *****************************************
 :mod:`ldap` LDAP library interface module
