@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.12 2010/02/05 12:38:06 stroeder Exp $
+.. % $Id: ldap.rst,v 1.13 2010/02/05 12:42:50 stroeder Exp $
 .. % ==== 1. ====
 .. % The section prologue.  Give the section a title and provide some
 .. % meta-information.  References to the module should use
@@ -839,7 +839,7 @@ LDAPObject instances have the following methods:
    .. %-> int
 
 
-.. method::  LDAPObject.modrdn_s(dn, newrdn [, delold=1)
+.. method::  LDAPObject.modrdn_s(dn, newrdn [, delold=1])
 
    .. % -> None
 
@@ -1256,7 +1256,7 @@ These attributes are mutable unless described as read-only.
 .. _ldap-example:
 
 Example
---------
+=======
 
 The following example demonstrates how to open a connection to an
 LDAP server using the :mod:`ldap` module and invoke a synchronous
