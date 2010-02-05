@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.105 2009/10/23 09:17:37 stroeder Exp $
+\$Id: ldapobject.py,v 1.106 2010/02/05 12:28:36 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -378,8 +378,8 @@ class SimpleLDAPObject:
     """
     return self._ldap_call(self._l.rename,dn,newrdn,newsuperior,delold,EncodeControlTuples(serverctrls),EncodeControlTuples(clientctrls))
 
-  def rename_s(self,dn,newrdn,newsuperior=None,delold=1):
-    msgid = self.rename(dn,newrdn,newsuperior,delold)
+  def rename_s(self,dn,newrdn,newsuperior=None,delold=1,serverctrls=None,clientctrls=None):
+    msgid = self.rename(dn,newrdn,newsuperior,delold,serverctrls,clientctrls)
     return self.result(msgid,all=1,timeout=self.timeout)
 
   def result(self,msgid=ldap.RES_ANY,all=1,timeout=None):
