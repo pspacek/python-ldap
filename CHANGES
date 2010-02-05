@@ -18,6 +18,7 @@ Doc/
 * Some updates and corrections regarding description of use of
   LDAPv3 controls
 * Some more descriptions for constants
+* Removed comments related to old LaTeX-based documentation system
 
 ----------------------------------------------------------------
 Released 2.3.10 2009-10-30
@@ -803,4 +804,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.222 2010/02/05 12:38:06 stroeder Exp $
+$Id: CHANGES,v 1.223 2010/02/05 13:17:02 stroeder Exp $
