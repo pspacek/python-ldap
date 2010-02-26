@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.15 2010/02/05 13:14:42 stroeder Exp $
+.. % $Id: ldap.rst,v 1.16 2010/02/26 08:58:36 stroeder Exp $
 
 *****************************************
 :mod:`ldap` LDAP library interface module
@@ -1086,30 +1086,6 @@ Connection-specific LDAP options
 
    This method sets the value of the LDAPObject option
    specified by *option* to *invalue*.
-
-
-.. %%------------------------------------------------------------
-.. %% manage_dsa_it
-.. method:: LDAPObject.manage_dsa_it(enable, [, critical=0])
-
-   .. %-> None
-
-   Enables or disables manageDSAit mode
-   according to the specified integer flag *enable*. The
-   integer flag *critical* specifies if the use of this extended
-   control is marked critical.
-
-   .. seealso::
-
-      :rfc:`3296` - Named Subordinate References in
-                    Lightweight Directory Access Protocol (LDAP) Directories
-
-   .. note::
-
-      This method is deprecated and somewhat broken since full support for extended controls
-      is implemented today. You should rather pass an appropriate
-      :class:`LDAPControl` instance via argument *serverctrls* to the
-      applicable methods.
 
 
 Object attributes
