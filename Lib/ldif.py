@@ -3,7 +3,7 @@ ldif - generate and parse LDIF data (see RFC 2849)
 
 See http://www.python-ldap.org/ for details.
 
-$Id: ldif.py,v 1.54 2010/03/29 20:05:48 stroeder Exp $
+$Id: ldif.py,v 1.55 2010/03/29 20:12:56 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -32,7 +32,8 @@ except ImportError:
 
 attrtype_pattern = r'[\w;.]+(;[\w_-]+)*'
 attrvalue_pattern = r'(([^,]|\\,)+|".*?")'
-rdn_pattern = attrtype_pattern + r'[ ]*=[ ]*' + attrvalue_pattern
+attrtypeandvalue_pattern = attrtype_pattern + r'[ ]*=[ ]*' + attrvalue_pattern
+rdn_pattern   = attrtypeandvalue_pattern + r'([ ]*\+[ ]*' + attrtypeandvalue_pattern + r')*[ ]*'
 dn_pattern   = rdn_pattern + r'([ ]*,[ ]*' + rdn_pattern + r')*[ ]*'
 dn_regex   = re.compile('^%s$' % dn_pattern)
 
