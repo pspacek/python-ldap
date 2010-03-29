@@ -3,7 +3,7 @@ ldif - generate and parse LDIF data (see RFC 2849)
 
 See http://www.python-ldap.org/ for details.
 
-$Id: ldif.py,v 1.53 2010/03/29 20:02:59 stroeder Exp $
+$Id: ldif.py,v 1.54 2010/03/29 20:05:48 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -355,20 +355,20 @@ class LDIFParser:
         if attr_type=='dn':
           # attr type and value pair was DN of LDIF record
           if dn!=None:
-	    raise ValueError, 'Two lines starting with dn: in one record.'
+            raise ValueError, 'Two lines starting with dn: in one record.'
           if not is_dn(attr_value):
-	    raise ValueError, 'No valid string-representation of distinguished name %s.' % (repr(attr_value))
+            raise ValueError, 'No valid string-representation of distinguished name %s.' % (repr(attr_value))
           dn = attr_value
         elif attr_type=='version' and dn is None:
           version = 1
         elif attr_type=='changetype':
           # attr type and value pair was DN of LDIF record
           if dn is None:
-	    raise ValueError, 'Read changetype: before getting valid dn: line.'
+            raise ValueError, 'Read changetype: before getting valid dn: line.'
           if changetype!=None:
-	    raise ValueError, 'Two lines starting with changetype: in one record.'
+            raise ValueError, 'Two lines starting with changetype: in one record.'
           if not valid_changetype_dict.has_key(attr_value):
-	    raise ValueError, 'changetype value %s is invalid.' % (repr(attr_value))
+            raise ValueError, 'changetype value %s is invalid.' % (repr(attr_value))
           changetype = attr_value
         elif attr_value!=None and \
              not self._ignored_attr_types.has_key(attr_type.lower()):
