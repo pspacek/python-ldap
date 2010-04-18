@@ -7,6 +7,7 @@ Lib/
 * Removed tabs from ldif.py
 * Quick fix to ldif.is_dn() to let multi-valued RDNs pass as valid.
   Is too liberal in some corner-cases though...
+* ldap.open() now outputs a deprecation warning
 
 Modules/
 * 
@@ -821,4 +822,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.228 2010/03/29 20:12:56 stroeder Exp $
+$Id: CHANGES,v 1.229 2010/04/18 12:22:50 stroeder Exp $

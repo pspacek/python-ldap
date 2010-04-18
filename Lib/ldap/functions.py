@@ -3,7 +3,7 @@ functions.py - wraps functions of module _ldap
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: functions.py,v 1.24 2009/09/15 13:31:29 stroeder Exp $
+\$Id: functions.py,v 1.25 2010/04/18 12:22:50 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -101,6 +101,8 @@ def open(host,port=389,trace_level=0,trace_file=sys.stdout,trace_stack_limit=Non
         File object where to write the trace output to.
         Default is to use stdout.
   """
+  import warnings
+  warnings.warn('ldap.open() is deprecated! Use ldap.initialize() instead.', DeprecationWarning,2)
   return initialize('ldap://%s:%d' % (host,port),trace_level,trace_file,trace_stack_limit)
 
 init = open
