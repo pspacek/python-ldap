@@ -4,7 +4,7 @@ dsml - generate and parse DSMLv1 data
 
 See http://www.python-ldap.org/ for details.
 
-$Id: dsml.py,v 1.14 2009/12/03 22:11:26 stroeder Exp $
+$Id: dsml.py,v 1.15 2010/04/19 17:34:36 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+.
@@ -133,17 +133,17 @@ class DSMLWriter:
           attr_value_item = base64.encodestring(attr_value_item)
         else:
           attr_value_item = replace_char(attr_value_item)
-  	self._output_file.write('%s<dsml:value%s>\n' % (
+        self._output_file.write('%s<dsml:value%s>\n' % (
             self._indent*4,
             ' encoding="base64"'*needs_base64_encoding
           )
         )
-  	self._output_file.write('%s%s\n' % (
+        self._output_file.write('%s%s\n' % (
             self._indent*5,
             attr_value_item
           )
         )
-  	self._output_file.write('%s</dsml:value>\n' % (
+        self._output_file.write('%s</dsml:value>\n' % (
             self._indent*4,
           )
         )
