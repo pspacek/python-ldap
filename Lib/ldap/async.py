@@ -3,7 +3,7 @@ ldap.async - handle async LDAP operations
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: async.py,v 1.28 2009/07/26 11:09:57 stroeder Exp $
+\$Id: async.py,v 1.29 2010/04/22 17:19:47 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -213,12 +213,12 @@ class IndexedDict(Dict):
       dn,entry = resultItem
       self.allEntries[dn] = entry
       for a in self.indexed_attrs:
-	if entry.has_key(a):
-	  for v in entry[a]:
-	    try:
-    	      self.index[a][v].append(dn)
-	    except KeyError:
-    	      self.index[a][v] = [ dn ]
+        if entry.has_key(a):
+          for v in entry[a]:
+            try:
+              self.index[a][v].append(dn)
+            except KeyError:
+              self.index[a][v] = [ dn ]
 
 
 class FileWriter(AsyncSearchHandler):
