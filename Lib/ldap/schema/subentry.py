@@ -3,7 +3,7 @@ ldap.schema.subentry -  subschema subentry handling
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: subentry.py,v 1.24 2009/04/17 14:36:16 stroeder Exp $
+\$Id: subentry.py,v 1.25 2010/04/30 08:39:38 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema
@@ -319,17 +319,17 @@ class SubSchema:
     if not ignore_dit_content_rule:
       structural_oc = self.get_structural_oc(object_class_list)
       if structural_oc:
-	# Process applicable DIT content rule
-	dit_content_rule = self.get_obj(DITContentRule,structural_oc)
-	if dit_content_rule:
+        # Process applicable DIT content rule
+        dit_content_rule = self.get_obj(DITContentRule,structural_oc)
+        if dit_content_rule:
           for a in dit_content_rule.must:
             try:
               at_obj = self.sed[AttributeType][self.name2oid[AttributeType].get(a,a)]
             except KeyError:
               if raise_keyerror:
-        	raise
+                raise
               else:
-        	r_must[a] = None
+                r_must[a] = None
             else:
               r_must[at_obj.oid] = at_obj
           for a in dit_content_rule.may:
@@ -337,27 +337,27 @@ class SubSchema:
               at_obj = self.sed[AttributeType][self.name2oid[AttributeType].get(a,a)]
             except KeyError:
               if raise_keyerror:
-        	raise
+                raise
               else:
-        	r_may[a] = None
+                r_may[a] = None
             else:
               r_may[at_obj.oid] = at_obj
           for a in dit_content_rule.nots:
             a_oid = self.name2oid[AttributeType].get(a,a)
             if not r_must.has_key(a_oid):
               try:
-        	at_obj = self.sed[AttributeType][a_oid]
+                at_obj = self.sed[AttributeType][a_oid]
               except KeyError:
-        	if raise_keyerror:
+                if raise_keyerror:
                   raise
               else:
-        	try:
+                try:
                   del r_must[at_obj.oid]
-        	except KeyError:
+                except KeyError:
                   pass
-        	try:
+                try:
                   del r_may[at_obj.oid]
-        	except KeyError:
+                except KeyError:
                   pass
 
     # Apply attr_type_filter to results

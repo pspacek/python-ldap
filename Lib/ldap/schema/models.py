@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: models.py,v 1.38 2009/10/31 19:52:45 stroeder Exp $
+\$Id: models.py,v 1.39 2010/04/30 08:39:38 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -216,18 +216,18 @@ class AttributeType(SchemaElement):
       self.syntax_len = None
     else:
       if syntax is None:
-	self.syntax = None
-	self.syntax_len = None
+        self.syntax = None
+        self.syntax_len = None
       else:
-	try:
+        try:
           self.syntax,syntax_len = d['SYNTAX'][0].split("{")
-	except ValueError:
+        except ValueError:
           self.syntax = d['SYNTAX'][0]
           self.syntax_len = None
           for i in l:
             if i.startswith("{") and i.endswith("}"):
               self.syntax_len=long(i[1:-1])
-	else:
+        else:
           self.syntax_len = long(syntax_len[:-1])
     self.single_value = d['SINGLE-VALUE']!=None
     self.collective = d['COLLECTIVE']!=None
