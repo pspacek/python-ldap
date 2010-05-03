@@ -1,5 +1,5 @@
 /* See http://www.python-ldap.org/ for details.
- * $Id: options.c,v 1.35 2009/11/13 08:45:50 stroeder Exp $ */
+ * $Id: options.c,v 1.36 2010/05/03 22:52:40 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -90,6 +90,16 @@ LDAP_set_option(LDAPObject *self, int option, PyObject *value)
     case LDAP_OPT_X_SASL_SSF_MIN:
     case LDAP_OPT_X_SASL_SSF_MAX:
 #endif
+#ifdef LDAP_OPT_X_KEEPALIVE_IDLE
+    case LDAP_OPT_X_KEEPALIVE_IDLE:
+#endif
+#ifdef LDAP_OPT_X_KEEPALIVE_PROBES
+    case LDAP_OPT_X_KEEPALIVE_PROBES:
+#endif
+#ifdef LDAP_OPT_X_KEEPALIVE_INTERVAL
+    case LDAP_OPT_X_KEEPALIVE_INTERVAL:
+#endif
+
 	    /* integer value options */
 	    if (!PyArg_Parse(value, "i:set_option", &intval))
 		return 0;
@@ -233,6 +243,15 @@ LDAP_get_option(LDAPObject *self, int option)
 #endif
 #ifdef LDAP_OPT_CONNECT_ASYNC
     case LDAP_OPT_CONNECT_ASYNC:
+#endif
+#ifdef LDAP_OPT_X_KEEPALIVE_IDLE
+    case LDAP_OPT_X_KEEPALIVE_IDLE:
+#endif
+#ifdef LDAP_OPT_X_KEEPALIVE_PROBES
+    case LDAP_OPT_X_KEEPALIVE_PROBES:
+#endif
+#ifdef LDAP_OPT_X_KEEPALIVE_INTERVAL
+    case LDAP_OPT_X_KEEPALIVE_INTERVAL:
 #endif
 	    /* Integer-valued options */
 	    if (self) LDAP_BEGIN_ALLOW_THREADS(self);
