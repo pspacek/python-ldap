@@ -8,11 +8,11 @@ Lib/
 * Quick fix to ldif.is_dn() to let multi-valued RDNs pass as valid.
   Is too liberal in some corner-cases though...
 * ldap.open() now outputs a deprecation warning
+
+Modules/
 * New LDAP options available in OpenLDAP 2.4.18+ supported in
   LDAPObject.get/set_option(): ldap.OPT_X_KEEPALIVE_IDLE,
   ldap.OPT_X_KEEPALIVE_PROBES, ldap.OPT_X_KEEPALIVE_INTERVAL
-Modules/
-* 
 
 Doc/
 * 
@@ -824,4 +824,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.232 2010/05/03 22:52:40 stroeder Exp $
+$Id: CHANGES,v 1.233 2010/05/03 22:54:25 stroeder Exp $
