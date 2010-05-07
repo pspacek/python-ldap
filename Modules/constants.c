@@ -1,6 +1,6 @@
 /* constants defined for LDAP
  * See http://www.python-ldap.org/ for details.
- * $Id: constants.c,v 1.46 2010/05/03 22:52:40 stroeder Exp $ */
+ * $Id: constants.c,v 1.47 2010/05/07 13:22:40 stroeder Exp $ */
 
 #include "common.h"
 #include "constants.h"
@@ -178,11 +178,14 @@ LDAPinit_constants( PyObject* d )
 	add_int(d,OPT_X_TLS_DEMAND);
 	add_int(d,OPT_X_TLS_ALLOW);
 	add_int(d,OPT_X_TLS_TRY);
+#ifdef LDAP_OPT_X_TLS_CRLCHECK
   /* only available if OpenSSL supports it => might cause backward compability problems */
 	add_int(d,OPT_X_TLS_CRLCHECK);
+	add_int(d,OPT_X_TLS_CRLFILE);
 	add_int(d,OPT_X_TLS_CRL_NONE);
 	add_int(d,OPT_X_TLS_CRL_PEER);
 	add_int(d,OPT_X_TLS_CRL_ALL);
+#endif
 #ifdef LDAP_OPT_X_TLS_NEWCTX
 	add_int(d,OPT_X_TLS_NEWCTX);
 #endif

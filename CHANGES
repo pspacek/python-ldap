@@ -11,8 +11,10 @@ Lib/
 
 Modules/
 * New LDAP options available in OpenLDAP 2.4.18+ supported in
-  LDAPObject.get/set_option(): ldap.OPT_X_KEEPALIVE_IDLE,
-  ldap.OPT_X_KEEPALIVE_PROBES, ldap.OPT_X_KEEPALIVE_INTERVAL
+  LDAPObject.get/set_option():
+  ldap.OPT_X_KEEPALIVE_IDLE, ldap.OPT_X_KEEPALIVE_PROBES,
+  ldap.OPT_X_KEEPALIVE_INTERVAL,
+  ldap.OPT_X_TLS_CRLCHECK, ldap.OPT_X_TLS_CRLFILE
 
 Doc/
 * 
@@ -824,4 +826,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.233 2010/05/03 22:54:25 stroeder Exp $
+$Id: CHANGES,v 1.234 2010/05/07 13:22:40 stroeder Exp $
