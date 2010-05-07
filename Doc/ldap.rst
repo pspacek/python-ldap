@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.16 2010/02/26 08:58:36 stroeder Exp $
+.. % $Id: ldap.rst,v 1.17 2010/05/07 10:36:05 stroeder Exp $
 
 *****************************************
 :mod:`ldap` LDAP library interface module
@@ -95,7 +95,10 @@ The :mod:`ldap` module defines the following functions:
 Constants
 =========
 
-The module defines various constants.
+The module defines various constants. Note that some constants depend
+on the build options and which underlying libs were used or even on
+the version of the libs. So before using those constants the application has
+to explicitly check whether they are available.
 
 General
 -------
@@ -178,6 +181,11 @@ following option identifiers are defined as constants:
 
 .. data:: OPT_URI
 
+.. _ldap-sasl-options:
+
+SASL options
+::::::::::::
+
 .. data:: OPT_X_SASL_AUTHCID
 
 .. data:: OPT_X_SASL_AUTHZID
@@ -199,6 +207,11 @@ following option identifiers are defined as constants:
 .. data:: OPT_X_SASL_SSF_MAX
 
 .. data:: OPT_X_SASL_SSF_MIN
+
+.. _ldap-tls-options:
+
+TLS options
+:::::::::::
 
 .. data:: OPT_X_TLS
 
@@ -228,6 +241,16 @@ following option identifiers are defined as constants:
 
 .. data:: OPT_X_TLS_TRY
 
+.. _ldap-keepalive-options:
+
+Keepalive options
+:::::::::::::::::
+
+.. data:: OPT_X_KEEPALIVE_IDLE
+
+.. data:: OPT_X_KEEPALIVE_PROBES
+
+.. data:: OPT_X_KEEPALIVE_INTERVAL
 
 .. _ldap-dn-flags:
 
