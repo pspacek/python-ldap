@@ -3,12 +3,12 @@ ldap - base module
 
 See http://www.python-ldap.org/ for details.
 
-$Id: __init__.py,v 1.67 2009/12/03 22:11:26 stroeder Exp $
+$Id: __init__.py,v 1.68 2010/05/07 08:15:47 stroeder Exp $
 """
 
 # This is also the overall release version number
 
-__version__ = '2.3.11'
+__version__ = '2.3.12'
 
 import sys
 
