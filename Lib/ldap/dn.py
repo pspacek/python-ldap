@@ -3,7 +3,7 @@ dn.py - misc stuff for handling distinguished names (see RFC 4514)
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: dn.py,v 1.10 2010/05/10 19:57:33 stroeder Exp $
+\$Id: dn.py,v 1.11 2010/06/03 12:26:39 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+
@@ -50,7 +50,7 @@ def str2dn(dn,flags=0):
   """
   if not dn:
     return []
-  return ldap.functions._ldap_function_call(_ldap.str2dn,dn,flags)
+  return ldap.functions._ldap_function_call(None,_ldap.str2dn,dn,flags)
 
 
 def dn2str(dn):

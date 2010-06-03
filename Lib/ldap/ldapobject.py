@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.108 2010/02/26 08:57:29 stroeder Exp $
+\$Id: ldapobject.py,v 1.109 2010/06/03 12:26:39 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -66,13 +66,13 @@ class SimpleLDAPObject:
     self._trace_stack_limit = trace_stack_limit
     self._uri = uri
     self._ldap_object_lock = self._ldap_lock()
-    self._l = ldap.functions._ldap_function_call(_ldap.initialize,uri)
+    self._l = ldap.functions._ldap_function_call(ldap._ldap_module_lock,_ldap.initialize,uri)
     self.timeout = -1
     self.protocol_version = ldap.VERSION3
 
   def _ldap_lock(self):
     if ldap.LIBLDAP_R:
-      return ldap.LDAPLock()
+      return ldap.LDAPLock(desc=self._uri)
     else:
       return ldap._ldap_module_lock
 
@@ -81,6 +81,7 @@ class SimpleLDAPObject:
     Wrapper method mainly for serializing calls into OpenLDAP libs
     and trace logs
     """
+    self._ldap_object_lock.acquire()
     if __debug__:
       if self._trace_level>=1:# and func.__name__!='result':
         self._trace_file.write('*** %s - %s (%s,%s)\n' % (
@@ -90,7 +91,6 @@ class SimpleLDAPObject:
         ))
         if self._trace_level>=3:
           traceback.print_stack(limit=self._trace_stack_limit,file=self._trace_file)
-    self._ldap_object_lock.acquire()
     try:
       try:
         result = func(*args,**kwargs)
@@ -731,7 +731,7 @@ class ReconnectLDAPObject(SimpleLDAPObject):
         ))
       try:
         # Do the connect
-        self._l = ldap.functions._ldap_function_call(_ldap.initialize,uri)
+        self._l = ldap.functions._ldap_function_call(ldap._ldap_module_lock,_ldap.initialize,uri)
         self._restore_options()
         # StartTLS extended operation in case this was called before
         if self._start_tls:
