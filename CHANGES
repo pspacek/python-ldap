@@ -7,7 +7,8 @@ Lib/
 * 
 
 Modules/
-* 
+* Correct #ifdef-statement for LDAP_OPT_X_TLS_CRLFILE in
+  constants.c fixes build with older OpenLDAP libs
 
 Doc/
 * 
@@ -844,4 +845,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.239 2010/08/11 18:45:52 stroeder Exp $
+$Id: CHANGES,v 1.240 2010/08/11 18:47:44 stroeder Exp $
