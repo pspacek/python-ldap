@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.17 2010/05/07 10:36:05 stroeder Exp $
+.. % $Id: ldap.rst,v 1.18 2011/02/19 13:05:16 stroeder Exp $
 
 *****************************************
 :mod:`ldap` LDAP library interface module
@@ -140,6 +140,8 @@ following option identifiers are defined as constants:
 .. data:: OPT_DEBUG_LEVEL
 
    Sets the debug level within the underlying LDAP C lib.
+
+.. data:: OPT_DEFBASE
 
 .. data:: OPT_DEREF
 
