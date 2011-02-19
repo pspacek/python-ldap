@@ -3,7 +3,7 @@ controls.py - support classes for LDAPv3 extended operations
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: extop.py,v 1.2 2011/02/19 15:17:04 stroeder Exp $
+\$Id: extop.py,v 1.3 2011/02/19 15:17:48 stroeder Exp $
 
 Description:
 The ldap.extop module provides base classes for LDAPv3 extended operations.
@@ -17,9 +17,6 @@ __all__ = [
   'ExtendedRequest',
   'ExtendedResponse',
 ]
-
-
-import _ldap,ldap
 
 
 class ExtendedRequest:
