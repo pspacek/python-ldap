@@ -83,6 +83,7 @@ Acknowledgements:
        Ingo Steuwer <steuwer at univention.de>
        Andreas Hasenack <ahasenack at terra.com.br>       
        Matej Vela <vela at debian.org>
+       Rich Megginson <rmeggins at redhat.com>
 
    Thanks to all the guys on the python-ldap-dev mailing list for
    their contributions and input into this package.
@@ -90,4 +91,4 @@ Acknowledgements:
    Thanks! We may have missed someone: please mail us if we have omitted
    your name.
 
-$Id: README,v 1.19 2009/07/26 11:07:29 stroeder Exp $
+$Id: README,v 1.20 2011/02/21 21:04:00 stroeder Exp $

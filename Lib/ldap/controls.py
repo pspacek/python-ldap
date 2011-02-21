@@ -3,7 +3,7 @@ controls.py - support classes for LDAP controls
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: controls.py,v 1.7 2009/07/26 11:09:58 stroeder Exp $
+\$Id: controls.py,v 1.8 2011/02/21 21:04:00 stroeder Exp $
 
 Description:
 The ldap.controls module provides LDAPControl classes.
@@ -79,7 +79,7 @@ class SimplePagedResultsControl(LDAPControl):
 
   def decodeControlValue(self,encodedValue):
     size,cookie = _ldap.decode_page_control(encodedValue)
-    return size,cookie
+    return (size,cookie)
 
 
 class MatchedValuesControl(LDAPControl):
@@ -92,9 +92,6 @@ class MatchedValuesControl(LDAPControl):
   
   controlType = ldap.LDAP_CONTROL_VALUESRETURNFILTER
   
-  def __init__(self, criticality, controlValue=None):
-    LDAPControl.__init__(self, self.controlType, criticality, controlValue, None) 
-
   def encodeControlValue(self, value):
     return _ldap.encode_valuesreturnfilter_control(value)
 
