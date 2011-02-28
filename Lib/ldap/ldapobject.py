@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.112 2011/02/28 09:31:03 stroeder Exp $
+\$Id: ldapobject.py,v 1.113 2011/02/28 14:07:57 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -298,10 +298,13 @@ class SimpleLDAPObject:
     """
     return self._ldap_call(self._l.extop,extreq.requestName,extreq.encodedRequestValue(),EncodeControlTuples(serverctrls),EncodeControlTuples(clientctrls))
 
+  def extop_result(self,msgid=ldap.RES_ANY,all=1,timeout=None):
+    resulttype,msg,msgid,respctrls,respoid,respvalue = self.result4(msgid,all=1,timeout=self.timeout,add_ctrls=1,add_intermediates=1,add_extop=1)
+    return (respoid,respvalue)
+
   def extop_s(self,extreq,serverctrls=None,clientctrls=None):
     msgid = self.extop(extreq,serverctrls,clientctrls)
-    ldapresultcode,msg,msgid,respctrls,respoid,respvalue = self.result4(msgid,all=1,timeout=self.timeout,add_ctrls=1,add_intermediates=1,add_extop=1)
-    return ldapresultcode,msg,msgid,respctrls,respoid,respvalue
+    return self.extop_result(msgid,all=1,timeout=self.timeout)
 
   def modify_ext(self,dn,modlist,serverctrls=None,clientctrls=None):
     """
