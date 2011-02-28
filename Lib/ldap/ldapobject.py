@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.111 2011/02/25 09:30:53 stroeder Exp $
+\$Id: ldapobject.py,v 1.112 2011/02/28 09:31:03 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -829,6 +829,9 @@ class ReconnectLDAPObject(SimpleLDAPObject):
 
   def delete_ext_s(self,*args,**kwargs):
     return self._apply_method_s(SimpleLDAPObject.delete_ext_s,*args,**kwargs)
+
+  def extop_s(self,*args,**kwargs):
+    return self._apply_method_s(SimpleLDAPObject.extop_s,*args,**kwargs)
 
   def modify_ext_s(self,*args,**kwargs):
     return self._apply_method_s(SimpleLDAPObject.modify_ext_s,*args,**kwargs)
