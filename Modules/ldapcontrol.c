@@ -1,5 +1,5 @@
 /* See http://www.python-ldap.org/ for details.
- * $Id: ldapcontrol.c,v 1.17 2009/08/17 01:49:47 leonard Exp $ */
+ * $Id: ldapcontrol.c,v 1.18 2011/03/04 13:34:05 stroeder Exp $ */
 
 #include "common.h"
 #include "LDAPObject.h"
@@ -337,20 +337,24 @@ encode_assertion_control(PyObject *self, PyObject *args)
     PyObject *res = 0;
     char *assertion_filterstr;
     struct berval ctrl_val;
-    BerElement *ber = 0;
+    LDAP *ld = NULL;
 
     if (!PyArg_ParseTuple(args, "s:encode_assertion_control",
                           &assertion_filterstr)) {
         goto endlbl;
     }
 
-    err = ldap_create_assertion_control_value(NULL,assertion_filterstr,&ctrl_val);
+    err = ldap_create(&ld);
+    if (err != LDAP_SUCCESS)
+    	return LDAPerror(ld, "ldap_create");
+
+    err = ldap_create_assertion_control_value(ld,assertion_filterstr,&ctrl_val);
+    if (err != LDAP_SUCCESS)
+    	return LDAPerror(ld, "ldap_create_assertion_control_value");
 
     res = LDAPberval_to_object(&ctrl_val);
 
     endlbl:
-       if (ber)
-           ber_free(ber, 1);
 
     return res;
 }
