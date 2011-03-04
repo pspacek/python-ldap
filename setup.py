@@ -3,7 +3,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://www.python-ldap.org/ for details.
 
-$Id: setup.py,v 1.65 2009/10/21 17:32:11 stroeder Exp $
+$Id: setup.py,v 1.66 2011/03/04 15:24:08 stroeder Exp $
 """
 
 has_setuptools = False
@@ -126,6 +126,7 @@ setup(
   		'ldap.controls',
   		'ldap.cidict',
   		'ldap.dn',
+  		'ldap.extop',
   		'ldap.filter',
   		'ldap.functions',
   		'ldap.ldapobject',
