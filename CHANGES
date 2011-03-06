@@ -13,7 +13,8 @@ Lib/
 * New (optional) class ldap.controls.AssertionControl
 
 Modules/
-* ldapcontrol.c: Fixed encode_assertion_control()
+* ldapcontrol.c: Fixed encode_assertion_control() and function is no longer
+  hidden behind ifdef-statement
 
 ----------------------------------------------------------------
 Released 2.3.13 2011-02-19
@@ -857,4 +858,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.247 2011/03/04 17:54:05 stroeder Exp $
+$Id: CHANGES,v 1.248 2011/03/06 11:36:42 stroeder Exp $
