@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.113 2011/02/28 14:07:57 stroeder Exp $
+\$Id: ldapobject.py,v 1.114 2011/03/15 10:54:14 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -25,7 +25,6 @@ __all__ = [
   'SimpleLDAPObject',
   'NonblockingLDAPObject',
   'ReconnectLDAPObject',
-  'SmartLDAPObject'
 ]
 
 
