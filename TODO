@@ -10,6 +10,7 @@ Modules/
   - Binding in DSA control mode (rewrite necessary)
   - Persistent search control
 - Support for other platforms?
+- Wrap libldif as faster drop-in replacement for module ldif?
 
 Lib/
 - Caching of search requests for each LDAPObject instance
@@ -22,4 +23,4 @@ Tests/
   holding the BLITS test data set
 
 ------------------------------------------------------------------
-$Id: TODO,v 1.31 2011/03/22 11:03:11 stroeder Exp $
+$Id: TODO,v 1.32 2011/03/22 11:04:40 stroeder Exp $
