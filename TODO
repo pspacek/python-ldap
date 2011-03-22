@@ -4,8 +4,6 @@ General:
 - Define common Python style license for all modules
 
 Modules/
-- Validating server's certificate when calling start_tls_s() or
-  ldap.initialize('ldaps://..')
 - Specific support for more controls
   - VLV control
   - server-side sorting control
@@ -24,4 +22,4 @@ Tests/
   holding the BLITS test data set
 
 ------------------------------------------------------------------
-$Id: TODO,v 1.30 2011/03/22 11:02:28 stroeder Exp $
+$Id: TODO,v 1.31 2011/03/22 11:03:11 stroeder Exp $
