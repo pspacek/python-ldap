@@ -2,6 +2,7 @@
 
 General:
 - Define common Python style license for all modules
+- Support Python 3.2+
 
 Modules/
 - Specific support for more controls
@@ -25,4 +26,4 @@ Tests/
   holding the BLITS test data set
 
 ------------------------------------------------------------------
-$Id: TODO,v 1.33 2011/03/22 11:06:04 stroeder Exp $
+$Id: TODO,v 1.34 2011/03/22 11:06:50 stroeder Exp $
