@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.115 2011/03/21 08:42:36 stroeder Exp $
+\$Id: ldapobject.py,v 1.116 2011/03/25 08:14:28 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -542,18 +542,6 @@ class SimpleLDAPObject:
 
   def search_st(self,base,scope,filterstr='(objectClass=*)',attrlist=None,attrsonly=0,timeout=-1):
     return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout)
-
-  def set_cache_options(self,*args,**kwargs):
-    """
-    set_cache_options(option) -> None    
-        Changes the caching behaviour. Currently supported options are
-            CACHE_OPT_CACHENOERRS, which suppresses caching of requests
-                that resulted in an error, and
-            CACHE_OPT_CACHEALLERRS, which enables caching of all requests.
-        The default behaviour is not to cache requests that result in
-        errors, except those that result in a SIZELIMIT_EXCEEDED exception.
-    """
-    return self._ldap_call(self._l.set_cache_options,*args,**kwargs)
 
   def start_tls_s(self):
     """
