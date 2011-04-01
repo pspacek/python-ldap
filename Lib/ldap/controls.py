@@ -3,7 +3,7 @@ controls.py - support classes for LDAP controls
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: controls.py,v 1.11 2011/04/01 09:52:49 stroeder Exp $
+\$Id: controls.py,v 1.12 2011/04/01 10:50:18 stroeder Exp $
 
 Description:
 The ldap.controls module provides LDAPControl classes.
@@ -51,10 +51,9 @@ class ResponseControl:
   Base class for all response controls
   """
 
-  def __init__(self,controlType=None,criticality=False,encodedControlValue=None):
+  def __init__(self,controlType=None,criticality=False):
     self.controlType = controlType
     self.criticality = criticality
-    self.decodeControlValue(encodedControlValue)
 
   def decodeControlValue(self,encodedControlValue):
     self.encodedControlValue = encodedControlValue
