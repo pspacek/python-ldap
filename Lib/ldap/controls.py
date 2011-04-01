@@ -3,7 +3,7 @@ controls.py - support classes for LDAP controls
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: controls.py,v 1.10 2011/03/31 19:20:37 stroeder Exp $
+\$Id: controls.py,v 1.11 2011/04/01 09:52:49 stroeder Exp $
 
 Description:
 The ldap.controls module provides LDAPControl classes.
@@ -188,7 +188,6 @@ def DecodeControlTuples(ldapControlTuples,knownLDAPControls):
   Return list of readily encoded 3-tuples which can be directly
   passed to C module _ldap
   """
-  print '***knownLDAPControls',knownLDAPControls
   knownLDAPControls = knownLDAPControls or {}
   result = []
   for controlType,criticality,encodedControlValue in ldapControlTuples or []:
