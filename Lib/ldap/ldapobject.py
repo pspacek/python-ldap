@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.117 2011/03/31 19:20:37 stroeder Exp $
+\$Id: ldapobject.py,v 1.118 2011/04/01 10:57:45 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -484,6 +484,8 @@ class SimpleLDAPObject:
         resp_name, resp_value = None,None
       else:
         resp_type, resp_data, resp_msgid, resp_ctrls, resp_name, resp_value = ldap_result
+      if add_ctrls:
+        resp_data = [ (t,r,DecodeControlTuples(c,resp_ctrl_classes)) for t,r,c in resp_data ]
     decoded_resp_ctrls = DecodeControlTuples(resp_ctrls,resp_ctrl_classes)
     return resp_type, resp_data, resp_msgid, decoded_resp_ctrls, resp_name, resp_value
  
