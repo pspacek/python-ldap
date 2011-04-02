@@ -1,6 +1,6 @@
 /* constants defined for LDAP
  * See http://www.python-ldap.org/ for details.
- * $Id: constants.c,v 1.50 2011/03/31 19:22:18 stroeder Exp $ */
+ * $Id: constants.c,v 1.51 2011/04/02 21:35:13 stroeder Exp $ */
 
 #include "common.h"
 #include "constants.h"
@@ -356,6 +356,10 @@ LDAPinit_constants( PyObject* d )
 
 	obj = PyString_FromString(LDAP_CONTROL_PASSWORDPOLICYRESPONSE);
 	PyDict_SetItemString( d, "CONTROL_PASSWORDPOLICYRESPONSE", obj );
+	Py_DECREF(obj);
+
+	obj = PyString_FromString(LDAP_CONTROL_RELAX);
+	PyDict_SetItemString( d, "CONTROL_RELAX", obj );
 	Py_DECREF(obj);
 
 }
