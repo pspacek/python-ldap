@@ -30,7 +30,8 @@ Quick usage example:
 See directory Demo/ of source distribution package for more
 example code.
 
-Author(s) contact:
+Author(s) contact and documentation:
+
    http://www.python-ldap.org/
 
    If you are looking for help, please try the mailing list archives
@@ -70,6 +71,8 @@ Acknowledgements:
    support for LDAPv3 controls and adding support for LDAPv3 extended
    operations.
    
+   Thanks to Peter Gietz, DAASI for funding some control modules.
+
    These very kind people have supplied patches or suggested changes:
 
        Federico Di Gregorio <fog at mixadlive.com>
@@ -94,4 +97,4 @@ Acknowledgements:
    Thanks! We may have missed someone: please mail us if we have omitted
    your name.
 
-$Id: README,v 1.21 2011/04/02 20:27:02 stroeder Exp $
+$Id: README,v 1.22 2011/04/04 09:13:03 stroeder Exp $
