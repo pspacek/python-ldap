@@ -5,11 +5,7 @@ ldap.controls.psearch - classes for Persistent Search Control
 
 See http://www.python-ldap.org/ for project details.
 
-This needs the following software:
-Python
-pyasn1
-pyasn1-modules
-python-ldap 2.4+
+$Id: psearch.py,v 1.2 2011/04/04 09:18:33 stroeder Exp $
 """
 
 __all__ = [
