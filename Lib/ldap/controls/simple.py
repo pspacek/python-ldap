@@ -4,11 +4,11 @@ ldap.controls.simple - classes for some very simple LDAP controls
 
 See http://www.python-ldap.org/ for details.
 
-$Id: simple.py,v 1.1 2011/04/02 20:14:48 stroeder Exp $
+$Id: simple.py,v 1.2 2011/04/08 21:10:32 stroeder Exp $
 """
 
 import ldap
-from ldap.controls import RequestControl,LDAPControl,KNOWN_RESPONSE_CONTROLS
+from ldap.controls import RequestControl,ResponseControl,LDAPControl,KNOWN_RESPONSE_CONTROLS
 
 
 class ValueLessRequestControl(RequestControl):
@@ -57,3 +57,27 @@ class BooleanControl(LDAPControl):
 
   def decodeControlValue(self,encodedControlValue):
     self.booleanValue = self.ber2boolean[encodedControlValue]
+
+
+class ProxyAuthzControl(RequestControl):
+  """
+  Proxy Authorization Control (see RFC 4370)
+  """
+
+  def __init__(self,criticality,authzId):
+    RequestControl.__init__(self,ldap.CONTROL_PROXY_AUTHZ,criticality,authzId)
+
+
+class AuthorizationIdentityControl(ValueLessRequestControl,ResponseControl):
+  """
+  Authorization Identity Request and Response Controls (RFC 3829)
+  """
+  controlType = '2.16.840.1.113730.3.4.16'
+
+  def __init__(self,criticality):
+    ValueLessRequestControl.__init__(self,self.controlType,criticality)
+
+  def decodeControlValue(self,encodedControlValue):
+    self.authzId = encodedControlValue
+
+KNOWN_RESPONSE_CONTROLS[AuthorizationIdentityControl.controlType] = AuthorizationIdentityControl
