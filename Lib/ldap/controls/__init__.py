@@ -4,7 +4,7 @@ controls.py - support classes for LDAP controls
 
 See http://www.python-ldap.org/ for details.
 
-$Id: __init__.py,v 1.3 2011/04/08 11:27:21 stroeder Exp $
+$Id: __init__.py,v 1.4 2011/04/08 12:12:04 stroeder Exp $
 
 Description:
 The ldap.controls module provides LDAPControl classes.
@@ -95,10 +95,15 @@ def DecodeControlTuples(ldapControlTuples,knownLDAPControls=None):
   knownLDAPControls = knownLDAPControls or KNOWN_RESPONSE_CONTROLS
   result = []
   for controlType,criticality,encodedControlValue in ldapControlTuples or []:
-    control = knownLDAPControls.get(controlType,ResponseControl)()
-    control.controlType,control.criticality = controlType,criticality
-    control.decodeControlValue(encodedControlValue)
-    result.append(control)  
+    try:
+      control = knownLDAPControls[controlType]()
+    except KeyError:
+      if criticality:
+        raise ldap.UNAVAILABLE_CRITICAL_EXTENSION('Received unexpected critical response control with controlType %s' % (repr(controlType)))
+    else:
+      control.controlType,control.criticality = controlType,criticality
+      control.decodeControlValue(encodedControlValue)
+      result.append(control)  
   return result
 
 
