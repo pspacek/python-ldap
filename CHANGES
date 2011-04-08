@@ -11,6 +11,7 @@ Changes since 2.3.13:
 
 Lib/
 * new class API in ldap.controls, not backwards-compatible!
+* new sub-modules for ldap.controls, some require pyasn1 and pyasn1_modules
 * New methods LDAPObject.result4() and LDAPObject.extop_result()
 * New (optional) class ldap.controls.AssertionControl
 * New helper module ldap.logger contains file-like object which
@@ -864,4 +865,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.253 2011/03/31 19:20:37 stroeder Exp $
+$Id: CHANGES,v 1.254 2011/04/08 12:27:39 stroeder Exp $
