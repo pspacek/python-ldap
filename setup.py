@@ -3,7 +3,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://www.python-ldap.org/ for details.
 
-$Id: setup.py,v 1.66 2011/03/04 15:24:08 stroeder Exp $
+$Id: setup.py,v 1.67 2011/04/11 10:36:15 stroeder Exp $
 """
 
 has_setuptools = False
@@ -81,8 +81,8 @@ setup(
 	name = name,
 	version = version,
 	description = 'Various LDAP-related Python modules',
-	author = 'David Leonard, Michael Stroeder, et al.',
-	author_email = 'python-ldap-dev@lists.sourceforge.net',
+	author = 'python-ldap project',
+	author_email = 'python-ldap@python.org',
 	url = 'http://www.python-ldap.org/',
 	#-- C extension modules
 	ext_modules = [
@@ -124,12 +124,19 @@ setup(
   		'ldap',
   		'ldap.async',
   		'ldap.controls',
+  		'ldap.controls.libldap',
+  		'ldap.controls.ppolicy',
+  		'ldap.controls.psearch',
+  		'ldap.controls.readentry',
+  		'ldap.controls.simple',
   		'ldap.cidict',
   		'ldap.dn',
   		'ldap.extop',
+  		'ldap.extop.dds',
   		'ldap.filter',
   		'ldap.functions',
   		'ldap.ldapobject',
+  		'ldap.logger',
   		'ldap.modlist',
   		'ldap.resiter',
   		'ldap.sasl',
