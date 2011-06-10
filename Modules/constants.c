@@ -1,6 +1,6 @@
 /* constants defined for LDAP
  * See http://www.python-ldap.org/ for details.
- * $Id: constants.c,v 1.52 2011/04/11 11:23:46 stroeder Exp $ */
+ * $Id: constants.c,v 1.53 2011/06/10 21:44:50 stroeder Exp $ */
 
 #include "common.h"
 #include "constants.h"
@@ -262,7 +262,7 @@ LDAPinit_constants( PyObject* d )
 
   /* author */
 
-  author = PyString_FromString("python-ldap-dev@lists.sf.net");
+  author = PyString_FromString("python-ldap Project");
   PyDict_SetItemString(d, "__author__", author);
   Py_DECREF(author);
 
