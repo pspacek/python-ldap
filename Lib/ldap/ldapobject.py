@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.121 2011/06/15 17:48:49 stroeder Exp $
+\$Id: ldapobject.py,v 1.122 2011/06/15 17:54:32 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -84,13 +84,13 @@ class SimpleLDAPObject:
     """
     self._ldap_object_lock.acquire()
     if __debug__:
-      if self._trace_level>=1:# and func.__name__!='result':
+      if self._trace_level>=1:
         self._trace_file.write('*** %s - %s (%s,%s)\n' % (
           self._uri,
           self.__class__.__name__+'.'+func.__name__,
           repr(args),repr(kwargs)
         ))
-        if self._trace_level>=3:
+        if self._trace_level>=9:
           traceback.print_stack(limit=self._trace_stack_limit,file=self._trace_file)
     try:
       try:
@@ -110,8 +110,7 @@ class SimpleLDAPObject:
       if __debug__ and self._trace_level>=2:
         if not diagnostic_message_success is None:
           self._trace_file.write('=> diagnosticMessage: %s\n' % (repr(diagnostic_message_success)))
-        if result!=None and result!=(None,None):
-          self._trace_file.write('=> result: %s\n' % (repr(result)))
+        self._trace_file.write('=> result: %s\n' % (repr(result)))
     return result
 
   def __setattr__(self,name,value):
