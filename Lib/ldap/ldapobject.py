@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.120 2011/04/18 13:51:25 stroeder Exp $
+\$Id: ldapobject.py,v 1.121 2011/06/15 17:48:49 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -381,8 +381,7 @@ class SimpleLDAPObject:
 
   def passwd_s(self,user,oldpw,newpw,serverctrls=None,clientctrls=None):
     msgid = self.passwd(user,oldpw,newpw,serverctrls,clientctrls)
-    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all=1,timeout=self.timeout)
-    return resp_type, resp_data, resp_msgid, resp_ctrls
+    return self.extop_result(msgid,all=1,timeout=self.timeout)
 
   def rename(self,dn,newrdn,newsuperior=None,delold=1,serverctrls=None,clientctrls=None):
     """
