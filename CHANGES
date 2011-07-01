@@ -15,7 +15,7 @@ Lib/
 * Minor changes to which data is sent to debug output for various
   trace levels
 * Now tag [1] is used in ldap.extop.dds.RefreshResponse in
-  compliance with RFC 2589 (fix available for OpenLDAP ITS#6873)
+  compliance with RFC 2589 (fix available for OpenLDAP ITS#6886)
 
 ----------------------------------------------------------------
 Released 2.4.0 2011-06-02
@@ -884,4 +884,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.260 2011/07/01 16:56:54 stroeder Exp $
+$Id: CHANGES,v 1.261 2011/07/01 16:59:16 stroeder Exp $
