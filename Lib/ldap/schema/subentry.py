@@ -3,7 +3,7 @@ ldap.schema.subentry -  subschema subentry handling
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: subentry.py,v 1.28 2011/07/08 07:52:19 stroeder Exp $
+\$Id: subentry.py,v 1.29 2011/07/08 07:59:35 stroeder Exp $
 """
 
 import ldap.cidict,ldap.schema
@@ -341,10 +341,6 @@ class SubSchema:
             r_may[se_oid] = self.get_obj(AttributeType,se_oid,raise_keyerror=raise_keyerror)
           for a in dit_content_rule.nots:
             a_oid = self.getoid(AttributeType,a,raise_keyerror=raise_keyerror)
-            try:
-              del r_must[a_oid]
-            except KeyError:
-              pass
             try:
               del r_may[a_oid]
             except KeyError:
