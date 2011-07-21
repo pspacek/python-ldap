@@ -3,7 +3,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://www.python-ldap.org/ for details.
 
-$Id: setup.py,v 1.69 2011/07/21 18:19:52 stroeder Exp $
+$Id: setup.py,v 1.70 2011/07/21 18:23:25 stroeder Exp $
 """
 
 has_setuptools = False
@@ -94,15 +94,20 @@ setup(
   url = 'http://www.python-ldap.org/',
   download_url = 'http://pypi.python.org/pypi/python-ldap/',
   classifiers = [
-    'Classifier: Development Status :: 5 - Production/Stable',
-    'Classifier: Intended Audience :: Developers',
-    'Classifier: Operating System :: OS Independent',
-    'Classifier: Programming Language :: C',
-    'Classifier: Programming Language :: Python',
-    'Classifier: Topic :: Database',
-    'Classifier: Topic :: Internet',
-    'Classifier: Topic :: Software Development :: Libraries :: Python Modules',
-    'Classifier: Topic :: System :: Systems Administration :: Authentication/Directory :: LDAP',
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Intended Audience :: System Administrators',
+    'Operating System :: OS Independent',
+    'Operating System :: MacOS :: MacOS X',
+    'Operating System :: Microsoft :: Windows',
+    'Operating System :: POSIX',
+    'Programming Language :: C',
+    'Programming Language :: Python',
+    'Topic :: Database',
+    'Topic :: Internet',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: System :: Systems Administration :: Authentication/Directory :: LDAP',
+    'License :: OSI Approved :: Python Software Foundation License',
   ],
   license = 'Python style',
   #-- C extension modules
