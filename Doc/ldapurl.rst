@@ -1,10 +1,10 @@
-.. % $Id: ldapurl.rst,v 1.5 2010/02/05 13:13:19 stroeder Exp $
+.. % $Id: ldapurl.rst,v 1.6 2011/07/21 20:33:26 stroeder Exp $
 
 ################################
-:mod:`ldapurl` LDAP URL handling
+:py:mod:`ldapurl` LDAP URL handling
 ################################
 
-.. module:: ldapurl
+.. py:module:: ldapurl
    :synopsis: Parses and generates LDAP URLs
 .. moduleauthor:: python-ldap project (see http://www.python-ldap.org/)
 

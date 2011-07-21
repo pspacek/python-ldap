@@ -1,17 +1,17 @@
-.. % $Id: ldif.rst,v 1.6 2011/02/19 13:04:41 stroeder Exp $
+.. % $Id: ldif.rst,v 1.7 2011/07/21 20:33:26 stroeder Exp $
 
 #####################################
 :mod:`ldif` LDIF parser and generator
 #####################################
 
-.. module:: ldif
+.. py:module:: ldif
    :synopsis: Parses and generates LDIF files
 .. moduleauthor:: python-ldap project (see http://www.python-ldap.org/)
 
 
 This module parses and generates LDAP data in the format LDIF.    It is
-implemented in pure Python and does not rely on any  non-standard modules.
-Therefore it can be used stand-alone without  the rest of the python-ldap
+implemented in pure Python and does not rely on any non-standard modules.
+Therefore it can be used stand-alone without the rest of the python-ldap
 package.
 
 .. seealso::
@@ -22,7 +22,7 @@ package.
 .. _ldif-example:
 
 Example
-^^^^^^^^
+^^^^^^^
 
 The following example demonstrates how to write LDIF output
 of an LDAP entry with :mod:`ldif` module.

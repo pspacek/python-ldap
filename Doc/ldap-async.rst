@@ -1,10 +1,10 @@
-.. % $Id: ldap-async.rst,v 1.2 2009/04/17 12:14:52 stroeder Exp $
+.. % $Id: ldap-async.rst,v 1.3 2011/07/21 20:33:26 stroeder Exp $
 
 
-:mod:`ldap.async` Framework for stream-processing of large search results
+:py:mod:`ldap.async` Framework for stream-processing of large search results
 ==============================================================================
 
-.. module:: ldap.async
+.. py:module:: ldap.async
    :synopsis: Framework for stream-processing of large search results.
 .. moduleauthor:: python-ldap project (see http://www.python-ldap.org/)
 
