@@ -3,7 +3,7 @@ functions.py - wraps functions of module _ldap
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: functions.py,v 1.26 2010/06/03 12:26:39 stroeder Exp $
+\$Id: functions.py,v 1.27 2011/07/21 17:40:11 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -26,7 +26,7 @@ __all__ = [
   'get_option','set_option',
 ]
 
-import sys,_ldap,ldap
+import sys,pprint,_ldap,ldap
 
 from ldap import LDAPError
 
@@ -52,11 +52,11 @@ def _ldap_function_call(lock,func,*args,**kwargs):
     lock.acquire()
   if __debug__:
     if ldap._trace_level>=1:
-      ldap._trace_file.write('*** %s.%s (%s,%s)\n' % (
-        '_ldap',repr(func),
-        repr(args),repr(kwargs)
+      ldap._trace_file.write('*** %s.%s %s\n' % (
+        '_ldap',func.__name__,
+        pprint.pformat((args,kwargs))
       ))
-      if ldap._trace_level>=3:
+      if ldap._trace_level>=9:
         traceback.print_stack(limit=ldap._trace_stack_limit,file=ldap._trace_file)
   try:
     try:
@@ -69,8 +69,7 @@ def _ldap_function_call(lock,func,*args,**kwargs):
       ldap._trace_file.write('=> LDAPError: %s\n' % (str(e)))
     raise
   if __debug__ and ldap._trace_level>=2:
-    if result!=None and result!=(None,None):
-      ldap._trace_file.write('=> result: %s\n' % (repr(result)))
+    ldap._trace_file.write('=> result:\n%s\n' % (pprint.pformat(result)))
   return result
 
 
