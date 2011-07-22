@@ -1,13 +1,15 @@
 ##########################
-python-ldap Documentation  
+python-ldap Documentation
 ##########################
 
-.. % $Id: index.rst,v 1.6 2011/07/22 08:29:52 stroeder Exp $
+.. % $Id: index.rst,v 1.7 2011/07/22 17:45:25 stroeder Exp $
 
 .. topic:: Abstract
 
-   This document describes the package python-ldap with its various modules.  This
-   manual assumes basic knowledge about the Python language and the LDAP standard.
+   This document describes the package python-ldap with its various modules.
+
+   Depending on what you want to do this manual assumes basic to expert
+   knowledge about the Python language and the LDAP standard (LDAPv3).
 
 
 ********
@@ -15,7 +17,7 @@ Contents
 ********
 
 .. toctree::
-   :maxdepth: 3 
+   :maxdepth: 3
 
    installing.rst
    ldap.rst
