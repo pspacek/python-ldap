@@ -1,4 +1,4 @@
-.. % $Id: ldap-controls.rst,v 1.5 2011/07/22 14:14:08 stroeder Exp $
+.. % $Id: ldap-controls.rst,v 1.6 2011/07/22 17:28:46 stroeder Exp $
 
 
 *********************************************************************
@@ -44,7 +44,7 @@ Various sub-modules implement specific LDAPv3 extended controls. The classes
 therein are derived from the base-classes :py:class:`ldap.controls.RequestControl`,
 :py:class:`ldap.controls.ResponseControl` or :py:class:`ldap.controls.LDAPControl`.
 
-Some of them need :py:mod:`pyasn1` and :py:mod:`pyasn1_modules` to be installed.
+Some of them require :py:mod:`pyasn1` and :py:mod:`pyasn1_modules` to be installed.
 
 
 :py:mod:`ldap.controls.simple` Very simple controls

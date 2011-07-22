@@ -1,4 +1,4 @@
-.. % $Id: ldap-extop.rst,v 1.3 2011/07/22 13:27:01 stroeder Exp $
+.. % $Id: ldap-extop.rst,v 1.4 2011/07/22 17:28:46 stroeder Exp $
 
 ********************************************************************
 :py:mod:`ldap.extop` High-level access to LDAPv3 extended operations
@@ -26,6 +26,8 @@ This module defines the following classes:
 
 .. py:module:: ldap.extop.dds
    :synopsis: Classes for Dynamic Entries extended operations
+
+This requires :py:mod:`pyasn1` and :py:mod:`pyasn1_modules` to be installed.
 
 .. seealso::
 
