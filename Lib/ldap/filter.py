@@ -3,7 +3,7 @@ filters.py - misc stuff for handling LDAP filter strings (see RFC2254)
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: filter.py,v 1.8 2010/04/19 17:34:36 stroeder Exp $
+\$Id: filter.py,v 1.9 2011/07/22 07:20:53 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+
@@ -18,7 +18,7 @@ def escape_filter_chars(assertion_value,escape_mode=0):
   by quoted notation.
   
   escape_mode
-      If 0 only special chars mentioned in RFC 2254 are escaped.
+      If 0 only special chars mentioned in RFC 4515 are escaped.
       If 1 all NON-ASCII chars are escaped.
       If 2 all chars are escaped.
   """

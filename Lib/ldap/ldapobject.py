@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.124 2011/07/21 17:40:11 stroeder Exp $
+\$Id: ldapobject.py,v 1.125 2011/07/22 07:20:53 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -501,7 +501,7 @@ class SimpleLDAPObject:
         (to search the object and all its descendants).
 
         filter is a string representation of the filter to
-        apply in the search (see RFC 2254).
+        apply in the search (see RFC 4515).
 
         Each result tuple is of the form (dn,entry), where dn is a
         string containing the DN (distinguished name) of the entry, and

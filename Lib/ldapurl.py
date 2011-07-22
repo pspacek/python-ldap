@@ -3,7 +3,7 @@ ldapurl - handling of LDAP URLs as described in RFC 4516
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapurl.py,v 1.48 2011/07/21 17:53:22 stroeder Exp $
+\$Id: ldapurl.py,v 1.49 2011/07/22 07:20:53 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -203,7 +203,7 @@ class LDAPUrl:
         integer search scope for ldap-module
     filterstr
         String representation of LDAP Search Filters
-        (see RFC 2254)
+        (see RFC 4515)
     extensions
         Dictionary used as extensions store
     who
