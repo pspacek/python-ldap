@@ -2,7 +2,7 @@
 python-ldap Documentation  
 ##########################
 
-.. % $Id: index.rst,v 1.5 2011/07/21 20:33:26 stroeder Exp $
+.. % $Id: index.rst,v 1.6 2011/07/22 08:29:52 stroeder Exp $
 
 .. topic:: Abstract
 
@@ -27,9 +27,10 @@ Contents
    ldap-modlist.rst
    ldap-resiter.rst
    ldap-schema.rst
-   dsml.rst
    ldif.rst
    ldapurl.rst
+   dsml.rst
+
 
 ******************
 Indices and tables
