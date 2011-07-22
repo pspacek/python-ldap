@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.125 2011/07/22 07:20:53 stroeder Exp $
+\$Id: ldapobject.py,v 1.126 2011/07/22 20:27:40 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -293,7 +293,7 @@ class SimpleLDAPObject:
         (respoid,respvalue)
         Performs an LDAP extended operation. The asynchronous
         form returns the message id of the initiated request, and the
-        result can be obtained from a subsequent call to result3().
+        result can be obtained from a subsequent call to extop_result().
         The extreq is an instance of class ldap.extop.ExtendedRequest.
 
         If argument extop_resp_class is set to a sub-class of
