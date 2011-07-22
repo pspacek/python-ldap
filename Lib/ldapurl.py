@@ -3,7 +3,7 @@ ldapurl - handling of LDAP URLs as described in RFC 4516
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapurl.py,v 1.50 2011/07/22 07:48:37 stroeder Exp $
+\$Id: ldapurl.py,v 1.51 2011/07/22 08:58:16 stroeder Exp $
 
 Python compability note:
 This module only works with Python 2.0+ since
@@ -357,7 +357,16 @@ class LDAPUrl:
     return ldap_url
   
   def htmlHREF(self,urlPrefix='',hrefText=None,hrefTarget=None):
-    """Complete """
+    """
+    Returns a string with HTML link for this LDAP URL.
+    
+    urlPrefix
+        Prefix before LDAP URL (e.g. for addressing another web-based client)
+    hrefText
+        link text/description
+    hrefTarget
+        string added as link target attribute
+    """
     assert type(urlPrefix)==StringType, "urlPrefix must be StringType"
     if hrefText is None:
       hrefText = self.unparse()
