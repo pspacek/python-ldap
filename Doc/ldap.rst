@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.20 2011/07/21 20:33:26 stroeder Exp $
+.. % $Id: ldap.rst,v 1.21 2011/07/22 14:19:00 stroeder Exp $
 
 ********************************************
 :py:mod:`ldap` LDAP library interface module
@@ -582,9 +582,9 @@ and wait for and return with the server's result, or with
 
 :class:`LDAPControl` instances have the following methods:
 
-.. py:method:: LDAPObject.abandon(msgid)
+.. py:method:: LDAPObject.abandon(msgid) -> None
 
-.. py:method:: LDAPObject.abandon_ext(msgid [, serverctrls=None [, clientctrls=None]])
+.. py:method:: LDAPObject.abandon_ext(msgid [, serverctrls=None [, clientctrls=None]]) -> None
 
    Abandons an LDAP operation in progress without waiting for a LDAP response.
    The *msgid* argument should be the message ID of an outstanding LDAP
