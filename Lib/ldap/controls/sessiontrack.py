@@ -5,7 +5,7 @@ ldap.controls.sessiontrack - class for session tracking control
 
 See http://www.python-ldap.org/ for project details.
 
-$Id: sessiontrack.py,v 1.1 2011/07/05 13:53:12 stroeder Exp $
+$Id: sessiontrack.py,v 1.2 2011/07/22 13:47:47 stroeder Exp $
 """
 
 from ldap.controls import RequestControl
@@ -25,6 +25,15 @@ SESSION_TRACKING_FORMAT_OID_USERNAME = SESSION_TRACKING_CONTROL_OID+".3"
 class SessionTrackingControl(RequestControl):
   """
   Class for Session Tracking Control (see draft-wahl-ldap-session)
+
+  sessionSourceIp
+    IP address of the request source as string
+  sessionSourceName
+    Name of the request source as string
+  formatOID
+    OID as string specifying the format
+  sessionTrackingIdentifier
+    String containing a specific tracking ID
   """
 
   class SessionIdentifierControlValue(univ.Sequence):
