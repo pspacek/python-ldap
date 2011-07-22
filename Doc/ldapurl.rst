@@ -1,4 +1,4 @@
-.. % $Id: ldapurl.rst,v 1.8 2011/07/22 09:05:53 stroeder Exp $
+.. % $Id: ldapurl.rst,v 1.9 2011/07/22 13:27:01 stroeder Exp $
 
 ###################################
 :py:mod:`ldapurl` LDAP URL handling
@@ -68,8 +68,6 @@ A :py:class:`LDAPUrl` object represents a complete LDAP URL.
 .. autoclass:: ldapurl.LDAPUrl 
 
 
-.. _ldapurl-ldapurlextension:
-
 LDAP URL extensions
 ^^^^^^^^^^^^^^^^^^^
 
@@ -77,9 +75,11 @@ A :py:class:`LDAPUrlExtension` object represents a single LDAP URL extension
 whereas :py:class:`LDAPUrlExtensions` represents a list of LDAP URL extensions.
 
 
+.. _ldapurl-ldapurlextension:
+
 .. autoclass:: ldapurl.LDAPUrlExtension
 
-.. _ldapurl-ldapurlextension:
+.. _ldapurl-ldapurlextensions:
 
 .. autoclass:: ldapurl.LDAPUrlExtensions
 
