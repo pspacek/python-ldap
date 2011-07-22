@@ -1,4 +1,4 @@
-.. % $Id: ldap-controls.rst,v 1.6 2011/07/22 17:28:46 stroeder Exp $
+.. % $Id: ldap-controls.rst,v 1.7 2011/07/22 20:19:54 stroeder Exp $
 
 
 *********************************************************************
@@ -9,6 +9,18 @@
    :synopsis: High-level access to LDAPv3 extended controls.
 .. moduleauthor:: python-ldap project (see http://www.python-ldap.org/)
 
+
+Variables
+=========
+
+.. py:data:: KNOWN_RESPONSE_CONTROLS
+
+   Dictionary mapping the OIDs of known response controls to the accompanying
+   :py:class:`ResponseControl` classes. This is used
+   by :py:func:`DecodeControlTuples` to automatically decode control values.
+   Calling application can also register their custom :py:class:`ResponseControl`
+   classes in this dictionary possibly overriding pre-registered classes.
+   
 
 Classes
 =======
