@@ -1,4 +1,4 @@
-.. % $Id: ldap-dn.rst,v 1.5 2011/07/21 20:33:26 stroeder Exp $
+.. % $Id: ldap-dn.rst,v 1.6 2011/07/22 07:43:45 stroeder Exp $
 
 
 :py:mod:`ldap.dn` LDAP Distinguished Name handling
@@ -17,7 +17,10 @@
    For LDAPv3 DN syntax see:
 
    :rfc:`4514` - Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names
-   For LDAPv2 DN syntax (obsoleted by LDAPv3) see:
+
+.. seealso::
+
+   For deprecated LDAPv2 DN syntax (obsoleted by LDAPv3) see:
 
    :rfc:`1779` - A String Representation of Distinguished Names
 
