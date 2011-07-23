@@ -5,7 +5,7 @@ ldap.controls.sessiontrack - class for session tracking control
 
 See http://www.python-ldap.org/ for project details.
 
-$Id: sessiontrack.py,v 1.2 2011/07/22 13:47:47 stroeder Exp $
+$Id: sessiontrack.py,v 1.3 2011/07/23 08:03:53 stroeder Exp $
 """
 
 from ldap.controls import RequestControl
@@ -24,7 +24,10 @@ SESSION_TRACKING_FORMAT_OID_USERNAME = SESSION_TRACKING_CONTROL_OID+".3"
 
 class SessionTrackingControl(RequestControl):
   """
-  Class for Session Tracking Control (see draft-wahl-ldap-session)
+  Class for Session Tracking Control
+
+  Because criticality MUST be false for this control it cannot be set
+  from the application.
 
   sessionSourceIp
     IP address of the request source as string
