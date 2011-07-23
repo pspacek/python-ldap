@@ -5,7 +5,7 @@ ldap.controls.readentry - classes for the Read Entry controls
 
 See http://www.python-ldap.org/ for project details.
 
-$Id: readentry.py,v 1.2 2011/07/22 13:27:02 stroeder Exp $
+$Id: readentry.py,v 1.3 2011/07/23 08:15:39 stroeder Exp $
 """
 
 import ldap
@@ -20,8 +20,6 @@ class ReadEntryControl(LDAPControl):
   """
   Base class for read entry control described in RFC 4527
 
-  criticality
-      sets the criticality of the control (boolean)
   attrList
       list of attribute type names requested
   """
@@ -47,8 +45,6 @@ class PreReadControl(ReadEntryControl):
   """
   Class for pre-read control described in RFC 4527
 
-  criticality
-      sets the criticality of the control (boolean)
   attrList
       list of attribute type names requested
   """
@@ -61,8 +57,6 @@ class PostReadControl(ReadEntryControl):
   """
   Class for post-read control described in RFC 4527
 
-  criticality
-      sets the criticality of the control (boolean)
   attrList
       list of attribute type names requested
   """

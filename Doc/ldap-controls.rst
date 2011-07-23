@@ -1,4 +1,4 @@
-.. % $Id: ldap-controls.rst,v 1.9 2011/07/23 08:07:08 stroeder Exp $
+.. % $Id: ldap-controls.rst,v 1.10 2011/07/23 08:15:38 stroeder Exp $
 
 
 *********************************************************************
@@ -182,3 +182,23 @@ search.
 .. autoclass:: ldap.controls.sessiontrack.SessionTrackingControl
    :members:
 
+
+:py:mod:`ldap.controls.readentry` Read entry control
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:module:: ldap.controls.readentry
+   :synopsis: read entryrequest and response controls
+
+.. seealso::
+
+   :rfc:`4527` - Lightweight Directory Access Protocol (LDAP): Read Entry Controls
+
+
+.. autoclass:: ldap.controls.readentry.ReadEntryControl
+   :members:
+
+.. autoclass:: ldap.controls.readentry.PreReadControl
+   :members:
+
+.. autoclass:: ldap.controls.readentry.PostReadControl
+   :members:
