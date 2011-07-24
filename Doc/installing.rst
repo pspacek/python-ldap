@@ -1,4 +1,4 @@
-.. % $Id: ldap-dn.tex,v 1.8 2008/03/26 12:10:12 stroeder Exp 
+.. % $Id: installing.rst,v 1.15 2011/07/24 19:00:53 stroeder Exp $
 
 ***********************
 Building and installing
