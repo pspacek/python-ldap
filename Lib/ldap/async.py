@@ -3,7 +3,7 @@ ldap.async - handle async LDAP operations
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: async.py,v 1.29 2010/04/22 17:19:47 stroeder Exp $
+\$Id: async.py,v 1.30 2011/07/28 08:31:47 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -43,16 +43,13 @@ class WrongResultType(Exception):
 class AsyncSearchHandler:
   """
   Class for stream-processsing LDAP search results
+
+  Arguments:
+  l
+      LDAPObject instance
   """
 
   def __init__(self,l):
-    """
-    Initialize a StreamResultHandler
-    
-    Parameters:
-    l
-        LDAPObject instance
-    """
     self._l = l
     self._msgId = None
 
