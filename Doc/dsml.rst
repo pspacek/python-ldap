@@ -1,8 +1,8 @@
-.. % $Id: dsml.rst,v 1.2 2011/07/22 08:29:52 stroeder Exp $
+.. % $Id: dsml.rst,v 1.3 2011/07/28 08:59:26 stroeder Exp $
 
-#######################################
+***************************************
 :mod:`dsml` DSMLv1 parser and generator
-#######################################
+***************************************
 
 .. :py:module:: dsml
    :synopsis: Parses and generates DSMLv1 files
@@ -26,5 +26,4 @@ package.
 .. _dsml-example:
 
 Example
-^^^^^^^
-
+=======
