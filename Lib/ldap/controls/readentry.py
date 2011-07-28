@@ -5,7 +5,7 @@ ldap.controls.readentry - classes for the Read Entry controls
 
 See http://www.python-ldap.org/ for project details.
 
-$Id: readentry.py,v 1.3 2011/07/23 08:15:39 stroeder Exp $
+$Id: readentry.py,v 1.4 2011/07/28 08:57:12 stroeder Exp $
 """
 
 import ldap
@@ -22,6 +22,13 @@ class ReadEntryControl(LDAPControl):
 
   attrList
       list of attribute type names requested
+
+  Class attributes with values extracted from the response control:
+
+  dn
+      string holding the distinguished name of the LDAP entry
+  entry
+      dictionary holding the LDAP entry
   """
 
   def __init__(self,criticality=False,attrList=None):
@@ -47,6 +54,15 @@ class PreReadControl(ReadEntryControl):
 
   attrList
       list of attribute type names requested
+
+  Class attributes with values extracted from the response control:
+
+  dn
+      string holding the distinguished name of the LDAP entry
+      before the operation was done by the server
+  entry
+      dictionary holding the LDAP entry
+      before the operation was done by the server
   """
   controlType = ldap.CONTROL_PRE_READ
 
@@ -59,6 +75,15 @@ class PostReadControl(ReadEntryControl):
 
   attrList
       list of attribute type names requested
+
+  Class attributes with values extracted from the response control:
+
+  dn
+      string holding the distinguished name of the LDAP entry
+      after the operation was done by the server
+  entry
+      dictionary holding the LDAP entry
+      after the operation was done by the server
   """
   controlType = ldap.CONTROL_POST_READ
 
