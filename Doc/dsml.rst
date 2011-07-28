@@ -1,4 +1,4 @@
-.. % $Id: dsml.rst,v 1.3 2011/07/28 08:59:26 stroeder Exp $
+.. % $Id: dsml.rst,v 1.4 2011/07/28 09:01:42 stroeder Exp $
 
 ***************************************
 :mod:`dsml` DSMLv1 parser and generator
@@ -15,11 +15,9 @@ Therefore it can be used stand-alone without the rest of the python-ldap
 package.
 
 
-.. :py:class:`DSMLWriter`
 .. autoclass:: dsml.DSMLWriter 
 
 
-.. :py:class:`DSMLParser`
 .. autoclass:: dsml.DSMLParser
 
 
