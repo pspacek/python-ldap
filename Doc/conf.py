@@ -10,6 +10,8 @@
 #
 # All configuration values have a default value; values that are commented out
 # serve to show the default value.
+#
+# $Id: conf.py,v 1.16 2011/07/28 08:25:30 stroeder Exp $
 
 import sys
 
