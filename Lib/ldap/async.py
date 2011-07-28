@@ -3,7 +3,7 @@ ldap.async - handle async LDAP operations
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: async.py,v 1.31 2011/07/28 08:43:13 stroeder Exp $
+\$Id: async.py,v 1.32 2011/07/28 08:51:38 stroeder Exp $
 
 Python compability note:
 Tested on Python 2.0+ but should run on Python 1.5.x.
@@ -38,15 +38,16 @@ class WrongResultType(Exception):
       self.receivedResultType,
       ', '.join(self.expectedResultTypes),
     )
-      
+
 
 class AsyncSearchHandler:
   """
   Class for stream-processsing LDAP search results
 
   Arguments:
+
   l
-      LDAPObject instance
+    LDAPObject instance
   """
 
   def __init__(self,l):
@@ -163,7 +164,7 @@ class AsyncSearchHandler:
 class List(AsyncSearchHandler):
   """
   Class for collecting all search results.
-  
+
   This does not seem to make sense in the first place but think
   of retrieving exactly a certain portion of the available search
   results.
@@ -221,18 +222,15 @@ class IndexedDict(Dict):
 class FileWriter(AsyncSearchHandler):
   """
   Class for writing a stream of LDAP search results to a file object
+
+  Arguments:
+  l
+    LDAPObject instance
+  f
+    File object instance where the LDIF data is written to
   """
 
   def __init__(self,l,f,headerStr='',footerStr=''):
-    """
-    Initialize a StreamResultHandler
-    
-    Parameters:
-    l
-        LDAPObject instance
-    f
-        File object instance where the LDIF data is written to
-    """
     AsyncSearchHandler.__init__(self,l)
     self._f = f
     self.headerStr = headerStr
@@ -258,11 +256,11 @@ class LDIFWriter(FileWriter):
   Class for writing a stream LDAP search results to a LDIF file
 
   Arguments:
+
   l
-      LDAPObject instance
+    LDAPObject instance
   writer_obj
-      Either a file-like object or a ldif.LDIFWriter instance
-      used for output
+    Either a file-like object or a ldif.LDIFWriter instance used for output
   """
 
   def __init__(self,l,writer_obj,headerStr='',footerStr=''):
@@ -285,11 +283,11 @@ class DSMLWriter(FileWriter):
   Class for writing a stream LDAP search results to a DSML file
 
   Arguments:
+
   l
-      LDAPObject instance
+    LDAPObject instance
   writer_obj
-      Either a file-like object or a ldif.DSMLWriter instance
-      used for output
+    Either a file-like object or a dsml.DSMLWriter instance used for output
   """
 
   def __init__(self,l,writer_obj,headerStr='',footerStr=''):
