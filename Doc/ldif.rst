@@ -1,4 +1,4 @@
-.. % $Id: ldif.rst,v 1.7 2011/07/21 20:33:26 stroeder Exp $
+.. % $Id: ldif.rst,v 1.8 2011/09/14 18:29:18 stroeder Exp $
 
 #####################################
 :mod:`ldif` LDIF parser and generator
@@ -17,6 +17,26 @@ package.
 .. seealso::
 
    :rfc:`2849` - The LDAP Data Interchange Format (LDIF) - Technical Specification
+
+
+Functions
+^^^^^^^^^
+
+.. autofunction:: ldif.CreateLDIF
+
+.. autofunction:: ldif.ParseLDIF
+
+
+Classes
+^^^^^^^
+
+.. autoclass:: ldif.LDIFWriter
+
+.. autoclass:: ldif.LDIFParser
+
+.. autoclass:: LDIFRecordList
+
+.. autoclass:: LDIFCopy
 
 
 .. _ldif-example:
