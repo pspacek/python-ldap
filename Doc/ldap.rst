@@ -1,4 +1,4 @@
-.. % $Id: ldap.rst,v 1.25 2011/08/13 18:10:37 stroeder Exp $
+.. % $Id: ldap.rst,v 1.26 2011/09/14 18:21:06 stroeder Exp $
 
 ********************************************
 :py:mod:`ldap` LDAP library interface module
@@ -800,6 +800,10 @@ and wait for and return with the server's result, or with
    on the entry specified by *user*.
    The old password in *oldpw* is replaced with the new
    password in *newpw* by a LDAP server supporting this operation.
+
+   If *oldpw* is not :py:const:`None` it has to match the old password
+   of the specified *user* which is sometimes used when a user changes
+   his own password.
 
    *serverctrls* and *clientctrls* like described above.
 
