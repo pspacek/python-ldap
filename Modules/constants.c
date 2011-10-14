@@ -1,6 +1,6 @@
 /* constants defined for LDAP
  * See http://www.python-ldap.org/ for details.
- * $Id: constants.c,v 1.54 2011/06/10 21:55:45 stroeder Exp $ */
+ * $Id: constants.c,v 1.55 2011/10/14 11:47:08 stroeder Exp $ */
 
 #include "common.h"
 #include "constants.h"
@@ -109,6 +109,8 @@ LDAPinit_constants( PyObject* d )
   add_int(d,RES_SEARCH_REFERENCE);
   add_int(d,RES_EXTENDED);
   add_int(d,RES_UNSOLICITED);
+
+  add_int(d,RES_INTERMEDIATE);
 
   /* non-reversibles */
 
