@@ -4,7 +4,7 @@ ldap.syncrepl - for implementing syncrepl consumer (see RFC 4533)
 
 See http://www.python-ldap.org/ for project details.
 
-$Id: syncrepl.py,v 1.1 2011/10/26 18:41:56 stroeder Exp $
+$Id: syncrepl.py,v 1.2 2011/10/26 19:40:17 stroeder Exp $
 """
 
 #__all__ = [
@@ -22,7 +22,7 @@ from ldap.controls import RequestControl,ResponseControl,KNOWN_RESPONSE_CONTROLS
 from pyasn1.type import tag,namedtype,namedval,univ,constraint
 from pyasn1.codec.ber import encoder,decoder
 
-__all__ = [ 'LDAPSyncObject' ]
+__all__ = [ 'SyncreplConsumer' ]
 
 # RFC 4533:
 #
@@ -292,9 +292,9 @@ class SyncInfoMessage:
                 return
 
 
-class LDAPSyncObject:
+class SyncreplConsumer:
     """
-    LDAPSyncObject - LDAP Sync session object.
+    SyncreplConsumer - LDAP syncrepl consumer object.
 
     """
 
