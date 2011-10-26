@@ -9,7 +9,6 @@ Modules/
   - VLV control
   - server-side sorting control
   - Binding in DSA control mode (rewrite necessary)
-  - Persistent search control
 - Support for other platforms?
 - Wrap libldif as faster drop-in replacement for module ldif?
 
@@ -26,4 +25,4 @@ Tests/
   holding the BLITS test data set
 
 ------------------------------------------------------------------
-$Id: TODO,v 1.34 2011/03/22 11:06:50 stroeder Exp $
+$Id: TODO,v 1.35 2011/10/26 18:41:03 stroeder Exp $
