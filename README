@@ -73,6 +73,8 @@ Acknowledgements:
 
    Thanks to Peter Gietz, DAASI for funding some control modules.
 
+   Thanks to Chris Mikkelson for various fixes and ldap.syncrepl.
+
    These very kind people have supplied patches or suggested changes:
 
        Federico Di Gregorio <fog at mixadlive.com>
@@ -97,4 +99,4 @@ Acknowledgements:
    Thanks! We may have missed someone: please mail us if we have omitted
    your name.
 
-$Id: README,v 1.23 2011/04/04 09:13:39 stroeder Exp $
+$Id: README,v 1.24 2011/10/26 18:42:45 stroeder Exp $
