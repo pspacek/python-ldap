@@ -93,10 +93,10 @@ Acknowledgements:
        Andreas Hasenack <ahasenack at terra.com.br>
        Matej Vela <vela at debian.org>
 
-   Thanks to all the guys on the python-ldap-dev mailing list for
+   Thanks to all the guys on the python-ldap mailing list for
    their contributions and input into this package.
 
    Thanks! We may have missed someone: please mail us if we have omitted
    your name.
 
-$Id: README,v 1.24 2011/10/26 18:42:45 stroeder Exp $
+$Id: README,v 1.25 2011/10/26 18:43:21 stroeder Exp $
