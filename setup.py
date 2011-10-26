@@ -3,7 +3,7 @@ setup.py - Setup package with the help Python's DistUtils
 
 See http://www.python-ldap.org/ for details.
 
-$Id: setup.py,v 1.70 2011/07/21 18:23:25 stroeder Exp $
+$Id: setup.py,v 1.71 2011/10/26 19:42:25 stroeder Exp $
 """
 
 has_setuptools = False
@@ -171,6 +171,7 @@ setup(
     'ldap.schema.models',
     'ldap.schema.subentry',
     'ldap.schema.tokenizer',
+    'ldap.syncrepl',
   ],
   package_dir = {'': 'Lib',},
   data_files = LDAP_CLASS.extra_files,
