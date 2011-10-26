@@ -1,5 +1,5 @@
 /* See http://www.python-ldap.org/ for details.
- * $Id: message.c,v 1.18 2011/07/27 21:21:32 stroeder Exp $ */
+ * $Id: message.c,v 1.19 2011/10/26 18:38:06 stroeder Exp $ */
 
 #include "common.h"
 #include "message.h"
@@ -173,6 +173,7 @@ LDAPmessage_to_python(LDAP *ld, LDAPMessage *m, int add_ctrls, int add_intermedi
 	     return NULL;
 	 }
 	 if (ldap_parse_reference(ld, entry, &refs, &serverctrls, 0) != LDAP_SUCCESS) {
+             Py_DECREF(reflist);
 	     Py_DECREF(result);
 	     ldap_msgfree( m );
 	     return LDAPerror( ld, "ldap_parse_reference" );
@@ -181,6 +182,7 @@ LDAPmessage_to_python(LDAP *ld, LDAPMessage *m, int add_ctrls, int add_intermedi
 	 if ( ! ( pyctrls = LDAPControls_to_List( serverctrls ) ) ) {
 	     int err = LDAP_NO_MEMORY;
 	     ldap_set_option( ld, LDAP_OPT_ERROR_NUMBER, &err );
+             Py_DECREF(reflist);
 	     Py_DECREF(result);
 	     ldap_msgfree( m );
 	     ldap_controls_free(serverctrls);
@@ -214,16 +216,11 @@ LDAPmessage_to_python(LDAP *ld, LDAPMessage *m, int add_ctrls, int add_intermedi
 	      /* list of tuples */
 	      /* each tuple is OID, Berval, controllist */
 	      if ( LDAP_RES_INTERMEDIATE == ldap_msgtype( entry ) ) {
-		 PyObject* valtuple = PyList_New(0);
+		 PyObject* valtuple;
 		 PyObject *valuestr;
 		 char *retoid = 0;
 		 struct berval *retdata = 0;
 
-		 if (valtuple == NULL)  {
-		    Py_DECREF(result);
-		    ldap_msgfree( m );
-		    return NULL;
-		 }
 		 if (ldap_parse_intermediate( ld, entry, &retoid, &retdata, &serverctrls, 0 ) != LDAP_SUCCESS) {
 		    Py_DECREF(result);
 		    ldap_msgfree( m );

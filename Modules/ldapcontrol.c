@@ -1,5 +1,5 @@
 /* See http://www.python-ldap.org/ for details.
- * $Id: ldapcontrol.c,v 1.19 2011/03/06 11:36:42 stroeder Exp $ */
+ * $Id: ldapcontrol.c,v 1.20 2011/10/26 18:38:06 stroeder Exp $ */
 
 #include "common.h"
 #include "LDAPObject.h"
@@ -152,11 +152,13 @@ LDAPControls_from_object(PyObject* list, LDAPControl ***controls_ret)
 
       ldc = Tuple_to_LDAPControl(item);
       if (ldc == NULL) {
+          Py_DECREF(item);
           PyMem_DEL(ldcs);
           return 0;
       }
 
       ldcs[i] = ldc;
+      Py_DECREF(item);
     }
 
     ldcs[len] = NULL;
