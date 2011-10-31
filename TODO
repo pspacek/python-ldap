@@ -8,8 +8,6 @@ Modules/
 - Specific support for more controls
   - VLV control
   - server-side sorting control
-  - Binding in DSA control mode (rewrite necessary)
-- Support for other platforms?
 - Wrap libldif as faster drop-in replacement for module ldif?
 
 Lib/
@@ -25,4 +23,4 @@ Tests/
   holding the BLITS test data set
 
 ------------------------------------------------------------------
-$Id: TODO,v 1.35 2011/10/26 18:41:03 stroeder Exp $
+$Id: TODO,v 1.36 2011/10/31 11:22:05 stroeder Exp $
