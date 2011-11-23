@@ -3,7 +3,7 @@ functions.py - wraps functions of module _ldap
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: functions.py,v 1.27 2011/07/21 17:40:11 stroeder Exp $
+\$Id: functions.py,v 1.28 2011/11/23 17:27:46 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -63,7 +63,7 @@ def _ldap_function_call(lock,func,*args,**kwargs):
       result = func(*args,**kwargs)
     finally:
       if lock:
-        ldap._ldap_module_lock.release()
+        lock.release()
   except LDAPError,e:
     if __debug__ and ldap._trace_level>=2:
       ldap._trace_file.write('=> LDAPError: %s\n' % (str(e)))
