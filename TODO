@@ -9,6 +9,8 @@ Modules/
   - VLV control
   - server-side sorting control
 - Wrap libldif as faster drop-in replacement for module ldif?
+- Attach response controls to LDAPError instances to deliver the
+  controls to the calling application in case of an error
 
 Lib/
 - Unicode support for DNs, filter strings, etc. but not entry attributes!
@@ -23,4 +25,4 @@ Tests/
   holding the BLITS test data set
 
 ------------------------------------------------------------------
-$Id: TODO,v 1.36 2011/10/31 11:22:05 stroeder Exp $
+$Id: TODO,v 1.37 2011/11/23 17:36:53 stroeder Exp $
