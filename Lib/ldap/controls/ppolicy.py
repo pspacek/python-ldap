@@ -5,7 +5,7 @@ ldap.controls.ppolicy - classes for Password Policy controls
 
 See http://www.python-ldap.org/ for project details.
 
-$Id: ppolicy.py,v 1.1 2011/04/10 16:48:25 stroeder Exp $
+$Id: ppolicy.py,v 1.2 2011/11/24 19:41:29 stroeder Exp $
 """
 
 __all__ = [
@@ -50,8 +50,17 @@ class PasswordPolicyError(univ.Enumerated):
 
 class PasswordPolicyResponseValue(univ.Sequence):
   componentType = namedtype.NamedTypes(
-    namedtype.OptionalNamedType('warning',PasswordPolicyWarning()),
-    namedtype.OptionalNamedType('error',PasswordPolicyError()),
+    namedtype.OptionalNamedType(
+      'warning',
+      PasswordPolicyWarning().subtype(
+        implicitTag=tag.Tag(tag.tagClassContext,tag.tagFormatSimple,0)
+      ),
+    ),
+    namedtype.OptionalNamedType(
+      'error',PasswordPolicyError().subtype(
+        implicitTag=tag.Tag(tag.tagClassContext,tag.tagFormatSimple,1)
+      )
+    ),
   )
 
 
@@ -70,9 +79,13 @@ class PasswordPolicyControl(ValueLessRequestControl,ResponseControl):
       timeBeforeExpiration = warning.getComponentByName('timeBeforeExpiration')
       if timeBeforeExpiration!=None:
         self.timeBeforeExpiration = int(timeBeforeExpiration)
+      else:
+        self.timeBeforeExpiration = None
       graceAuthNsRemaining = warning.getComponentByName('graceAuthNsRemaining')
       if graceAuthNsRemaining!=None:
         self.graceAuthNsRemaining = int(graceAuthNsRemaining)
+      else:
+        self.graceAuthNsRemaining = None
     error = ppolicyValue.getComponentByName('error')
     if error is None:
       self.error = None
