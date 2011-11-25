@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.126 2011/07/22 20:27:40 stroeder Exp $
+\$Id: ldapobject.py,v 1.127 2011/11/25 10:52:01 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -85,7 +85,8 @@ class SimpleLDAPObject:
     self._ldap_object_lock.acquire()
     if __debug__:
       if self._trace_level>=1:
-        self._trace_file.write('*** %s - %s\n%s\n' % (
+        self._trace_file.write('*** %s %s - %s\n%s\n' % (
+          repr(self),
           self._uri,
           '.'.join((self.__class__.__name__,func.__name__)),
           pprint.pformat((args,kwargs))
