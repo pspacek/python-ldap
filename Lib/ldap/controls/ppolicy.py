@@ -5,7 +5,7 @@ ldap.controls.ppolicy - classes for Password Policy controls
 
 See http://www.python-ldap.org/ for project details.
 
-$Id: ppolicy.py,v 1.2 2011/11/24 19:41:29 stroeder Exp $
+$Id: ppolicy.py,v 1.3 2011/11/27 15:26:06 stroeder Exp $
 """
 
 __all__ = [
@@ -45,7 +45,7 @@ class PasswordPolicyError(univ.Enumerated):
     ('passwordTooYoung',7),
     ('passwordInHistory',8)
   )
-  subtypeSpec = univ.Enumerated.subtypeSpec + constraint.SingleValueConstraint(1,2,3,4,5,6,7,8)
+  subtypeSpec = univ.Enumerated.subtypeSpec + constraint.SingleValueConstraint(0,1,2,3,4,5,6,7,8)
 
 
 class PasswordPolicyResponseValue(univ.Sequence):
