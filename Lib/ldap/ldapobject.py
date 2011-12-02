@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.128 2011/12/02 09:39:05 stroeder Exp $
+\$Id: ldapobject.py,v 1.129 2011/12/02 09:42:50 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -202,7 +202,7 @@ class SimpleLDAPObject:
 
   def simple_bind_s(self,who='',cred='',serverctrls=None,clientctrls=None):
     """
-    simple_bind_s([who='' [,cred='']]) -> None
+    simple_bind_s([who='' [,cred='']]) -> 4-tuple
     """
     msgid = self.simple_bind(who,cred,serverctrls,clientctrls)
     resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all=1,timeout=self.timeout)
