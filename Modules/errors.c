@@ -2,7 +2,7 @@
  * errors that arise from ldap use
  * Most errors become their own exception
  * See http://www.python-ldap.org/ for details.
- * $Id: errors.c,v 1.22 2011/04/11 11:23:46 stroeder Exp $ */
+ * $Id: errors.c,v 1.23 2012/01/11 10:04:48 stroeder Exp $ */
 
 #include "common.h"
 #include "errors.h"
@@ -126,7 +126,6 @@ LDAPinit_errors( PyObject*d ) {
 
   /* XXX - backward compatibility with pre-1.8 */
   PyDict_SetItemString( d, "error", LDAPexception_class );
-  Py_DECREF( LDAPexception_class );
 
   /* create each LDAP error object */
 
