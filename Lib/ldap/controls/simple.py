@@ -4,7 +4,7 @@ ldap.controls.simple - classes for some very simple LDAP controls
 
 See http://www.python-ldap.org/ for details.
 
-$Id: simple.py,v 1.6 2011/11/28 20:49:31 stroeder Exp $
+$Id: simple.py,v 1.7 2012/01/14 14:30:15 stroeder Exp $
 """
 
 import struct,ldap
@@ -123,9 +123,6 @@ class AuthorizationIdentityRequestControl(ValueLessRequestControl):
 
   def __init__(self,criticality):
     ValueLessRequestControl.__init__(self,self.controlType,criticality)
-
-  def decodeControlValue(self,encodedControlValue):
-    self.authzId = encodedControlValue
 
 
 class AuthorizationIdentityResponseControl(ResponseControl):
