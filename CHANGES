@@ -5,6 +5,9 @@ Changes since 2.4.6:
 
 Lib/
 * Separate classes for request/response controls for RFC 3829
+* Fixed ldap.schema.subentry.SubSchema.attribute_types() to
+  also eliminate double attribute types in MAY clause of
+  DIT content rule
 
 Modules/
 * Fixed memory leak (thanks to David Malcolm)
@@ -975,4 +978,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.276 2012/01/11 10:06:00 stroeder Exp $
+$Id: CHANGES,v 1.277 2012/01/19 18:58:20 stroeder Exp $
