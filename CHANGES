@@ -4,6 +4,8 @@ Released 2.4.8 2012-02-19
 Changes since 2.4.7:
 
 Lib/
+* Fixed overzealous check for non-unique NAMEs in
+  ldap.schema.subentry.SubSchema.__init__()
 
 ----------------------------------------------------------------
 Released 2.4.7 2012-12-19
@@ -985,4 +987,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.279 2012/02/19 13:48:47 stroeder Exp $
+$Id: CHANGES,v 1.280 2012/02/19 13:49:30 stroeder Exp $
