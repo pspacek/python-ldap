@@ -4,7 +4,7 @@ ldap.controls.simple - classes for some very simple LDAP controls
 
 See http://www.python-ldap.org/ for details.
 
-$Id: simple.py,v 1.7 2012/01/14 14:30:15 stroeder Exp $
+$Id: simple.py,v 1.8 2012/02/21 16:50:36 stroeder Exp $
 """
 
 import struct,ldap
@@ -48,7 +48,7 @@ class OctetStringInteger(LDAPControl):
     return struct.pack('!Q',self.integerValue)
 
   def decodeControlValue(self,encodedControlValue):
-    self.integerValue = self. struct.unpack('!Q',encodedControlValue)[0]
+    self.integerValue = struct.unpack('!Q',encodedControlValue)[0]
     
 
 class BooleanControl(LDAPControl):
