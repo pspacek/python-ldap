@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.130 2012/03/03 17:10:09 stroeder Exp $
+\$Id: ldapobject.py,v 1.131 2012/03/03 17:48:04 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -728,6 +728,7 @@ class ReconnectLDAPObject(SimpleLDAPObject):
     self._uri = uri
     self._options = {}
     self._last_bind = None
+    self._pending_reconnect = 0
     SimpleLDAPObject.__init__(self,uri,trace_level,trace_file,trace_stack_limit)
     self._retry_max = retry_max
     self._retry_delay = retry_delay
@@ -762,6 +763,10 @@ class ReconnectLDAPObject(SimpleLDAPObject):
   def reconnect(self,uri):
     # Drop and clean up old connection completely
     # Reconnect
+    while self._pending_reconnect:
+      time.sleep(0.01)
+    else:
+      self._pending_reconnect = 1
     reconnect_counter = self._retry_max
     while reconnect_counter:
       if __debug__ and self._trace_level>=1:
@@ -797,6 +802,8 @@ class ReconnectLDAPObject(SimpleLDAPObject):
           ))
         self._reconnects_done = self._reconnects_done + 1L
         break
+    self._pending_reconnect = 0
+    return # reconnect()
 
   def _apply_method_s(self,func,*args,**kwargs):
     if not self.__dict__.has_key('_l'):
