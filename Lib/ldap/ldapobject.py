@@ -3,7 +3,7 @@ ldapobject.py - wraps class _ldap.LDAPObject
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: ldapobject.py,v 1.129 2011/12/02 09:42:50 stroeder Exp $
+\$Id: ldapobject.py,v 1.130 2012/03/03 17:10:09 stroeder Exp $
 
 Compability:
 - Tested with Python 2.0+ but should work with Python 1.5.x
@@ -800,7 +800,7 @@ class ReconnectLDAPObject(SimpleLDAPObject):
 
   def _apply_method_s(self,func,*args,**kwargs):
     if not self.__dict__.has_key('_l'):
-       self.reconnect(self._uri)
+      self.reconnect(self._uri)
     try:
       return func(self,*args,**kwargs)
     except ldap.SERVER_DOWN:
