@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: models.py,v 1.44 2011/07/22 17:19:08 stroeder Exp $
+\$Id: models.py,v 1.45 2012/03/07 19:07:15 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -183,7 +183,7 @@ class ObjectClass(SchemaElement):
 
 
 AttributeUsage = ldap.cidict.cidict({
-  'userApplication':0,
+  'userApplication':0, # work-around for non-compliant schema
   'userApplications':0,
   'directoryOperation':1,
   'distributedOperation':2,
@@ -228,6 +228,7 @@ class AttributeType(SchemaElement):
     checking whether attribute values are lesser-equal than
   usage
     USAGE of an attribute type:
+    0 = userApplications
     1 = directoryOperation,
     2 = distributedOperation,
     3 = dSAOperation
@@ -282,10 +283,6 @@ class AttributeType(SchemaElement):
     self.single_value = d['SINGLE-VALUE']!=None
     self.collective = d['COLLECTIVE']!=None
     self.no_user_mod = d['NO-USER-MODIFICATION']!=None
-    try:
-      self.usage = AttributeUsage[d['USAGE'][0]]
-    except KeyError:
-      raise
     self.usage = AttributeUsage.get(d['USAGE'][0],0)
     assert type(self.names)==TupleType
     assert self.desc is None or type(self.desc)==StringType
