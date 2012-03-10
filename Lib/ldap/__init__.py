@@ -3,7 +3,7 @@ ldap - base module
 
 See http://www.python-ldap.org/ for details.
 
-$Id: __init__.py,v 1.81 2012/03/03 17:45:57 stroeder Exp $
+$Id: __init__.py,v 1.82 2012/03/10 13:30:39 stroeder Exp $
 """
 
 # This is also the overall release version number
@@ -19,7 +19,13 @@ if __debug__:
   _trace_file = sys.stderr
   _trace_stack_limit = None
 
+import _ldap
 from _ldap import *
+
+OPT_NAMES_DICT = {}
+for k,v in vars(_ldap).items():
+  if k.startswith('OPT_'):
+    OPT_NAMES_DICT[v]=k
 
 class DummyLock:
   """Define dummy class with methods compatible to threading.Lock"""
