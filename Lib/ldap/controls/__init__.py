@@ -4,7 +4,7 @@ controls.py - support classes for LDAP controls
 
 See http://www.python-ldap.org/ for details.
 
-$Id: __init__.py,v 1.6 2011/07/22 13:27:02 stroeder Exp $
+$Id: __init__.py,v 1.7 2012/04/11 13:31:01 stroeder Exp $
 
 Description:
 The ldap.controls module provides LDAPControl classes.
@@ -14,8 +14,7 @@ Each class provides support for a certain control.
 from ldap import __version__
 
 __all__ = [
-  # control OID to class registy
-  'KNOWN_CONTROLS',
+  'KNOWN_RESPONSE_CONTROLS',
   # Classes
   'AssertionControl',
   'BooleanControl',
@@ -32,6 +31,7 @@ __all__ = [
   'DecodeControlTuples',
 ]
 
+# response control OID to class registry
 KNOWN_RESPONSE_CONTROLS = {}
 
 import _ldap,ldap
