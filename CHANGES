@@ -4,7 +4,9 @@ Released 2.4.11 2012-07-xx
 Changes since 2.4.10:
 
 Lib/
-* 
+* ldap.controls.DecodeControlTuples() now simply ignores
+  PyAsn1Error exception raised during decoding malformed
+  response control values in case of non-critical controls.
 
 Demo/
 * 
@@ -1029,4 +1031,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.292 2012/07/10 20:20:56 stroeder Exp $
+$Id: CHANGES,v 1.293 2012/07/10 20:23:44 stroeder Exp $
