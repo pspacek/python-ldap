@@ -3,7 +3,7 @@ ldif - generate and parse LDIF data (see RFC 2849)
 
 See http://www.python-ldap.org/ for details.
 
-$Id: ldif.py,v 1.68 2012/07/10 20:25:15 stroeder Exp $
+$Id: ldif.py,v 1.69 2012/08/09 07:18:31 stroeder Exp $
 
 Python compability note:
 Tested with Python 2.0+, but should work with Python 1.5.2+.
@@ -238,6 +238,7 @@ class LDIFParser:
   class and override method handle() to implement something meaningful.
 
   Public class attributes:
+
   records_read
         Counter for records processed so far
   """
