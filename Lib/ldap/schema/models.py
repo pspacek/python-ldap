@@ -3,7 +3,7 @@ schema.py - support for subSchemaSubEntry information
 
 See http://www.python-ldap.org/ for details.
 
-\$Id: models.py,v 1.45 2012/03/07 19:07:15 stroeder Exp $
+\$Id: models.py,v 1.46 2012/12/13 08:22:48 stroeder Exp $
 """
 
 import UserDict,ldap.cidict
@@ -124,8 +124,8 @@ class ObjectClass(SchemaElement):
     an entry of the object class may have
   kind
     Kind of an object class:
-    0 = ABSTRACT,
-    1 = STRUCTURAL,
+    0 = STRUCTURAL,
+    1 = ABSTRACT,
     2 = AUXILIARY
   sup
     This list of strings contains NAMEs or OIDs of object classes
