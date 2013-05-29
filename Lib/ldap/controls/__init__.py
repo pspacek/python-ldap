@@ -4,7 +4,7 @@ controls.py - support classes for LDAP controls
 
 See http://www.python-ldap.org/ for details.
 
-$Id: __init__.py,v 1.8 2012/07/10 20:23:44 stroeder Exp $
+$Id: __init__.py,v 1.9 2013/05/29 20:27:32 stroeder Exp $
 
 Description:
 The ldap.controls module provides LDAPControl classes.
@@ -35,7 +35,11 @@ __all__ = [
 KNOWN_RESPONSE_CONTROLS = {}
 
 import _ldap,ldap
-from pyasn1.error import PyAsn1Error
+
+try:
+  from pyasn1.error import PyAsn1Error
+except ImportError:
+  PyAsn1Error = None
 
 
 class RequestControl:

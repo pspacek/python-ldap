@@ -4,6 +4,8 @@ Released 2.4.12 2013-06-01
 Changes since 2.4.11:
 
 Lib/
+* Truly optional import of PyAsn1Error exception which should
+  not fail anymore if pyasn1 is not installed
 
 ----------------------------------------------------------------
 Released 2.4.11 2013-05-27
@@ -1037,4 +1039,4 @@ Released 2.0.0pre02 2002-02-01
 ----------------------------------------------------------------
 Released 1.10alpha3 2000-09-19
 
-$Id: CHANGES,v 1.296 2013/05/29 19:58:25 stroeder Exp $
+$Id: CHANGES,v 1.297 2013/05/29 20:27:32 stroeder Exp $
