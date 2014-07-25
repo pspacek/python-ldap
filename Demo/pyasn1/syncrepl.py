@@ -93,6 +93,9 @@ class SyncReplConsumer(ReconnectLDAPObject,SyncreplConsumer):
             for uuid in uuids:
                     self.__presentUUIDs[uuid] = True
 
+    def syncrepl_refreshdone(self):
+        print 'Initial synchronization is now done, persist phase begins'
+
     def perform_application_sync(self,dn,attributes,previous_attributes):
         print 'Performing application sync for:', dn
         return True
